@@ -1,0 +1,174 @@
+﻿using RBI.Object.ObjectMSSQL;
+using System;
+using System.Collections.Generic;
+using System.Data.Common;
+using System.Data.SqlClient;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace RBI.DAL.MSSQL
+{
+    class FACILITY_RISK_TARGET_ConnectUtils
+    {
+        public void add(int FacilityID,float RiskTarget_A,float RiskTarget_B,float RiskTarget_C,float RiskTarget_D,float RiskTarget_E,float RiskTarget_CA,
+                        float RiskTarget_FC)
+        {
+            SqlConnection conn = MSSQLDBUtils.GetDBConnection();
+            conn.Open();
+            String sql = "USE [rbi]" +
+                            "GO" +
+                            "INSERT INTO [dbo].[FACILITY_RISK_TARGET]" +
+                            "([FacilityID]" +
+                            ",[RiskTarget_A]" +
+                            ",[RiskTarget_B]" +
+                            ",[RiskTarget_C]" +
+                            ",[RiskTarget_D]" +
+                            ",[RiskTarget_E]" +
+                            ",[RiskTarget_CA]" +
+                            ",[RiskTarget_FC])" +
+                            
+                            "VALUE" +
+                            "('" + FacilityID + "'" +
+                            ",'" + RiskTarget_A + "'" +
+                            ",'" + RiskTarget_B + "'" +
+                            ",'" + RiskTarget_C + "'" +
+                            ",'" + RiskTarget_D + "'" +
+                            ",'" + RiskTarget_E + "'" +
+                            ",'" + RiskTarget_CA + "'" +
+                            ",'" + RiskTarget_FC + "')" +
+                           
+
+                            "GO";
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandText = sql;
+                cmd.Connection = conn;
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString(), "ADD FAIL!");
+            }
+            finally
+            {
+                conn.Close();
+                conn.Dispose();
+            }
+
+        }
+        public void edit(int FacilityID,float RiskTarget_A,float RiskTarget_B,float RiskTarget_C,float RiskTarget_D,float RiskTarget_E,float RiskTarget_CA,
+                        float RiskTarget_FC)
+        {
+
+            SqlConnection conn = MSSQLDBUtils.GetDBConnection();
+            conn.Open();
+            String sql = "USE [rbi]" +
+                            "GO" +
+                            "UPDATE [dbo].[FACILITY_RISK_TARGET]" +
+                            "   SET [FacilityID] = '" + FacilityID + "'" +
+                            "      ,[RiskTarget_A] = '" + RiskTarget_A + "'" +
+                            "      ,[RiskTarget_B] = '" + RiskTarget_B + "'" +
+                            "      ,[RiskTarget_C] = '" + RiskTarget_C + "'" +
+                            "      ,[RiskTarget_D] = '" + RiskTarget_D + "'" +
+                            "      ,[RiskTarget_CA] = '" + RiskTarget_CA + "'" +
+                            "      ,[RiskTarget_FC] = '" + RiskTarget_FC + "'" +
+                            
+                            " WHERE [FacilityID] = '" + FacilityID + "'" +
+                            "GO";
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = conn;
+                cmd.CommandText = sql;
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString(), "EDIT FAIL!");
+            }
+            finally
+            {
+                conn.Close();
+                conn.Dispose();
+            }
+
+        }
+        public void delete(int FacilityID)
+        {
+            SqlConnection conn = MSSQLDBUtils.GetDBConnection();
+            conn.Open();
+            String sql = "USE [rbi] DELETE FROM [dbo].[FACILITY_RISK_TARGET] WHERE [FacilityID] = '" + FacilityID + "'";
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = conn;
+                cmd.CommandText = sql;
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString(), "DELETE FAIL!");
+            }
+            finally
+            {
+                conn.Close();
+                conn.Dispose();
+            }
+        }
+        public List<FACILITY_RISK_TARGET> getDataSource()
+        {
+            List<FACILITY_RISK_TARGET> list = new List<FACILITY_RISK_TARGET>();
+            FACILITY_RISK_TARGET obj = null;
+            SqlConnection conn = MSSQLDBUtils.GetDBConnection();
+            conn.Open();
+            String sql = "USE [rbi]" +
+                        "SELECT [FacilityID]" +
+                        ",[RiskTarget_A]" +
+                        ",[RiskTarget_B]" +
+                        ",[RiskTarget_C]" +
+                        ",[RiskTarget_D]" +
+                        ",[RiskTarget_E]" +
+                        ",[RiskTarget_CA]" +
+                        ",[RiskTarget_FC]" +
+                        "  FROM [rbi].[dbo].[FACILITY_RISK_TARGET]";
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = conn;
+                cmd.CommandText = sql;
+                using (DbDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        if (reader.HasRows)
+                        {
+                            obj = new FACILITY_RISK_TARGET();
+                            obj.FacilityID = reader.GetInt32(0);
+                            if (!reader.IsDBNull(1)) { obj.RiskTarget_A = reader.GetFloat(1); }
+                            if (!reader.IsDBNull(2)) { obj.RiskTarget_B = reader.GetFloat(2); }
+                            if (!reader.IsDBNull(3)) { obj.RiskTarget_C = reader.GetFloat(3); }
+                            if (!reader.IsDBNull(4)) { obj.RiskTarget_D = reader.GetFloat(4); }
+                            if (!reader.IsDBNull(5)) { obj.RiskTarget_E = reader.GetFloat(5); }
+                            if (!reader.IsDBNull(6)) { obj.RiskTarget_CA = reader.GetFloat(6); }
+                            if (!reader.IsDBNull(7)) { obj.RiskTarget_FC = reader.GetFloat(7); }
+                            list.Add(obj);
+                        }
+                    }
+                }
+            }
+            catch
+            {
+                MessageBox.Show("GET DATA SOURCE FAIL!");
+            }
+            finally
+            {
+                conn.Close();
+                conn.Dispose();
+            }
+            return list;
+        }
+    }
+}
