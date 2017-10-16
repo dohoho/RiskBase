@@ -286,7 +286,14 @@ namespace RBI
         }
         private void btnSave_ItemClick(object sender, ItemClickEventArgs e)
         {
-            Calculation();
+            try
+            {
+                Calculation();
+            }
+            catch
+            {
+                MessageBox.Show("Chưa tính được", "Cortek RBI");
+            }
         }
         private void navAssessmentInfo_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
@@ -418,33 +425,33 @@ namespace RBI
             cal.OnlineMonitoring = rweq.OnlineMonitoring;
             cal.HighlyEffectDeadleg = rweq.HighlyDeadlegInsp == 1 ? true : false;
             cal.ContainsDeadlegs = rweq.ContainsDeadlegs == 1 ? true : false;
-            //tank maintain653 trong Tank Bottom
+            //tank maintain653 trong Tank
             cal.AdjustmentSettle = rweq.AdjustmentSettle;
             cal.ComponentIsWeld = rweq.ComponentIsWelded == 1 ? true : false;
             //</thinning>
 
             //<input linning>
-            //cal.LinningType = r
+            cal.LinningType = rwcoat.InternalLinerType;
             cal.LINNER_ONLINE = rweq.LinerOnlineMonitoring == 1 ? true : false;
-            //cal.LINNER_CONDITION = 
-            //Yearinservice truyen bang tay
+            cal.LINNER_CONDITION = rwcoat.InternalLinerCondition;
+            //Yearinservice hiệu tham số giữa lần tính toán và ngày cài đặt hệ thống
 
             //</input linning>
 
-            //<input SCC>
+            //<input SCC CAUSTIC>
             cal.CAUSTIC_INSP_EFF = noInsp.effCaustic;
             cal.CAUSTIC_INSP_NUM = noInsp.numCaustic;
             cal.HEAT_TREATMENT = rwma.HeatTreatment;
             cal.NaOHConcentration = rwstream1.NaOHConcentration;
             cal.HEAT_TRACE = rweq.HeatTraced == 1 ? true : false;
-            //cal.STEAM_OUT = tim sau
-            //</input SCC>
+            cal.STEAM_OUT = rweq.SteamOutWaterFlush == 1 ? true : false;
+            //</SCC CAUSTIC>
 
             //<input SSC Amine>
             cal.AMINE_INSP_EFF = noInsp.effAmine;
             cal.AMINE_INSP_NUM = noInsp.numAmine;
-            //cal.AMINE_EXPOSED = rwcom. tim sau
-            //cal.AMINE_SOLUTION = rw tim sau
+            cal.AMINE_EXPOSED = rwstream1.ExposedToGasAmine == 1 ? true : false;
+            cal.AMINE_SOLUTION = rwstream1.AmineSolution;
             //</input SSC Amine>
 
             //<input Sulphide Stress Cracking>
@@ -557,7 +564,7 @@ namespace RBI
             //cal.TEMPER_SUSCEP = rwstream1.
             cal.PWHT = rweq.PWHT == 1 ? true : false;
             //cal.BRITTLE_THICK = 
-            //cal.CARBON_ALLOY = rwstrea
+            cal.CARBON_ALLOY = rwma.CarbonLowAlloy == 1 ? true : false;
             cal.DELTA_FATT = rwcom.DeltaFATT;
             //</Temper Embrittle>
 
@@ -576,6 +583,7 @@ namespace RBI
 
             //<input Piping Mechanical>
             cal.EquipmentType = eqType.EquipmentTypeName;
+
             cal.PREVIOUS_FAIL = rwcom.PreviousFailures;
             cal.AMOUNT_SHAKING = rwcom.ShakingAmount;
             cal.TIME_SHAKING = rwcom.ShakingTime;
@@ -588,7 +596,11 @@ namespace RBI
             //</Piping Mechanical>
 
             //<goi ham tinh toan DF>
-            MessageBox.Show(cal.DF_LINNING(10).ToString());
+            //MessageBox.Show("Df_Thinning = " + cal.DF_THIN(10).ToString(),"Damage Factor Thinning");
+            //MessageBox.Show("Df_Linning = " + cal.DF_LINNING(10).ToString(), "Damage Factor Linning");
+            //MessageBox.Show("Df_Caustic = " + cal.DF_CAUSTIC(10).ToString(), "Damage Factor Caustic");
+            MessageBox.Show("Df_Amine = " + cal.DF_AMINE(10).ToString(), "Damage Factor Amine");
+            //MessageBox.Show("n"+cal.LinningType +"a"+cal.LINNER_CONDITION);
             //</ket thuc tinh toan DF>
         }
 

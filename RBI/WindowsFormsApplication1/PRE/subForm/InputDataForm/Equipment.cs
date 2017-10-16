@@ -15,9 +15,26 @@ namespace RBI.PRE.subForm.InputDataForm
         public Equipment()
         {
             InitializeComponent();
-
+            addEquipmentType();
         }
-
+        private void addEquipmentType()
+        {
+            cbEquipmentType.Properties.Items.Add("Accumulator");
+            cbEquipmentType.Properties.Items.Add("Air Cooler");
+            cbEquipmentType.Properties.Items.Add("Column");
+            cbEquipmentType.Properties.Items.Add("Filter");
+            cbEquipmentType.Properties.Items.Add("Fired Heater");
+            cbEquipmentType.Properties.Items.Add("Horizontal Vessel");
+            cbEquipmentType.Properties.Items.Add("Piping");
+            cbEquipmentType.Properties.Items.Add("Plate Exchanger");
+            cbEquipmentType.Properties.Items.Add("Pump");
+            cbEquipmentType.Properties.Items.Add("Relief Valve");
+            cbEquipmentType.Properties.Items.Add("Shell and Tube Exchanger");
+            cbEquipmentType.Properties.Items.Add("Sphercal Vessel");
+            cbEquipmentType.Properties.Items.Add("Tank");
+            cbEquipmentType.Properties.Items.Add("Tower");
+            cbEquipmentType.Properties.Items.Add("Vertical Vessel");
+        }
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();

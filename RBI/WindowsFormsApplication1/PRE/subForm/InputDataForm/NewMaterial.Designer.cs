@@ -321,6 +321,7 @@
             this.chkPTA.TabIndex = 5;
             this.chkPTA.Text = "Material Grade to Evaluate Severity of PTA Cracking";
             this.chkPTA.UseVisualStyleBackColor = true;
+            this.chkPTA.CheckedChanged += new System.EventHandler(this.chkPTA_CheckedChanged);
             // 
             // cbPTA
             // 
@@ -340,6 +341,7 @@
             this.chkHTHA.TabIndex = 5;
             this.chkHTHA.Text = "Material Grade to Evaluate Severity of HTHA";
             this.chkHTHA.UseVisualStyleBackColor = true;
+            this.chkHTHA.CheckedChanged += new System.EventHandler(this.chkHTHA_CheckedChanged);
             // 
             // cbHTHA
             // 

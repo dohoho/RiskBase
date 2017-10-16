@@ -15,45 +15,13 @@ using System.IO;
 using DevExpress.Spreadsheet;
 using DevExpress.XtraSpreadsheet;
 using RBI.BUS.BUSExcel;
-using RBI.PRE.subForm.TabImportExcel;
 namespace RBI.PRE.subForm
 {
     public partial class ImportExcel : Form
     {
-        //UCEquipmentTab tabEq = new UCEquipmentTab();
-        //UCComponentTab tabComp = new UCComponentTab();
-        //UCOperatingConditionTab tabOp = new UCOperatingConditionTab();
-        //UCStreamTab tabStr = new UCStreamTab();
-        //UCMaterialTab tabMa = new UCMaterialTab();
-        //UCCoatingCladdingLiningInsulationTab tabCo = new UCCoatingCladdingLiningInsulationTab();
-        UCSpreadsheetLoadData tableExcel = new UCSpreadsheetLoadData();
         public ImportExcel()
         {
             InitializeComponent();
-            
-            tableExcel.Dock = DockStyle.Fill;
-            panelControl1.Controls.Add(tableExcel);
-            //tabEq.Dock = DockStyle.Fill;
-            //tabEquipment.Controls.Add(tabEq);
-           
-            //tabComp.Dock = DockStyle.Fill;
-            //tabComponent.Controls.Add(tabComp);
-
-            
-            //tabOp.Dock = DockStyle.Fill;
-            //tabOperating.Controls.Add(tabOp);
-
-            
-            //tabStr.Dock = DockStyle.Fill;
-            //tabStream.Controls.Add(tabStr);
-
-            
-            //tabMa.Dock = DockStyle.Fill;
-            //tabMaterial.Controls.Add(tabMa);
-
-            
-            //tabCo.Dock = DockStyle.Fill;
-            //tabCoating.Controls.Add(tabCo);
         }
         string fileName = null;
         string extension = null;
@@ -70,23 +38,68 @@ namespace RBI.PRE.subForm
         {
             this.Close();
         }
+        DevExpress.XtraSpreadsheet.SpreadsheetControl spreadExcel = new SpreadsheetControl();
+        private void readDataFromSheet()
+        {
+            IWorkbook workbook = spreadExcel.Document;
+            DevExpress.Spreadsheet.Worksheet worksheet = workbook.Worksheets[0]; //co 32 cell
+            try
+            {
+                string[] cellEquipmentSheet = new string[32];
+                //hang truoc cot sau
+                for (int i = 0; i < 32; i++)
+                {
+                    cellEquipmentSheet[i] = worksheet.Cells[1, i].Value.ToString();
+                    Debug.WriteLine("cell[" + i.ToString() + "]" + cellEquipmentSheet[i]);
+                }
+                //MessageBox.Show(worksheet.Cells[1, 0].Value.ToString());
+            }
+            catch
+            {
+                MessageBox.Show("Error");
+            }
 
+        }
         private void btnImportExcel_Click(object sender, EventArgs e)
         {
-            
             fileName = Path.GetFileName(txtPathFileExcel.Text);
             extension = Path.GetExtension(fileName);
-            if(extension == ".xls")
-                tableExcel.loadFileExcel(txtPathFileExcel.Text, ".xls");
+            if (extension == ".xls")
+            {
+                spreadExcel.LoadDocument(txtPathFileExcel.Text, DocumentFormat.Xls);
+            }
+            else if (extension == ".xlsx")
+            {
+                spreadExcel.LoadDocument(txtPathFileExcel.Text, DocumentFormat.Xlsx);
+            }
             else
-                tableExcel.loadFileExcel(txtPathFileExcel.Text, ".xlsx");
-            panelControl1.Refresh();
+            {
+                MessageBox.Show("This file is not supported! Sorry!", "Cortek RBI", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            pictureBox1.Hide();
+            label1.Hide();
+            spreadExcel.Dock = DockStyle.Fill;
+            panelControl1.Controls.Add(spreadExcel);
+            ///panelControl1.Refresh();
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            tableExcel.SaveFile(txtPathFileExcel.Text, extension);
-                MessageBox.Show("Save File Succesfully", "Cortek RBI", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+            IWorkbook workbook = spreadExcel.Document;
+            using (FileStream stream = new FileStream(txtPathFileExcel.Text, FileMode.Create, FileAccess.ReadWrite))
+            {
+                if (extension == ".xls")
+                    workbook.SaveDocument(stream, DocumentFormat.Xls);
+                else
+                    workbook.SaveDocument(stream, DocumentFormat.Xlsx);
+            }
+                MessageBox.Show("This file has been saved!", "Cortek RBI", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+        }
+
+        private void btnFinish_Click(object sender, EventArgs e)
+        {
+            readDataFromSheet();
         }
 
        

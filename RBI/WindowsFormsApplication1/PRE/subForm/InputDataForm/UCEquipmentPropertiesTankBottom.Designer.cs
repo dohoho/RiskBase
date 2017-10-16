@@ -28,17 +28,26 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UCEquipmentPropertiesTankBottom));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cbTypeSoild = new DevExpress.XtraEditors.ImageComboBoxEdit();
+            this.imgColTypeOfSolid = new DevExpress.Utils.ImageCollection(this.components);
             this.cbOnlineMonitoring = new DevExpress.XtraEditors.ImageComboBoxEdit();
+            this.imgColOnlineMonitoring = new DevExpress.Utils.ImageCollection(this.components);
             this.cbEnvironmentalSensitivity = new DevExpress.XtraEditors.ImageComboBoxEdit();
+            this.imgColEnviromental = new DevExpress.Utils.ImageCollection(this.components);
             this.cbExternalEnviroment = new DevExpress.XtraEditors.ImageComboBoxEdit();
+            this.imgColExternalEnviroment = new DevExpress.Utils.ImageCollection(this.components);
             this.cbThermalHistory = new DevExpress.XtraEditors.ImageComboBoxEdit();
+            this.imgThermalHist = new DevExpress.Utils.ImageCollection(this.components);
             this.cbAdjustmentSettlement = new DevExpress.XtraEditors.ImageComboBoxEdit();
+            this.imgColAdjust = new DevExpress.Utils.ImageCollection(this.components);
             this.numSystemManagementFactor = new System.Windows.Forms.NumericUpDown();
             this.txtEquipmentVolume = new System.Windows.Forms.TextBox();
             this.txtDistanceGroundWater = new System.Windows.Forms.TextBox();
             this.txtMinRequiredTemperature = new System.Windows.Forms.TextBox();
+            this.chkComponentWelded = new System.Windows.Forms.CheckBox();
             this.chkPresenceSulphideOperation = new System.Windows.Forms.CheckBox();
             this.chkTankMaintainedAccordance = new System.Windows.Forms.CheckBox();
             this.chkPresenceSulphideShutdown = new System.Windows.Forms.CheckBox();
@@ -64,6 +73,7 @@
             this.label17 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
+            this.label28 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
@@ -81,15 +91,19 @@
             this.label14 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.label28 = new System.Windows.Forms.Label();
-            this.chkComponentWelded = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cbTypeSoild.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgColTypeOfSolid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbOnlineMonitoring.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgColOnlineMonitoring)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbEnvironmentalSensitivity.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgColEnviromental)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbExternalEnviroment.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgColExternalEnviroment)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbThermalHistory.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgThermalHist)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbAdjustmentSettlement.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgColAdjust)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numSystemManagementFactor)).BeginInit();
             this.SuspendLayout();
             // 
@@ -163,8 +177,29 @@
             this.cbTypeSoild.Name = "cbTypeSoild";
             this.cbTypeSoild.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cbTypeSoild.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.ImageComboBoxItem[] {
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("", null, -1),
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Coarse", ((short)(0)), 0),
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Fine Sand", ((short)(1)), 1),
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Very Fane Sand", ((short)(2)), 2),
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Silt", ((short)(3)), 3),
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Sandy Clay", ((short)(4)), 4),
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Clay", ((short)(5)), 5),
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Concrete-Asphalt", ((short)(6)), 6)});
+            this.cbTypeSoild.Properties.SmallImages = this.imgColTypeOfSolid;
             this.cbTypeSoild.Size = new System.Drawing.Size(281, 20);
-            this.cbTypeSoild.TabIndex = 6;
+            this.cbTypeSoild.TabIndex = 12;
+            // 
+            // imgColTypeOfSolid
+            // 
+            this.imgColTypeOfSolid.ImageStream = ((DevExpress.Utils.ImageCollectionStreamer)(resources.GetObject("imgColTypeOfSolid.ImageStream")));
+            this.imgColTypeOfSolid.Images.SetKeyName(0, "green.png");
+            this.imgColTypeOfSolid.Images.SetKeyName(1, "green.png");
+            this.imgColTypeOfSolid.Images.SetKeyName(2, "yellow.png");
+            this.imgColTypeOfSolid.Images.SetKeyName(3, "yellow.png");
+            this.imgColTypeOfSolid.Images.SetKeyName(4, "orange.png");
+            this.imgColTypeOfSolid.Images.SetKeyName(5, "orange.png");
+            this.imgColTypeOfSolid.Images.SetKeyName(6, "red.png");
             // 
             // cbOnlineMonitoring
             // 
@@ -172,8 +207,89 @@
             this.cbOnlineMonitoring.Name = "cbOnlineMonitoring";
             this.cbOnlineMonitoring.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cbOnlineMonitoring.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.ImageComboBoxItem[] {
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("", ((short)(-1)), -1),
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Amine high velocity corrosion - Corrosion coupons", ((short)(0)), 0),
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Amine high velocity corrosion - Electrical resistance probes", ((short)(1)), 1),
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Amine high velocity corrosion - Key process variable", ((short)(2)), 2),
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Amine low velocity corrosion - Corrosion coupons", ((short)(3)), 3),
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Amine low velocity corrosion - Electrical resistance probes", ((short)(4)), 4),
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Amine low velocity corrosion - Key process variable", ((short)(5)), 5),
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("HCI corrosion - Corrosion coupons", ((short)(6)), 6),
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("HCI corrosion - Electrical resistance probes", ((short)(7)), 7),
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("HCI corrosion - Key process parameters", ((short)(8)), 8),
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("HCI corrosion - Key process parameters & Electrical resistance probes", ((short)(9)), 9),
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("HF corrosion - Corrosion coupons", ((short)(10)), 10),
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("HF corrosion - Electrical resistance probes", ((short)(11)), 11),
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("HF corrosion - Key process variable", ((short)(12)), 12),
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("High temperature H2S/H2 cprrosion - Corrosion coupons", ((short)(13)), 13),
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("High temperature H2S/H2 cprrosion - Electrical resistance probes", ((short)(14)), 14),
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("High temperature H2S/H2 cprrosion - Key process parameters", ((short)(15)), 15),
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("High temperature Sulfidic / Naphthenic acid corrosion - Corrosion coupons", ((short)(16)), 16),
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("High temperature Sulfidic / Naphthenic acid corrosion - Electrical resistance pro" +
+                    "bes", ((short)(17)), 17),
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("High temperature Sulfidic / Naphthenic acid corrosion - Key process variable", ((short)(18)), 18),
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("No online monitoring", ((short)(19)), 19),
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Other corrosion - Corrosion coupons", ((short)(20)), 20),
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Other corrosion - Electrical resistance probes", ((short)(21)), 21),
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Other corrosion - Key process variable", ((short)(22)), 22),
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Sour water high velocity corrsion - Corrosion coupons", ((short)(23)), 23),
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Sour water high velocity corrsion - Electrical resistance probes", ((short)(24)), 24),
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Sour water high velocity corrsion - Key process variable", ((short)(25)), 25),
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Sour water low velocity corrsion - Corrosion coupons", ((short)(26)), 26),
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Sour water low velocity corrsion - Electrical resistance probes", ((short)(27)), 27),
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Sour water low velocity corrsion - Key process variable", ((short)(28)), 28),
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Sulfuric acid (H2S/H2) corrosion high velocity - Corrosion coupons", ((short)(29)), 29),
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Sulfuric acid (H2S/H2) corrosion high velocity - Electrical resistance probes", ((short)(30)), 30),
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Sulfuric acid (H2S/H2) corrosion high velocity - Key process parameters", ((short)(31)), 31),
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Sulfuric acid (H2S/H2) corrosion high velocity - Key process parameters & Electri" +
+                    "cal resistance probes", ((short)(32)), 32),
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Sulfuric acid (H2S/H2) corrosion low velocity - Corrosion coupons", ((short)(33)), 33),
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Sulfuric acid (H2S/H2) corrosion low velocity - Electrical resistance probes", ((short)(34)), 34),
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Sulfuric acid (H2S/H2) corrosion low velocity - Key process parameters", ((short)(35)), 35)});
+            this.cbOnlineMonitoring.Properties.SmallImages = this.imgColOnlineMonitoring;
             this.cbOnlineMonitoring.Size = new System.Drawing.Size(281, 20);
-            this.cbOnlineMonitoring.TabIndex = 5;
+            this.cbOnlineMonitoring.TabIndex = 7;
+            // 
+            // imgColOnlineMonitoring
+            // 
+            this.imgColOnlineMonitoring.ImageStream = ((DevExpress.Utils.ImageCollectionStreamer)(resources.GetObject("imgColOnlineMonitoring.ImageStream")));
+            this.imgColOnlineMonitoring.Images.SetKeyName(0, "green3.png");
+            this.imgColOnlineMonitoring.Images.SetKeyName(1, "green.png");
+            this.imgColOnlineMonitoring.Images.SetKeyName(2, "green.png");
+            this.imgColOnlineMonitoring.Images.SetKeyName(3, "yellow.png");
+            this.imgColOnlineMonitoring.Images.SetKeyName(4, "green.png");
+            this.imgColOnlineMonitoring.Images.SetKeyName(5, "green3.png");
+            this.imgColOnlineMonitoring.Images.SetKeyName(6, "yellow.png");
+            this.imgColOnlineMonitoring.Images.SetKeyName(7, "green.png");
+            this.imgColOnlineMonitoring.Images.SetKeyName(8, "green.png");
+            this.imgColOnlineMonitoring.Images.SetKeyName(9, "green3.png");
+            this.imgColOnlineMonitoring.Images.SetKeyName(10, "orange.png");
+            this.imgColOnlineMonitoring.Images.SetKeyName(11, "orange.png");
+            this.imgColOnlineMonitoring.Images.SetKeyName(12, "green.png");
+            this.imgColOnlineMonitoring.Images.SetKeyName(13, "orange.png");
+            this.imgColOnlineMonitoring.Images.SetKeyName(14, "green.png");
+            this.imgColOnlineMonitoring.Images.SetKeyName(15, "orange.png");
+            this.imgColOnlineMonitoring.Images.SetKeyName(16, "yellow.png");
+            this.imgColOnlineMonitoring.Images.SetKeyName(17, "green.png");
+            this.imgColOnlineMonitoring.Images.SetKeyName(18, "green.png");
+            this.imgColOnlineMonitoring.Images.SetKeyName(19, "orange.png");
+            this.imgColOnlineMonitoring.Images.SetKeyName(20, "orange.png");
+            this.imgColOnlineMonitoring.Images.SetKeyName(21, "orange.png");
+            this.imgColOnlineMonitoring.Images.SetKeyName(22, "orange.png");
+            this.imgColOnlineMonitoring.Images.SetKeyName(23, "yellow.png");
+            this.imgColOnlineMonitoring.Images.SetKeyName(24, "yellow.png");
+            this.imgColOnlineMonitoring.Images.SetKeyName(25, "green.png");
+            this.imgColOnlineMonitoring.Images.SetKeyName(26, "yellow.png");
+            this.imgColOnlineMonitoring.Images.SetKeyName(27, "green.png");
+            this.imgColOnlineMonitoring.Images.SetKeyName(28, "green3.png");
+            this.imgColOnlineMonitoring.Images.SetKeyName(29, "orange.png");
+            this.imgColOnlineMonitoring.Images.SetKeyName(30, "green.png");
+            this.imgColOnlineMonitoring.Images.SetKeyName(31, "green.png");
+            this.imgColOnlineMonitoring.Images.SetKeyName(32, "green3.png");
+            this.imgColOnlineMonitoring.Images.SetKeyName(33, "yellow.png");
+            this.imgColOnlineMonitoring.Images.SetKeyName(34, "green.png");
+            this.imgColOnlineMonitoring.Images.SetKeyName(35, "green3.png");
             // 
             // cbEnvironmentalSensitivity
             // 
@@ -181,8 +297,21 @@
             this.cbEnvironmentalSensitivity.Name = "cbEnvironmentalSensitivity";
             this.cbEnvironmentalSensitivity.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cbEnvironmentalSensitivity.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.ImageComboBoxItem[] {
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("", null, -1),
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Low", ((short)(0)), 0),
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Medium", ((short)(1)), 1),
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("High", ((short)(2)), 2)});
+            this.cbEnvironmentalSensitivity.Properties.SmallImages = this.imgColEnviromental;
             this.cbEnvironmentalSensitivity.Size = new System.Drawing.Size(281, 20);
-            this.cbEnvironmentalSensitivity.TabIndex = 5;
+            this.cbEnvironmentalSensitivity.TabIndex = 8;
+            // 
+            // imgColEnviromental
+            // 
+            this.imgColEnviromental.ImageStream = ((DevExpress.Utils.ImageCollectionStreamer)(resources.GetObject("imgColEnviromental.ImageStream")));
+            this.imgColEnviromental.Images.SetKeyName(0, "green.png");
+            this.imgColEnviromental.Images.SetKeyName(1, "yellow.png");
+            this.imgColEnviromental.Images.SetKeyName(2, "red.png");
             // 
             // cbExternalEnviroment
             // 
@@ -190,8 +319,23 @@
             this.cbExternalEnviroment.Name = "cbExternalEnviroment";
             this.cbExternalEnviroment.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cbExternalEnviroment.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.ImageComboBoxItem[] {
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("", null, -1),
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Marine", ((short)(0)), 0),
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Temperate", ((short)(1)), 1),
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Acid/dry", ((short)(2)), 2),
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Severe", ((short)(3)), 3)});
+            this.cbExternalEnviroment.Properties.SmallImages = this.imgColExternalEnviroment;
             this.cbExternalEnviroment.Size = new System.Drawing.Size(281, 20);
-            this.cbExternalEnviroment.TabIndex = 5;
+            this.cbExternalEnviroment.TabIndex = 9;
+            // 
+            // imgColExternalEnviroment
+            // 
+            this.imgColExternalEnviroment.ImageStream = ((DevExpress.Utils.ImageCollectionStreamer)(resources.GetObject("imgColExternalEnviroment.ImageStream")));
+            this.imgColExternalEnviroment.Images.SetKeyName(0, "orange.png");
+            this.imgColExternalEnviroment.Images.SetKeyName(1, "yellow.png");
+            this.imgColExternalEnviroment.Images.SetKeyName(2, "green.png");
+            this.imgColExternalEnviroment.Images.SetKeyName(3, "red.png");
             // 
             // cbThermalHistory
             // 
@@ -199,8 +343,23 @@
             this.cbThermalHistory.Name = "cbThermalHistory";
             this.cbThermalHistory.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cbThermalHistory.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.ImageComboBoxItem[] {
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("", null, -1),
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Solution Annealed", ((short)(0)), 0),
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Stabilised After Welding", ((short)(1)), 1),
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Stabilised Before Welding", ((short)(2)), 2),
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("None", ((short)(3)), 3)});
+            this.cbThermalHistory.Properties.SmallImages = this.imgThermalHist;
             this.cbThermalHistory.Size = new System.Drawing.Size(281, 20);
-            this.cbThermalHistory.TabIndex = 5;
+            this.cbThermalHistory.TabIndex = 10;
+            // 
+            // imgThermalHist
+            // 
+            this.imgThermalHist.ImageStream = ((DevExpress.Utils.ImageCollectionStreamer)(resources.GetObject("imgThermalHist.ImageStream")));
+            this.imgThermalHist.Images.SetKeyName(0, "orange.png");
+            this.imgThermalHist.Images.SetKeyName(1, "yellow.png");
+            this.imgThermalHist.Images.SetKeyName(2, "green.png");
+            this.imgThermalHist.Images.SetKeyName(3, "red.png");
             // 
             // cbAdjustmentSettlement
             // 
@@ -208,8 +367,23 @@
             this.cbAdjustmentSettlement.Name = "cbAdjustmentSettlement";
             this.cbAdjustmentSettlement.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cbAdjustmentSettlement.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.ImageComboBoxItem[] {
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("", null, -1),
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Recorded settlement exceeds API 653 criteria", ((short)(0)), 0),
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Recorded settlement meets API 653 criteria", ((short)(1)), 1),
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Settlement never evaluated", ((short)(2)), 2),
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Concrete foundation, no settlement", ((short)(3)), 3)});
+            this.cbAdjustmentSettlement.Properties.SmallImages = this.imgColAdjust;
             this.cbAdjustmentSettlement.Size = new System.Drawing.Size(281, 20);
-            this.cbAdjustmentSettlement.TabIndex = 5;
+            this.cbAdjustmentSettlement.TabIndex = 11;
+            // 
+            // imgColAdjust
+            // 
+            this.imgColAdjust.ImageStream = ((DevExpress.Utils.ImageCollectionStreamer)(resources.GetObject("imgColAdjust.ImageStream")));
+            this.imgColAdjust.Images.SetKeyName(0, "green3.png");
+            this.imgColAdjust.Images.SetKeyName(1, "green.png");
+            this.imgColAdjust.Images.SetKeyName(2, "yellow.png");
+            this.imgColAdjust.Images.SetKeyName(3, "orange.png");
             // 
             // numSystemManagementFactor
             // 
@@ -240,6 +414,15 @@
             this.txtMinRequiredTemperature.Name = "txtMinRequiredTemperature";
             this.txtMinRequiredTemperature.Size = new System.Drawing.Size(139, 20);
             this.txtMinRequiredTemperature.TabIndex = 2;
+            // 
+            // chkComponentWelded
+            // 
+            this.chkComponentWelded.AutoSize = true;
+            this.chkComponentWelded.Location = new System.Drawing.Point(245, 317);
+            this.chkComponentWelded.Name = "chkComponentWelded";
+            this.chkComponentWelded.Size = new System.Drawing.Size(15, 14);
+            this.chkComponentWelded.TabIndex = 1;
+            this.chkComponentWelded.UseVisualStyleBackColor = true;
             // 
             // chkPresenceSulphideOperation
             // 
@@ -476,6 +659,16 @@
             this.label15.TabIndex = 0;
             this.label15.Text = "Liner Online Monitoring";
             // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label28.Location = new System.Drawing.Point(20, 317);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(111, 13);
+            this.label28.TabIndex = 0;
+            this.label28.Text = "Component is Welded";
+            // 
             // label18
             // 
             this.label18.AutoSize = true;
@@ -654,25 +847,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Administrative Control for Upset Management";
             // 
-            // label28
-            // 
-            this.label28.AutoSize = true;
-            this.label28.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label28.Location = new System.Drawing.Point(20, 317);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(111, 13);
-            this.label28.TabIndex = 0;
-            this.label28.Text = "Component is Welded";
-            // 
-            // chkComponentWelded
-            // 
-            this.chkComponentWelded.AutoSize = true;
-            this.chkComponentWelded.Location = new System.Drawing.Point(245, 317);
-            this.chkComponentWelded.Name = "chkComponentWelded";
-            this.chkComponentWelded.Size = new System.Drawing.Size(15, 14);
-            this.chkComponentWelded.TabIndex = 1;
-            this.chkComponentWelded.UseVisualStyleBackColor = true;
-            // 
             // UCEquipmentPropertiesTankBottom
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -683,11 +857,17 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cbTypeSoild.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgColTypeOfSolid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbOnlineMonitoring.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgColOnlineMonitoring)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbEnvironmentalSensitivity.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgColEnviromental)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbExternalEnviroment.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgColExternalEnviroment)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbThermalHistory.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgThermalHist)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbAdjustmentSettlement.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgColAdjust)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numSystemManagementFactor)).EndInit();
             this.ResumeLayout(false);
 
@@ -735,20 +915,26 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label1;
-        private DevExpress.XtraEditors.ImageComboBoxEdit cbOnlineMonitoring;
-        private DevExpress.XtraEditors.ImageComboBoxEdit cbThermalHistory;
-        private DevExpress.XtraEditors.ImageComboBoxEdit cbAdjustmentSettlement;
-        private DevExpress.XtraEditors.ImageComboBoxEdit cbTypeSoild;
         private System.Windows.Forms.TextBox txtDistanceGroundWater;
         private System.Windows.Forms.CheckBox chkTankMaintainedAccordance;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label24;
-        private DevExpress.XtraEditors.ImageComboBoxEdit cbEnvironmentalSensitivity;
-        private DevExpress.XtraEditors.ImageComboBoxEdit cbExternalEnviroment;
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.CheckBox chkComponentWelded;
         private System.Windows.Forms.Label label28;
+        private DevExpress.XtraEditors.ImageComboBoxEdit cbTypeSoild;
+        private DevExpress.Utils.ImageCollection imgColTypeOfSolid;
+        private DevExpress.XtraEditors.ImageComboBoxEdit cbOnlineMonitoring;
+        private DevExpress.Utils.ImageCollection imgColOnlineMonitoring;
+        private DevExpress.XtraEditors.ImageComboBoxEdit cbEnvironmentalSensitivity;
+        private DevExpress.Utils.ImageCollection imgColEnviromental;
+        private DevExpress.XtraEditors.ImageComboBoxEdit cbExternalEnviroment;
+        private DevExpress.Utils.ImageCollection imgColExternalEnviroment;
+        private DevExpress.XtraEditors.ImageComboBoxEdit cbThermalHistory;
+        private DevExpress.Utils.ImageCollection imgThermalHist;
+        private DevExpress.XtraEditors.ImageComboBoxEdit cbAdjustmentSettlement;
+        private DevExpress.Utils.ImageCollection imgColAdjust;
     }
 }

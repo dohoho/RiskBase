@@ -464,12 +464,6 @@
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="PRE\subForm\subUCequipment.Designer.cs" />
-    <Compile Include="PRE\subForm\TabImportExcel\UCSpreadsheetLoadData.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="PRE\subForm\TabImportExcel\UCSpreadsheetLoadData.Designer.cs">
-      <DependentUpon>UCSpreadsheetLoadData.cs</DependentUpon>
-    </Compile>
     <Compile Include="PRE\subForm\TestExcelApp.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -682,9 +676,6 @@
     <EmbeddedResource Include="PRE\subForm\subHomeUsr.resx" />
     <EmbeddedResource Include="PRE\subForm\subUCcomponent.resx" />
     <EmbeddedResource Include="PRE\subForm\subUCequipment.resx" />
-    <EmbeddedResource Include="PRE\subForm\TabImportExcel\UCSpreadsheetLoadData.resx">
-      <DependentUpon>UCSpreadsheetLoadData.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="PRE\subForm\TestExcelApp.resx" />
     <EmbeddedResource Include="PRE\subForm\UCComponent.resx" />
     <EmbeddedResource Include="PRE\subForm\UCDamage.resx" />

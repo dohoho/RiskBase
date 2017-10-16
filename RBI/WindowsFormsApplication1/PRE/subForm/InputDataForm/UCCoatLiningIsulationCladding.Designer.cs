@@ -32,6 +32,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UCCoatLiningIsulationCladding));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.cbExternalIsulation = new DevExpress.XtraEditors.ImageComboBoxEdit();
+            this.imgColExIsulation = new DevExpress.Utils.ImageCollection(this.components);
+            this.cbIsulationCondition = new DevExpress.XtraEditors.ImageComboBoxEdit();
+            this.imgColCondi = new DevExpress.Utils.ImageCollection(this.components);
             this.label9 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
@@ -39,7 +43,11 @@
             this.chkInsulationContainsChlorides = new System.Windows.Forms.CheckBox();
             this.chkExternalIsulation = new System.Windows.Forms.CheckBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.cbInternalLinerType = new DevExpress.XtraEditors.ImageComboBoxEdit();
+            this.imgColInternalType = new DevExpress.Utils.ImageCollection(this.components);
             this.label12 = new System.Windows.Forms.Label();
+            this.cbInternalLinerCondition = new DevExpress.XtraEditors.ImageComboBoxEdit();
+            this.imgColInternalCondition = new DevExpress.Utils.ImageCollection(this.components);
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.chkInternalLining = new System.Windows.Forms.CheckBox();
@@ -50,6 +58,8 @@
             this.label6 = new System.Windows.Forms.Label();
             this.chkInternalCladding = new System.Windows.Forms.CheckBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.cbExternalCoatQuality = new DevExpress.XtraEditors.ImageComboBoxEdit();
+            this.imgColExternal = new DevExpress.Utils.ImageCollection(this.components);
             this.dateExternalCoating = new DevExpress.XtraEditors.DateEdit();
             this.chkExternalCoat = new System.Windows.Forms.CheckBox();
             this.chkSupport = new System.Windows.Forms.CheckBox();
@@ -59,33 +69,23 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.imgColCondi = new DevExpress.Utils.ImageCollection(this.components);
-            this.imgColExIsulation = new DevExpress.Utils.ImageCollection(this.components);
-            this.imgColInternalCondition = new DevExpress.Utils.ImageCollection(this.components);
-            this.imgColInternalType = new DevExpress.Utils.ImageCollection(this.components);
-            this.imgColExternal = new DevExpress.Utils.ImageCollection(this.components);
-            this.cbExternalCoatQuality = new DevExpress.XtraEditors.ImageComboBoxEdit();
-            this.cbInternalLinerType = new DevExpress.XtraEditors.ImageComboBoxEdit();
-            this.cbExternalIsulation = new DevExpress.XtraEditors.ImageComboBoxEdit();
-            this.cbIsulationCondition = new DevExpress.XtraEditors.ImageComboBoxEdit();
-            this.cbInternalLinerCondition = new DevExpress.XtraEditors.ImageComboBoxEdit();
             this.groupBox1.SuspendLayout();
             this.groupBox5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cbExternalIsulation.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgColExIsulation)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbIsulationCondition.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgColCondi)).BeginInit();
             this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cbInternalLinerType.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgColInternalType)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbInternalLinerCondition.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgColInternalCondition)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cbExternalCoatQuality.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgColExternal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateExternalCoating.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateExternalCoating.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.imgColCondi)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.imgColExIsulation)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.imgColInternalCondition)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.imgColInternalType)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.imgColExternal)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbExternalCoatQuality.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbInternalLinerType.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbExternalIsulation.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbIsulationCondition.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbInternalLinerCondition.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -119,6 +119,56 @@
             this.groupBox5.TabIndex = 3;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Isulation";
+            // 
+            // cbExternalIsulation
+            // 
+            this.cbExternalIsulation.Location = new System.Drawing.Point(187, 43);
+            this.cbExternalIsulation.Name = "cbExternalIsulation";
+            this.cbExternalIsulation.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cbExternalIsulation.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.ImageComboBoxItem[] {
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("", ((short)(-1)), -1),
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Foam Glass", ((short)(0)), 0),
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Pearlite", ((short)(1)), 1),
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Fibreglass", ((short)(2)), 2),
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Mineral Wool", ((short)(3)), 3),
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Calcium Silicate", ((short)(4)), 4),
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Asbestos", ((short)(5)), 5)});
+            this.cbExternalIsulation.Properties.SmallImages = this.imgColExIsulation;
+            this.cbExternalIsulation.Size = new System.Drawing.Size(236, 20);
+            this.cbExternalIsulation.TabIndex = 12;
+            // 
+            // imgColExIsulation
+            // 
+            this.imgColExIsulation.ImageStream = ((DevExpress.Utils.ImageCollectionStreamer)(resources.GetObject("imgColExIsulation.ImageStream")));
+            this.imgColExIsulation.Images.SetKeyName(0, "green.png");
+            this.imgColExIsulation.Images.SetKeyName(1, "yellow.png");
+            this.imgColExIsulation.Images.SetKeyName(2, "orange.png");
+            this.imgColExIsulation.Images.SetKeyName(3, "orange.png");
+            this.imgColExIsulation.Images.SetKeyName(4, "orange.png");
+            this.imgColExIsulation.Images.SetKeyName(5, "orange.png");
+            // 
+            // cbIsulationCondition
+            // 
+            this.cbIsulationCondition.Location = new System.Drawing.Point(187, 71);
+            this.cbIsulationCondition.Name = "cbIsulationCondition";
+            this.cbIsulationCondition.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cbIsulationCondition.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.ImageComboBoxItem[] {
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("", ((short)(-1)), -1),
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Above average", ((short)(0)), 0),
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Average", ((short)(1)), 1),
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Below average", ((short)(2)), 2)});
+            this.cbIsulationCondition.Properties.SmallImages = this.imgColCondi;
+            this.cbIsulationCondition.Size = new System.Drawing.Size(236, 20);
+            this.cbIsulationCondition.TabIndex = 11;
+            // 
+            // imgColCondi
+            // 
+            this.imgColCondi.ImageStream = ((DevExpress.Utils.ImageCollectionStreamer)(resources.GetObject("imgColCondi.ImageStream")));
+            this.imgColCondi.Images.SetKeyName(0, "green.png");
+            this.imgColCondi.Images.SetKeyName(1, "yellow.png");
+            this.imgColCondi.Images.SetKeyName(2, "orange.png");
             // 
             // label9
             // 
@@ -196,6 +246,36 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Lining";
             // 
+            // cbInternalLinerType
+            // 
+            this.cbInternalLinerType.Location = new System.Drawing.Point(187, 41);
+            this.cbInternalLinerType.Name = "cbInternalLinerType";
+            this.cbInternalLinerType.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cbInternalLinerType.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.ImageComboBoxItem[] {
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem(" ", ((short)(-1)), -1),
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Organic", ((short)(0)), 0),
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Castable refractory", ((short)(1)), 1),
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Strip lined alloy", ((short)(2)), 2),
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Castable refractory severe condition", ((short)(3)), 3),
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Glass lined", ((short)(4)), 4),
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Acid Brick", ((short)(5)), 5),
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Fibreglass", ((short)(6)), 6)});
+            this.cbInternalLinerType.Properties.SmallImages = this.imgColInternalType;
+            this.cbInternalLinerType.Size = new System.Drawing.Size(237, 20);
+            this.cbInternalLinerType.TabIndex = 10;
+            // 
+            // imgColInternalType
+            // 
+            this.imgColInternalType.ImageStream = ((DevExpress.Utils.ImageCollectionStreamer)(resources.GetObject("imgColInternalType.ImageStream")));
+            this.imgColInternalType.Images.SetKeyName(0, "red.png");
+            this.imgColInternalType.Images.SetKeyName(1, "orange.png");
+            this.imgColInternalType.Images.SetKeyName(2, "yellow.png");
+            this.imgColInternalType.Images.SetKeyName(3, "red.png");
+            this.imgColInternalType.Images.SetKeyName(4, "orange.png");
+            this.imgColInternalType.Images.SetKeyName(5, "green.png");
+            this.imgColInternalType.Images.SetKeyName(6, "orange.png");
+            // 
             // label12
             // 
             this.label12.AutoSize = true;
@@ -205,6 +285,30 @@
             this.label12.Size = new System.Drawing.Size(134, 15);
             this.label12.TabIndex = 0;
             this.label12.Text = "Internal Liner Condition";
+            // 
+            // cbInternalLinerCondition
+            // 
+            this.cbInternalLinerCondition.Location = new System.Drawing.Point(187, 71);
+            this.cbInternalLinerCondition.Name = "cbInternalLinerCondition";
+            this.cbInternalLinerCondition.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cbInternalLinerCondition.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.ImageComboBoxItem[] {
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("", ((short)(-1)), -1),
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Good", ((short)(0)), 0),
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Average", ((short)(1)), 1),
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Poor", ((short)(2)), 2),
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Unknown", ((short)(3)), 3)});
+            this.cbInternalLinerCondition.Properties.SmallImages = this.imgColInternalCondition;
+            this.cbInternalLinerCondition.Size = new System.Drawing.Size(236, 20);
+            this.cbInternalLinerCondition.TabIndex = 13;
+            // 
+            // imgColInternalCondition
+            // 
+            this.imgColInternalCondition.ImageStream = ((DevExpress.Utils.ImageCollectionStreamer)(resources.GetObject("imgColInternalCondition.ImageStream")));
+            this.imgColInternalCondition.Images.SetKeyName(0, "green.png");
+            this.imgColInternalCondition.Images.SetKeyName(1, "yellow.png");
+            this.imgColInternalCondition.Images.SetKeyName(2, "red.png");
+            this.imgColInternalCondition.Images.SetKeyName(3, "red.png");
             // 
             // label10
             // 
@@ -316,6 +420,28 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Coating";
             // 
+            // cbExternalCoatQuality
+            // 
+            this.cbExternalCoatQuality.Location = new System.Drawing.Point(202, 79);
+            this.cbExternalCoatQuality.Name = "cbExternalCoatQuality";
+            this.cbExternalCoatQuality.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cbExternalCoatQuality.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.ImageComboBoxItem[] {
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem(" ", ((short)(-1)), -1),
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("No coating or poor quality", ((short)(0)), 0),
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Medium coating quality", ((short)(1)), 1),
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("High coating quality", ((short)(2)), 2)});
+            this.cbExternalCoatQuality.Properties.SmallImages = this.imgColExternal;
+            this.cbExternalCoatQuality.Size = new System.Drawing.Size(220, 20);
+            this.cbExternalCoatQuality.TabIndex = 6;
+            // 
+            // imgColExternal
+            // 
+            this.imgColExternal.ImageStream = ((DevExpress.Utils.ImageCollectionStreamer)(resources.GetObject("imgColExternal.ImageStream")));
+            this.imgColExternal.Images.SetKeyName(0, "orange.png");
+            this.imgColExternal.Images.SetKeyName(1, "yellow.png");
+            this.imgColExternal.Images.SetKeyName(2, "green.png");
+            // 
             // dateExternalCoating
             // 
             this.dateExternalCoating.EditValue = null;
@@ -407,132 +533,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Internal Coating";
             // 
-            // imgColCondi
-            // 
-            this.imgColCondi.ImageStream = ((DevExpress.Utils.ImageCollectionStreamer)(resources.GetObject("imgColCondi.ImageStream")));
-            this.imgColCondi.Images.SetKeyName(0, "green.png");
-            this.imgColCondi.Images.SetKeyName(1, "yellow.png");
-            this.imgColCondi.Images.SetKeyName(2, "orange.png");
-            // 
-            // imgColExIsulation
-            // 
-            this.imgColExIsulation.ImageStream = ((DevExpress.Utils.ImageCollectionStreamer)(resources.GetObject("imgColExIsulation.ImageStream")));
-            this.imgColExIsulation.Images.SetKeyName(0, "green.png");
-            this.imgColExIsulation.Images.SetKeyName(1, "yellow.png");
-            this.imgColExIsulation.Images.SetKeyName(2, "orange.png");
-            this.imgColExIsulation.Images.SetKeyName(3, "orange.png");
-            this.imgColExIsulation.Images.SetKeyName(4, "orange.png");
-            this.imgColExIsulation.Images.SetKeyName(5, "orange.png");
-            // 
-            // imgColInternalCondition
-            // 
-            this.imgColInternalCondition.ImageStream = ((DevExpress.Utils.ImageCollectionStreamer)(resources.GetObject("imgColInternalCondition.ImageStream")));
-            this.imgColInternalCondition.Images.SetKeyName(0, "green.png");
-            this.imgColInternalCondition.Images.SetKeyName(1, "yellow.png");
-            this.imgColInternalCondition.Images.SetKeyName(2, "red.png");
-            this.imgColInternalCondition.Images.SetKeyName(3, "red.png");
-            // 
-            // imgColInternalType
-            // 
-            this.imgColInternalType.ImageStream = ((DevExpress.Utils.ImageCollectionStreamer)(resources.GetObject("imgColInternalType.ImageStream")));
-            this.imgColInternalType.Images.SetKeyName(0, "red.png");
-            this.imgColInternalType.Images.SetKeyName(1, "orange.png");
-            this.imgColInternalType.Images.SetKeyName(2, "yellow.png");
-            this.imgColInternalType.Images.SetKeyName(3, "red.png");
-            this.imgColInternalType.Images.SetKeyName(4, "orange.png");
-            this.imgColInternalType.Images.SetKeyName(5, "green.png");
-            this.imgColInternalType.Images.SetKeyName(6, "orange.png");
-            // 
-            // imgColExternal
-            // 
-            this.imgColExternal.ImageStream = ((DevExpress.Utils.ImageCollectionStreamer)(resources.GetObject("imgColExternal.ImageStream")));
-            this.imgColExternal.Images.SetKeyName(0, "orange.png");
-            this.imgColExternal.Images.SetKeyName(1, "yellow.png");
-            this.imgColExternal.Images.SetKeyName(2, "green.png");
-            // 
-            // cbExternalCoatQuality
-            // 
-            this.cbExternalCoatQuality.Location = new System.Drawing.Point(202, 79);
-            this.cbExternalCoatQuality.Name = "cbExternalCoatQuality";
-            this.cbExternalCoatQuality.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cbExternalCoatQuality.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.ImageComboBoxItem[] {
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem(" ", ((short)(-1)), -1),
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("No coating or poor quality", ((short)(0)), 0),
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Medium coating quality", ((short)(1)), 1),
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("High coating quality", ((short)(2)), 2)});
-            this.cbExternalCoatQuality.Properties.SmallImages = this.imgColExternal;
-            this.cbExternalCoatQuality.Size = new System.Drawing.Size(220, 20);
-            this.cbExternalCoatQuality.TabIndex = 6;
-            // 
-            // cbInternalLinerType
-            // 
-            this.cbInternalLinerType.Location = new System.Drawing.Point(187, 41);
-            this.cbInternalLinerType.Name = "cbInternalLinerType";
-            this.cbInternalLinerType.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cbInternalLinerType.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.ImageComboBoxItem[] {
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem(" ", ((short)(-1)), -1),
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Organic", ((short)(0)), 0),
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Castable refactory", ((short)(1)), 1),
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Strip lined alloy", ((short)(2)), 2),
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Castable refactory severe condition", ((short)(3)), 3),
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Glass lined", ((short)(4)), 4),
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Acid Brick", ((short)(5)), 5),
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Fibreglass", ((short)(6)), 6)});
-            this.cbInternalLinerType.Properties.SmallImages = this.imgColInternalType;
-            this.cbInternalLinerType.Size = new System.Drawing.Size(237, 20);
-            this.cbInternalLinerType.TabIndex = 10;
-            // 
-            // cbExternalIsulation
-            // 
-            this.cbExternalIsulation.Location = new System.Drawing.Point(187, 43);
-            this.cbExternalIsulation.Name = "cbExternalIsulation";
-            this.cbExternalIsulation.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cbExternalIsulation.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.ImageComboBoxItem[] {
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("", ((short)(-1)), -1),
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Foam Glass", ((short)(0)), 0),
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Pearlite", ((short)(1)), 1),
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Fibreglass", ((short)(2)), 2),
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Mineral Wool", ((short)(3)), 3),
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Calcium Silicate", ((short)(4)), 4),
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Asbestos", ((short)(5)), 5)});
-            this.cbExternalIsulation.Properties.SmallImages = this.imgColExIsulation;
-            this.cbExternalIsulation.Size = new System.Drawing.Size(236, 20);
-            this.cbExternalIsulation.TabIndex = 12;
-            // 
-            // cbIsulationCondition
-            // 
-            this.cbIsulationCondition.Location = new System.Drawing.Point(187, 71);
-            this.cbIsulationCondition.Name = "cbIsulationCondition";
-            this.cbIsulationCondition.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cbIsulationCondition.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.ImageComboBoxItem[] {
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("", ((short)(-1)), -1),
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Above average", ((short)(0)), 0),
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Average", ((short)(1)), 1),
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Below average", ((short)(2)), 2)});
-            this.cbIsulationCondition.Properties.SmallImages = this.imgColCondi;
-            this.cbIsulationCondition.Size = new System.Drawing.Size(236, 20);
-            this.cbIsulationCondition.TabIndex = 11;
-            // 
-            // cbInternalLinerCondition
-            // 
-            this.cbInternalLinerCondition.Location = new System.Drawing.Point(187, 71);
-            this.cbInternalLinerCondition.Name = "cbInternalLinerCondition";
-            this.cbInternalLinerCondition.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cbInternalLinerCondition.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.ImageComboBoxItem[] {
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("", ((short)(-1)), -1),
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Good", ((short)(0)), 0),
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Average", ((short)(1)), 1),
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Poor", ((short)(2)), 2),
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Unknown", ((short)(3)), 3)});
-            this.cbInternalLinerCondition.Properties.SmallImages = this.imgColInternalCondition;
-            this.cbInternalLinerCondition.Size = new System.Drawing.Size(236, 20);
-            this.cbInternalLinerCondition.TabIndex = 13;
-            // 
             // UCCoatLiningIsulationCladding
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -543,24 +543,24 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cbExternalIsulation.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgColExIsulation)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbIsulationCondition.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgColCondi)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cbInternalLinerType.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgColInternalType)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbInternalLinerCondition.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgColInternalCondition)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cbExternalCoatQuality.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgColExternal)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateExternalCoating.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateExternalCoating.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.imgColCondi)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.imgColExIsulation)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.imgColInternalCondition)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.imgColInternalType)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.imgColExternal)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbExternalCoatQuality.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbInternalLinerType.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbExternalIsulation.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbIsulationCondition.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbInternalLinerCondition.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }

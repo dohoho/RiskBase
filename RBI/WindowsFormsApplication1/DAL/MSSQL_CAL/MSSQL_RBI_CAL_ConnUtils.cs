@@ -9,7 +9,7 @@ using System.Windows.Forms;
 using RBI.DAL.MSSQL;
 using RBI.Object.ObjectMSSQL_CAL;
 
-namespace RBI.Object.ObjectMSSQL_CAL
+namespace RBI.DAL.MSSQL
 {
     class MSSQL_RBI_CAL_ConnUtils
     {
@@ -33,16 +33,16 @@ namespace RBI.Object.ObjectMSSQL_CAL
                     {
                         if (reader.HasRows)
                         {
-                            data[0] = reader.GetFloat(0);
-                            data[1] = reader.GetFloat(1);
-                            data[2] = reader.GetFloat(2);
-                            data[3] = reader.GetFloat(3);
-                            data[4] = reader.GetFloat(4);
-                            data[5] = reader.GetFloat(5);
-                            data[6] = reader.GetFloat(6);
-                            data[7] = reader.GetFloat(7);
-                            data[8] = reader.GetFloat(8);
-                            data[9] = reader.GetFloat(9);
+                            data[0] = (float)reader.GetDouble(0);
+                            data[1] = (float)reader.GetDouble(1);
+                            data[2] = (float)reader.GetDouble(2);
+                            data[3] = (float)reader.GetDouble(3);
+                            data[4] = (float)reader.GetDouble(4);
+                            data[5] = (float)reader.GetDouble(5);
+                            data[6] = (float)reader.GetDouble(6);
+                            data[7] = (float)reader.GetDouble(7);
+                            data[8] = (float)reader.GetDouble(8);
+                            data[9] = (float)reader.GetDouble(9);
                         }
                     }
                 }
@@ -93,22 +93,22 @@ namespace RBI.Object.ObjectMSSQL_CAL
                     {
                         if (reader.HasRows)
                         {
-                            data[0] = reader.GetFloat(0);
-                            data[1] = reader.GetFloat(1);
-                            data[2] = reader.GetFloat(2);
-                            data[3] = reader.GetFloat(3);
-                            data[4] = reader.GetFloat(4);
-                            data[5] = reader.GetFloat(5);
-                            data[6] = reader.GetFloat(6);
-                            data[7] = reader.GetFloat(7);
-                            data[8] = reader.GetFloat(8);
-                            data[9] = reader.GetFloat(9);
-                            data[10] = reader.GetFloat(10);
-                            data[11] = reader.GetFloat(11);
-                            data[12] = reader.GetFloat(12);
-                            data[13] = reader.GetFloat(13);
-                            data[14] = reader.GetFloat(14);
-                            data[15] = reader.GetFloat(15);
+                            data[0] = (float)reader.GetDouble(0);
+                            data[1] = (float)reader.GetDouble(1);
+                            data[2] = (float)reader.GetDouble(2);
+                            data[3] = (float)reader.GetDouble(3);
+                            data[4] = (float)reader.GetDouble(4);
+                            data[5] = (float)reader.GetDouble(5);
+                            data[6] = (float)reader.GetDouble(6);
+                            data[7] = (float)reader.GetDouble(7);
+                            data[8] = (float)reader.GetDouble(8);
+                            data[9] = (float)reader.GetDouble(9);
+                            data[10] = (float)reader.GetDouble(10);
+                            data[11] = (float)reader.GetDouble(11);
+                            data[12] = (float)reader.GetDouble(12);
+                            data[13] = (float)reader.GetDouble(13);
+                            data[14] = (float)reader.GetDouble(14);
+                            data[15] = (float)reader.GetDouble(15);
                         }
                     }
                 }
@@ -166,22 +166,22 @@ namespace RBI.Object.ObjectMSSQL_CAL
                     {
                         if (reader.HasRows)
                         {
-                            data[0] = reader.GetFloat(0);
-                            data[1] = reader.GetFloat(1);
-                            data[2] = reader.GetFloat(2);
-                            data[3] = reader.GetFloat(3);
-                            data[4] = reader.GetFloat(4);
-                            data[5] = reader.GetFloat(5);
-                            data[6] = reader.GetFloat(6);
-                            data[7] = reader.GetFloat(7);
-                            data[8] = reader.GetFloat(8);
-                            data[9] = reader.GetFloat(9);
-                            data[10] = reader.GetFloat(10);
-                            data[11] = reader.GetFloat(11);
-                            data[12] = reader.GetFloat(12);
-                            data[13] = reader.GetFloat(13);
-                            data[14] = reader.GetFloat(14);
-                            data[15] = reader.GetFloat(15);
+                            data[0] = (float)reader.GetDouble(0);
+                            data[1] = (float)reader.GetDouble(1);
+                            data[2] = (float)reader.GetDouble(2);
+                            data[3] = (float)reader.GetDouble(3);
+                            data[4] = (float)reader.GetDouble(4);
+                            data[5] = (float)reader.GetDouble(5);
+                            data[6] = (float)reader.GetDouble(6);
+                            data[7] = (float)reader.GetDouble(7);
+                            data[8] = (float)reader.GetDouble(8);
+                            data[9] = (float)reader.GetDouble(9);
+                            data[10] = (float)reader.GetDouble(10);
+                            data[11] = (float)reader.GetDouble(11);
+                            data[12] = (float)reader.GetDouble(12);
+                            data[13] = (float)reader.GetDouble(13);
+                            data[14] = (float)reader.GetDouble(14);
+                            data[15] = (float)reader.GetDouble(15);
                         }
                     }
                 }
@@ -220,10 +220,10 @@ namespace RBI.Object.ObjectMSSQL_CAL
                     {
                         if (reader.HasRows)
                         {
-                            data[0] = reader.GetFloat(0);
-                            data[1] = reader.GetFloat(1);
-                            data[2] = reader.GetFloat(2);
-                            data[3] = reader.GetFloat(3);
+                            data[0] = (float)reader.GetDouble(0);
+                            data[1] = (float)reader.GetDouble(1);
+                            data[2] = (float)reader.GetDouble(2);
+                            data[3] = (float)reader.GetDouble(3);
                         }
                     }
                 }
@@ -305,7 +305,7 @@ namespace RBI.Object.ObjectMSSQL_CAL
                     {
                         if (reader.HasRows)
                         {
-                            data = reader.GetFloat(0);
+                            data = (float)reader.GetDouble(0);
                         }
                     }
                 }
@@ -339,7 +339,7 @@ namespace RBI.Object.ObjectMSSQL_CAL
                     {
                         if (reader.HasRows)
                         {
-                            data = reader.GetFloat(0);
+                            data = (float)reader.GetDouble(0);
                         }
                     }
                 }
@@ -377,8 +377,8 @@ namespace RBI.Object.ObjectMSSQL_CAL
                             obj = new TOXIC_511_512();
                             obj.ToxicName = reader.GetString(0);
                             obj.ReleaseDuration = reader.GetString(1);
-                            obj.a = reader.GetFloat(2);
-                            obj.b = reader.GetFloat(3);
+                            obj.a = (float)reader.GetDouble(2);
+                            obj.b = (float)reader.GetDouble(3);
                             list.Add(obj);
                         }
                     }
@@ -418,8 +418,8 @@ namespace RBI.Object.ObjectMSSQL_CAL
                             obj.TOXIC_NAME = reader.GetString(0);
                             obj.TOXIC_TYPE = reader.GetString(1);
                             obj.DURATION = reader.GetString(2);
-                            obj.a = reader.GetFloat(3);
-                            obj.b = reader.GetFloat(4);
+                            obj.a = (float)reader.GetDouble(3);
+                            obj.b = (float)reader.GetDouble(4);
                             list.Add(obj);
                         }
                     }
@@ -468,9 +468,9 @@ namespace RBI.Object.ObjectMSSQL_CAL
                 }
 
             }
-            catch
+            catch(Exception e)
             {
-                MessageBox.Show("GET DF_THIN FAIL!");
+                MessageBox.Show("GET DF_THIN FAIL!" + e.ToString());
             }
             finally
             {
@@ -533,14 +533,14 @@ namespace RBI.Object.ObjectMSSQL_CAL
                     {
                         if (reader.HasRows)
                         {
-                            data = reader.GetFloat(0);
+                            data = (float)(float)reader.GetDouble(0);
                         }
                     }
                 }
             }
-            catch
+            catch(Exception e)
             {
-                MessageBox.Show("GET DF_LIN FAIL!");
+                MessageBox.Show("GET DF_LIN FAIL!" + e.ToString());
             }
             finally
             {
@@ -563,7 +563,7 @@ namespace RBI.Object.ObjectMSSQL_CAL
                 cmd.CommandText = sql;
                 using (DbDataReader reader = cmd.ExecuteReader())
                 {
-                    data = reader.GetFloat(0);
+                    data = (float)(float)reader.GetDouble(0);
                 }
             }
             catch
@@ -629,7 +629,7 @@ namespace RBI.Object.ObjectMSSQL_CAL
                     {
                         if (reader.HasRows)
                         {
-                            data = reader.GetFloat(0);
+                            data = (float)(float)reader.GetDouble(0);
                         }
                     }
                 }
@@ -663,9 +663,9 @@ namespace RBI.Object.ObjectMSSQL_CAL
                     {
                         if (reader.HasRows)
                         {
-                            data[0] = reader.GetFloat(0);
-                            data[1] = reader.GetFloat(1);
-                            data[2] = reader.GetFloat(2);
+                            data[0] = (float)reader.GetDouble(0);
+                            data[1] = (float)reader.GetDouble(1);
+                            data[2] = (float)reader.GetDouble(2);
                         }
                     }
                 }
@@ -699,9 +699,9 @@ namespace RBI.Object.ObjectMSSQL_CAL
                     {
                         if (reader.HasRows)
                         {
-                            data[0] = reader.GetFloat(0);
-                            data[1] = reader.GetFloat(1);
-                            data[2] = reader.GetFloat(2);
+                            data[0] = (float)reader.GetDouble(0);
+                            data[1] = (float)reader.GetDouble(1);
+                            data[2] = (float)reader.GetDouble(2);
                         }
                     }
                 }
@@ -735,7 +735,7 @@ namespace RBI.Object.ObjectMSSQL_CAL
                     {
                         if (reader.HasRows)
                         {
-                            data.Add(reader.GetFloat(0));
+                            data.Add((float)reader.GetDouble(0));
                         }
                     }
                 }

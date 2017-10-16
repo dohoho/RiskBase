@@ -30,10 +30,6 @@
         {
             DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.cbPTAMaterialGrade = new DevExpress.XtraEditors.ImageComboBoxEdit();
-            this.cbHTHAMaterial = new DevExpress.XtraEditors.ImageComboBoxEdit();
-            this.cbHeatTreatment = new DevExpress.XtraEditors.ImageComboBoxEdit();
-            this.cbSulfurContent = new DevExpress.XtraEditors.ImageComboBoxEdit();
             this.cbPTAMaterial = new DevExpress.XtraEditors.ButtonEdit();
             this.chkNickelAlloy = new System.Windows.Forms.CheckBox();
             this.chkAusteniticSteel = new System.Windows.Forms.CheckBox();
@@ -79,12 +75,16 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.cbSulfurContent = new DevExpress.XtraEditors.ImageComboBoxEdit();
+            this.cbHeatTreatment = new DevExpress.XtraEditors.ImageComboBoxEdit();
+            this.cbHTHAMaterial = new DevExpress.XtraEditors.ImageComboBoxEdit();
+            this.cbPTAMaterialGrade = new DevExpress.XtraEditors.ImageComboBoxEdit();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cbPTAMaterialGrade.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbHTHAMaterial.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbHeatTreatment.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbSulfurContent.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbPTAMaterial.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbSulfurContent.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbHeatTreatment.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbHTHAMaterial.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbPTAMaterialGrade.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -146,42 +146,6 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Material";
-            // 
-            // cbPTAMaterialGrade
-            // 
-            this.cbPTAMaterialGrade.Location = new System.Drawing.Point(172, 399);
-            this.cbPTAMaterialGrade.Name = "cbPTAMaterialGrade";
-            this.cbPTAMaterialGrade.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cbPTAMaterialGrade.Size = new System.Drawing.Size(368, 20);
-            this.cbPTAMaterialGrade.TabIndex = 17;
-            // 
-            // cbHTHAMaterial
-            // 
-            this.cbHTHAMaterial.Location = new System.Drawing.Point(172, 336);
-            this.cbHTHAMaterial.Name = "cbHTHAMaterial";
-            this.cbHTHAMaterial.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cbHTHAMaterial.Size = new System.Drawing.Size(368, 20);
-            this.cbHTHAMaterial.TabIndex = 17;
-            // 
-            // cbHeatTreatment
-            // 
-            this.cbHeatTreatment.Location = new System.Drawing.Point(172, 270);
-            this.cbHeatTreatment.Name = "cbHeatTreatment";
-            this.cbHeatTreatment.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cbHeatTreatment.Size = new System.Drawing.Size(368, 20);
-            this.cbHeatTreatment.TabIndex = 17;
-            // 
-            // cbSulfurContent
-            // 
-            this.cbSulfurContent.Location = new System.Drawing.Point(172, 244);
-            this.cbSulfurContent.Name = "cbSulfurContent";
-            this.cbSulfurContent.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cbSulfurContent.Size = new System.Drawing.Size(368, 20);
-            this.cbSulfurContent.TabIndex = 17;
             // 
             // cbPTAMaterial
             // 
@@ -617,6 +581,42 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Material";
             // 
+            // cbSulfurContent
+            // 
+            this.cbSulfurContent.Location = new System.Drawing.Point(172, 248);
+            this.cbSulfurContent.Name = "cbSulfurContent";
+            this.cbSulfurContent.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cbSulfurContent.Size = new System.Drawing.Size(368, 20);
+            this.cbSulfurContent.TabIndex = 17;
+            // 
+            // cbHeatTreatment
+            // 
+            this.cbHeatTreatment.Location = new System.Drawing.Point(172, 274);
+            this.cbHeatTreatment.Name = "cbHeatTreatment";
+            this.cbHeatTreatment.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cbHeatTreatment.Size = new System.Drawing.Size(368, 20);
+            this.cbHeatTreatment.TabIndex = 17;
+            // 
+            // cbHTHAMaterial
+            // 
+            this.cbHTHAMaterial.Location = new System.Drawing.Point(172, 334);
+            this.cbHTHAMaterial.Name = "cbHTHAMaterial";
+            this.cbHTHAMaterial.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cbHTHAMaterial.Size = new System.Drawing.Size(368, 20);
+            this.cbHTHAMaterial.TabIndex = 17;
+            // 
+            // cbPTAMaterialGrade
+            // 
+            this.cbPTAMaterialGrade.Location = new System.Drawing.Point(172, 393);
+            this.cbPTAMaterialGrade.Name = "cbPTAMaterialGrade";
+            this.cbPTAMaterialGrade.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cbPTAMaterialGrade.Size = new System.Drawing.Size(368, 20);
+            this.cbPTAMaterialGrade.TabIndex = 17;
+            // 
             // UCMaterial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -626,11 +626,11 @@
             this.Size = new System.Drawing.Size(707, 531);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cbPTAMaterialGrade.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbHTHAMaterial.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbHeatTreatment.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbSulfurContent.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbPTAMaterial.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbSulfurContent.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbHeatTreatment.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbHTHAMaterial.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbPTAMaterialGrade.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -683,9 +683,9 @@
         private System.Windows.Forms.TextBox txtSigmaPhase;
         private System.Windows.Forms.Label label16;
         private DevExpress.XtraEditors.ButtonEdit cbPTAMaterial;
+        private DevExpress.XtraEditors.ImageComboBoxEdit cbSulfurContent;
         private DevExpress.XtraEditors.ImageComboBoxEdit cbPTAMaterialGrade;
         private DevExpress.XtraEditors.ImageComboBoxEdit cbHTHAMaterial;
         private DevExpress.XtraEditors.ImageComboBoxEdit cbHeatTreatment;
-        private DevExpress.XtraEditors.ImageComboBoxEdit cbSulfurContent;
     }
 }

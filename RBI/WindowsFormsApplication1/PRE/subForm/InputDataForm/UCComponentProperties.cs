@@ -27,6 +27,7 @@ namespace RBI.PRE.subForm.InputDataForm
             comp.BranchDiameter = cbBranchDiameter.Text;
             comp.BranchJointType = cbJointTypeBranch.Text;
             comp.BrinnelHardness = cbMaxBrillnessHardness.Text;
+            comp.CracksPresent = chkPresenceCracks.Checked ? 1 : 0;
 
             return comp;
         }
