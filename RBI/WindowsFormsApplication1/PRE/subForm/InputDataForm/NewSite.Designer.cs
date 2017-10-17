@@ -121,6 +121,7 @@
             this.txtSiteName.Name = "txtSiteName";
             this.txtSiteName.Size = new System.Drawing.Size(248, 20);
             this.txtSiteName.TabIndex = 2;
+            this.txtSiteName.TextChanged += new System.EventHandler(this.txtSiteName_TextChanged);
             // 
             // label3
             // 

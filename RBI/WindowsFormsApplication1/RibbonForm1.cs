@@ -403,9 +403,8 @@ namespace RBI
             RW_COMPONENT rwcom = comp.getData();
             RW_MATERIAL rwma = ma.getData();
             //can xem lai properties thuoc get stream nao
-            RW_STREAM rwstream1 = st.getData1();
-            RW_STREAM rwstream2 = st.getData2();
-            RW_STREAM rwstream3 = op.getData();
+            RW_STREAM rwstream1 = st.getData();
+            RW_STREAM rwstream2 = op.getData();
             RW_COATING rwcoat = coat.getData();
             NO_INSPECTION noInsp = NoInsp.getData();
             EQUIPMENT_MASTER eqmaster = eqInput.getData1();
@@ -434,6 +433,7 @@ namespace RBI
             cal.LinningType = rwcoat.InternalLinerType;
             cal.LINNER_ONLINE = rweq.LinerOnlineMonitoring == 1 ? true : false;
             cal.LINNER_CONDITION = rwcoat.InternalLinerCondition;
+            cal.INTERNAL_LINNING = rwcoat.InternalLining == 1 ? true : false;
             //Yearinservice hiệu tham số giữa lần tính toán và ngày cài đặt hệ thống
 
             //</input linning>
@@ -455,7 +455,7 @@ namespace RBI
             //</input SSC Amine>
 
             //<input Sulphide Stress Cracking>
-            //cal.ENVIRONMENT_H2S_CONTENT = r
+            cal.ENVIRONMENT_H2S_CONTENT = rwstream1.H2S == 1 ? true : false;
             cal.AQUEOUS_OPERATOR = rwstream1.AqueousOperation == 1 ? true : false;
             cal.AQUEOUS_SHUTDOWN = rwstream1.AqueousShutdown == 1 ? true : false;
             cal.SULPHIDE_INSP_EFF = noInsp.effSulphide;
@@ -481,7 +481,7 @@ namespace RBI
             cal.ExposedSH2OOperation = rweq.PresenceSulphidesO2 == 1 ? true : false;
             cal.ExposedSH2OShutdown = rweq.PresenceSulphidesO2Shutdown == 1 ? true : false;
             cal.ThermalHistory = rweq.ThermalHistory;
-            cal.PTAMaterial = rwma.MaterialName;
+            cal.PTAMaterial = rwma.PTAMaterialCode;
             cal.DOWNTIME_PROTECTED = rweq.DowntimeProtectionUsed == 1 ? true : false;
             //</PTA Cracking>
 
@@ -516,16 +516,16 @@ namespace RBI
             cal.CUI_INSP_EFF = noInsp.effCUI;
             cal.CUI_INSP_NUM = noInsp.numCUI;
             cal.CUI_INSP_DATE = rwcoat.ExternalCoatingDate;
-            cal.CUI_PERCENT_1 = rwstream3.CUI_PERCENT_1;
-            cal.CUI_PERCENT_2 = rwstream3.CUI_PERCENT_2;
-            cal.CUI_PERCENT_3 = rwstream3.CUI_PERCENT_3;
-            cal.CUI_PERCENT_4 = rwstream3.CUI_PERCENT_4;
-            cal.CUI_PERCENT_5 = rwstream3.CUI_PERCENT_5;
-            cal.CUI_PERCENT_6 = rwstream3.CUI_PERCENT_6;
-            cal.CUI_PERCENT_7 = rwstream3.CUI_PERCENT_7;
-            cal.CUI_PERCENT_8 = rwstream3.CUI_PERCENT_8;
-            cal.CUI_PERCENT_9 = rwstream3.CUI_PERCENT_9;
-            cal.CUI_PERCENT_10 = rwstream3.CUI_PERCENT_10;
+            cal.CUI_PERCENT_1 = rwstream2.CUI_PERCENT_1;
+            cal.CUI_PERCENT_2 = rwstream2.CUI_PERCENT_2;
+            cal.CUI_PERCENT_3 = rwstream2.CUI_PERCENT_3;
+            cal.CUI_PERCENT_4 = rwstream2.CUI_PERCENT_4;
+            cal.CUI_PERCENT_5 = rwstream2.CUI_PERCENT_5;
+            cal.CUI_PERCENT_6 = rwstream2.CUI_PERCENT_6;
+            cal.CUI_PERCENT_7 = rwstream2.CUI_PERCENT_7;
+            cal.CUI_PERCENT_8 = rwstream2.CUI_PERCENT_8;
+            cal.CUI_PERCENT_9 = rwstream2.CUI_PERCENT_9;
+            cal.CUI_PERCENT_10 = rwstream2.CUI_PERCENT_10;
             //</CUI DM>
 
             //<input External CLSCC>
@@ -574,7 +574,7 @@ namespace RBI
             cal.MIN_DESIGN_TEMP = rwma.MinDesignTemperature;
             cal.REF_TEMP = rwma.ReferenceTemperature;
             cal.CHROMIUM_12 = rwma.ChromeMoreEqual12 == 1 ? true : false;
-            //</>
+            //</885>
 
             //<input Sigma>
             cal.AUSTENITIC_STEEL = rwma.Austenitic == 1 ? true : false;
@@ -596,10 +596,13 @@ namespace RBI
             //</Piping Mechanical>
 
             //<goi ham tinh toan DF>
-            //MessageBox.Show("Df_Thinning = " + cal.DF_THIN(10).ToString(),"Damage Factor Thinning");
+            MessageBox.Show("Df_Thinning = " + cal.DF_THIN(10).ToString(),"Damage Factor Thinning");
             //MessageBox.Show("Df_Linning = " + cal.DF_LINNING(10).ToString(), "Damage Factor Linning");
             //MessageBox.Show("Df_Caustic = " + cal.DF_CAUSTIC(10).ToString(), "Damage Factor Caustic");
-            MessageBox.Show("Df_Amine = " + cal.DF_AMINE(10).ToString(), "Damage Factor Amine");
+            //MessageBox.Show("Df_Amine = " + cal.DF_AMINE(10).ToString(), "Damage Factor Amine");
+            //MessageBox.Show("Df_Sulphide = " + cal.DF_SULPHIDE(10).ToString(), "Damage Factor Sulphide Stress Cracking");
+            //MessageBox.Show("Df_PTA = " + cal.DF_PTA(11).ToString(), "Damage Factor PTA Cracking");
+            //MessageBox.Show("Df_PTA = " + cal.DF_PTA(10), "Damage Factor PTA Cracking");
             //MessageBox.Show("n"+cal.LinningType +"a"+cal.LINNER_CONDITION);
             //</ket thuc tinh toan DF>
         }

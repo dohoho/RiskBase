@@ -186,11 +186,6 @@
             this.cbPreviousFailures.Name = "cbPreviousFailures";
             this.cbPreviousFailures.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cbPreviousFailures.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.ImageComboBoxItem[] {
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("", ((short)(-1)), -1),
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("None", ((short)(0)), 0),
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("One", ((short)(1)), 1),
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Greater than one", ((short)(2)), 2)});
             this.cbPreviousFailures.Size = new System.Drawing.Size(368, 20);
             this.cbPreviousFailures.TabIndex = 15;
             // 
@@ -200,13 +195,6 @@
             this.cbJointTypeBranch.Name = "cbJointTypeBranch";
             this.cbJointTypeBranch.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cbJointTypeBranch.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.ImageComboBoxItem[] {
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("", ((short)(-1)), -1),
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("None", ((short)(0)), 0),
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Saddle in fittings", ((short)(1)), 1),
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Threaded, socket welded, or saddle on", ((short)(2)), 2),
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Piping tee weldolets", ((short)(3)), 3),
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Sweepolets", ((short)(4)), 4)});
             this.cbJointTypeBranch.Size = new System.Drawing.Size(368, 20);
             this.cbJointTypeBranch.TabIndex = 9;
             // 
@@ -216,12 +204,6 @@
             this.cbCyclicLoading.Name = "cbCyclicLoading";
             this.cbCyclicLoading.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cbCyclicLoading.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.ImageComboBoxItem[] {
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("", ((short)(-1)), -1),
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Reciprocating machinery", ((short)(0)), 0),
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("PRV chatter", ((short)(1)), 1),
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Valve with high pressure drop", ((short)(2)), 2),
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("None", ((short)(3)), 3)});
             this.cbCyclicLoading.Size = new System.Drawing.Size(368, 20);
             this.cbCyclicLoading.TabIndex = 16;
             // 
@@ -231,11 +213,6 @@
             this.cbMaxBrillnessHardness.Name = "cbMaxBrillnessHardness";
             this.cbMaxBrillnessHardness.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cbMaxBrillnessHardness.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.ImageComboBoxItem[] {
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("", ((short)(-1)), -1),
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Below 200", ((short)(0)), 1),
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Between 200 and 237", ((short)(1)), 0),
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Greater than 237", ((short)(2)), 2)});
             this.cbMaxBrillnessHardness.Size = new System.Drawing.Size(368, 20);
             this.cbMaxBrillnessHardness.TabIndex = 10;
             // 
@@ -245,11 +222,6 @@
             this.cbPipeCondition.Name = "cbPipeCondition";
             this.cbPipeCondition.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cbPipeCondition.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.ImageComboBoxItem[] {
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("", ((short)(-1)), -1),
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Missing or damage supports, improper support", ((short)(0)), 0),
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Broken gussets or gussets welded directly to pipe", ((short)(1)), 1),
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Good condition", ((short)(2)), 2)});
             this.cbPipeCondition.Size = new System.Drawing.Size(368, 20);
             this.cbPipeCondition.TabIndex = 11;
             // 
@@ -259,11 +231,6 @@
             this.cbNumberFittingPipe.Name = "cbNumberFittingPipe";
             this.cbNumberFittingPipe.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cbNumberFittingPipe.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.ImageComboBoxItem[] {
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("", ((short)(-1)), -1),
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Up to 5", ((short)(0)), 0),
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("6 to 10", ((short)(1)), 1),
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("More than 10", ((short)(2)), 2)});
             this.cbNumberFittingPipe.Size = new System.Drawing.Size(368, 20);
             this.cbNumberFittingPipe.TabIndex = 12;
             // 
@@ -273,10 +240,6 @@
             this.cbBranchDiameter.Name = "cbBranchDiameter";
             this.cbBranchDiameter.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cbBranchDiameter.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.ImageComboBoxItem[] {
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("", ((short)(-1)), -1),
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Any branch less than or equal to 2 inch Norminal OD", ((short)(0)), 0),
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("All branches greater than 2 inch Norminal OD", ((short)(1)), 1)});
             this.cbBranchDiameter.Size = new System.Drawing.Size(368, 20);
             this.cbBranchDiameter.TabIndex = 13;
             // 
@@ -286,11 +249,6 @@
             this.cbComplexityProtrusion.Name = "cbComplexityProtrusion";
             this.cbComplexityProtrusion.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cbComplexityProtrusion.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.ImageComboBoxItem[] {
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("", ((short)(-1)), -1),
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Above average", ((short)(0)), 0),
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Average", ((short)(1)), 1),
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Below Average", ((short)(2)), 2)});
             this.cbComplexityProtrusion.Size = new System.Drawing.Size(368, 20);
             this.cbComplexityProtrusion.TabIndex = 14;
             // 
@@ -395,7 +353,7 @@
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(194, 15);
             this.label27.TabIndex = 0;
-            this.label27.Text = "Accumalated Time Shaking if Pipe";
+            this.label27.Text = "Accumulated Time Shaking if Pipe";
             // 
             // label24
             // 

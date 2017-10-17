@@ -68,17 +68,17 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txtPercentageFluidGoingOffsite = new System.Windows.Forms.TextBox();
+            this.txtPercentageLeavingDike = new System.Windows.Forms.TextBox();
+            this.txtPercentageLeavingRemainsOnSite = new System.Windows.Forms.TextBox();
+            this.label24 = new System.Windows.Forms.Label();
             this.txtFluidHeight = new System.Windows.Forms.TextBox();
+            this.label23 = new System.Windows.Forms.Label();
             this.cbPrimaryFluid = new DevExpress.XtraEditors.ImageComboBoxEdit();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.txtPercentageLeavingRemainsOnSite = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
-            this.txtPercentageLeavingDike = new System.Windows.Forms.TextBox();
-            this.label24 = new System.Windows.Forms.Label();
-            this.txtPercentageFluidGoingOffsite = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cbAmineSolutionComposition.Properties)).BeginInit();
@@ -150,6 +150,8 @@
             // 
             this.cbAmineSolutionComposition.Location = new System.Drawing.Point(251, 159);
             this.cbAmineSolutionComposition.Name = "cbAmineSolutionComposition";
+            this.cbAmineSolutionComposition.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbAmineSolutionComposition.Properties.Appearance.Options.UseFont = true;
             this.cbAmineSolutionComposition.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cbAmineSolutionComposition.Size = new System.Drawing.Size(406, 20);
@@ -159,6 +161,8 @@
             // 
             this.cbExposureAmine.Location = new System.Drawing.Point(251, 133);
             this.cbExposureAmine.Name = "cbExposureAmine";
+            this.cbExposureAmine.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbExposureAmine.Properties.Appearance.Options.UseFont = true;
             this.cbExposureAmine.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cbExposureAmine.Size = new System.Drawing.Size(406, 20);
@@ -267,9 +271,10 @@
             // 
             // txtpHWater
             // 
+            this.txtpHWater.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtpHWater.Location = new System.Drawing.Point(672, 70);
             this.txtpHWater.Name = "txtpHWater";
-            this.txtpHWater.Size = new System.Drawing.Size(170, 20);
+            this.txtpHWater.Size = new System.Drawing.Size(170, 21);
             this.txtpHWater.TabIndex = 1;
             // 
             // label12
@@ -373,9 +378,10 @@
             // 
             // txtCO3ConcentrationWater
             // 
+            this.txtCO3ConcentrationWater.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCO3ConcentrationWater.Location = new System.Drawing.Point(672, 44);
             this.txtCO3ConcentrationWater.Name = "txtCO3ConcentrationWater";
-            this.txtCO3ConcentrationWater.Size = new System.Drawing.Size(170, 20);
+            this.txtCO3ConcentrationWater.Size = new System.Drawing.Size(170, 21);
             this.txtCO3ConcentrationWater.TabIndex = 1;
             // 
             // label14
@@ -413,9 +419,10 @@
             // 
             // txtReleaseFluidPercent
             // 
+            this.txtReleaseFluidPercent.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtReleaseFluidPercent.Location = new System.Drawing.Point(672, 18);
             this.txtReleaseFluidPercent.Name = "txtReleaseFluidPercent";
-            this.txtReleaseFluidPercent.Size = new System.Drawing.Size(170, 20);
+            this.txtReleaseFluidPercent.Size = new System.Drawing.Size(170, 21);
             this.txtReleaseFluidPercent.TabIndex = 1;
             // 
             // label
@@ -430,9 +437,10 @@
             // 
             // txtH2SContent
             // 
+            this.txtH2SContent.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtH2SContent.Location = new System.Drawing.Point(250, 73);
             this.txtH2SContent.Name = "txtH2SContent";
-            this.txtH2SContent.Size = new System.Drawing.Size(170, 20);
+            this.txtH2SContent.Size = new System.Drawing.Size(170, 21);
             this.txtH2SContent.TabIndex = 1;
             // 
             // label7
@@ -447,9 +455,10 @@
             // 
             // txtChlorideIon
             // 
+            this.txtChlorideIon.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtChlorideIon.Location = new System.Drawing.Point(250, 47);
             this.txtChlorideIon.Name = "txtChlorideIon";
-            this.txtChlorideIon.Size = new System.Drawing.Size(170, 20);
+            this.txtChlorideIon.Size = new System.Drawing.Size(170, 21);
             this.txtChlorideIon.TabIndex = 1;
             // 
             // label6
@@ -464,9 +473,10 @@
             // 
             // txtNaOHConcentration
             // 
+            this.txtNaOHConcentration.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNaOHConcentration.Location = new System.Drawing.Point(250, 21);
             this.txtNaOHConcentration.Name = "txtNaOHConcentration";
-            this.txtNaOHConcentration.Size = new System.Drawing.Size(170, 20);
+            this.txtNaOHConcentration.Size = new System.Drawing.Size(170, 21);
             this.txtNaOHConcentration.TabIndex = 1;
             // 
             // label5
@@ -518,21 +528,88 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Fluid";
             // 
+            // txtPercentageFluidGoingOffsite
+            // 
+            this.txtPercentageFluidGoingOffsite.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPercentageFluidGoingOffsite.Location = new System.Drawing.Point(603, 82);
+            this.txtPercentageFluidGoingOffsite.Name = "txtPercentageFluidGoingOffsite";
+            this.txtPercentageFluidGoingOffsite.Size = new System.Drawing.Size(100, 21);
+            this.txtPercentageFluidGoingOffsite.TabIndex = 3;
+            // 
+            // txtPercentageLeavingDike
+            // 
+            this.txtPercentageLeavingDike.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPercentageLeavingDike.Location = new System.Drawing.Point(603, 49);
+            this.txtPercentageLeavingDike.Name = "txtPercentageLeavingDike";
+            this.txtPercentageLeavingDike.Size = new System.Drawing.Size(100, 21);
+            this.txtPercentageLeavingDike.TabIndex = 3;
+            // 
+            // txtPercentageLeavingRemainsOnSite
+            // 
+            this.txtPercentageLeavingRemainsOnSite.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPercentageLeavingRemainsOnSite.Location = new System.Drawing.Point(232, 82);
+            this.txtPercentageLeavingRemainsOnSite.Name = "txtPercentageLeavingRemainsOnSite";
+            this.txtPercentageLeavingRemainsOnSite.Size = new System.Drawing.Size(100, 21);
+            this.txtPercentageLeavingRemainsOnSite.TabIndex = 3;
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.Location = new System.Drawing.Point(408, 82);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(186, 15);
+            this.label24.TabIndex = 0;
+            this.label24.Text = "Percentage of Fluid Going Offsite\r\n";
+            // 
             // txtFluidHeight
             // 
+            this.txtFluidHeight.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtFluidHeight.Location = new System.Drawing.Point(232, 45);
             this.txtFluidHeight.Name = "txtFluidHeight";
-            this.txtFluidHeight.Size = new System.Drawing.Size(100, 20);
+            this.txtFluidHeight.Size = new System.Drawing.Size(100, 21);
             this.txtFluidHeight.TabIndex = 3;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.Location = new System.Drawing.Point(408, 44);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(179, 30);
+            this.label23.TabIndex = 0;
+            this.label23.Text = "Percentage of Fluid Leaving the\r\nDike";
             // 
             // cbPrimaryFluid
             // 
             this.cbPrimaryFluid.Location = new System.Drawing.Point(232, 14);
             this.cbPrimaryFluid.Name = "cbPrimaryFluid";
+            this.cbPrimaryFluid.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbPrimaryFluid.Properties.Appearance.Options.UseFont = true;
             this.cbPrimaryFluid.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cbPrimaryFluid.Size = new System.Drawing.Size(471, 20);
             this.cbPrimaryFluid.TabIndex = 2;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(37, 77);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(179, 30);
+            this.label8.TabIndex = 0;
+            this.label8.Text = "Percentage of Fluid Leaving the\r\n Dike but Remains on Site";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(338, 50);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(18, 15);
+            this.label9.TabIndex = 0;
+            this.label9.Text = "m";
             // 
             // label2
             // 
@@ -553,67 +630,6 @@
             this.label1.Size = new System.Drawing.Size(34, 15);
             this.label1.TabIndex = 0;
             this.label1.Text = "Fluid";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(37, 77);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(179, 30);
-            this.label8.TabIndex = 0;
-            this.label8.Text = "Percentage of Fluid Leaving the\r\n Dike but Remains on Site";
-            // 
-            // txtPercentageLeavingRemainsOnSite
-            // 
-            this.txtPercentageLeavingRemainsOnSite.Location = new System.Drawing.Point(232, 82);
-            this.txtPercentageLeavingRemainsOnSite.Name = "txtPercentageLeavingRemainsOnSite";
-            this.txtPercentageLeavingRemainsOnSite.Size = new System.Drawing.Size(100, 20);
-            this.txtPercentageLeavingRemainsOnSite.TabIndex = 3;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(338, 50);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(18, 15);
-            this.label9.TabIndex = 0;
-            this.label9.Text = "m";
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.Location = new System.Drawing.Point(408, 44);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(179, 30);
-            this.label23.TabIndex = 0;
-            this.label23.Text = "Percentage of Fluid Leaving the\r\nDike";
-            // 
-            // txtPercentageLeavingDike
-            // 
-            this.txtPercentageLeavingDike.Location = new System.Drawing.Point(603, 49);
-            this.txtPercentageLeavingDike.Name = "txtPercentageLeavingDike";
-            this.txtPercentageLeavingDike.Size = new System.Drawing.Size(100, 20);
-            this.txtPercentageLeavingDike.TabIndex = 3;
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label24.Location = new System.Drawing.Point(408, 82);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(186, 15);
-            this.label24.TabIndex = 0;
-            this.label24.Text = "Percentage of Fluid Going Offsite\r\n";
-            // 
-            // txtPercentageFluidGoingOffsite
-            // 
-            this.txtPercentageFluidGoingOffsite.Location = new System.Drawing.Point(603, 82);
-            this.txtPercentageFluidGoingOffsite.Name = "txtPercentageFluidGoingOffsite";
-            this.txtPercentageFluidGoingOffsite.Size = new System.Drawing.Size(100, 20);
-            this.txtPercentageFluidGoingOffsite.TabIndex = 3;
             // 
             // UCStreamTankBottom
             // 

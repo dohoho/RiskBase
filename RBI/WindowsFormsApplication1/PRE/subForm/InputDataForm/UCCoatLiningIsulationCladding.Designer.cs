@@ -122,6 +122,7 @@
             // 
             // cbExternalIsulation
             // 
+            this.cbExternalIsulation.Enabled = false;
             this.cbExternalIsulation.Location = new System.Drawing.Point(187, 43);
             this.cbExternalIsulation.Name = "cbExternalIsulation";
             this.cbExternalIsulation.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -150,6 +151,7 @@
             // 
             // cbIsulationCondition
             // 
+            this.cbIsulationCondition.Enabled = false;
             this.cbIsulationCondition.Location = new System.Drawing.Point(187, 71);
             this.cbIsulationCondition.Name = "cbIsulationCondition";
             this.cbIsulationCondition.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -230,6 +232,7 @@
             this.chkExternalIsulation.Size = new System.Drawing.Size(15, 14);
             this.chkExternalIsulation.TabIndex = 1;
             this.chkExternalIsulation.UseVisualStyleBackColor = true;
+            this.chkExternalIsulation.CheckedChanged += new System.EventHandler(this.chkExternalIsulation_CheckedChanged);
             // 
             // groupBox4
             // 
@@ -248,6 +251,7 @@
             // 
             // cbInternalLinerType
             // 
+            this.cbInternalLinerType.Enabled = false;
             this.cbInternalLinerType.Location = new System.Drawing.Point(187, 41);
             this.cbInternalLinerType.Name = "cbInternalLinerType";
             this.cbInternalLinerType.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -288,6 +292,7 @@
             // 
             // cbInternalLinerCondition
             // 
+            this.cbInternalLinerCondition.Enabled = false;
             this.cbInternalLinerCondition.Location = new System.Drawing.Point(187, 71);
             this.cbInternalLinerCondition.Name = "cbInternalLinerCondition";
             this.cbInternalLinerCondition.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -339,6 +344,7 @@
             this.chkInternalLining.Size = new System.Drawing.Size(15, 14);
             this.chkInternalLining.TabIndex = 1;
             this.chkInternalLining.UseVisualStyleBackColor = true;
+            this.chkInternalLining.CheckedChanged += new System.EventHandler(this.chkInternalLining_CheckedChanged);
             // 
             // groupBox3
             // 

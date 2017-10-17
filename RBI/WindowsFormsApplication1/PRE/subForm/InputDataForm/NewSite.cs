@@ -40,5 +40,11 @@ namespace RBI.PRE.subForm.InputDataForm
             this.Close();
         }
 
+        private void txtSiteName_TextChanged(object sender, EventArgs e)
+        {
+            if (txtSiteName.Text != "") picPlantName.Enabled = false;
+            else picPlantName.Enabled = true;
+        }
+
     }
 }

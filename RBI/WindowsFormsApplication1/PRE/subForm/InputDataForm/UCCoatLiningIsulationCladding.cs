@@ -36,5 +36,33 @@ namespace RBI.PRE.subForm.InputDataForm
             coat.SupportConfigNotAllowCoatingMaint = chkSupport.Checked ? 1 : 0;
             return coat;
         }
+
+        private void chkInternalLining_CheckedChanged(object sender, EventArgs e)
+        {
+            if(chkInternalLining.Checked)
+            {
+                cbInternalLinerType.Enabled = true;
+                cbInternalLinerCondition.Enabled = true;
+            }
+            else
+            {
+                cbInternalLinerType.Enabled = false;
+                cbInternalLinerCondition.Enabled = false;
+            }
+        }
+
+        private void chkExternalIsulation_CheckedChanged(object sender, EventArgs e)
+        {
+            if(chkExternalIsulation.Checked)
+            {
+                cbIsulationCondition.Enabled = true;
+                cbExternalIsulation.Enabled = true;
+            }
+            else
+            {
+                cbIsulationCondition.Enabled = false;
+                cbExternalIsulation.Enabled = false;
+            }
+        }
     }
 }

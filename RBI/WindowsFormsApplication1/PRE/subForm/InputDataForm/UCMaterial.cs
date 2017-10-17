@@ -13,6 +13,15 @@ namespace RBI.PRE.subForm.InputDataForm
 {
     public partial class UCMaterial : UserControl
     {
+        string[] itemsSulfurContent = { "High > 0.01%", "Low 0.002 - 0.01%", "Ultra Low < 0.002%" };
+        string[] itemsHeatTreatment = {"Annealed", "None", "Normalised Temper", "Quench Temper", "Stress Relieved", "Sub Critical PWHT" };
+        string[] itemsHTHAMaterial = {"1.25Cr-0.5Mo", "1Cr-0.5Mo", "2.25Cr-1Mo", "C-0.5Mo (Annealed)", "C-0.5Mo (Normalised)", "Carbon Steel", "Not Applicable" };
+        string[] itemsPTAMterial = {"321 Stainless Steel",
+                                "347 Stainless Steel, Alloy 20, Alloy 625, All austenitic weld overlay",
+                                "Regular 300 series Stainless Steels and Alloys 600 and 800",
+                                "H Grade 300 series Stainless Steels",
+                                "L Grade 300 series Stainless Steels",
+                                "Not Applicable"};
         public UCMaterial()
         {
             InitializeComponent();
@@ -26,43 +35,35 @@ namespace RBI.PRE.subForm.InputDataForm
 
         private void addSulfurContent()
         {
-            cbSulfurContent.Properties.Items.Add("");
-            cbSulfurContent.Properties.Items.Add("Ultra Low < 0.002%");
-            cbSulfurContent.Properties.Items.Add("Low 0.002 - 0.01%");
-            cbSulfurContent.Properties.Items.Add("High > 0.01%");
+            cbSulfurContent.Properties.Items.Add("", -1, -1);
+            for (int i = 0; i < itemsSulfurContent.Length; i++ )
+            {
+                cbSulfurContent.Properties.Items.Add(itemsSulfurContent[i], i, i);
+            }
         }
         private void addHeatTreatment()
         {
-            cbHeatTreatment.Properties.Items.Add("");
-            cbHeatTreatment.Properties.Items.Add("None");
-            cbHeatTreatment.Properties.Items.Add("Annealed");
-            cbHeatTreatment.Properties.Items.Add("Normalised Temper");
-            cbHeatTreatment.Properties.Items.Add("Quench Temper");
-            cbHeatTreatment.Properties.Items.Add("Stress Relieved");
-            cbHeatTreatment.Properties.Items.Add("Sub Critical PWHT");
+            cbHeatTreatment.Properties.Items.Add("", -1, -1);
+            for (int i = 0; i < itemsHeatTreatment.Length; i++ )
+            {
+                cbHeatTreatment.Properties.Items.Add(itemsHeatTreatment[i], i, i);
+            }
         }
         private void addMaterialGradeHTHA()
         {
-            cbHTHAMaterial.Properties.Items.Add("");
-            cbHTHAMaterial.Properties.Items.Add("Carbon Steel");
-            cbHTHAMaterial.Properties.Items.Add("C-0.5Mo (Annealed)");
-            cbHTHAMaterial.Properties.Items.Add("C-0.5Mo (Normalised)");
-            cbHTHAMaterial.Properties.Items.Add("1Cr-0.5Mo");
-            cbHTHAMaterial.Properties.Items.Add("1.25Cr-0.5Mo");
-            cbHTHAMaterial.Properties.Items.Add("2.25Cr-1Mo");
-            cbHTHAMaterial.Properties.Items.Add("Not Applicable");
-            
+            cbHTHAMaterial.Properties.Items.Add("",-1,-1);
+            for (int i = 0; i < itemsHTHAMaterial.Length; i++ )
+            {
+                cbHTHAMaterial.Properties.Items.Add(itemsHTHAMaterial[i], i, i);
+            }
         }
         private void addPTAMterial()
         {
-            
-            cbPTAMaterialGrade.Properties.Items.Add("");
-            cbPTAMaterialGrade.Properties.Items.Add("Regular 300 series Stainless Steel and Alloys 600 and 800");
-            cbPTAMaterialGrade.Properties.Items.Add("L Grade 300 series Stainless Steel");
-            cbPTAMaterialGrade.Properties.Items.Add("H Grade 300 series Stainless Steel");
-            cbPTAMaterialGrade.Properties.Items.Add("321 Stainless Steel");
-            cbPTAMaterialGrade.Properties.Items.Add("347 Stainless Steel, Alloy 20, Alloy 625, All  austenitic weld overlay");
-            cbPTAMaterialGrade.Properties.Items.Add("Not Applicable");
+            cbPTAMaterialGrade.Properties.Items.Add("",-1,-1);
+            for (int i = 0; i < itemsPTAMterial.Length; i++ )
+            {
+                cbPTAMaterialGrade.Properties.Items.Add(itemsPTAMterial[i], i, i);
+            }
         }
 
         public RW_MATERIAL getData()
@@ -79,7 +80,7 @@ namespace RBI.PRE.subForm.InputDataForm
             ma.SulfurContent = cbSulfurContent.Text;
             ma.HeatTreatment = cbHeatTreatment.Text;
             ma.ReferenceTemperature = txtReferenceTemperature.Text != "" ? float.Parse(txtReferenceTemperature.Text) : 0;
-            ma.PTAMaterialCode = cbPTAMaterial.Text;
+            ma.PTAMaterialCode = cbPTAMaterialGrade.Text;
             ma.HTHAMaterialCode = cbHTHAMaterial.Text;
             ma.IsPTA = chkIsPTASeverity.Checked ? 1 : 0;
             ma.IsHTHA = chkIsHTHASeverity.Checked ? 1 : 0;
@@ -91,6 +92,16 @@ namespace RBI.PRE.subForm.InputDataForm
             ma.AllowableStress = txtAllowableStress.Text != "" ? float.Parse(txtAllowableStress.Text) : 0;
             ma.CostFactor = txtMaterialCostFactor.Text != "" ? float.Parse(txtMaterialCostFactor.Text) : 0;
             return ma;
+        }
+
+        private void chkIsHTHASeverity_CheckedChanged(object sender, EventArgs e)
+        {
+            cbHTHAMaterial.Enabled = chkIsHTHASeverity.Checked ? true : false;
+        }
+
+        private void chkIsPTASeverity_CheckedChanged(object sender, EventArgs e)
+        {
+            cbPTAMaterialGrade.Enabled = chkIsPTASeverity.Checked ? true : false;
         }
 
     }

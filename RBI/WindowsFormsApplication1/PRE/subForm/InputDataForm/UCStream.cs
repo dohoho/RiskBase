@@ -13,12 +13,33 @@ namespace RBI.PRE.subForm.InputDataForm
 {
     public partial class UCStream : UserControl
     {
+
+        string[] itemsExposureAmine = { "High Rich Amine", "Low Lean Amine", "None" };
+        string[] itemsAmineSolutionComposition = { "Diethanolamine DEA", "Diglycolamine DGA", "Disopropanolamine DIPA", "Methyldiethanolamine MDEA", "Monoethanolamine MEA", "Sulfinol" };
         public UCStream()
         {
             InitializeComponent();
+            addItemsExposureAmine();
+            addItemsAmineSolutionComposition();
+        }
+        private void addItemsExposureAmine()
+        {
+            cbExposureAmine.Properties.Items.Add("",-1,-1);
+            for (int i = 0; i < itemsExposureAmine.Length; i++ )
+            {
+                cbExposureAmine.Properties.Items.Add(itemsExposureAmine[i], i, i);
+            }
+        }
+        private void addItemsAmineSolutionComposition()
+        {
+            cbAmineSolutionComposition.Properties.Items.Add("", -1, -1);
+            for (int i = 0; i < itemsAmineSolutionComposition.Length; i++ )
+            {
+                cbAmineSolutionComposition.Properties.Items.Add(itemsAmineSolutionComposition[i], i, i);
+            }
         }
         RW_STREAM stream = new RW_STREAM();
-        public RW_STREAM getData1()
+        public RW_STREAM getData()
         {
             
             stream.AmineSolution = cbAmineSolutionComposition.Text;
@@ -33,7 +54,7 @@ namespace RBI.PRE.subForm.InputDataForm
             stream.ExposedToSulphur = chkExposedSulphurBearing.Checked ? 1 : 0;
             stream.ExposureToAmine = cbExposureAmine.Text;
             stream.H2S = chkEnviromentContainsH2S.Checked ? 1 : 0;
-            stream.H2SInWater = txtH2SContent.Text != "" ? float.Parse(txtH2SContent.Text) : 0;
+            stream.H2SInWater = txtH2SContentInWater.Text != "" ? float.Parse(txtH2SContentInWater.Text) : 0;
             stream.Hydrogen = chkProcessContainsHydrogen.Checked ? 1 : 0;
             stream.MaterialExposedToClInt = chkChlorine.Checked ? 1 : 0;
             stream.NaOHConcentration = txtNaOHConcentration.Text != "" ? float.Parse(txtNaOHConcentration.Text) : 0;
@@ -42,12 +63,12 @@ namespace RBI.PRE.subForm.InputDataForm
             stream.Hydrofluoric = chkPresenceHydrofluoricAcid.Checked ? 1 : 0;
             return stream;
         }
-        public RW_STREAM getData2()
-        {
-            UCOperatingCondition ucOperating = new UCOperatingCondition();
-            RW_STREAM temp = new RW_STREAM();
-            temp = ucOperating.getData();
-            return temp;
-        }
+        //public RW_STREAM getData2()
+        //{
+        //    UCOperatingCondition ucOperating = new UCOperatingCondition();
+        //    RW_STREAM temp = new RW_STREAM();
+        //    temp = ucOperating.getData();
+        //    return temp;
+        //}
     }
 }

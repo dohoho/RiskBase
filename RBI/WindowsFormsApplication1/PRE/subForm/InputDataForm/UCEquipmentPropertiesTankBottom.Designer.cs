@@ -207,46 +207,6 @@
             this.cbOnlineMonitoring.Name = "cbOnlineMonitoring";
             this.cbOnlineMonitoring.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cbOnlineMonitoring.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.ImageComboBoxItem[] {
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("", ((short)(-1)), -1),
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Amine high velocity corrosion - Corrosion coupons", ((short)(0)), 0),
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Amine high velocity corrosion - Electrical resistance probes", ((short)(1)), 1),
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Amine high velocity corrosion - Key process variable", ((short)(2)), 2),
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Amine low velocity corrosion - Corrosion coupons", ((short)(3)), 3),
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Amine low velocity corrosion - Electrical resistance probes", ((short)(4)), 4),
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Amine low velocity corrosion - Key process variable", ((short)(5)), 5),
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("HCI corrosion - Corrosion coupons", ((short)(6)), 6),
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("HCI corrosion - Electrical resistance probes", ((short)(7)), 7),
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("HCI corrosion - Key process parameters", ((short)(8)), 8),
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("HCI corrosion - Key process parameters & Electrical resistance probes", ((short)(9)), 9),
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("HF corrosion - Corrosion coupons", ((short)(10)), 10),
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("HF corrosion - Electrical resistance probes", ((short)(11)), 11),
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("HF corrosion - Key process variable", ((short)(12)), 12),
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("High temperature H2S/H2 cprrosion - Corrosion coupons", ((short)(13)), 13),
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("High temperature H2S/H2 cprrosion - Electrical resistance probes", ((short)(14)), 14),
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("High temperature H2S/H2 cprrosion - Key process parameters", ((short)(15)), 15),
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("High temperature Sulfidic / Naphthenic acid corrosion - Corrosion coupons", ((short)(16)), 16),
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("High temperature Sulfidic / Naphthenic acid corrosion - Electrical resistance pro" +
-                    "bes", ((short)(17)), 17),
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("High temperature Sulfidic / Naphthenic acid corrosion - Key process variable", ((short)(18)), 18),
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("No online monitoring", ((short)(19)), 19),
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Other corrosion - Corrosion coupons", ((short)(20)), 20),
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Other corrosion - Electrical resistance probes", ((short)(21)), 21),
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Other corrosion - Key process variable", ((short)(22)), 22),
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Sour water high velocity corrsion - Corrosion coupons", ((short)(23)), 23),
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Sour water high velocity corrsion - Electrical resistance probes", ((short)(24)), 24),
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Sour water high velocity corrsion - Key process variable", ((short)(25)), 25),
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Sour water low velocity corrsion - Corrosion coupons", ((short)(26)), 26),
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Sour water low velocity corrsion - Electrical resistance probes", ((short)(27)), 27),
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Sour water low velocity corrsion - Key process variable", ((short)(28)), 28),
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Sulfuric acid (H2S/H2) corrosion high velocity - Corrosion coupons", ((short)(29)), 29),
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Sulfuric acid (H2S/H2) corrosion high velocity - Electrical resistance probes", ((short)(30)), 30),
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Sulfuric acid (H2S/H2) corrosion high velocity - Key process parameters", ((short)(31)), 31),
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Sulfuric acid (H2S/H2) corrosion high velocity - Key process parameters & Electri" +
-                    "cal resistance probes", ((short)(32)), 32),
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Sulfuric acid (H2S/H2) corrosion low velocity - Corrosion coupons", ((short)(33)), 33),
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Sulfuric acid (H2S/H2) corrosion low velocity - Electrical resistance probes", ((short)(34)), 34),
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Sulfuric acid (H2S/H2) corrosion low velocity - Key process parameters", ((short)(35)), 35)});
             this.cbOnlineMonitoring.Properties.SmallImages = this.imgColOnlineMonitoring;
             this.cbOnlineMonitoring.Size = new System.Drawing.Size(281, 20);
             this.cbOnlineMonitoring.TabIndex = 7;
@@ -297,11 +257,6 @@
             this.cbEnvironmentalSensitivity.Name = "cbEnvironmentalSensitivity";
             this.cbEnvironmentalSensitivity.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cbEnvironmentalSensitivity.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.ImageComboBoxItem[] {
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("", null, -1),
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Low", ((short)(0)), 0),
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Medium", ((short)(1)), 1),
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("High", ((short)(2)), 2)});
             this.cbEnvironmentalSensitivity.Properties.SmallImages = this.imgColEnviromental;
             this.cbEnvironmentalSensitivity.Size = new System.Drawing.Size(281, 20);
             this.cbEnvironmentalSensitivity.TabIndex = 8;
@@ -319,12 +274,6 @@
             this.cbExternalEnviroment.Name = "cbExternalEnviroment";
             this.cbExternalEnviroment.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cbExternalEnviroment.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.ImageComboBoxItem[] {
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("", null, -1),
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Marine", ((short)(0)), 0),
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Temperate", ((short)(1)), 1),
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Acid/dry", ((short)(2)), 2),
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Severe", ((short)(3)), 3)});
             this.cbExternalEnviroment.Properties.SmallImages = this.imgColExternalEnviroment;
             this.cbExternalEnviroment.Size = new System.Drawing.Size(281, 20);
             this.cbExternalEnviroment.TabIndex = 9;
@@ -343,12 +292,6 @@
             this.cbThermalHistory.Name = "cbThermalHistory";
             this.cbThermalHistory.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cbThermalHistory.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.ImageComboBoxItem[] {
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("", null, -1),
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Solution Annealed", ((short)(0)), 0),
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Stabilised After Welding", ((short)(1)), 1),
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Stabilised Before Welding", ((short)(2)), 2),
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("None", ((short)(3)), 3)});
             this.cbThermalHistory.Properties.SmallImages = this.imgThermalHist;
             this.cbThermalHistory.Size = new System.Drawing.Size(281, 20);
             this.cbThermalHistory.TabIndex = 10;
@@ -367,12 +310,6 @@
             this.cbAdjustmentSettlement.Name = "cbAdjustmentSettlement";
             this.cbAdjustmentSettlement.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cbAdjustmentSettlement.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.ImageComboBoxItem[] {
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("", null, -1),
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Recorded settlement exceeds API 653 criteria", ((short)(0)), 0),
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Recorded settlement meets API 653 criteria", ((short)(1)), 1),
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Settlement never evaluated", ((short)(2)), 2),
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Concrete foundation, no settlement", ((short)(3)), 3)});
             this.cbAdjustmentSettlement.Properties.SmallImages = this.imgColAdjust;
             this.cbAdjustmentSettlement.Size = new System.Drawing.Size(281, 20);
             this.cbAdjustmentSettlement.TabIndex = 11;
@@ -403,16 +340,18 @@
             // 
             // txtDistanceGroundWater
             // 
+            this.txtDistanceGroundWater.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDistanceGroundWater.Location = new System.Drawing.Point(511, 78);
             this.txtDistanceGroundWater.Name = "txtDistanceGroundWater";
-            this.txtDistanceGroundWater.Size = new System.Drawing.Size(139, 20);
+            this.txtDistanceGroundWater.Size = new System.Drawing.Size(139, 21);
             this.txtDistanceGroundWater.TabIndex = 2;
             // 
             // txtMinRequiredTemperature
             // 
+            this.txtMinRequiredTemperature.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMinRequiredTemperature.Location = new System.Drawing.Point(511, 162);
             this.txtMinRequiredTemperature.Name = "txtMinRequiredTemperature";
-            this.txtMinRequiredTemperature.Size = new System.Drawing.Size(139, 20);
+            this.txtMinRequiredTemperature.Size = new System.Drawing.Size(139, 21);
             this.txtMinRequiredTemperature.TabIndex = 2;
             // 
             // chkComponentWelded

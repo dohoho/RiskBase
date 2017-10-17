@@ -31,6 +31,12 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UCComponentPropertiesTankBottom));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cbMaxBrillnessHardness = new DevExpress.XtraEditors.ImageComboBoxEdit();
+            this.imgColMaxBrinnHardness = new DevExpress.Utils.ImageCollection(this.components);
+            this.cbSeverityVibration = new DevExpress.XtraEditors.ImageComboBoxEdit();
+            this.imgColSeverity = new DevExpress.Utils.ImageCollection(this.components);
+            this.cbComplexityProtrusion = new DevExpress.XtraEditors.ImageComboBoxEdit();
+            this.imgColComplexity = new DevExpress.Utils.ImageCollection(this.components);
             this.chkPreventionBarrier = new System.Windows.Forms.CheckBox();
             this.chkTrampElements = new System.Windows.Forms.CheckBox();
             this.chkPresenceCracks = new System.Windows.Forms.CheckBox();
@@ -61,21 +67,15 @@
             this.lb7 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.cbMaxBrillnessHardness = new DevExpress.XtraEditors.ImageComboBoxEdit();
-            this.cbSeverityVibration = new DevExpress.XtraEditors.ImageComboBoxEdit();
-            this.cbComplexityProtrusion = new DevExpress.XtraEditors.ImageComboBoxEdit();
             this.imgColEffect = new DevExpress.Utils.ImageCollection(this.components);
-            this.imgColMaxBrinnHardness = new DevExpress.Utils.ImageCollection(this.components);
-            this.imgColSeverity = new DevExpress.Utils.ImageCollection(this.components);
-            this.imgColComplexity = new DevExpress.Utils.ImageCollection(this.components);
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cbMaxBrillnessHardness.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbSeverityVibration.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbComplexityProtrusion.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.imgColEffect)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgColMaxBrinnHardness)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbSeverityVibration.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgColSeverity)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbComplexityProtrusion.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgColComplexity)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgColEffect)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -121,6 +121,73 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Component";
+            // 
+            // cbMaxBrillnessHardness
+            // 
+            this.cbMaxBrillnessHardness.Location = new System.Drawing.Point(223, 221);
+            this.cbMaxBrillnessHardness.Name = "cbMaxBrillnessHardness";
+            this.cbMaxBrillnessHardness.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cbMaxBrillnessHardness.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.ImageComboBoxItem[] {
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("", ((short)(-1)), -1),
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Below 200", ((short)(0)), 0),
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Between 200 and 237", ((short)(1)), 1),
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Greater than 237", ((short)(2)), 2)});
+            this.cbMaxBrillnessHardness.Properties.SmallImages = this.imgColMaxBrinnHardness;
+            this.cbMaxBrillnessHardness.Size = new System.Drawing.Size(368, 20);
+            this.cbMaxBrillnessHardness.TabIndex = 8;
+            // 
+            // imgColMaxBrinnHardness
+            // 
+            this.imgColMaxBrinnHardness.ImageStream = ((DevExpress.Utils.ImageCollectionStreamer)(resources.GetObject("imgColMaxBrinnHardness.ImageStream")));
+            this.imgColMaxBrinnHardness.Images.SetKeyName(0, "green.png");
+            this.imgColMaxBrinnHardness.Images.SetKeyName(1, "yellow.png");
+            this.imgColMaxBrinnHardness.Images.SetKeyName(2, "red.png");
+            // 
+            // cbSeverityVibration
+            // 
+            this.cbSeverityVibration.Location = new System.Drawing.Point(223, 273);
+            this.cbSeverityVibration.Name = "cbSeverityVibration";
+            this.cbSeverityVibration.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cbSeverityVibration.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.ImageComboBoxItem[] {
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("None", ((short)(0)), 0),
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Low", ((short)(1)), 1),
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Medium", ((short)(2)), 2),
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("High", ((short)(3)), 3)});
+            this.cbSeverityVibration.Properties.SmallImages = this.imgColSeverity;
+            this.cbSeverityVibration.Size = new System.Drawing.Size(368, 20);
+            this.cbSeverityVibration.TabIndex = 9;
+            // 
+            // imgColSeverity
+            // 
+            this.imgColSeverity.ImageStream = ((DevExpress.Utils.ImageCollectionStreamer)(resources.GetObject("imgColSeverity.ImageStream")));
+            this.imgColSeverity.Images.SetKeyName(0, "green.png");
+            this.imgColSeverity.Images.SetKeyName(1, "green3.png");
+            this.imgColSeverity.Images.SetKeyName(2, "orange.png");
+            this.imgColSeverity.Images.SetKeyName(3, "red.png");
+            // 
+            // cbComplexityProtrusion
+            // 
+            this.cbComplexityProtrusion.Location = new System.Drawing.Point(223, 247);
+            this.cbComplexityProtrusion.Name = "cbComplexityProtrusion";
+            this.cbComplexityProtrusion.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cbComplexityProtrusion.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.ImageComboBoxItem[] {
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("", ((short)(-1)), -1),
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Above Average", ((short)(0)), 0),
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Average", ((short)(1)), 1),
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Below Average", ((short)(2)), 2)});
+            this.cbComplexityProtrusion.Properties.SmallImages = this.imgColComplexity;
+            this.cbComplexityProtrusion.Size = new System.Drawing.Size(368, 20);
+            this.cbComplexityProtrusion.TabIndex = 10;
+            // 
+            // imgColComplexity
+            // 
+            this.imgColComplexity.ImageStream = ((DevExpress.Utils.ImageCollectionStreamer)(resources.GetObject("imgColComplexity.ImageStream")));
+            this.imgColComplexity.Images.SetKeyName(0, "red.png");
+            this.imgColComplexity.Images.SetKeyName(1, "yellow.png");
+            this.imgColComplexity.Images.SetKeyName(2, "green.png");
             // 
             // chkPreventionBarrier
             // 
@@ -169,30 +236,34 @@
             // 
             // txtCurrentCorrosionRate
             // 
+            this.txtCurrentCorrosionRate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCurrentCorrosionRate.Location = new System.Drawing.Point(223, 72);
             this.txtCurrentCorrosionRate.Name = "txtCurrentCorrosionRate";
-            this.txtCurrentCorrosionRate.Size = new System.Drawing.Size(125, 20);
+            this.txtCurrentCorrosionRate.Size = new System.Drawing.Size(125, 21);
             this.txtCurrentCorrosionRate.TabIndex = 1;
             // 
             // txtCurrentThickness
             // 
+            this.txtCurrentThickness.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCurrentThickness.Location = new System.Drawing.Point(223, 46);
             this.txtCurrentThickness.Name = "txtCurrentThickness";
-            this.txtCurrentThickness.Size = new System.Drawing.Size(125, 20);
+            this.txtCurrentThickness.Size = new System.Drawing.Size(125, 21);
             this.txtCurrentThickness.TabIndex = 1;
             // 
             // txtMinRequiredThickness
             // 
+            this.txtMinRequiredThickness.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMinRequiredThickness.Location = new System.Drawing.Point(559, 46);
             this.txtMinRequiredThickness.Name = "txtMinRequiredThickness";
-            this.txtMinRequiredThickness.Size = new System.Drawing.Size(125, 20);
+            this.txtMinRequiredThickness.Size = new System.Drawing.Size(125, 21);
             this.txtMinRequiredThickness.TabIndex = 1;
             // 
             // txtNumberInsp
             // 
+            this.txtNumberInsp.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNumberInsp.Location = new System.Drawing.Point(559, 72);
             this.txtNumberInsp.Name = "txtNumberInsp";
-            this.txtNumberInsp.Size = new System.Drawing.Size(125, 20);
+            this.txtNumberInsp.Size = new System.Drawing.Size(125, 21);
             this.txtNumberInsp.TabIndex = 1;
             // 
             // label12
@@ -207,9 +278,10 @@
             // 
             // txtNominalThickness
             // 
+            this.txtNominalThickness.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNominalThickness.Location = new System.Drawing.Point(559, 22);
             this.txtNominalThickness.Name = "txtNominalThickness";
-            this.txtNominalThickness.Size = new System.Drawing.Size(125, 20);
+            this.txtNominalThickness.Size = new System.Drawing.Size(125, 21);
             this.txtNominalThickness.TabIndex = 1;
             // 
             // label18
@@ -224,9 +296,10 @@
             // 
             // txtTankDiameter
             // 
+            this.txtTankDiameter.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTankDiameter.Location = new System.Drawing.Point(223, 21);
             this.txtTankDiameter.Name = "txtTankDiameter";
-            this.txtTankDiameter.Size = new System.Drawing.Size(125, 20);
+            this.txtTankDiameter.Size = new System.Drawing.Size(125, 21);
             this.txtTankDiameter.TabIndex = 1;
             // 
             // label17
@@ -399,51 +472,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Tank Diameter";
             // 
-            // cbMaxBrillnessHardness
-            // 
-            this.cbMaxBrillnessHardness.Location = new System.Drawing.Point(223, 221);
-            this.cbMaxBrillnessHardness.Name = "cbMaxBrillnessHardness";
-            this.cbMaxBrillnessHardness.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cbMaxBrillnessHardness.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.ImageComboBoxItem[] {
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("", ((short)(-1)), -1),
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Below 200", ((short)(0)), 0),
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Between 200 and 237", ((short)(1)), 1),
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Greater than 237", ((short)(2)), 2)});
-            this.cbMaxBrillnessHardness.Properties.SmallImages = this.imgColMaxBrinnHardness;
-            this.cbMaxBrillnessHardness.Size = new System.Drawing.Size(368, 20);
-            this.cbMaxBrillnessHardness.TabIndex = 8;
-            // 
-            // cbSeverityVibration
-            // 
-            this.cbSeverityVibration.Location = new System.Drawing.Point(223, 273);
-            this.cbSeverityVibration.Name = "cbSeverityVibration";
-            this.cbSeverityVibration.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cbSeverityVibration.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.ImageComboBoxItem[] {
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("None", ((short)(0)), 0),
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Low", ((short)(1)), 1),
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Medium", ((short)(2)), 2),
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("High", ((short)(3)), 3)});
-            this.cbSeverityVibration.Properties.SmallImages = this.imgColSeverity;
-            this.cbSeverityVibration.Size = new System.Drawing.Size(368, 20);
-            this.cbSeverityVibration.TabIndex = 9;
-            // 
-            // cbComplexityProtrusion
-            // 
-            this.cbComplexityProtrusion.Location = new System.Drawing.Point(223, 247);
-            this.cbComplexityProtrusion.Name = "cbComplexityProtrusion";
-            this.cbComplexityProtrusion.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cbComplexityProtrusion.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.ImageComboBoxItem[] {
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("", ((short)(-1)), -1),
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Above Average", ((short)(0)), 0),
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Average", ((short)(1)), 1),
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Below Average", ((short)(2)), 2)});
-            this.cbComplexityProtrusion.Properties.SmallImages = this.imgColComplexity;
-            this.cbComplexityProtrusion.Size = new System.Drawing.Size(368, 20);
-            this.cbComplexityProtrusion.TabIndex = 10;
-            // 
             // imgColEffect
             // 
             this.imgColEffect.ImageStream = ((DevExpress.Utils.ImageCollectionStreamer)(resources.GetObject("imgColEffect.ImageStream")));
@@ -452,28 +480,6 @@
             this.imgColEffect.Images.SetKeyName(2, "yellow.png");
             this.imgColEffect.Images.SetKeyName(3, "green.png");
             this.imgColEffect.Images.SetKeyName(4, "green3.png");
-            // 
-            // imgColMaxBrinnHardness
-            // 
-            this.imgColMaxBrinnHardness.ImageStream = ((DevExpress.Utils.ImageCollectionStreamer)(resources.GetObject("imgColMaxBrinnHardness.ImageStream")));
-            this.imgColMaxBrinnHardness.Images.SetKeyName(0, "green.png");
-            this.imgColMaxBrinnHardness.Images.SetKeyName(1, "yellow.png");
-            this.imgColMaxBrinnHardness.Images.SetKeyName(2, "red.png");
-            // 
-            // imgColSeverity
-            // 
-            this.imgColSeverity.ImageStream = ((DevExpress.Utils.ImageCollectionStreamer)(resources.GetObject("imgColSeverity.ImageStream")));
-            this.imgColSeverity.Images.SetKeyName(0, "green.png");
-            this.imgColSeverity.Images.SetKeyName(1, "green3.png");
-            this.imgColSeverity.Images.SetKeyName(2, "orange.png");
-            this.imgColSeverity.Images.SetKeyName(3, "red.png");
-            // 
-            // imgColComplexity
-            // 
-            this.imgColComplexity.ImageStream = ((DevExpress.Utils.ImageCollectionStreamer)(resources.GetObject("imgColComplexity.ImageStream")));
-            this.imgColComplexity.Images.SetKeyName(0, "red.png");
-            this.imgColComplexity.Images.SetKeyName(1, "yellow.png");
-            this.imgColComplexity.Images.SetKeyName(2, "green.png");
             // 
             // UCComponentPropertiesTankBottom
             // 
@@ -485,12 +491,12 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cbMaxBrillnessHardness.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbSeverityVibration.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbComplexityProtrusion.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.imgColEffect)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgColMaxBrinnHardness)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbSeverityVibration.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgColSeverity)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbComplexityProtrusion.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgColComplexity)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgColEffect)).EndInit();
             this.ResumeLayout(false);
 
         }

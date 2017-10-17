@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using RBI.DAL.MSSQL;
+using System.Diagnostics;
 namespace RBI.BUS.BUSMSSQL_CAL
 {
     class MSSQL_DM_CAL
@@ -38,7 +39,7 @@ namespace RBI.BUS.BUSMSSQL_CAL
         public Boolean LINNER_ONLINE { set; get; }
         public String LINNER_CONDITION { set; get; }
         public int YEAR_IN_SERVICE { set; get; }
-
+        public bool INTERNAL_LINNING { set; get; }
         ///<summary>
         /// INPUT SCC CAUSTIC
         /// 1. material is cacbon or allow stell
@@ -477,26 +478,30 @@ namespace RBI.BUS.BUSMSSQL_CAL
         }
         public float DF_LINNING(float age)
         {
-            float Fdl = 1, Fom = 1;
-            if (LINNER_CONDITION == "Poor")
-                Fdl = 10;
-            else if (LINNER_CONDITION == "Average")
-                Fdl = 2;
+            if (INTERNAL_LINNING)
+            {
+                float Fdl = 1, Fom = 1;
+                if (LINNER_CONDITION == "Poor")
+                    Fdl = 10;
+                else if (LINNER_CONDITION == "Average")
+                    Fdl = 2;
+                else
+                    Fdl = 1;
+                if (LINNER_ONLINE)
+                    Fom = 0.1f;
+                else
+                    Fom = 1;
+                return DFB_LINNING(age) * Fom * Fdl;
+            }
             else
-                Fdl = 1;
-
-            if (LINNER_ONLINE)
-                Fom = 0.1f;
-            else
-                Fom = 1;
-            return DFB_LINNING(age) * Fom * Fdl;
+                return 0;
         }
 
         /// <summary>
         /// CAL CAUSTIC
         /// </summary>
         /// <returns></returns>
-        private char plotinArea()
+        private char plotinArea() //tinh lai
         {
             char k = 'B';
             if (MAX_OP_TEMP < 75)
@@ -566,7 +571,7 @@ namespace RBI.BUS.BUSMSSQL_CAL
         }
 
         ///<summary>
-        /// CAL SCC AMIN
+        /// CAL SCC AMINE
         ///</summary>
         private string getSusceptibility_Amine()
         {
@@ -700,7 +705,7 @@ namespace RBI.BUS.BUSMSSQL_CAL
                 default: return 1;
             }
         }
-        private float DF_SULPHIDE(float age)
+        public float DF_SULPHIDE(float age)
         {
             if (CARBON_ALLOY && AQUEOUS_OPERATOR && ENVIRONMENT_H2S_CONTENT)
             {
@@ -802,7 +807,7 @@ namespace RBI.BUS.BUSMSSQL_CAL
                 default: return 1;
             }
         }
-        private float DF_HICSOHIC_H2S(float age)
+        public float DF_HICSOHIC_H2S(float age)
         {
             if (CARBON_ALLOY && AQUEOUS_OPERATOR && ENVIRONMENT_H2S_CONTENT)
             {
@@ -847,7 +852,7 @@ namespace RBI.BUS.BUSMSSQL_CAL
                 default: return 1;
             }
         }
-        private float DF_CACBONATE(float age)
+        public float DF_CACBONATE(float age)
         {
             if (CARBON_ALLOY && AQUEOUS_OPERATOR && PH >= 7.5)
             {
@@ -866,6 +871,8 @@ namespace RBI.BUS.BUSMSSQL_CAL
         ///<summary>
         /// CAL PTA CRACKING
         ///</summary>
+        
+        //private string SUSCEPPTA
         private string GET_SUSCEPTIBILITY_PTA()
         {
             string sus = "None";
@@ -898,7 +905,6 @@ namespace RBI.BUS.BUSMSSQL_CAL
                     }
                     else if (ThermalHistory == "Stabilised After Welding")
                     {
-
                         switch (PTAMaterial)
                         {
                             case "321 Stainless Steel": sus = "Low"; break;
@@ -964,7 +970,7 @@ namespace RBI.BUS.BUSMSSQL_CAL
                 default: return 1;
             }
         }
-        private float DF_PTA(float age)
+        public float DF_PTA(float age)
         {
             if (PTA_SUSCEP || ((AUSTENITIC_STEEL || NICKEL_ALLOY) && EXPOSED_SULFUR))
             {

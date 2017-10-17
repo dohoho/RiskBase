@@ -43,6 +43,8 @@
             this.label6 = new System.Windows.Forms.Label();
             this.txtExternalCUI = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
+            this.txtHTHA = new System.Windows.Forms.TextBox();
+            this.label29 = new System.Windows.Forms.Label();
             this.txtExternalCLSCC = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.txtCarbonate = new System.Windows.Forms.TextBox();
@@ -59,6 +61,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.cbExternalCUI = new System.Windows.Forms.ComboBox();
+            this.cbHTHA = new System.Windows.Forms.ComboBox();
             this.cbExternalCLSCC = new System.Windows.Forms.ComboBox();
             this.cbCUI = new System.Windows.Forms.ComboBox();
             this.cbExternalCorrosion = new System.Windows.Forms.ComboBox();
@@ -71,6 +74,7 @@
             this.cbAmine = new System.Windows.Forms.ComboBox();
             this.cbPTA = new System.Windows.Forms.ComboBox();
             this.cbCaustic = new System.Windows.Forms.ComboBox();
+            this.label30 = new System.Windows.Forms.Label();
             this.cbThinning = new System.Windows.Forms.ComboBox();
             this.label21 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
@@ -86,10 +90,6 @@
             this.label22 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
-            this.label29 = new System.Windows.Forms.Label();
-            this.txtHTHA = new System.Windows.Forms.TextBox();
-            this.label30 = new System.Windows.Forms.Label();
-            this.cbHTHA = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -136,16 +136,18 @@
             // 
             // txtCUI
             // 
+            this.txtCUI.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCUI.Location = new System.Drawing.Point(649, 159);
             this.txtCUI.Name = "txtCUI";
-            this.txtCUI.Size = new System.Drawing.Size(100, 20);
+            this.txtCUI.Size = new System.Drawing.Size(100, 21);
             this.txtCUI.TabIndex = 1;
             // 
             // txtExternalCorrosion
             // 
+            this.txtExternalCorrosion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtExternalCorrosion.Location = new System.Drawing.Point(649, 132);
             this.txtExternalCorrosion.Name = "txtExternalCorrosion";
-            this.txtExternalCorrosion.Size = new System.Drawing.Size(100, 20);
+            this.txtExternalCorrosion.Size = new System.Drawing.Size(100, 21);
             this.txtExternalCorrosion.TabIndex = 1;
             // 
             // label12
@@ -160,9 +162,10 @@
             // 
             // txtHF
             // 
+            this.txtHF.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtHF.Location = new System.Drawing.Point(649, 107);
             this.txtHF.Name = "txtHF";
-            this.txtHF.Size = new System.Drawing.Size(100, 20);
+            this.txtHF.Size = new System.Drawing.Size(100, 21);
             this.txtHF.TabIndex = 1;
             // 
             // label10
@@ -187,9 +190,10 @@
             // 
             // txtHSCHF
             // 
+            this.txtHSCHF.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtHSCHF.Location = new System.Drawing.Point(649, 80);
             this.txtHSCHF.Name = "txtHSCHF";
-            this.txtHSCHF.Size = new System.Drawing.Size(100, 20);
+            this.txtHSCHF.Size = new System.Drawing.Size(100, 21);
             this.txtHSCHF.TabIndex = 1;
             // 
             // label8
@@ -204,9 +208,10 @@
             // 
             // txtCLSCC
             // 
+            this.txtCLSCC.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCLSCC.Location = new System.Drawing.Point(649, 54);
             this.txtCLSCC.Name = "txtCLSCC";
-            this.txtCLSCC.Size = new System.Drawing.Size(100, 20);
+            this.txtCLSCC.Size = new System.Drawing.Size(100, 21);
             this.txtCLSCC.TabIndex = 1;
             // 
             // label7
@@ -221,9 +226,10 @@
             // 
             // txtPTA
             // 
+            this.txtPTA.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPTA.Location = new System.Drawing.Point(649, 29);
             this.txtPTA.Name = "txtPTA";
-            this.txtPTA.Size = new System.Drawing.Size(100, 20);
+            this.txtPTA.Size = new System.Drawing.Size(100, 21);
             this.txtPTA.TabIndex = 1;
             // 
             // label6
@@ -238,9 +244,10 @@
             // 
             // txtExternalCUI
             // 
+            this.txtExternalCUI.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtExternalCUI.Location = new System.Drawing.Point(649, 185);
             this.txtExternalCUI.Name = "txtExternalCUI";
-            this.txtExternalCUI.Size = new System.Drawing.Size(100, 20);
+            this.txtExternalCUI.Size = new System.Drawing.Size(100, 21);
             this.txtExternalCUI.TabIndex = 1;
             // 
             // label14
@@ -253,11 +260,30 @@
             this.label14.TabIndex = 0;
             this.label14.Text = "External CUI CLSCC - Austenitic Component";
             // 
+            // txtHTHA
+            // 
+            this.txtHTHA.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtHTHA.Location = new System.Drawing.Point(243, 211);
+            this.txtHTHA.Name = "txtHTHA";
+            this.txtHTHA.Size = new System.Drawing.Size(100, 21);
+            this.txtHTHA.TabIndex = 1;
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label29.Location = new System.Drawing.Point(21, 211);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(39, 15);
+            this.label29.TabIndex = 0;
+            this.label29.Text = "HTHA";
+            // 
             // txtExternalCLSCC
             // 
+            this.txtExternalCLSCC.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtExternalCLSCC.Location = new System.Drawing.Point(243, 185);
             this.txtExternalCLSCC.Name = "txtExternalCLSCC";
-            this.txtExternalCLSCC.Size = new System.Drawing.Size(100, 20);
+            this.txtExternalCLSCC.Size = new System.Drawing.Size(100, 21);
             this.txtExternalCLSCC.TabIndex = 1;
             // 
             // label13
@@ -272,9 +298,10 @@
             // 
             // txtCarbonate
             // 
+            this.txtCarbonate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCarbonate.Location = new System.Drawing.Point(243, 159);
             this.txtCarbonate.Name = "txtCarbonate";
-            this.txtCarbonate.Size = new System.Drawing.Size(100, 20);
+            this.txtCarbonate.Size = new System.Drawing.Size(100, 21);
             this.txtCarbonate.TabIndex = 1;
             // 
             // label5
@@ -289,9 +316,10 @@
             // 
             // txtH2S
             // 
+            this.txtH2S.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtH2S.Location = new System.Drawing.Point(243, 133);
             this.txtH2S.Name = "txtH2S";
-            this.txtH2S.Size = new System.Drawing.Size(100, 20);
+            this.txtH2S.Size = new System.Drawing.Size(100, 21);
             this.txtH2S.TabIndex = 1;
             // 
             // label4
@@ -306,9 +334,10 @@
             // 
             // txtSulphide
             // 
+            this.txtSulphide.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSulphide.Location = new System.Drawing.Point(243, 107);
             this.txtSulphide.Name = "txtSulphide";
-            this.txtSulphide.Size = new System.Drawing.Size(100, 20);
+            this.txtSulphide.Size = new System.Drawing.Size(100, 21);
             this.txtSulphide.TabIndex = 1;
             // 
             // label3
@@ -323,9 +352,10 @@
             // 
             // txtAmine
             // 
+            this.txtAmine.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtAmine.Location = new System.Drawing.Point(243, 81);
             this.txtAmine.Name = "txtAmine";
-            this.txtAmine.Size = new System.Drawing.Size(100, 20);
+            this.txtAmine.Size = new System.Drawing.Size(100, 21);
             this.txtAmine.TabIndex = 1;
             // 
             // label2
@@ -340,9 +370,10 @@
             // 
             // txtThinning
             // 
+            this.txtThinning.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtThinning.Location = new System.Drawing.Point(243, 29);
             this.txtThinning.Name = "txtThinning";
-            this.txtThinning.Size = new System.Drawing.Size(100, 20);
+            this.txtThinning.Size = new System.Drawing.Size(100, 21);
             this.txtThinning.TabIndex = 1;
             // 
             // label11
@@ -357,9 +388,10 @@
             // 
             // txtCaustic
             // 
+            this.txtCaustic.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCaustic.Location = new System.Drawing.Point(243, 55);
             this.txtCaustic.Name = "txtCaustic";
-            this.txtCaustic.Size = new System.Drawing.Size(100, 20);
+            this.txtCaustic.Size = new System.Drawing.Size(100, 21);
             this.txtCaustic.TabIndex = 1;
             // 
             // label1
@@ -414,6 +446,7 @@
             // 
             // cbExternalCUI
             // 
+            this.cbExternalCUI.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbExternalCUI.FormattingEnabled = true;
             this.cbExternalCUI.Items.AddRange(new object[] {
             "A",
@@ -423,11 +456,27 @@
             "E"});
             this.cbExternalCUI.Location = new System.Drawing.Point(649, 182);
             this.cbExternalCUI.Name = "cbExternalCUI";
-            this.cbExternalCUI.Size = new System.Drawing.Size(121, 21);
+            this.cbExternalCUI.Size = new System.Drawing.Size(121, 23);
             this.cbExternalCUI.TabIndex = 1;
+            // 
+            // cbHTHA
+            // 
+            this.cbHTHA.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbHTHA.FormattingEnabled = true;
+            this.cbHTHA.Items.AddRange(new object[] {
+            "A",
+            "B",
+            "C",
+            "D",
+            "E"});
+            this.cbHTHA.Location = new System.Drawing.Point(243, 209);
+            this.cbHTHA.Name = "cbHTHA";
+            this.cbHTHA.Size = new System.Drawing.Size(121, 23);
+            this.cbHTHA.TabIndex = 1;
             // 
             // cbExternalCLSCC
             // 
+            this.cbExternalCLSCC.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbExternalCLSCC.FormattingEnabled = true;
             this.cbExternalCLSCC.Items.AddRange(new object[] {
             "A",
@@ -437,11 +486,12 @@
             "E"});
             this.cbExternalCLSCC.Location = new System.Drawing.Point(243, 182);
             this.cbExternalCLSCC.Name = "cbExternalCLSCC";
-            this.cbExternalCLSCC.Size = new System.Drawing.Size(121, 21);
+            this.cbExternalCLSCC.Size = new System.Drawing.Size(121, 23);
             this.cbExternalCLSCC.TabIndex = 1;
             // 
             // cbCUI
             // 
+            this.cbCUI.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbCUI.FormattingEnabled = true;
             this.cbCUI.Items.AddRange(new object[] {
             "A",
@@ -451,11 +501,12 @@
             "E"});
             this.cbCUI.Location = new System.Drawing.Point(649, 154);
             this.cbCUI.Name = "cbCUI";
-            this.cbCUI.Size = new System.Drawing.Size(121, 21);
+            this.cbCUI.Size = new System.Drawing.Size(121, 23);
             this.cbCUI.TabIndex = 1;
             // 
             // cbExternalCorrosion
             // 
+            this.cbExternalCorrosion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbExternalCorrosion.FormattingEnabled = true;
             this.cbExternalCorrosion.Items.AddRange(new object[] {
             "A",
@@ -465,11 +516,12 @@
             "E"});
             this.cbExternalCorrosion.Location = new System.Drawing.Point(649, 129);
             this.cbExternalCorrosion.Name = "cbExternalCorrosion";
-            this.cbExternalCorrosion.Size = new System.Drawing.Size(121, 21);
+            this.cbExternalCorrosion.Size = new System.Drawing.Size(121, 23);
             this.cbExternalCorrosion.TabIndex = 1;
             // 
             // cbCarbonate
             // 
+            this.cbCarbonate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbCarbonate.FormattingEnabled = true;
             this.cbCarbonate.Items.AddRange(new object[] {
             "A",
@@ -479,11 +531,12 @@
             "E"});
             this.cbCarbonate.Location = new System.Drawing.Point(243, 154);
             this.cbCarbonate.Name = "cbCarbonate";
-            this.cbCarbonate.Size = new System.Drawing.Size(121, 21);
+            this.cbCarbonate.Size = new System.Drawing.Size(121, 23);
             this.cbCarbonate.TabIndex = 1;
             // 
             // cbHICSOHICHF
             // 
+            this.cbHICSOHICHF.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbHICSOHICHF.FormattingEnabled = true;
             this.cbHICSOHICHF.Items.AddRange(new object[] {
             "A",
@@ -493,11 +546,12 @@
             "E"});
             this.cbHICSOHICHF.Location = new System.Drawing.Point(649, 105);
             this.cbHICSOHICHF.Name = "cbHICSOHICHF";
-            this.cbHICSOHICHF.Size = new System.Drawing.Size(121, 21);
+            this.cbHICSOHICHF.Size = new System.Drawing.Size(121, 23);
             this.cbHICSOHICHF.TabIndex = 1;
             // 
             // cbH2S
             // 
+            this.cbH2S.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbH2S.FormattingEnabled = true;
             this.cbH2S.Items.AddRange(new object[] {
             "A",
@@ -507,11 +561,12 @@
             "E"});
             this.cbH2S.Location = new System.Drawing.Point(243, 129);
             this.cbH2S.Name = "cbH2S";
-            this.cbH2S.Size = new System.Drawing.Size(121, 21);
+            this.cbH2S.Size = new System.Drawing.Size(121, 23);
             this.cbH2S.TabIndex = 1;
             // 
             // cbHSC_HF
             // 
+            this.cbHSC_HF.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbHSC_HF.FormattingEnabled = true;
             this.cbHSC_HF.Items.AddRange(new object[] {
             "A",
@@ -521,11 +576,12 @@
             "E"});
             this.cbHSC_HF.Location = new System.Drawing.Point(649, 79);
             this.cbHSC_HF.Name = "cbHSC_HF";
-            this.cbHSC_HF.Size = new System.Drawing.Size(121, 21);
+            this.cbHSC_HF.Size = new System.Drawing.Size(121, 23);
             this.cbHSC_HF.TabIndex = 1;
             // 
             // cbSulphide
             // 
+            this.cbSulphide.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbSulphide.FormattingEnabled = true;
             this.cbSulphide.Items.AddRange(new object[] {
             "A",
@@ -535,11 +591,12 @@
             "E"});
             this.cbSulphide.Location = new System.Drawing.Point(243, 105);
             this.cbSulphide.Name = "cbSulphide";
-            this.cbSulphide.Size = new System.Drawing.Size(121, 21);
+            this.cbSulphide.Size = new System.Drawing.Size(121, 23);
             this.cbSulphide.TabIndex = 1;
             // 
             // cbCLSCC
             // 
+            this.cbCLSCC.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbCLSCC.FormattingEnabled = true;
             this.cbCLSCC.Items.AddRange(new object[] {
             "A",
@@ -549,11 +606,12 @@
             "E"});
             this.cbCLSCC.Location = new System.Drawing.Point(649, 54);
             this.cbCLSCC.Name = "cbCLSCC";
-            this.cbCLSCC.Size = new System.Drawing.Size(121, 21);
+            this.cbCLSCC.Size = new System.Drawing.Size(121, 23);
             this.cbCLSCC.TabIndex = 1;
             // 
             // cbAmine
             // 
+            this.cbAmine.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbAmine.FormattingEnabled = true;
             this.cbAmine.Items.AddRange(new object[] {
             "A",
@@ -563,11 +621,12 @@
             "E"});
             this.cbAmine.Location = new System.Drawing.Point(243, 79);
             this.cbAmine.Name = "cbAmine";
-            this.cbAmine.Size = new System.Drawing.Size(121, 21);
+            this.cbAmine.Size = new System.Drawing.Size(121, 23);
             this.cbAmine.TabIndex = 1;
             // 
             // cbPTA
             // 
+            this.cbPTA.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbPTA.FormattingEnabled = true;
             this.cbPTA.Items.AddRange(new object[] {
             "A",
@@ -577,11 +636,12 @@
             "E"});
             this.cbPTA.Location = new System.Drawing.Point(649, 27);
             this.cbPTA.Name = "cbPTA";
-            this.cbPTA.Size = new System.Drawing.Size(121, 21);
+            this.cbPTA.Size = new System.Drawing.Size(121, 23);
             this.cbPTA.TabIndex = 1;
             // 
             // cbCaustic
             // 
+            this.cbCaustic.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbCaustic.FormattingEnabled = true;
             this.cbCaustic.Items.AddRange(new object[] {
             "A",
@@ -591,11 +651,22 @@
             "E"});
             this.cbCaustic.Location = new System.Drawing.Point(243, 54);
             this.cbCaustic.Name = "cbCaustic";
-            this.cbCaustic.Size = new System.Drawing.Size(121, 21);
+            this.cbCaustic.Size = new System.Drawing.Size(121, 23);
             this.cbCaustic.TabIndex = 1;
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label30.Location = new System.Drawing.Point(21, 210);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(39, 15);
+            this.label30.TabIndex = 0;
+            this.label30.Text = "HTHA";
             // 
             // cbThinning
             // 
+            this.cbThinning.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbThinning.FormattingEnabled = true;
             this.cbThinning.Items.AddRange(new object[] {
             "A",
@@ -605,7 +676,7 @@
             "E"});
             this.cbThinning.Location = new System.Drawing.Point(243, 27);
             this.cbThinning.Name = "cbThinning";
-            this.cbThinning.Size = new System.Drawing.Size(121, 21);
+            this.cbThinning.Size = new System.Drawing.Size(121, 23);
             this.cbThinning.TabIndex = 1;
             // 
             // label21
@@ -747,47 +818,6 @@
             this.label24.Size = new System.Drawing.Size(97, 15);
             this.label24.TabIndex = 0;
             this.label24.Text = "CLSCC Cracking";
-            // 
-            // label29
-            // 
-            this.label29.AutoSize = true;
-            this.label29.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label29.Location = new System.Drawing.Point(21, 211);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(39, 15);
-            this.label29.TabIndex = 0;
-            this.label29.Text = "HTHA";
-            // 
-            // txtHTHA
-            // 
-            this.txtHTHA.Location = new System.Drawing.Point(243, 211);
-            this.txtHTHA.Name = "txtHTHA";
-            this.txtHTHA.Size = new System.Drawing.Size(100, 20);
-            this.txtHTHA.TabIndex = 1;
-            // 
-            // label30
-            // 
-            this.label30.AutoSize = true;
-            this.label30.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label30.Location = new System.Drawing.Point(21, 210);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(39, 15);
-            this.label30.TabIndex = 0;
-            this.label30.Text = "HTHA";
-            // 
-            // cbHTHA
-            // 
-            this.cbHTHA.FormattingEnabled = true;
-            this.cbHTHA.Items.AddRange(new object[] {
-            "A",
-            "B",
-            "C",
-            "D",
-            "E"});
-            this.cbHTHA.Location = new System.Drawing.Point(243, 209);
-            this.cbHTHA.Name = "cbHTHA";
-            this.cbHTHA.Size = new System.Drawing.Size(121, 21);
-            this.cbHTHA.TabIndex = 1;
             // 
             // UCNoInspection
             // 

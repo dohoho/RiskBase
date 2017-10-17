@@ -109,7 +109,6 @@ E:\Project\hoang\RBI\WindowsFormsApplication1\obj\Debug\RBI.PRE.subForm.subUCcom
 E:\Project\hoang\RBI\WindowsFormsApplication1\obj\Debug\RBI.PRE.subForm.subUCequipment.resources
 E:\Project\hoang\RBI\WindowsFormsApplication1\obj\Debug\RBI.PRE.subForm.TestExcelApp.resources
 E:\Project\hoang\RBI\WindowsFormsApplication1\obj\Debug\RBI.PRE.subForm.UCComponent.resources
-E:\Project\hoang\RBI\WindowsFormsApplication1\obj\Debug\RBI.PRE.subForm.UCDamage.resources
 E:\Project\hoang\RBI\WindowsFormsApplication1\obj\Debug\RBI.PRE.subForm.UCDevexpress.resources
 E:\Project\hoang\RBI\WindowsFormsApplication1\obj\Debug\RBI.PRE.subForm.UCEqList_DevExpress.resources
 E:\Project\hoang\RBI\WindowsFormsApplication1\obj\Debug\RBI.PRE.subForm.UCEquipListRbi_DevExpress.resources

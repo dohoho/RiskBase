@@ -30,6 +30,8 @@
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.cbAmineSolutionComposition = new DevExpress.XtraEditors.ImageComboBoxEdit();
+            this.cbExposureAmine = new DevExpress.XtraEditors.ImageComboBoxEdit();
             this.chkToxicConstituents = new System.Windows.Forms.CheckBox();
             this.chkProcessContainsHydrogen = new System.Windows.Forms.CheckBox();
             this.chkExposedSulphurBearing = new System.Windows.Forms.CheckBox();
@@ -59,7 +61,7 @@
             this.labelph = new System.Windows.Forms.Label();
             this.txtReleaseFluidPercent = new System.Windows.Forms.TextBox();
             this.label = new System.Windows.Forms.Label();
-            this.txtH2SContent = new System.Windows.Forms.TextBox();
+            this.txtH2SContentInWater = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.txtChlorideIon = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -68,19 +70,17 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.btnEditMostVolatileFluid = new DevExpress.XtraEditors.ButtonEdit();
+            this.label2 = new System.Windows.Forms.Label();
             this.btnEditPrimaryFuid = new DevExpress.XtraEditors.ButtonEdit();
-            this.cbAmineSolutionComposition = new DevExpress.XtraEditors.ImageComboBoxEdit();
-            this.cbExposureAmine = new DevExpress.XtraEditors.ImageComboBoxEdit();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cbAmineSolutionComposition.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbExposureAmine.Properties)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnEditMostVolatileFluid.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnEditPrimaryFuid.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbAmineSolutionComposition.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbExposureAmine.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -129,7 +129,7 @@
             this.groupBox3.Controls.Add(this.labelph);
             this.groupBox3.Controls.Add(this.txtReleaseFluidPercent);
             this.groupBox3.Controls.Add(this.label);
-            this.groupBox3.Controls.Add(this.txtH2SContent);
+            this.groupBox3.Controls.Add(this.txtH2SContentInWater);
             this.groupBox3.Controls.Add(this.label7);
             this.groupBox3.Controls.Add(this.txtChlorideIon);
             this.groupBox3.Controls.Add(this.label6);
@@ -143,6 +143,28 @@
             this.groupBox3.TabIndex = 1;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Environment Condition";
+            // 
+            // cbAmineSolutionComposition
+            // 
+            this.cbAmineSolutionComposition.Location = new System.Drawing.Point(251, 161);
+            this.cbAmineSolutionComposition.Name = "cbAmineSolutionComposition";
+            this.cbAmineSolutionComposition.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbAmineSolutionComposition.Properties.Appearance.Options.UseFont = true;
+            this.cbAmineSolutionComposition.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cbAmineSolutionComposition.Size = new System.Drawing.Size(436, 20);
+            this.cbAmineSolutionComposition.TabIndex = 5;
+            // 
+            // cbExposureAmine
+            // 
+            this.cbExposureAmine.Location = new System.Drawing.Point(251, 135);
+            this.cbExposureAmine.Name = "cbExposureAmine";
+            this.cbExposureAmine.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbExposureAmine.Properties.Appearance.Options.UseFont = true;
+            this.cbExposureAmine.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cbExposureAmine.Size = new System.Drawing.Size(436, 20);
+            this.cbExposureAmine.TabIndex = 6;
             // 
             // chkToxicConstituents
             // 
@@ -256,9 +278,10 @@
             // 
             // txtpHWater
             // 
+            this.txtpHWater.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtpHWater.Location = new System.Drawing.Point(672, 70);
             this.txtpHWater.Name = "txtpHWater";
-            this.txtpHWater.Size = new System.Drawing.Size(170, 20);
+            this.txtpHWater.Size = new System.Drawing.Size(170, 21);
             this.txtpHWater.TabIndex = 1;
             // 
             // label12
@@ -373,9 +396,10 @@
             // 
             // txtCO3ConcentrationWater
             // 
+            this.txtCO3ConcentrationWater.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCO3ConcentrationWater.Location = new System.Drawing.Point(672, 44);
             this.txtCO3ConcentrationWater.Name = "txtCO3ConcentrationWater";
-            this.txtCO3ConcentrationWater.Size = new System.Drawing.Size(170, 20);
+            this.txtCO3ConcentrationWater.Size = new System.Drawing.Size(170, 21);
             this.txtCO3ConcentrationWater.TabIndex = 1;
             // 
             // label14
@@ -413,9 +437,10 @@
             // 
             // txtReleaseFluidPercent
             // 
+            this.txtReleaseFluidPercent.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtReleaseFluidPercent.Location = new System.Drawing.Point(672, 18);
             this.txtReleaseFluidPercent.Name = "txtReleaseFluidPercent";
-            this.txtReleaseFluidPercent.Size = new System.Drawing.Size(170, 20);
+            this.txtReleaseFluidPercent.Size = new System.Drawing.Size(170, 21);
             this.txtReleaseFluidPercent.TabIndex = 1;
             // 
             // label
@@ -428,12 +453,13 @@
             this.label.TabIndex = 0;
             this.label.Text = "CO3 Concentration in Water (ppm)";
             // 
-            // txtH2SContent
+            // txtH2SContentInWater
             // 
-            this.txtH2SContent.Location = new System.Drawing.Point(250, 73);
-            this.txtH2SContent.Name = "txtH2SContent";
-            this.txtH2SContent.Size = new System.Drawing.Size(170, 20);
-            this.txtH2SContent.TabIndex = 1;
+            this.txtH2SContentInWater.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtH2SContentInWater.Location = new System.Drawing.Point(250, 73);
+            this.txtH2SContentInWater.Name = "txtH2SContentInWater";
+            this.txtH2SContentInWater.Size = new System.Drawing.Size(170, 21);
+            this.txtH2SContentInWater.TabIndex = 1;
             // 
             // label7
             // 
@@ -447,9 +473,10 @@
             // 
             // txtChlorideIon
             // 
+            this.txtChlorideIon.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtChlorideIon.Location = new System.Drawing.Point(250, 47);
             this.txtChlorideIon.Name = "txtChlorideIon";
-            this.txtChlorideIon.Size = new System.Drawing.Size(170, 20);
+            this.txtChlorideIon.Size = new System.Drawing.Size(170, 21);
             this.txtChlorideIon.TabIndex = 1;
             // 
             // label6
@@ -464,9 +491,10 @@
             // 
             // txtNaOHConcentration
             // 
+            this.txtNaOHConcentration.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNaOHConcentration.Location = new System.Drawing.Point(250, 21);
             this.txtNaOHConcentration.Name = "txtNaOHConcentration";
-            this.txtNaOHConcentration.Size = new System.Drawing.Size(170, 20);
+            this.txtNaOHConcentration.Size = new System.Drawing.Size(170, 21);
             this.txtNaOHConcentration.TabIndex = 1;
             // 
             // label5
@@ -511,26 +539,6 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Fluid";
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(196, 47);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(107, 15);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Most Volatile Fluid";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(196, 15);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(79, 15);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Primary Fluid";
-            // 
             // btnEditMostVolatileFluid
             // 
             this.btnEditMostVolatileFluid.Location = new System.Drawing.Point(311, 46);
@@ -541,6 +549,16 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph)});
             this.btnEditMostVolatileFluid.Size = new System.Drawing.Size(363, 20);
             this.btnEditMostVolatileFluid.TabIndex = 4;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(196, 47);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(107, 15);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Most Volatile Fluid";
             // 
             // btnEditPrimaryFuid
             // 
@@ -553,23 +571,15 @@
             this.btnEditPrimaryFuid.Size = new System.Drawing.Size(363, 20);
             this.btnEditPrimaryFuid.TabIndex = 3;
             // 
-            // cbAmineSolutionComposition
+            // label1
             // 
-            this.cbAmineSolutionComposition.Location = new System.Drawing.Point(251, 161);
-            this.cbAmineSolutionComposition.Name = "cbAmineSolutionComposition";
-            this.cbAmineSolutionComposition.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cbAmineSolutionComposition.Size = new System.Drawing.Size(436, 20);
-            this.cbAmineSolutionComposition.TabIndex = 5;
-            // 
-            // cbExposureAmine
-            // 
-            this.cbExposureAmine.Location = new System.Drawing.Point(251, 135);
-            this.cbExposureAmine.Name = "cbExposureAmine";
-            this.cbExposureAmine.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cbExposureAmine.Size = new System.Drawing.Size(436, 20);
-            this.cbExposureAmine.TabIndex = 6;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(196, 15);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(79, 15);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Primary Fluid";
             // 
             // UCStream
             // 
@@ -581,12 +591,12 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cbAmineSolutionComposition.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbExposureAmine.Properties)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnEditMostVolatileFluid.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnEditPrimaryFuid.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbAmineSolutionComposition.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbExposureAmine.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -627,7 +637,7 @@
         private System.Windows.Forms.Label labelph;
         private System.Windows.Forms.TextBox txtReleaseFluidPercent;
         private System.Windows.Forms.Label label;
-        private System.Windows.Forms.TextBox txtH2SContent;
+        private System.Windows.Forms.TextBox txtH2SContentInWater;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtChlorideIon;
         private System.Windows.Forms.Label label6;

@@ -472,10 +472,6 @@
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="PRE\subForm\UCComponent.Designer.cs" />
-    <Compile Include="PRE\subForm\UCDamage.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="PRE\subForm\UCDamage.Designer.cs" />
     <Compile Include="PRE\subForm\UCDevexpress.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -678,7 +674,6 @@
     <EmbeddedResource Include="PRE\subForm\subUCequipment.resx" />
     <EmbeddedResource Include="PRE\subForm\TestExcelApp.resx" />
     <EmbeddedResource Include="PRE\subForm\UCComponent.resx" />
-    <EmbeddedResource Include="PRE\subForm\UCDamage.resx" />
     <EmbeddedResource Include="PRE\subForm\UCDevexpress.resx" />
     <EmbeddedResource Include="PRE\subForm\UCEqList_DevExpress.resx" />
     <EmbeddedResource Include="PRE\subForm\UCEquipListRbi_DevExpress.resx" />
