@@ -96,6 +96,8 @@
     <Compile Include="BUS\BUSExcel\BusEquipmentListExcel.cs" />
     <Compile Include="BUS\BUSExcel\BusEquipmentTempExcel.cs" />
     <Compile Include="BUS\BUSExcel\BusImportExcel.cs" />
+    <Compile Include="BUS\BUSMSSQL\API_COMPONENT_TYPE_BUS.cs" />
+    <Compile Include="BUS\BUSMSSQL_CAL\MSSQL_CA_CAL.cs" />
     <Compile Include="BUS\BUSMSSQL_CAL\MSSQL_DM_CAL.cs" />
     <Compile Include="DAL\ExcelConnect.cs" />
     <Compile Include="BUS\BUSExcel\FullPlantObjectExcel.cs" />

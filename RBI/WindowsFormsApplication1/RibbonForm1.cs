@@ -400,6 +400,7 @@ namespace RBI
         private void Calculation()
         {
             RW_EQUIPMENT rweq = eq.getData();
+            RW_EQUIPMENT rweq1 = ass.getData1();
             RW_COMPONENT rwcom = comp.getData();
             RW_MATERIAL rwma = ma.getData();
             //can xem lai properties thuoc get stream nao
@@ -488,8 +489,8 @@ namespace RBI
             //<input CLSCC>
             cal.CLSCC_INSP_EFF = noInsp.effCLSCC;
             cal.CLSCC_INSP_NUM = noInsp.numCLSCC;
-            //cal.INTERNAL_EXPOSED_FLUID_MIST = 
-            //cal.INTERNAL_EXPOSED_FLUID_MIST
+            cal.EXTERNAL_EXPOSED_FLUID_MIST = rweq.MaterialExposedToClExt == 1 ? true : false;
+            cal.INTERNAL_EXPOSED_FLUID_MIST = rwstream1.MaterialExposedToClInt == 1 ? true : false;
             cal.CHLORIDE_ION_CONTENT = rwstream1.Chloride;
             //</CLSCC>
 
@@ -537,11 +538,11 @@ namespace RBI
             cal.EXTERN_CLSCC_CUI_INSP_EFF = noInsp.effCUI;
             cal.EXTERN_CLSCC_CUI_INSP_NUM = noInsp.numCUI;
             cal.EXTERNAL_INSULATION = rwcoat.ExternalInsulation == 1 ? true : false;
-            cal.COMPONENT_INSTALL_DATE = rweq.CommissionDate;
+            cal.COMPONENT_INSTALL_DATE = rweq1.CommissionDate;
             cal.CRACK_PRESENT = rwcom.CracksPresent == 1 ? true : false;
             cal.EXTERNAL_EVIRONMENT = rweq.ExternalEnvironment;
             cal.EXTERN_COAT_QUALITY = rwcoat.ExternalCoatingQuality;
-            //cal.PIPING_COMPLEXITY = rwcom.pi
+            cal.PIPING_COMPLEXITY = rwcom.ComplexityProtrusion;
             cal.INSULATION_CONDITION = rwcoat.InsulationCondition;
             cal.INSULATION_CHLORIDE = rwcoat.InsulationContainsChloride == 1 ? true : false;
             //</External CUI CLSCC>
@@ -549,9 +550,9 @@ namespace RBI
             //<input HTHA>
             cal.HTHA_EFFECT = noInsp.effHTHA;
             cal.HTHA_NUM_INSP = noInsp.numHTHA;
-            //cal.MATERIAL_SUSCEP_HTHA = rwma.IsHTHA
+            cal.MATERIAL_SUSCEP_HTHA = rwma.IsHTHA == 1 ? true : false;
             cal.HTHA_MATERIAL = rwma.HTHAMaterialCode; //check lai
-            //cal.HTHA_PRESSURE = rwcoa
+            cal.HTHA_PRESSURE = rwstream2.H2SPartialPressure;
             cal.CRITICAL_TEMP = rwstream2.CriticalExposureTemperature; //check lai
             cal.DAMAGE_FOUND = rwcom.DamageFoundInspection == 1 ? true : false;
             //</HTHA>
@@ -561,9 +562,9 @@ namespace RBI
             //</Brittle>
 
             //<input temper Embrittle>
-            //cal.TEMPER_SUSCEP = rwstream1.
+            cal.TEMPER_SUSCEP = rwma.Temper == 1 ? true : false;
             cal.PWHT = rweq.PWHT == 1 ? true : false;
-            //cal.BRITTLE_THICK = 
+            cal.BRITTLE_THICK = rwma.BrittleFractureThickness;
             cal.CARBON_ALLOY = rwma.CarbonLowAlloy == 1 ? true : false;
             cal.DELTA_FATT = rwcom.DeltaFATT;
             //</Temper Embrittle>
@@ -582,8 +583,8 @@ namespace RBI
             //</Sigma>
 
             //<input Piping Mechanical>
-            cal.EquipmentType = eqType.EquipmentTypeName;
-
+            //cal.EquipmentType = eqType.EquipmentTypeName;
+            cal.EquipmentType = "Piping";
             cal.PREVIOUS_FAIL = rwcom.PreviousFailures;
             cal.AMOUNT_SHAKING = rwcom.ShakingAmount;
             cal.TIME_SHAKING = rwcom.ShakingTime;
@@ -596,14 +597,26 @@ namespace RBI
             //</Piping Mechanical>
 
             //<goi ham tinh toan DF>
-            MessageBox.Show("Df_Thinning = " + cal.DF_THIN(10).ToString(),"Damage Factor Thinning");
+            //MessageBox.Show("Df_Thinning = " + cal.DF_THIN(10).ToString(),"Damage Factor Thinning");
             //MessageBox.Show("Df_Linning = " + cal.DF_LINNING(10).ToString(), "Damage Factor Linning");
             //MessageBox.Show("Df_Caustic = " + cal.DF_CAUSTIC(10).ToString(), "Damage Factor Caustic");
             //MessageBox.Show("Df_Amine = " + cal.DF_AMINE(10).ToString(), "Damage Factor Amine");
             //MessageBox.Show("Df_Sulphide = " + cal.DF_SULPHIDE(10).ToString(), "Damage Factor Sulphide Stress Cracking");
             //MessageBox.Show("Df_PTA = " + cal.DF_PTA(11).ToString(), "Damage Factor PTA Cracking");
             //MessageBox.Show("Df_PTA = " + cal.DF_PTA(10), "Damage Factor PTA Cracking");
-            //MessageBox.Show("n"+cal.LinningType +"a"+cal.LINNER_CONDITION);
+            //MessageBox.Show("Df_CLSCC = " + cal.DF_CLSCC(10), "Damage Factor CLSCC Cracking");
+            //MessageBox.Show("Df_HSC-HF = " + cal.DF_HSCHF(10), "Damage Factor HSC-HF");
+            //MessageBox.Show("Df_HIC/SOHIC-HF = " + cal.DF_HIC_SOHIC_HF(10), "Damage Factor HIC/SOHIC-HF");
+            //MessageBox.Show("Df_ExternalCorrosion = " + cal.DF_EXTERNAL_CORROSION(10), "Damage Factor External Corrosion");
+            //MessageBox.Show("Df_CUI = " + cal.DF_CUI(10), "Damage Factor CUI");
+            //MessageBox.Show("Df_EXTERNAL_CLSCC = " + cal.DF_EXTERN_CLSCC(), "Damage Factor ");
+            //MessageBox.Show("Df_EXTERNAL_CUI_CLSCC = " + cal.DF_CUI_CLSCC(), "Damage Factor External CUI CLSCC");
+            //MessageBox.Show("Df_HTHA = " + cal.DF_HTHA(10), "Damage Factor HTHA");
+            //MessageBox.Show("Df_Brittle = " + cal.DF_BRITTLE(), "Damage Factor Brittle");
+            //MessageBox.Show("Df_Temper_Embrittle = " + cal.DF_TEMP_EMBRITTLE(), "Damage Factor Temper Embrittle");
+            //MessageBox.Show("Df_885 = " + cal.DF_885(), "Damage Factor 885");
+            //MessageBox.Show("Df_Sigma = " + cal.DF_SIGMA(), "Damage Factor Sigma");
+            MessageBox.Show("Df_Piping = " + cal.DF_PIPE(), "Damage Factor Piping");
             //</ket thuc tinh toan DF>
         }
 

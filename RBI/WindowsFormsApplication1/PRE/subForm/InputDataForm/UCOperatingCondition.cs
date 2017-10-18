@@ -26,6 +26,7 @@ namespace RBI.PRE.subForm.InputDataForm
             str.MaxOperatingTemperature = txtMaximumOperatingTemp.Text != "" ? float.Parse(txtMaximumOperatingTemp.Text) : 0;
             str.MinOperatingTemperature = txtMinimumOperatingTemp.Text != "" ? float.Parse(txtMinimumOperatingTemp.Text) : 0;
             str.CriticalExposureTemperature = txtCriticalExposure.Text != "" ? float.Parse(txtCriticalExposure.Text) : 0;
+            str.H2SPartialPressure = txtOperatingHydrogen.Text != "" ? float.Parse(txtOperatingHydrogen.Text) : 0;
             str.CUI_PERCENT_1 = txtOp12.Text != "" ? float.Parse(txtOp12.Text) : 0;
             str.CUI_PERCENT_2 = txtOp8.Text != "" ? float.Parse(txtOp8.Text) : 0;
             str.CUI_PERCENT_3 = txtOp6.Text != "" ? float.Parse(txtOp6.Text) : 0;

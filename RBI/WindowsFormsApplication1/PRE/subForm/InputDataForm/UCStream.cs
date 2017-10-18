@@ -63,12 +63,5 @@ namespace RBI.PRE.subForm.InputDataForm
             stream.Hydrofluoric = chkPresenceHydrofluoricAcid.Checked ? 1 : 0;
             return stream;
         }
-        //public RW_STREAM getData2()
-        //{
-        //    UCOperatingCondition ucOperating = new UCOperatingCondition();
-        //    RW_STREAM temp = new RW_STREAM();
-        //    temp = ucOperating.getData();
-        //    return temp;
-        //}
     }
 }

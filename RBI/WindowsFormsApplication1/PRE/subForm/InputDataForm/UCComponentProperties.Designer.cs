@@ -175,14 +175,14 @@
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(779, 577);
+            this.groupBox1.Size = new System.Drawing.Size(779, 516);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Component";
             // 
             // cbPreviousFailures
             // 
-            this.cbPreviousFailures.Location = new System.Drawing.Point(246, 412);
+            this.cbPreviousFailures.Location = new System.Drawing.Point(246, 377);
             this.cbPreviousFailures.Name = "cbPreviousFailures";
             this.cbPreviousFailures.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -191,7 +191,7 @@
             // 
             // cbJointTypeBranch
             // 
-            this.cbJointTypeBranch.Location = new System.Drawing.Point(246, 334);
+            this.cbJointTypeBranch.Location = new System.Drawing.Point(246, 299);
             this.cbJointTypeBranch.Name = "cbJointTypeBranch";
             this.cbJointTypeBranch.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -200,7 +200,7 @@
             // 
             // cbCyclicLoading
             // 
-            this.cbCyclicLoading.Location = new System.Drawing.Point(246, 282);
+            this.cbCyclicLoading.Location = new System.Drawing.Point(246, 247);
             this.cbCyclicLoading.Name = "cbCyclicLoading";
             this.cbCyclicLoading.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -209,7 +209,7 @@
             // 
             // cbMaxBrillnessHardness
             // 
-            this.cbMaxBrillnessHardness.Location = new System.Drawing.Point(246, 231);
+            this.cbMaxBrillnessHardness.Location = new System.Drawing.Point(246, 196);
             this.cbMaxBrillnessHardness.Name = "cbMaxBrillnessHardness";
             this.cbMaxBrillnessHardness.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -218,7 +218,7 @@
             // 
             // cbPipeCondition
             // 
-            this.cbPipeCondition.Location = new System.Drawing.Point(246, 386);
+            this.cbPipeCondition.Location = new System.Drawing.Point(246, 351);
             this.cbPipeCondition.Name = "cbPipeCondition";
             this.cbPipeCondition.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -227,7 +227,7 @@
             // 
             // cbNumberFittingPipe
             // 
-            this.cbNumberFittingPipe.Location = new System.Drawing.Point(246, 360);
+            this.cbNumberFittingPipe.Location = new System.Drawing.Point(246, 325);
             this.cbNumberFittingPipe.Name = "cbNumberFittingPipe";
             this.cbNumberFittingPipe.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -236,7 +236,7 @@
             // 
             // cbBranchDiameter
             // 
-            this.cbBranchDiameter.Location = new System.Drawing.Point(246, 308);
+            this.cbBranchDiameter.Location = new System.Drawing.Point(246, 273);
             this.cbBranchDiameter.Name = "cbBranchDiameter";
             this.cbBranchDiameter.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -245,7 +245,7 @@
             // 
             // cbComplexityProtrusion
             // 
-            this.cbComplexityProtrusion.Location = new System.Drawing.Point(246, 257);
+            this.cbComplexityProtrusion.Location = new System.Drawing.Point(246, 222);
             this.cbComplexityProtrusion.Name = "cbComplexityProtrusion";
             this.cbComplexityProtrusion.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -254,7 +254,7 @@
             // 
             // cbAmountShakingPipe
             // 
-            this.cbAmountShakingPipe.Location = new System.Drawing.Point(248, 461);
+            this.cbAmountShakingPipe.Location = new System.Drawing.Point(248, 426);
             this.cbAmountShakingPipe.Name = "cbAmountShakingPipe";
             this.cbAmountShakingPipe.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -263,7 +263,7 @@
             // 
             // cbCorrectiveAction
             // 
-            this.cbCorrectiveAction.Location = new System.Drawing.Point(248, 513);
+            this.cbCorrectiveAction.Location = new System.Drawing.Point(248, 478);
             this.cbCorrectiveAction.Name = "cbCorrectiveAction";
             this.cbCorrectiveAction.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -272,7 +272,7 @@
             // 
             // cbAccumalatedTimeShakingPipe
             // 
-            this.cbAccumalatedTimeShakingPipe.Location = new System.Drawing.Point(248, 487);
+            this.cbAccumalatedTimeShakingPipe.Location = new System.Drawing.Point(248, 452);
             this.cbAccumalatedTimeShakingPipe.Name = "cbAccumalatedTimeShakingPipe";
             this.cbAccumalatedTimeShakingPipe.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -282,7 +282,7 @@
             // chkVisibleAudible
             // 
             this.chkVisibleAudible.AutoSize = true;
-            this.chkVisibleAudible.Location = new System.Drawing.Point(248, 441);
+            this.chkVisibleAudible.Location = new System.Drawing.Point(248, 406);
             this.chkVisibleAudible.Name = "chkVisibleAudible";
             this.chkVisibleAudible.Size = new System.Drawing.Size(15, 14);
             this.chkVisibleAudible.TabIndex = 4;
@@ -320,7 +320,7 @@
             this.label25.AutoSize = true;
             this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label25.ForeColor = System.Drawing.Color.Red;
-            this.label25.Location = new System.Drawing.Point(17, 441);
+            this.label25.Location = new System.Drawing.Point(17, 406);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(201, 15);
             this.label25.TabIndex = 0;
@@ -330,7 +330,7 @@
             // 
             this.label28.AutoSize = true;
             this.label28.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label28.Location = new System.Drawing.Point(17, 515);
+            this.label28.Location = new System.Drawing.Point(17, 480);
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(208, 15);
             this.label28.TabIndex = 0;
@@ -349,7 +349,7 @@
             // 
             this.label27.AutoSize = true;
             this.label27.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label27.Location = new System.Drawing.Point(17, 489);
+            this.label27.Location = new System.Drawing.Point(17, 454);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(194, 15);
             this.label27.TabIndex = 0;
@@ -360,7 +360,7 @@
             this.label24.AutoSize = true;
             this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label24.ForeColor = System.Drawing.Color.Red;
-            this.label24.Location = new System.Drawing.Point(17, 415);
+            this.label24.Location = new System.Drawing.Point(17, 380);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(101, 15);
             this.label24.TabIndex = 0;
@@ -370,7 +370,7 @@
             // 
             this.label26.AutoSize = true;
             this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label26.Location = new System.Drawing.Point(17, 463);
+            this.label26.Location = new System.Drawing.Point(17, 428);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(171, 15);
             this.label26.TabIndex = 0;
@@ -389,7 +389,7 @@
             // 
             this.label23.AutoSize = true;
             this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.Location = new System.Drawing.Point(17, 389);
+            this.label23.Location = new System.Drawing.Point(17, 354);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(87, 15);
             this.label23.TabIndex = 0;
@@ -407,7 +407,7 @@
             // 
             this.label22.AutoSize = true;
             this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.Location = new System.Drawing.Point(17, 363);
+            this.label22.Location = new System.Drawing.Point(17, 328);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(148, 15);
             this.label22.TabIndex = 0;
@@ -425,7 +425,7 @@
             // 
             this.label21.AutoSize = true;
             this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.Location = new System.Drawing.Point(17, 337);
+            this.label21.Location = new System.Drawing.Point(17, 302);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(118, 15);
             this.label21.TabIndex = 0;
@@ -443,7 +443,7 @@
             // 
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(17, 311);
+            this.label20.Location = new System.Drawing.Point(17, 276);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(100, 15);
             this.label20.TabIndex = 0;
@@ -462,7 +462,7 @@
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label19.ForeColor = System.Drawing.Color.Red;
-            this.label19.Location = new System.Drawing.Point(17, 285);
+            this.label19.Location = new System.Drawing.Point(17, 250);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(228, 15);
             this.label19.TabIndex = 0;
@@ -480,7 +480,7 @@
             // 
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(17, 260);
+            this.label18.Location = new System.Drawing.Point(17, 225);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(145, 15);
             this.label18.TabIndex = 0;
@@ -498,7 +498,7 @@
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(17, 236);
+            this.label17.Location = new System.Drawing.Point(17, 201);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(208, 15);
             this.label17.TabIndex = 0;
@@ -749,7 +749,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.groupBox1);
             this.Name = "UCComponentProperties";
-            this.Size = new System.Drawing.Size(779, 577);
+            this.Size = new System.Drawing.Size(779, 516);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cbPreviousFailures.Properties)).EndInit();

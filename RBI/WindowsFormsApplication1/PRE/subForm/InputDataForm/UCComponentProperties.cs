@@ -144,6 +144,7 @@ namespace RBI.PRE.subForm.InputDataForm
             comp.BranchJointType = cbJointTypeBranch.Text;
             comp.BrinnelHardness = cbMaxBrillnessHardness.Text;
             comp.CracksPresent = chkPresenceCracks.Checked ? 1 : 0;
+            comp.ComplexityProtrusion = cbComplexityProtrusion.Text;
             return comp;
         }
 

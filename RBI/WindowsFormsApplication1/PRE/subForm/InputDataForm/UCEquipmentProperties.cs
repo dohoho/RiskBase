@@ -51,15 +51,8 @@ namespace RBI.PRE.subForm.InputDataForm
                                             "Sulfuric acid (H2S/H2) corrosion low velocity - Electrical resistance probes",
                                             "Sulfuric acid (H2S/H2) corrosion low velocity - Key process parameters"
                                             };
-        string[] itemsExternalEnvironment = { "Arid/dry",
-                                              "Marine",
-                                              "Severe",
-                                              "Temperate"};
-        string[] itemsThermalHistory = { "None",
-                                        "Solution Annealed",
-                                        "Stabilised After Welding",
-                                        "Stabilised Before Welding"
-                                        };
+        string[] itemsExternalEnvironment = { "Arid/dry", "Marine", "Severe", "Temperate"};
+        string[] itemsThermalHistory = { "None", "Solution Annealed", "Stabilised After Welding", "Stabilised Before Welding" };
         public UCEquipmentProperties()
         {
             InitializeComponent();

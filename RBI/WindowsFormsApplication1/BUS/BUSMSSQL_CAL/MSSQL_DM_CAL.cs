@@ -89,7 +89,7 @@ namespace RBI.BUS.BUSMSSQL_CAL
         /// INPUT Carboonate Cracking
         /// 1. material is carbon or allow stell
         /// 2.the process environment contains water
-        /// 3. PH >7.5
+        /// 3. PH > 7.5
         ///</summary>
         public String CACBONATE_INSP_EFF { set; get; }
         public int CACBONATE_INSP_NUM { set; get; }
@@ -1027,7 +1027,7 @@ namespace RBI.BUS.BUSMSSQL_CAL
                 default: return 1;
             }
         }
-        private float DF_CLSCC(float age)
+        public float DF_CLSCC(float age)
         {
             if (INTERNAL_EXPOSED_FLUID_MIST && AUSTENITIC_STEEL && MAX_OP_TEMP > 38)
             {
@@ -1073,7 +1073,7 @@ namespace RBI.BUS.BUSMSSQL_CAL
                 default: return 1;
             }
         }
-        private float DF_HSCHF(float age)
+        public float DF_HSCHF(float age)
         {
             if (CARBON_ALLOY && HF_PRESENT)
             {
@@ -1115,7 +1115,7 @@ namespace RBI.BUS.BUSMSSQL_CAL
                 default: return 1;
             }
         }
-        private float DF_HIC_SOHIC_HF(float age)
+        public float DF_HIC_SOHIC_HF(float age)
         {
             if (CARBON_ALLOY && HF_PRESENT)
             {
@@ -1258,13 +1258,14 @@ namespace RBI.BUS.BUSMSSQL_CAL
                 FIP = 1;
             float CR = API_CORROSION_RATE() * Math.Max(FPS, FIP);
             float ART_EXT = Math.Max(1 - (CurrentThick - CR * AGE_CUI(age)) / (getTmin() + CA), 0);
+            Debug.WriteLine("Art "+API_ART(ART_EXT).ToString());
             return API_ART(ART_EXT);
         }
-        private float DF_EXTERNAL_CORROSION(float age)
+        public float DF_EXTERNAL_CORROSION(float age)
         {
             if (EXTERNAL_EXPOSED_FLUID_MIST || (CARBON_ALLOY && !(MAX_OP_TEMP < -23 || MIN_OP_TEMP > 121)))
             {
-                if (EXTERNAL_INSP_EFF == null)
+                if (EXTERNAL_INSP_EFF == "" || EXTERNAL_INSP_EFF == null || EXTERNAL_INSP_NUM == 0)
                     EXTERNAL_INSP_EFF = "E";
                 if (APIComponentType == "TANKBOTOM")
                 {
@@ -1464,9 +1465,9 @@ namespace RBI.BUS.BUSMSSQL_CAL
             float ART_CUI = Math.Max(1 - (CurrentThick - CR * AGE_CUI(age)) / (getTmin() + CA), 0);
             return API_ART(ART_CUI);
         }
-        private float DF_CUI(float age)
+        public float DF_CUI(float age)
         {
-            if (CUI_INSP_EFF == null)
+            if (CUI_INSP_EFF == null || CUI_INSP_EFF == "" || CUI_INSP_NUM == 0)
                 CUI_INSP_EFF = "E";
             if (APIComponentType == "TANKBOTOM")
             {
@@ -1548,7 +1549,7 @@ namespace RBI.BUS.BUSMSSQL_CAL
 
             return DAL_CAL.GET_TBL_74(SVI, FIELD);
         }
-        private float DF_EXTERN_CLSCC()
+        public float DF_EXTERN_CLSCC()
         {
             if (AUSTENITIC_STEEL && EXTERNAL_EXPOSED_FLUID_MIST && !(MAX_OP_TEMP < 49 || MIN_DESIGN_TEMP > 149))
             {
@@ -1572,6 +1573,7 @@ namespace RBI.BUS.BUSMSSQL_CAL
                 AGE_COAT = COMPONENT_INSTALL_DATE;
             TimeSpan TICK_SPAN = DateTime.Now.Subtract(AGE_COAT);
             float DATA = Math.Max(0, (float)Math.Round((double)TICK_SPAN.Days / 365, 2));
+            //Debug.WriteLine("jahdasd " + DATA +" Datetime "+AGE_COAT.ToString());
             return DATA;
         }
         private String CUI_CLSCC_SUSCEP()
@@ -1713,7 +1715,7 @@ namespace RBI.BUS.BUSMSSQL_CAL
 
             return DAL_CAL.GET_TBL_74(SVI, FIELD);
         }
-        private float DF_CUI_CLSCC()
+        public float DF_CUI_CLSCC()
         {
             if (AUSTENITIC_STEEL && EXTERNAL_INSULATION && EXTERNAL_EXPOSED_FLUID_MIST && !(MIN_OP_TEMP > 150 || MAX_OP_TEMP < 50))
             {
@@ -1736,6 +1738,7 @@ namespace RBI.BUS.BUSMSSQL_CAL
         private String HTHA_SUSCEP(float age)
         {
             float PV = HTHA_PV(age);
+            Debug.WriteLine("pv " + PV.ToString());
             String SUSCEP = null;
             if (HTHA_PRESSURE > 8.274) HTHA_MATERIAL = "1.25Cr-0.5Mo";
             switch (HTHA_MATERIAL)
@@ -1790,6 +1793,7 @@ namespace RBI.BUS.BUSMSSQL_CAL
                     }
                 default: SUSCEP = "Not"; break;
             }
+            Debug.WriteLine("Suscep: " + SUSCEP);
             return SUSCEP;
         }
         private int API_DF_HTHA(float age)
@@ -1815,11 +1819,12 @@ namespace RBI.BUS.BUSMSSQL_CAL
                     return API_HTHA[6];
             }
         }
-        private float DF_HTHA(float age)
+        public float DF_HTHA(float age)
         {
+            
             if (MATERIAL_SUSCEP_HTHA)
             {
-                if (CRITICAL_TEMP <= 204 && HTHA_PRESSURE <= 0.552)
+                if (CRITICAL_TEMP <= 204 && HTHA_PRESSURE <= 80.06) //80.06 psi
                     return 1;
                 else
                     return API_DF_HTHA(age);
@@ -1835,11 +1840,11 @@ namespace RBI.BUS.BUSMSSQL_CAL
         {
             float TEMP_BRITTLE = Math.Min(MIN_DESIGN_TEMP, MIN_OP_TEMP);
             if (PWHT)
-                return DAL_CAL.GET_TBL_215(API_TEMP(TEMP_BRITTLE), API_SIZE_BRITTLE(BRITTLE_THICK));
+                return DAL_CAL.GET_TBL_215(API_TEMP(TEMP_BRITTLE - REF_TEMP), API_SIZE_BRITTLE(BRITTLE_THICK));
             else
-                return DAL_CAL.GET_TBL_214(API_TEMP(TEMP_BRITTLE), API_SIZE_BRITTLE(BRITTLE_THICK));
+                return DAL_CAL.GET_TBL_214(API_TEMP(TEMP_BRITTLE - REF_TEMP), API_SIZE_BRITTLE(BRITTLE_THICK));
         }
-        private float DF_BRITTLE()
+        public float DF_BRITTLE()
         {
             if (CARBON_ALLOY && (CRITICAL_TEMP < MIN_DESIGN_TEMP || MAX_OP_TEMP < MIN_DESIGN_TEMP))
             {
@@ -1904,7 +1909,7 @@ namespace RBI.BUS.BUSMSSQL_CAL
             else
                 return data[10];
         }
-        private float DF_TEMP_EMBRITTLE()
+        public float DF_TEMP_EMBRITTLE()
         {
             if (TEMPER_SUSCEP || (CARBON_ALLOY && !(MAX_OP_TEMP < 343 || MIN_OP_TEMP > 577)))
             {
@@ -1921,7 +1926,7 @@ namespace RBI.BUS.BUSMSSQL_CAL
         ///<summary>
         /// CAL 885
         ///</summary>
-        private float DF_885()
+        public float DF_885()
         {
             if (CHROMIUM_12 && !(MIN_OP_TEMP > 566 || MAX_OP_TEMP < 371))
             {
@@ -1985,7 +1990,7 @@ namespace RBI.BUS.BUSMSSQL_CAL
                 TEMP = DATA[10];
             return TEMP;
         }
-        private float DF_SIGMA()
+        public float DF_SIGMA()
         {
             if (AUSTENITIC_STEEL && !(MIN_OP_TEMP > 927 || MAX_OP_TEMP < 593))
             {
@@ -2130,7 +2135,7 @@ namespace RBI.BUS.BUSMSSQL_CAL
 
             return Math.Max(DFB_PF, Math.Max(DFB_AS * FFB_AS, DFB_CF));
         }
-        private float DF_PIPE()
+        public float DF_PIPE()
         {
             if (EquipmentType == "Piping")
             {

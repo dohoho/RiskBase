@@ -50,8 +50,7 @@ namespace RBI.PRE.subForm.InputDataForm
                                             "Sulfuric acid (H2S/H2) corrosion high velocity - Key process parameters & electrical resistance probes",
                                             "Sulfuric acid (H2S/H2) corrosion low velocity - Corrosion coupons",
                                             "Sulfuric acid (H2S/H2) corrosion low velocity - Electrical resistance probes",
-                                            "Sulfuric acid (H2S/H2) corrosion low velocity - Key process parameters"
-                                            };
+                                            "Sulfuric acid (H2S/H2) corrosion low velocity - Key process parameters"};
         string[] itemsThermalHistory = { "None", "Solution Annealed", "Stabilised After Welding", "Stabilised Before Welding" };
         string[] itemsEnvironmental = { "High", "Medium", "Low" };
         public UCEquipmentPropertiesTankBottom()

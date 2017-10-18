@@ -28,5 +28,11 @@ namespace RBI.PRE.subForm.InputDataForm
             ass.RecordType = cbReportTemplate.Text;
             return ass;
         }
+        public RW_EQUIPMENT getData1()
+        {
+            RW_EQUIPMENT eq = new RW_EQUIPMENT();
+            eq.CommissionDate = dateComissionDate.DateTime;
+            return eq;
+        }
     }
 }
