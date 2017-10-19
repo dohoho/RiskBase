@@ -16,7 +16,7 @@ using DevExpress.XtraTreeList.Nodes;
 using DevExpress.XtraTreeList.Menu;
 using DevExpress.Utils.Menu;
 
-using RBI.PRE.TabPlant;
+
 using RBI.BUS.Calculator;
 using Microsoft.Office.Interop.Excel;
 using app = Microsoft.Office.Interop.Excel.Application;
@@ -597,26 +597,26 @@ namespace RBI
             //</Piping Mechanical>
 
             //<goi ham tinh toan DF>
-            //MessageBox.Show("Df_Thinning = " + cal.DF_THIN(10).ToString(),"Damage Factor Thinning");
-            //MessageBox.Show("Df_Linning = " + cal.DF_LINNING(10).ToString(), "Damage Factor Linning");
-            //MessageBox.Show("Df_Caustic = " + cal.DF_CAUSTIC(10).ToString(), "Damage Factor Caustic");
-            //MessageBox.Show("Df_Amine = " + cal.DF_AMINE(10).ToString(), "Damage Factor Amine");
-            //MessageBox.Show("Df_Sulphide = " + cal.DF_SULPHIDE(10).ToString(), "Damage Factor Sulphide Stress Cracking");
-            //MessageBox.Show("Df_PTA = " + cal.DF_PTA(11).ToString(), "Damage Factor PTA Cracking");
-            //MessageBox.Show("Df_PTA = " + cal.DF_PTA(10), "Damage Factor PTA Cracking");
-            //MessageBox.Show("Df_CLSCC = " + cal.DF_CLSCC(10), "Damage Factor CLSCC Cracking");
-            //MessageBox.Show("Df_HSC-HF = " + cal.DF_HSCHF(10), "Damage Factor HSC-HF");
-            //MessageBox.Show("Df_HIC/SOHIC-HF = " + cal.DF_HIC_SOHIC_HF(10), "Damage Factor HIC/SOHIC-HF");
-            //MessageBox.Show("Df_ExternalCorrosion = " + cal.DF_EXTERNAL_CORROSION(10), "Damage Factor External Corrosion");
-            //MessageBox.Show("Df_CUI = " + cal.DF_CUI(10), "Damage Factor CUI");
-            //MessageBox.Show("Df_EXTERNAL_CLSCC = " + cal.DF_EXTERN_CLSCC(), "Damage Factor ");
-            //MessageBox.Show("Df_EXTERNAL_CUI_CLSCC = " + cal.DF_CUI_CLSCC(), "Damage Factor External CUI CLSCC");
-            //MessageBox.Show("Df_HTHA = " + cal.DF_HTHA(10), "Damage Factor HTHA");
-            //MessageBox.Show("Df_Brittle = " + cal.DF_BRITTLE(), "Damage Factor Brittle");
-            //MessageBox.Show("Df_Temper_Embrittle = " + cal.DF_TEMP_EMBRITTLE(), "Damage Factor Temper Embrittle");
-            //MessageBox.Show("Df_885 = " + cal.DF_885(), "Damage Factor 885");
-            //MessageBox.Show("Df_Sigma = " + cal.DF_SIGMA(), "Damage Factor Sigma");
-            MessageBox.Show("Df_Piping = " + cal.DF_PIPE(), "Damage Factor Piping");
+            MessageBox.Show("Df_Thinning = " + cal.DF_THIN(10).ToString() +"\n"+
+             "Df_Linning = " + cal.DF_LINNING(10).ToString()+"\n"+
+             "Df_Caustic = " + cal.DF_CAUSTIC(10).ToString()+"\n"+
+             "Df_Amine = " + cal.DF_AMINE(10).ToString() +"\n"+
+             "Df_Sulphide = " + cal.DF_SULPHIDE(10).ToString() +"\n"+
+             "Df_PTA = " + cal.DF_PTA(11).ToString() +"\n"+
+             "Df_PTA = " + cal.DF_PTA(10) +"\n"+
+             "Df_CLSCC = " + cal.DF_CLSCC(10) +"\n"+
+             "Df_HSC-HF = " + cal.DF_HSCHF(10) +"\n"+
+             "Df_HIC/SOHIC-HF = " + cal.DF_HIC_SOHIC_HF(10) +"\n"+
+             "Df_ExternalCorrosion = " + cal.DF_EXTERNAL_CORROSION(10) +"\n"+
+             "Df_CUI = " + cal.DF_CUI(10) +"\n"+
+             "Df_EXTERNAL_CLSCC = " + cal.DF_EXTERN_CLSCC()  +"\n"+
+             "Df_EXTERNAL_CUI_CLSCC = " + cal.DF_CUI_CLSCC()+"\n"+
+             "Df_HTHA = " + cal.DF_HTHA(10)+"\n"+
+             "Df_Brittle = " + cal.DF_BRITTLE()+"\n"+
+             "Df_Temper_Embrittle = " + cal.DF_TEMP_EMBRITTLE() +"\n"+
+             "Df_885 = " + cal.DF_885() +"\n"+
+             "Df_Sigma = " + cal.DF_SIGMA() +"\n"+
+             "Df_Piping = " + cal.DF_PIPE(), "Damage Factor");
             //</ket thuc tinh toan DF>
         }
 
@@ -792,22 +792,13 @@ namespace RBI
 
         private void barBtnNewEquipment_ItemClick(object sender, ItemClickEventArgs e)
         {
-            newEquipment eq = new newEquipment();
-            eq.ShowDialog();
+           
         }
 
         private void barBtnImportEquipment_ItemClick(object sender, ItemClickEventArgs e)
         {
 
         }
-
-
-
-
-        
-       
-
-
         private void btnImportInspection_ItemClick(object sender, ItemClickEventArgs e)
         {
             frmImportInspection insp = new frmImportInspection();

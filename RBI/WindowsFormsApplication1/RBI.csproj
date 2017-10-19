@@ -298,10 +298,6 @@
     <Compile Include="Object\paramaterDF.cs" />
     <Compile Include="Object\RiskSummary.cs" />
     <Compile Include="PRE\ITEM\jtree.cs" />
-    <Compile Include="PRE\subForm\GridControlDemo.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="PRE\subForm\GridControlDemo.Designer.cs" />
     <Compile Include="PRE\subForm\ImportExcel.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -325,6 +321,12 @@
     </Compile>
     <Compile Include="PRE\subForm\InputDataForm\FacilityInput.Designer.cs">
       <DependentUpon>FacilityInput.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PRE\subForm\InputDataForm\frmGenericFluids.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PRE\subForm\InputDataForm\frmGenericFluids.Designer.cs">
+      <DependentUpon>frmGenericFluids.cs</DependentUpon>
     </Compile>
     <Compile Include="PRE\subForm\InputDataForm\ImportInspection.cs">
       <SubType>Form</SubType>
@@ -368,6 +370,18 @@
     <Compile Include="PRE\subForm\InputDataForm\UCAssessmentInfo.Designer.cs">
       <DependentUpon>UCAssessmentInfo.cs</DependentUpon>
     </Compile>
+    <Compile Include="PRE\subForm\InputDataForm\UCCAforTank.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PRE\subForm\InputDataForm\UCCAforTank.Designer.cs">
+      <DependentUpon>UCCAforTank.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PRE\subForm\InputDataForm\UCCA.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PRE\subForm\InputDataForm\UCCA.Designer.cs">
+      <DependentUpon>UCCA.cs</DependentUpon>
+    </Compile>
     <Compile Include="PRE\subForm\InputDataForm\UCCoatLiningIsulationCladding.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -386,6 +400,18 @@
     <Compile Include="PRE\subForm\InputDataForm\UCComponentProperties.Designer.cs">
       <DependentUpon>UCComponentProperties.cs</DependentUpon>
     </Compile>
+    <Compile Include="PRE\subForm\OutputDataForm\UCInternalThinningDamageFactor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PRE\subForm\OutputDataForm\UCInternalThinningDamageFactor.Designer.cs">
+      <DependentUpon>UCInternalThinningDamageFactor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PRE\subForm\OutputDataForm\UCDamageMechanism.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PRE\subForm\OutputDataForm\UCDamageMechanism.Designer.cs">
+      <DependentUpon>UCDamageMechanism.cs</DependentUpon>
+    </Compile>
     <Compile Include="PRE\subForm\InputDataForm\UCEquipmentPropertiesTankBottom.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -397,6 +423,12 @@
     </Compile>
     <Compile Include="PRE\subForm\InputDataForm\UCEquipmentProperties.Designer.cs">
       <DependentUpon>UCEquipmentProperties.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PRE\subForm\InputDataForm\UCExternalCorrosionDamageFactor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PRE\subForm\InputDataForm\UCExternalCorrosionDamageFactor.Designer.cs">
+      <DependentUpon>UCExternalCorrosionDamageFactor.cs</DependentUpon>
     </Compile>
     <Compile Include="PRE\subForm\InputDataForm\UCMaterial.cs">
       <SubType>UserControl</SubType>
@@ -428,158 +460,12 @@
     <Compile Include="PRE\subForm\InputDataForm\UCStream.Designer.cs">
       <DependentUpon>UCStream.cs</DependentUpon>
     </Compile>
-    <Compile Include="PRE\subForm\LoadExcel.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PRE\subForm\LoadExcel.Designer.cs" />
-    <Compile Include="PRE\subForm\newComponent.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PRE\subForm\newComponent.Designer.cs" />
-    <Compile Include="PRE\subForm\newEquipment.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PRE\subForm\newEquipment.Designer.cs" />
-    <Compile Include="PRE\subForm\NewEquipmentForRBI.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PRE\subForm\NewEquipmentForRBI.Designer.cs" />
-    <Compile Include="PRE\subForm\NewPlant.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PRE\subForm\NewPlant.Designer.cs" />
-    <Compile Include="PRE\subForm\SplashScreen.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PRE\subForm\SplashScreen.Designer.cs">
-      <DependentUpon>SplashScreen.cs</DependentUpon>
-    </Compile>
-    <Compile Include="PRE\subForm\subHomeUsr.cs">
+    <Compile Include="PRE\subForm\OutputDataForm\UCRiskFactor.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="PRE\subForm\subHomeUsr.Designer.cs" />
-    <Compile Include="PRE\subForm\subUCcomponent.cs">
-      <SubType>UserControl</SubType>
+    <Compile Include="PRE\subForm\OutputDataForm\UCRiskFactor.Designer.cs">
+      <DependentUpon>UCRiskFactor.cs</DependentUpon>
     </Compile>
-    <Compile Include="PRE\subForm\subUCcomponent.Designer.cs" />
-    <Compile Include="PRE\subForm\subUCequipment.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="PRE\subForm\subUCequipment.Designer.cs" />
-    <Compile Include="PRE\subForm\TestExcelApp.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PRE\subForm\TestExcelApp.Designer.cs" />
-    <Compile Include="PRE\subForm\UCComponent.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="PRE\subForm\UCComponent.Designer.cs" />
-    <Compile Include="PRE\subForm\UCDevexpress.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="PRE\subForm\UCDevexpress.Designer.cs" />
-    <Compile Include="PRE\subForm\UCEqList_DevExpress.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="PRE\subForm\UCEqList_DevExpress.Designer.cs" />
-    <Compile Include="PRE\subForm\UCEquipListRbi_DevExpress.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="PRE\subForm\UCEquipListRbi_DevExpress.Designer.cs" />
-    <Compile Include="PRE\subForm\UCEquipmentForRBI.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="PRE\subForm\UCEquipmentForRBI.Designer.cs" />
-    <Compile Include="PRE\subForm\UCEquipmentInfomation.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="PRE\subForm\UCEquipmentInfomation.Designer.cs" />
-    <Compile Include="PRE\subForm\UCEquipmentsList.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="PRE\subForm\UCEquipmentsList.Designer.cs" />
-    <Compile Include="PRE\subForm\UCEquipmentTemp.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="PRE\subForm\UCEquipmentTemp.Designer.cs" />
-    <Compile Include="PRE\subForm\UCFullPlant.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="PRE\subForm\UCFullPlant.Designer.cs" />
-    <Compile Include="PRE\subForm\UCInspHistory.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="PRE\subForm\UCInspHistory.Designer.cs" />
-    <Compile Include="PRE\subForm\UCRecommend.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="PRE\subForm\UCRecommend.Designer.cs" />
-    <Compile Include="PRE\subForm\UCRevision.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="PRE\subForm\UCRevision.Designer.cs" />
-    <Compile Include="PRE\subForm\UCrisk.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="PRE\subForm\UCrisk.Designer.cs" />
-    <Compile Include="PRE\subForm\UCRisksummery.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="PRE\subForm\UCRisksummery.Designer.cs" />
-    <Compile Include="PRE\subForm\WaitingForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PRE\subForm\WaitingForm.Designer.cs">
-      <DependentUpon>WaitingForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="PRE\subForm\WatingForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PRE\subForm\WatingForm.Designer.cs" />
-    <Compile Include="PRE\TAB\RBIQuestion.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PRE\TAB\RBIQuestion.Designer.cs" />
-    <Compile Include="PRE\TAB\ucTab10.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="PRE\TAB\ucTab10.Designer.cs" />
-    <Compile Include="PRE\TAB\ucTab11.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="PRE\TAB\ucTab11.Designer.cs" />
-    <Compile Include="PRE\TAB\ucTab12.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="PRE\TAB\ucTab12.Designer.cs" />
-    <Compile Include="PRE\TAB\ucTab13.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="PRE\TAB\ucTab13.Designer.cs" />
-    <Compile Include="PRE\TAB\ucTab5.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="PRE\TAB\ucTab5.Designer.cs" />
-    <Compile Include="PRE\TAB\ucTab6.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="PRE\TAB\ucTab6.Designer.cs" />
-    <Compile Include="PRE\TAB\ucTab7.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="PRE\TAB\ucTab7.Designer.cs" />
-    <Compile Include="PRE\TAB\ucTab8.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="PRE\TAB\ucTab8.Designer.cs" />
-    <Compile Include="PRE\TAB\ucTab9.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="PRE\TAB\ucTab9.Designer.cs" />
-    <Compile Include="PRE\UCRBI\UCRBI_general.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="PRE\UCRBI\UCRBI_general.Designer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -599,7 +485,6 @@
     <Compile Include="test.Designer.cs">
       <DependentUpon>test.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="PRE\subForm\GridControlDemo.resx" />
     <EmbeddedResource Include="PRE\subForm\ImportExcel.resx">
       <DependentUpon>ImportExcel.cs</DependentUpon>
     </EmbeddedResource>
@@ -611,6 +496,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PRE\subForm\InputDataForm\FacilityInput.resx">
       <DependentUpon>FacilityInput.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PRE\subForm\InputDataForm\frmGenericFluids.resx">
+      <DependentUpon>frmGenericFluids.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PRE\subForm\InputDataForm\ImportInspection.resx">
       <DependentUpon>ImportInspection.cs</DependentUpon>
@@ -633,6 +521,12 @@
     <EmbeddedResource Include="PRE\subForm\InputDataForm\UCAssessmentInfo.resx">
       <DependentUpon>UCAssessmentInfo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PRE\subForm\InputDataForm\UCCAforTank.resx">
+      <DependentUpon>UCCAforTank.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PRE\subForm\InputDataForm\UCCA.resx">
+      <DependentUpon>UCCA.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PRE\subForm\InputDataForm\UCCoatLiningIsulationCladding.resx">
       <DependentUpon>UCCoatLiningIsulationCladding.cs</DependentUpon>
     </EmbeddedResource>
@@ -642,11 +536,17 @@
     <EmbeddedResource Include="PRE\subForm\InputDataForm\UCComponentProperties.resx">
       <DependentUpon>UCComponentProperties.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PRE\subForm\OutputDataForm\UCDamageMechanism.resx">
+      <DependentUpon>UCDamageMechanism.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PRE\subForm\InputDataForm\UCEquipmentPropertiesTankBottom.resx">
       <DependentUpon>UCEquipmentPropertiesTankBottom.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PRE\subForm\InputDataForm\UCEquipmentProperties.resx">
       <DependentUpon>UCEquipmentProperties.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PRE\subForm\InputDataForm\UCExternalCorrosionDamageFactor.resx">
+      <DependentUpon>UCExternalCorrosionDamageFactor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PRE\subForm\InputDataForm\UCMaterial.resx">
       <DependentUpon>UCMaterial.cs</DependentUpon>
@@ -663,47 +563,12 @@
     <EmbeddedResource Include="PRE\subForm\InputDataForm\UCStream.resx">
       <DependentUpon>UCStream.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PRE\subForm\LoadExcel.resx" />
-    <EmbeddedResource Include="PRE\subForm\newComponent.resx" />
-    <EmbeddedResource Include="PRE\subForm\newEquipment.resx" />
-    <EmbeddedResource Include="PRE\subForm\NewEquipmentForRBI.resx" />
-    <EmbeddedResource Include="PRE\subForm\NewPlant.resx" />
-    <EmbeddedResource Include="PRE\subForm\SplashScreen.resx">
-      <DependentUpon>SplashScreen.cs</DependentUpon>
+    <EmbeddedResource Include="PRE\subForm\OutputDataForm\UCInternalThinningDamageFactor.resx">
+      <DependentUpon>UCInternalThinningDamageFactor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PRE\subForm\subHomeUsr.resx" />
-    <EmbeddedResource Include="PRE\subForm\subUCcomponent.resx" />
-    <EmbeddedResource Include="PRE\subForm\subUCequipment.resx" />
-    <EmbeddedResource Include="PRE\subForm\TestExcelApp.resx" />
-    <EmbeddedResource Include="PRE\subForm\UCComponent.resx" />
-    <EmbeddedResource Include="PRE\subForm\UCDevexpress.resx" />
-    <EmbeddedResource Include="PRE\subForm\UCEqList_DevExpress.resx" />
-    <EmbeddedResource Include="PRE\subForm\UCEquipListRbi_DevExpress.resx" />
-    <EmbeddedResource Include="PRE\subForm\UCEquipmentForRBI.resx" />
-    <EmbeddedResource Include="PRE\subForm\UCEquipmentInfomation.resx" />
-    <EmbeddedResource Include="PRE\subForm\UCEquipmentsList.resx" />
-    <EmbeddedResource Include="PRE\subForm\UCEquipmentTemp.resx" />
-    <EmbeddedResource Include="PRE\subForm\UCFullPlant.resx" />
-    <EmbeddedResource Include="PRE\subForm\UCInspHistory.resx" />
-    <EmbeddedResource Include="PRE\subForm\UCRecommend.resx" />
-    <EmbeddedResource Include="PRE\subForm\UCRevision.resx" />
-    <EmbeddedResource Include="PRE\subForm\UCrisk.resx" />
-    <EmbeddedResource Include="PRE\subForm\UCRisksummery.resx" />
-    <EmbeddedResource Include="PRE\subForm\WaitingForm.resx">
-      <DependentUpon>WaitingForm.cs</DependentUpon>
+    <EmbeddedResource Include="PRE\subForm\OutputDataForm\UCRiskFactor.resx">
+      <DependentUpon>UCRiskFactor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PRE\subForm\WatingForm.resx" />
-    <EmbeddedResource Include="PRE\TAB\RBIQuestion.resx" />
-    <EmbeddedResource Include="PRE\TAB\ucTab10.resx" />
-    <EmbeddedResource Include="PRE\TAB\ucTab11.resx" />
-    <EmbeddedResource Include="PRE\TAB\ucTab12.resx" />
-    <EmbeddedResource Include="PRE\TAB\ucTab13.resx" />
-    <EmbeddedResource Include="PRE\TAB\ucTab5.resx" />
-    <EmbeddedResource Include="PRE\TAB\ucTab6.resx" />
-    <EmbeddedResource Include="PRE\TAB\ucTab7.resx" />
-    <EmbeddedResource Include="PRE\TAB\ucTab8.resx" />
-    <EmbeddedResource Include="PRE\TAB\ucTab9.resx" />
-    <EmbeddedResource Include="PRE\UCRBI\UCRBI_general.resx" />
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -809,7 +674,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="PRE\ICON\" />
-    <Folder Include="PRE\TabPlant\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

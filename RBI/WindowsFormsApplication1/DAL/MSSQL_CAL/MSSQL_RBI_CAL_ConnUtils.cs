@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RBI.DAL.MSSQL;
+using System;
 using System.Collections.Generic;
 using System.Data.Common;
 using System.Data.SqlClient;
@@ -6,10 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using RBI.DAL.MSSQL;
-using RBI.Object.ObjectMSSQL_CAL;
 
-namespace RBI.DAL.MSSQL
+namespace RBI.DAL.MSSQL_CAL
 {
     class MSSQL_RBI_CAL_ConnUtils
     {
@@ -21,7 +20,7 @@ namespace RBI.DAL.MSSQL
             conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             float[] data = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
-            String sql = "USE [rbi] SELECT [MW],[Density],[NBP],[ideal],[A],[B],[C],[D],[E],[Auto] FROM [dbo].[TBL_52_CA_PROPERTIES_LEVEL_1] WHERE [Fluid] = '"+fluid+"'";
+            String sql = "USE [rbi] SELECT [MW],[Density],[NBP],[ideal],[A],[B],[C],[D],[E],[Auto] FROM [dbo].[TBL_52_CA_PROPERTIES_LEVEL_1] WHERE [Fluid] = '" + fluid + "'";
             try
             {
                 SqlCommand cmd = new SqlCommand();
@@ -58,6 +57,39 @@ namespace RBI.DAL.MSSQL
             }
             return data;
         }
+        public String GET_RELEASE_PHASE(String fluid)
+        {
+            conn = MSSQLDBUtils.GetDBConnection();
+            conn.Open();
+            String data = null;
+            String sql = "USE [rbi] SELECT [Ambient] FROM [dbo].[TBL_52_CA_PROPERTIES_LEVEL_1] WHERE [Fluid] = '" + fluid + "'";
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = conn;
+                cmd.CommandText = sql;
+                using (DbDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        if (reader.HasRows)
+                        {
+                            data = reader.GetString(0);
+                        }
+                    }
+                }
+            }
+            catch
+            {
+                MessageBox.Show("GET TBL_52 FAIL!");
+            }
+            finally
+            {
+                conn.Close();
+                conn.Dispose();
+            }
+            return data;
+        }
         // get all data from TBL_58
         public float[] GET_TBL_58(String fluid)
         {
@@ -65,22 +97,22 @@ namespace RBI.DAL.MSSQL
             conn.Open();
             float[] data = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
             String sql = "USE [rbi] " +
-                        "SELECT [CAINL_gas_a]" +
-                        ",[CAINL_gas_b]" +
-                        ",[CAINL_liquid_a]" +
-                        ",[CAINL_liquid_b]" +
-                        ",[CAIL_gas_a]" +
-                        ",[CAIL_gas_b]" +
-                        ",[CAIL_liquid_a]" +
-                        ",[CAIL_liquid_b]" +
-                        ",[IAINL_gas_a]" +
-                        ",[IAINL_gas_b]" +
-                        ",[IAINL_liquid_a]" +
-                        ",[IAINL_liquid_b]" +
-                        ",[IAIL_gas_a]" +
-                        ",[IAIL_gas_b]" +
-                        ",[IAIL_liquid_a]" +
-                        ",[IAIL_liquid_b]" +
+                          "SELECT [CAINL_gas_a]" +
+                          ",[CAINL_gas_b]" +
+                          ",[CAINL_liquid_a]" +
+                          ",[CAINL_liquid_b]" +
+                          ",[CAIL_gas_a]" +
+                          ",[CAIL_gas_b]" +
+                          ",[CAIL_liquid_a]" +
+                          ",[CAIL_liquid_b]" +
+                          ",[IAINL_gas_a]" +
+                          ",[IAINL_gas_b]" +
+                          ",[IAINL_liquid_a]" +
+                          ",[IAINL_liquid_b]" +
+                          ",[IAIL_gas_a]" +
+                          ",[IAIL_gas_b]" +
+                          ",[IAIL_liquid_a]" +
+                          ",[IAIL_liquid_b]" +
                         "  FROM [rbi].[dbo].[TBL_58_CA_COMPONENT_DM] WHERE [Fluid] = '" + fluid + "'";
             try
             {
@@ -112,9 +144,9 @@ namespace RBI.DAL.MSSQL
                         }
                     }
                 }
-                for(int i = 0; i<15; i++)
+                for (int i = 0; i < 15; i++)
                 {
-                    if(data[i] == 0)
+                    if (data[i] == 0)
                     {
                         data[i] = 1;
                     }
@@ -154,7 +186,7 @@ namespace RBI.DAL.MSSQL
                         ",[IAIL_gas_b]" +
                         ",[IAIL_liquid_a]" +
                         ",[IAIL_liquid_b]" +
-                        "  FROM [rbi].[dbo].[TBL_59_CA_COMPONENT_DM_PERSON] WHERE [Fluid] = '" + fluid + "'";
+                        "  FROM [rbi].[dbo].[TBL_59_COMPONENT_DAMAGE_PERSON] WHERE [Fluid] = '" + fluid + "'";
             try
             {
                 SqlCommand cmd = new SqlCommand();
@@ -214,7 +246,7 @@ namespace RBI.DAL.MSSQL
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = conn;
                 cmd.CommandText = sql;
-                using(DbDataReader reader = cmd.ExecuteReader())
+                using (DbDataReader reader = cmd.ExecuteReader())
                 {
                     while (reader.Read())
                     {
@@ -242,7 +274,7 @@ namespace RBI.DAL.MSSQL
         // get all data from TBL_204
         public int[] GET_TBL_204(String susceptibility)
         {
-            conn =MSSQLDBUtils.GetDBConnection();
+            conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             int[] data = { 0, 0, 0, 0, 0, 0, 0 };
             String sql = "USE [rbi] " +
@@ -293,7 +325,7 @@ namespace RBI.DAL.MSSQL
             conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             float data = 0;
-            String sql = "USE [rbi] SELECT [" + Size + "] FROM[rbi].[dbo].[TBL_214_DM_NOT_PWHT] WHERE [Tmin-Tref] = '" + DeltaT + "'";
+            String sql = "USE [rbi] SELECT [" + Size + "] FROM[rbi].[dbo].[TBL_214_DM_NOT_PWHT] WHERE [Tmin - Tref] = '" + DeltaT + "'";
             try
             {
                 SqlCommand cmd = new SqlCommand();
@@ -310,9 +342,9 @@ namespace RBI.DAL.MSSQL
                     }
                 }
             }
-            catch(Exception e)
+            catch
             {
-                MessageBox.Show("GET DATA TBL_214 FAIL! "+e.ToString());
+                MessageBox.Show("GET DATA TBL_214 FAIL!");
             }
             finally
             {
@@ -327,13 +359,13 @@ namespace RBI.DAL.MSSQL
             conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             float data = 0;
-            String sql =  "USE [rbi] SELECT [" + Size + "] FROM[rbi].[dbo].[TBL_215_DM_PWHT] WHERE [Tmin-Tref] = '" + DeltaT + "'";
+            String sql = "USE [rbi] SELECT [" + Size + "] FROM[rbi].[dbo].[TBL_215_DM_PWHT] WHERE [Tmin-Tref] = '" + DeltaT + "'";
             try
             {
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = conn;
                 cmd.CommandText = sql;
-                using(DbDataReader reader = cmd.ExecuteReader())
+                using (DbDataReader reader = cmd.ExecuteReader())
                 {
                     while (reader.Read())
                     {
@@ -344,9 +376,9 @@ namespace RBI.DAL.MSSQL
                     }
                 }
             }
-            catch (Exception e)
+            catch
             {
-                MessageBox.Show("GET TBL_215 FAIL! " + e.ToString());
+                MessageBox.Show("GET TBL_215 FAIL!");
             }
             finally
             {
@@ -356,86 +388,86 @@ namespace RBI.DAL.MSSQL
             return data;
         }
         // Get Data From TBL_511_512
-        public List<TOXIC_511_512> GET_TBL_511_512()
-        {
-            conn = MSSQLDBUtils.GetDBConnection();
-            conn.Open();
-            String sql = "USE[rbi] SELECT * FROM [rbi].[dbo].[TBL_511_512_CA_GAS_TOXIC]";
-            List<TOXIC_511_512> list = new List<TOXIC_511_512>();
-            TOXIC_511_512 obj = null;
-            try
-            {
-                SqlCommand cmd = new SqlCommand();
-                cmd.Connection = conn;
-                cmd.CommandText = sql;
-                using (DbDataReader reader = cmd.ExecuteReader())
-                {
-                    while (reader.Read())
-                    {
-                        if (reader.HasRows)
-                        {
-                            obj = new TOXIC_511_512();
-                            obj.ToxicName = reader.GetString(0);
-                            obj.ReleaseDuration = reader.GetString(1);
-                            obj.a = (float)reader.GetDouble(2);
-                            obj.b = (float)reader.GetDouble(3);
-                            list.Add(obj);
-                        }
-                    }
-                }
-            }
-            catch
-            {
-                MessageBox.Show("GET DATA TOXIC FAIL!");
-            }
-            finally
-            {
-                conn.Close();
-                conn.Dispose();
-            }
-            return list;
-        } 
-        // get Data FROM TBL_513
-        public List<TOXIC_513> GET_TBL_513()
-        {
-            conn = MSSQLDBUtils.GetDBConnection();
-            conn.Open();
-            List<TOXIC_513> list = new List<TOXIC_513>();
-            TOXIC_513 obj = null;
-            String sql = "USE[rbi] SELECT * FROM [rbi].[dbo].[TBL_513_CA_TOXIC]";
-            try
-            {
-                SqlCommand cmd = new SqlCommand();
-                cmd.Connection = conn;
-                cmd.CommandText = sql;
-                using (DbDataReader reader = cmd.ExecuteReader())
-                {
-                    while (reader.Read())
-                    {
-                        if (reader.HasRows)
-                        {
-                            obj = new TOXIC_513();
-                            obj.TOXIC_NAME = reader.GetString(0);
-                            obj.TOXIC_TYPE = reader.GetString(1);
-                            obj.DURATION = reader.GetString(2);
-                            obj.a = (float)reader.GetDouble(3);
-                            obj.b = (float)reader.GetDouble(4);
-                            list.Add(obj);
-                        }
-                    }
-                }
-            }
-            catch
-            {
-                MessageBox.Show("GET DATA TOXIC FAIL!");
-            }
-            finally
-            {
-                conn.Close();
-                conn.Dispose();
-            }
-            return list;
-        }
+        //public List<TOXIC_511_512> GET_TBL_511_512()
+        //{
+        //    conn = MSSQLDBUtils.GetDBConnection();
+        //    conn.Open();
+        //    String sql = "USE[rbi] SELECT * FROM [rbi].[dbo].[TBL_511_512_CA_GAS_TOXIC]";
+        //    List<TOXIC_511_512> list = new List<TOXIC_511_512>();
+        //    TOXIC_511_512 obj = null;
+        //    try
+        //    {
+        //        SqlCommand cmd = new SqlCommand();
+        //        cmd.Connection = conn;
+        //        cmd.CommandText = sql;
+        //        using (DbDataReader reader = cmd.ExecuteReader())
+        //        {
+        //            while (reader.Read())
+        //            {
+        //                if (reader.HasRows)
+        //                {
+        //                    obj = new TOXIC_511_512();
+        //                    obj.ToxicName = reader.GetString(0);
+        //                    obj.ReleaseDuration = reader.GetString(1);
+        //                    obj.a = (float)reader.GetDouble(2);
+        //                    obj.b = (float)reader.GetDouble(3);
+        //                    list.Add(obj);
+        //                }
+        //            }
+        //        }
+        //    }
+        //    catch
+        //    {
+        //        MessageBox.Show("GET DATA TOXIC FAIL!");
+        //    }
+        //    finally
+        //    {
+        //        conn.Close();
+        //        conn.Dispose();
+        //    }
+        //    return list;
+        //}
+        //// get Data FROM TBL_513
+        //public List<TOXIC_513> GET_TBL_513()
+        //{
+        //    conn = MSSQLDBUtils.GetDBConnection();
+        //    conn.Open();
+        //    List<TOXIC_513> list = new List<TOXIC_513>();
+        //    TOXIC_513 obj = null;
+        //    String sql = "USE[rbi] SELECT * FROM [rbi].[dbo].[TBL_513_CA_TOXIC]";
+        //    try
+        //    {
+        //        SqlCommand cmd = new SqlCommand();
+        //        cmd.Connection = conn;
+        //        cmd.CommandText = sql;
+        //        using (DbDataReader reader = cmd.ExecuteReader())
+        //        {
+        //            while (reader.Read())
+        //            {
+        //                if (reader.HasRows)
+        //                {
+        //                    obj = new TOXIC_513();
+        //                    obj.TOXIC_NAME = reader.GetString(0);
+        //                    obj.TOXIC_TYPE = reader.GetString(1);
+        //                    obj.DURATION = reader.GetString(2);
+        //                    obj.a = (float)reader.GetDouble(3);
+        //                    obj.b = (float)reader.GetDouble(4);
+        //                    list.Add(obj);
+        //                }
+        //            }
+        //        }
+        //    }
+        //    catch
+        //    {
+        //        MessageBox.Show("GET DATA TOXIC FAIL!");
+        //    }
+        //    finally
+        //    {
+        //        conn.Close();
+        //        conn.Dispose();
+        //    }
+        //    return list;
+        //}
         // get DATA FROM TBL_511
         public int GET_TBL_511(float ART, int INSP, String Effective)
         {
@@ -443,7 +475,7 @@ namespace RBI.DAL.MSSQL
             conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             String sql = null;
-            if(Effective == "E")
+            if (Effective == "E")
             {
                 sql = "USE[rbi] SELECT [E] FROM [rbi].[dbo].[TBL_511_DFB_THIN] WHERE [art] ='" + ART + "'";
             }
@@ -468,9 +500,9 @@ namespace RBI.DAL.MSSQL
                 }
 
             }
-            catch(Exception e)
+            catch
             {
-                MessageBox.Show("GET DF_THIN FAIL!" + e.ToString());
+                MessageBox.Show("GET DF_THIN FAIL!");
             }
             finally
             {
@@ -486,7 +518,7 @@ namespace RBI.DAL.MSSQL
             conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             String sql = "USE[rbi] SELECT [" + Effective + "] FROM [rbi].[dbo].[TBL_512_DFB_THIN_TANK_BOTTOM] WHERE [art] ='" + ART + "'";
-            
+
             try
             {
                 SqlCommand cmd = new SqlCommand();
@@ -533,14 +565,14 @@ namespace RBI.DAL.MSSQL
                     {
                         if (reader.HasRows)
                         {
-                            data = (float)(float)reader.GetDouble(0);
+                            data = (float)reader.GetDouble(0);
                         }
                     }
                 }
             }
-            catch(Exception e)
+            catch
             {
-                MessageBox.Show("GET DF_LIN FAIL!" + e.ToString());
+                MessageBox.Show("GET DF_LIN FAIL!");
             }
             finally
             {
@@ -550,7 +582,7 @@ namespace RBI.DAL.MSSQL
             return data;
         }
         // get DATA FROM TBL_65
-        public float GET_TBL_65(int YEAR,String SUSCEP)
+        public float GET_TBL_65(int YEAR, String SUSCEP)
         {
             float data = 0;
             conn = MSSQLDBUtils.GetDBConnection();
@@ -563,7 +595,7 @@ namespace RBI.DAL.MSSQL
                 cmd.CommandText = sql;
                 using (DbDataReader reader = cmd.ExecuteReader())
                 {
-                    data = (float)(float)reader.GetDouble(0);
+                    data = (float)reader.GetDouble(0);
                 }
             }
             catch
@@ -617,7 +649,7 @@ namespace RBI.DAL.MSSQL
             float data = 1;
             conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
-            String sql = "USE[rbi] SELECT [USUnits] FROM [dbo].[TBL_3B21_SI_CONVERSION] WHERE [conversionFactory] = '" + ConversionFactor + "'";
+            String sql = "USE[rbi] SELECT [SIUnits] FROM [dbo].[TBL_3B21_SI_CONVERSION] WHERE [conversionFactory] = '" + ConversionFactor + "'";
             try
             {
                 SqlCommand cmd = new SqlCommand();
@@ -629,7 +661,7 @@ namespace RBI.DAL.MSSQL
                     {
                         if (reader.HasRows)
                         {
-                            data = (float)(float)reader.GetDouble(0);
+                            data = (float)reader.GetDouble(0);
                         }
                     }
                 }
@@ -657,7 +689,7 @@ namespace RBI.DAL.MSSQL
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = conn;
                 cmd.CommandText = sql;
-                using(DbDataReader reader = cmd.ExecuteReader())
+                using (DbDataReader reader = cmd.ExecuteReader())
                 {
                     while (reader.Read())
                     {
