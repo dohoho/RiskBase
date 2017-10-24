@@ -46,7 +46,7 @@
             this.btnRecord = new DevExpress.XtraBars.BarButtonItem();
             this.btnSave = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem6 = new DevExpress.XtraBars.BarButtonItem();
-            this.popupMenu1 = new DevExpress.XtraBars.PopupMenu(this.components);
+            this.popupNew = new DevExpress.XtraBars.PopupMenu(this.components);
             this.barButtonItem7 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem8 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem13 = new DevExpress.XtraBars.BarButtonItem();
@@ -102,11 +102,11 @@
             this.navCoating = new DevExpress.XtraNavBar.NavBarItem();
             this.navNoInspection = new DevExpress.XtraNavBar.NavBarItem();
             this.navStream = new DevExpress.XtraNavBar.NavBarItem();
+            this.navRiskFactor = new DevExpress.XtraNavBar.NavBarItem();
             this.imageCollection1 = new DevExpress.Utils.ImageCollection(this.components);
-            this.popupMenu2 = new DevExpress.XtraBars.PopupMenu(this.components);
             this.navGrRecord = new DevExpress.XtraNavBar.NavBarGroup();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.popupMenu1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.popupNew)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabData)).BeginInit();
             this.xtraTabData.SuspendLayout();
             this.xTabHome.SuspendLayout();
@@ -119,7 +119,6 @@
             this.dockPanel1_Container.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.navBarControl2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageCollection1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.popupMenu2)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbon
@@ -284,7 +283,6 @@
             // btnSave
             // 
             this.btnSave.Caption = "Save";
-            this.btnSave.Enabled = false;
             this.btnSave.Id = 14;
             this.btnSave.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.ImageOptions.Image")));
             this.btnSave.Name = "btnSave";
@@ -296,16 +294,16 @@
             this.barButtonItem6.ActAsDropDown = true;
             this.barButtonItem6.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.DropDown;
             this.barButtonItem6.Caption = "New";
-            this.barButtonItem6.DropDownControl = this.popupMenu1;
+            this.barButtonItem6.DropDownControl = this.popupNew;
             this.barButtonItem6.Id = 15;
             this.barButtonItem6.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem6.ImageOptions.Image")));
             this.barButtonItem6.Name = "barButtonItem6";
             this.barButtonItem6.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             // 
-            // popupMenu1
+            // popupNew
             // 
-            this.popupMenu1.Name = "popupMenu1";
-            this.popupMenu1.Ribbon = this.ribbon;
+            this.popupNew.Name = "popupNew";
+            this.popupNew.Ribbon = this.ribbon;
             // 
             // barButtonItem7
             // 
@@ -360,11 +358,14 @@
             // 
             // barButtonItem17
             // 
+            this.barButtonItem17.ActAsDropDown = true;
+            this.barButtonItem17.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.DropDown;
             this.barButtonItem17.Caption = "Export Data";
             this.barButtonItem17.Id = 23;
             this.barButtonItem17.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem17.ImageOptions.Image")));
             this.barButtonItem17.Name = "barButtonItem17";
             this.barButtonItem17.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.barButtonItem17.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem17_ItemClick);
             // 
             // btnBackupData
             // 
@@ -624,8 +625,8 @@
             this.dockPanel2.Location = new System.Drawing.Point(0, 146);
             this.dockPanel2.Name = "dockPanel2";
             this.dockPanel2.Options.ShowCloseButton = false;
-            this.dockPanel2.OriginalSize = new System.Drawing.Size(200, 200);
-            this.dockPanel2.Size = new System.Drawing.Size(200, 523);
+            this.dockPanel2.OriginalSize = new System.Drawing.Size(184, 161);
+            this.dockPanel2.Size = new System.Drawing.Size(184, 523);
             this.dockPanel2.Text = "Items";
             // 
             // dockPanel2_Container
@@ -634,7 +635,7 @@
             this.dockPanel2_Container.Controls.Add(this.textEdit1);
             this.dockPanel2_Container.Location = new System.Drawing.Point(4, 38);
             this.dockPanel2_Container.Name = "dockPanel2_Container";
-            this.dockPanel2_Container.Size = new System.Drawing.Size(191, 481);
+            this.dockPanel2_Container.Size = new System.Drawing.Size(175, 481);
             this.dockPanel2_Container.TabIndex = 0;
             // 
             // treeListProject
@@ -645,9 +646,8 @@
             this.treeListProject.Size = new System.Drawing.Size(185, 507);
             this.treeListProject.TabIndex = 1;
             this.treeListProject.DoubleClick += new System.EventHandler(this.treeListProject_DoubleClick);
-            
-            this.treeListProject.MouseUp += new System.Windows.Forms.MouseEventHandler(this.treeListProject_MouseUp);
             this.treeListProject.MouseDown += new System.Windows.Forms.MouseEventHandler(this.treeListProject_MouseDown);
+            this.treeListProject.MouseUp += new System.Windows.Forms.MouseEventHandler(this.treeListProject_MouseUp);
             // 
             // textEdit1
             // 
@@ -662,7 +662,7 @@
             this.dockPanel1.Controls.Add(this.dockPanel1_Container);
             this.dockPanel1.Dock = DevExpress.XtraBars.Docking.DockingStyle.Left;
             this.dockPanel1.ID = new System.Guid("b4634cc6-3621-4a87-a427-cf55394912fb");
-            this.dockPanel1.Location = new System.Drawing.Point(200, 146);
+            this.dockPanel1.Location = new System.Drawing.Point(184, 146);
             this.dockPanel1.Name = "dockPanel1";
             this.dockPanel1.Options.ShowCloseButton = false;
             this.dockPanel1.OriginalSize = new System.Drawing.Size(177, 200);
@@ -691,11 +691,12 @@
             this.navMaterial,
             this.navCoating,
             this.navNoInspection,
-            this.navStream});
+            this.navStream,
+            this.navRiskFactor});
             this.navBarControl2.Location = new System.Drawing.Point(2, 0);
             this.navBarControl2.Name = "navBarControl2";
             this.navBarControl2.OptionsNavPane.ExpandedWidth = 163;
-            this.navBarControl2.Size = new System.Drawing.Size(163, 412);
+            this.navBarControl2.Size = new System.Drawing.Size(163, 442);
             this.navBarControl2.TabIndex = 0;
             this.navBarControl2.Text = "navBarControl2";
             // 
@@ -717,7 +718,8 @@
             new DevExpress.XtraNavBar.NavBarItemLink(this.navMaterial),
             new DevExpress.XtraNavBar.NavBarItemLink(this.navCoating),
             new DevExpress.XtraNavBar.NavBarItemLink(this.navNoInspection),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.navStream)});
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navStream),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navRiskFactor)});
             this.navBarGroup2.Name = "navBarGroup2";
             // 
             // navAssessmentInfo
@@ -776,6 +778,13 @@
             this.navStream.SmallImage = ((System.Drawing.Image)(resources.GetObject("navStream.SmallImage")));
             this.navStream.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navStream_LinkClicked);
             // 
+            // navRiskFactor
+            // 
+            this.navRiskFactor.Caption = "Risk Factor";
+            this.navRiskFactor.Name = "navRiskFactor";
+            this.navRiskFactor.SmallImage = ((System.Drawing.Image)(resources.GetObject("navRiskFactor.SmallImage")));
+            this.navRiskFactor.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navRiskFactor_LinkClicked);
+            // 
             // imageCollection1
             // 
             this.imageCollection1.ImageStream = ((DevExpress.Utils.ImageCollectionStreamer)(resources.GetObject("imageCollection1.ImageStream")));
@@ -783,14 +792,6 @@
             this.imageCollection1.Images.SetKeyName(1, "_1496749121_5___Refresh");
             this.imageCollection1.Images.SetKeyName(2, "1496737190_Kitchen-33.png");
             this.imageCollection1.Images.SetKeyName(3, "1496737221_bonobo-component-browser.png");
-            // 
-            // popupMenu2
-            // 
-            this.popupMenu2.ItemLinks.Add(this.barButtonItem1);
-            this.popupMenu2.ItemLinks.Add(this.barButtonItem2);
-            this.popupMenu2.ItemLinks.Add(this.barButtonItem3);
-            this.popupMenu2.Name = "popupMenu2";
-            this.popupMenu2.Ribbon = this.ribbon;
             // 
             // navGrRecord
             // 
@@ -817,7 +818,7 @@
             this.StatusBar = this.ribStatusbar;
             this.Text = "Cortek RBI";
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.popupMenu1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.popupNew)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabData)).EndInit();
             this.xtraTabData.ResumeLayout(false);
             this.xTabHome.ResumeLayout(false);
@@ -830,7 +831,6 @@
             this.dockPanel1_Container.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.navBarControl2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageCollection1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.popupMenu2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -890,10 +890,8 @@
         private DevExpress.XtraBars.BarButtonItem barButtonItem19;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup9;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup10;
-        private DevExpress.XtraBars.PopupMenu popupMenu1;
         private DevExpress.XtraBars.BarButtonItem barButtonItem1;
         private DevExpress.XtraBars.BarButtonItem barButtonItem2;
-        private DevExpress.XtraBars.PopupMenu popupMenu2;
         private DevExpress.XtraBars.BarButtonItem barButtonItem3;
         private DevExpress.XtraBars.BarButtonItem btnFacility;
         private DevExpress.XtraBars.BarButtonItem btnImportInspection;
@@ -913,5 +911,7 @@
         private DevExpress.XtraNavBar.NavBarGroup navGrRecord;
         private DevExpress.XtraNavBar.NavBarItem navNoInspection;
         private DevExpress.XtraNavBar.NavBarItem navStream;
+        private DevExpress.XtraNavBar.NavBarItem navRiskFactor;
+        private DevExpress.XtraBars.PopupMenu popupNew;
     }
 }

@@ -325,7 +325,7 @@ namespace RBI.DAL.MSSQL_CAL
             conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             float data = 0;
-            String sql = "USE [rbi] SELECT [" + Size + "] FROM[rbi].[dbo].[TBL_214_DM_NOT_PWHT] WHERE [Tmin - Tref] = '" + DeltaT + "'";
+            String sql = "USE [rbi] SELECT [" + Size + "] FROM[rbi].[dbo].[TBL_214_DM_NOT_PWHT] WHERE [Tmin-Tref] = '" + DeltaT + "'";
             try
             {
                 SqlCommand cmd = new SqlCommand();
@@ -570,9 +570,9 @@ namespace RBI.DAL.MSSQL_CAL
                     }
                 }
             }
-            catch
+            catch(Exception e)
             {
-                MessageBox.Show("GET DF_LIN FAIL!");
+                MessageBox.Show("GET DF_LIN FAIL! "+e.ToString());
             }
             finally
             {

@@ -39,6 +39,7 @@
     <Reference Include="DevExpress.Data.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.DataAccess.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.DataAccess.v17.1.UI, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Docs.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Mvvm.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Office.v17.1.Core, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Printing.v17.1.Core, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
@@ -388,11 +389,11 @@
     <Compile Include="PRE\subForm\InputDataForm\UCCoatLiningIsulationCladding.Designer.cs">
       <DependentUpon>UCCoatLiningIsulationCladding.cs</DependentUpon>
     </Compile>
-    <Compile Include="PRE\subForm\InputDataForm\UCComponentPropertiesTankBottom.cs">
+    <Compile Include="PRE\subForm\InputDataForm\UCComponentPropertiesTank.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="PRE\subForm\InputDataForm\UCComponentPropertiesTankBottom.Designer.cs">
-      <DependentUpon>UCComponentPropertiesTankBottom.cs</DependentUpon>
+    <Compile Include="PRE\subForm\InputDataForm\UCComponentPropertiesTank.Designer.cs">
+      <DependentUpon>UCComponentPropertiesTank.cs</DependentUpon>
     </Compile>
     <Compile Include="PRE\subForm\InputDataForm\UCComponentProperties.cs">
       <SubType>UserControl</SubType>
@@ -412,11 +413,11 @@
     <Compile Include="PRE\subForm\OutputDataForm\UCDamageMechanism.Designer.cs">
       <DependentUpon>UCDamageMechanism.cs</DependentUpon>
     </Compile>
-    <Compile Include="PRE\subForm\InputDataForm\UCEquipmentPropertiesTankBottom.cs">
+    <Compile Include="PRE\subForm\InputDataForm\UCEquipmentPropertiesTank.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="PRE\subForm\InputDataForm\UCEquipmentPropertiesTankBottom.Designer.cs">
-      <DependentUpon>UCEquipmentPropertiesTankBottom.cs</DependentUpon>
+    <Compile Include="PRE\subForm\InputDataForm\UCEquipmentPropertiesTank.Designer.cs">
+      <DependentUpon>UCEquipmentPropertiesTank.cs</DependentUpon>
     </Compile>
     <Compile Include="PRE\subForm\InputDataForm\UCEquipmentProperties.cs">
       <SubType>UserControl</SubType>
@@ -448,11 +449,11 @@
     <Compile Include="PRE\subForm\InputDataForm\UCOperatingCondition.Designer.cs">
       <DependentUpon>UCOperatingCondition.cs</DependentUpon>
     </Compile>
-    <Compile Include="PRE\subForm\InputDataForm\UCStreamTankBottom.cs">
+    <Compile Include="PRE\subForm\InputDataForm\UCStreamTank.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="PRE\subForm\InputDataForm\UCStreamTankBottom.Designer.cs">
-      <DependentUpon>UCStreamTankBottom.cs</DependentUpon>
+    <Compile Include="PRE\subForm\InputDataForm\UCStreamTank.Designer.cs">
+      <DependentUpon>UCStreamTank.cs</DependentUpon>
     </Compile>
     <Compile Include="PRE\subForm\InputDataForm\UCStream.cs">
       <SubType>UserControl</SubType>
@@ -530,8 +531,8 @@
     <EmbeddedResource Include="PRE\subForm\InputDataForm\UCCoatLiningIsulationCladding.resx">
       <DependentUpon>UCCoatLiningIsulationCladding.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PRE\subForm\InputDataForm\UCComponentPropertiesTankBottom.resx">
-      <DependentUpon>UCComponentPropertiesTankBottom.cs</DependentUpon>
+    <EmbeddedResource Include="PRE\subForm\InputDataForm\UCComponentPropertiesTank.resx">
+      <DependentUpon>UCComponentPropertiesTank.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PRE\subForm\InputDataForm\UCComponentProperties.resx">
       <DependentUpon>UCComponentProperties.cs</DependentUpon>
@@ -539,8 +540,8 @@
     <EmbeddedResource Include="PRE\subForm\OutputDataForm\UCDamageMechanism.resx">
       <DependentUpon>UCDamageMechanism.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PRE\subForm\InputDataForm\UCEquipmentPropertiesTankBottom.resx">
-      <DependentUpon>UCEquipmentPropertiesTankBottom.cs</DependentUpon>
+    <EmbeddedResource Include="PRE\subForm\InputDataForm\UCEquipmentPropertiesTank.resx">
+      <DependentUpon>UCEquipmentPropertiesTank.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PRE\subForm\InputDataForm\UCEquipmentProperties.resx">
       <DependentUpon>UCEquipmentProperties.cs</DependentUpon>
@@ -557,8 +558,8 @@
     <EmbeddedResource Include="PRE\subForm\InputDataForm\UCOperatingCondition.resx">
       <DependentUpon>UCOperatingCondition.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PRE\subForm\InputDataForm\UCStreamTankBottom.resx">
-      <DependentUpon>UCStreamTankBottom.cs</DependentUpon>
+    <EmbeddedResource Include="PRE\subForm\InputDataForm\UCStreamTank.resx">
+      <DependentUpon>UCStreamTank.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PRE\subForm\InputDataForm\UCStream.resx">
       <DependentUpon>UCStream.cs</DependentUpon>

@@ -11,7 +11,7 @@ using RBI.Object.ObjectMSSQL;
 
 namespace RBI.PRE.subForm.InputDataForm
 {
-    public partial class UCEquipmentPropertiesTankBottom : UserControl
+    public partial class UCEquipmentPropertiesTank : UserControl
     {
         string[] itemsAdjustmentSettlement = { "Recorded settlement exceeds API 653 criteria", "Recorded settlement meets API 653 criteria", "Settlement never evaluated", "Concrete foundation, no settlement" };
         string[] itemsExternalEnvironment = { "Arid/dry", "Marine", "Severe", "Temperate"};
@@ -53,7 +53,7 @@ namespace RBI.PRE.subForm.InputDataForm
                                             "Sulfuric acid (H2S/H2) corrosion low velocity - Key process parameters"};
         string[] itemsThermalHistory = { "None", "Solution Annealed", "Stabilised After Welding", "Stabilised Before Welding" };
         string[] itemsEnvironmental = { "High", "Medium", "Low" };
-        public UCEquipmentPropertiesTankBottom()
+        public UCEquipmentPropertiesTank()
         {
             InitializeComponent();
             additemsAdjustmentSettlement();

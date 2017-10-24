@@ -11,9 +11,9 @@ using RBI.Object.ObjectMSSQL;
 
 namespace RBI.PRE.subForm.InputDataForm
 {
-    public partial class UCStreamTankBottom : UserControl
+    public partial class UCStreamTank : UserControl
     {
-        public UCStreamTankBottom()
+        public UCStreamTank()
         {
             InitializeComponent();
         }

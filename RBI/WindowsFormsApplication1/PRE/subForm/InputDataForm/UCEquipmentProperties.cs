@@ -111,5 +111,18 @@ namespace RBI.PRE.subForm.InputDataForm
             eq.Volume = txtEquipmentVolume.Text!=""?float.Parse(txtEquipmentVolume.Text):0;
             return eq;
         }
+
+        private void txtMinRequiredTemperature_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void txtMinRequiredTemperature_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(!Char.IsDigit(e.KeyChar)&&!Char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
     }
 }

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 using RBI.Object.ObjectMSSQL;
 namespace RBI.PRE.subForm.InputDataForm
 {
-    public partial class UCComponentPropertiesTankBottom : UserControl
+    public partial class UCComponentPropertiesTank : UserControl
     {
-        public UCComponentPropertiesTankBottom()
+        public UCComponentPropertiesTank()
         {
             InitializeComponent();
         }

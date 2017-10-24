@@ -1,6 +1,6 @@
 ﻿namespace RBI.PRE.subForm.InputDataForm
 {
-    partial class UCComponentPropertiesTankBottom
+    partial class UCComponentPropertiesTank
     {
         /// <summary> 
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UCComponentPropertiesTankBottom));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UCComponentPropertiesTank));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cbMaxBrillnessHardness = new DevExpress.XtraEditors.ImageComboBoxEdit();
             this.imgColMaxBrinnHardness = new DevExpress.Utils.ImageCollection(this.components);

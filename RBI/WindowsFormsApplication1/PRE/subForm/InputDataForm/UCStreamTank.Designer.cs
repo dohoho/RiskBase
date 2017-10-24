@@ -1,6 +1,6 @@
 ﻿namespace RBI.PRE.subForm.InputDataForm
 {
-    partial class UCStreamTankBottom
+    partial class UCStreamTank
     {
         /// <summary> 
         /// Required designer variable.

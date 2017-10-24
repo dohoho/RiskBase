@@ -252,6 +252,8 @@
             this.txtMinRequiredTemperature.Name = "txtMinRequiredTemperature";
             this.txtMinRequiredTemperature.Size = new System.Drawing.Size(139, 21);
             this.txtMinRequiredTemperature.TabIndex = 2;
+            this.txtMinRequiredTemperature.TextChanged += new System.EventHandler(this.txtMinRequiredTemperature_TextChanged);
+            this.txtMinRequiredTemperature.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMinRequiredTemperature_KeyPress);
             // 
             // chkPresenceSulphideOperation
             // 

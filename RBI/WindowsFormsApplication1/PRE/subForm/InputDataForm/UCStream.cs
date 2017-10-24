@@ -41,7 +41,6 @@ namespace RBI.PRE.subForm.InputDataForm
         RW_STREAM stream = new RW_STREAM();
         public RW_STREAM getData()
         {
-            
             stream.AmineSolution = cbAmineSolutionComposition.Text;
             stream.AqueousOperation = chkAqueousPhaseDuringOperation.Checked ? 1 : 0;
             stream.AqueousShutdown = chkAqueousPhaseShutdown.Checked ? 1 : 0;

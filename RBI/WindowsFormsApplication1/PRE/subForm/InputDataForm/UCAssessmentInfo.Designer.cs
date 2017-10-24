@@ -44,6 +44,7 @@
             this.label22 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.dateComissionDate = new DevExpress.XtraEditors.DateEdit();
             this.txtProcessDesciption = new System.Windows.Forms.TextBox();
             this.txtEquipmentName = new System.Windows.Forms.TextBox();
             this.txtManufacturer = new System.Windows.Forms.TextBox();
@@ -71,18 +72,17 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.dateComissionDate = new DevExpress.XtraEditors.DateEdit();
             this.groupBox1.SuspendLayout();
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cbReportTemplate.Properties)).BeginInit();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dateComissionDate.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateComissionDate.Properties)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dateAssessmentDate.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateAssessmentDate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbAsssessmentMethod.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateComissionDate.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateComissionDate.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -268,6 +268,18 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Equipment";
             // 
+            // dateComissionDate
+            // 
+            this.dateComissionDate.EditValue = null;
+            this.dateComissionDate.Location = new System.Drawing.Point(145, 154);
+            this.dateComissionDate.Name = "dateComissionDate";
+            this.dateComissionDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateComissionDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateComissionDate.Size = new System.Drawing.Size(240, 20);
+            this.dateComissionDate.TabIndex = 2;
+            // 
             // txtProcessDesciption
             // 
             this.txtProcessDesciption.Enabled = false;
@@ -358,9 +370,9 @@
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.Location = new System.Drawing.Point(6, 157);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(80, 13);
+            this.label13.Size = new System.Drawing.Size(88, 13);
             this.label13.TabIndex = 0;
-            this.label13.Text = "Comission Date";
+            this.label13.Text = "Commission Date";
             // 
             // label12
             // 
@@ -526,18 +538,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Assessment Name";
             // 
-            // dateComissionDate
-            // 
-            this.dateComissionDate.EditValue = null;
-            this.dateComissionDate.Location = new System.Drawing.Point(145, 154);
-            this.dateComissionDate.Name = "dateComissionDate";
-            this.dateComissionDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateComissionDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateComissionDate.Size = new System.Drawing.Size(240, 20);
-            this.dateComissionDate.TabIndex = 2;
-            // 
             // UCAssessmentInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -553,13 +553,13 @@
             this.groupBox4.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dateComissionDate.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateComissionDate.Properties)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dateAssessmentDate.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateAssessmentDate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbAsssessmentMethod.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateComissionDate.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateComissionDate.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
