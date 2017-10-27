@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using RBI.Object.ObjectMSSQL_CAL;
 
 namespace RBI.DAL.MSSQL_CAL
 {
@@ -35,7 +36,7 @@ namespace RBI.DAL.MSSQL_CAL
                             data[0] = (float)reader.GetDouble(0);
                             data[1] = (float)reader.GetDouble(1);
                             data[2] = (float)reader.GetDouble(2);
-                            data[3] = (float)reader.GetDouble(3);
+                            data[3] = reader.GetInt32(3);
                             data[4] = (float)reader.GetDouble(4);
                             data[5] = (float)reader.GetDouble(5);
                             data[6] = (float)reader.GetDouble(6);
@@ -46,9 +47,9 @@ namespace RBI.DAL.MSSQL_CAL
                     }
                 }
             }
-            catch
+            catch(Exception e)
             {
-                MessageBox.Show("GET TBL_52 FAIL!");
+                MessageBox.Show("GET TBL_52 FAIL! " + e.ToString());
             }
             finally
             {
@@ -387,87 +388,85 @@ namespace RBI.DAL.MSSQL_CAL
             }
             return data;
         }
-        // Get Data From TBL_511_512
-        //public List<TOXIC_511_512> GET_TBL_511_512()
-        //{
-        //    conn = MSSQLDBUtils.GetDBConnection();
-        //    conn.Open();
-        //    String sql = "USE[rbi] SELECT * FROM [rbi].[dbo].[TBL_511_512_CA_GAS_TOXIC]";
-        //    List<TOXIC_511_512> list = new List<TOXIC_511_512>();
-        //    TOXIC_511_512 obj = null;
-        //    try
-        //    {
-        //        SqlCommand cmd = new SqlCommand();
-        //        cmd.Connection = conn;
-        //        cmd.CommandText = sql;
-        //        using (DbDataReader reader = cmd.ExecuteReader())
-        //        {
-        //            while (reader.Read())
-        //            {
-        //                if (reader.HasRows)
-        //                {
-        //                    obj = new TOXIC_511_512();
-        //                    obj.ToxicName = reader.GetString(0);
-        //                    obj.ReleaseDuration = reader.GetString(1);
-        //                    obj.a = (float)reader.GetDouble(2);
-        //                    obj.b = (float)reader.GetDouble(3);
-        //                    list.Add(obj);
-        //                }
-        //            }
-        //        }
-        //    }
-        //    catch
-        //    {
-        //        MessageBox.Show("GET DATA TOXIC FAIL!");
-        //    }
-        //    finally
-        //    {
-        //        conn.Close();
-        //        conn.Dispose();
-        //    }
-        //    return list;
-        //}
-        //// get Data FROM TBL_513
-        //public List<TOXIC_513> GET_TBL_513()
-        //{
-        //    conn = MSSQLDBUtils.GetDBConnection();
-        //    conn.Open();
-        //    List<TOXIC_513> list = new List<TOXIC_513>();
-        //    TOXIC_513 obj = null;
-        //    String sql = "USE[rbi] SELECT * FROM [rbi].[dbo].[TBL_513_CA_TOXIC]";
-        //    try
-        //    {
-        //        SqlCommand cmd = new SqlCommand();
-        //        cmd.Connection = conn;
-        //        cmd.CommandText = sql;
-        //        using (DbDataReader reader = cmd.ExecuteReader())
-        //        {
-        //            while (reader.Read())
-        //            {
-        //                if (reader.HasRows)
-        //                {
-        //                    obj = new TOXIC_513();
-        //                    obj.TOXIC_NAME = reader.GetString(0);
-        //                    obj.TOXIC_TYPE = reader.GetString(1);
-        //                    obj.DURATION = reader.GetString(2);
-        //                    obj.a = (float)reader.GetDouble(3);
-        //                    obj.b = (float)reader.GetDouble(4);
-        //                    list.Add(obj);
-        //                }
-        //            }
-        //        }
-        //    }
-        //    catch
-        //    {
-        //        MessageBox.Show("GET DATA TOXIC FAIL!");
-        //    }
-        //    finally
-        //    {
-        //        conn.Close();
-        //        conn.Dispose();
-        //    }
-        //    return list;
-        //}
+        public List<TOXIC_511_512> GET_TBL_511_512()
+        {
+            conn = MSSQLDBUtils.GetDBConnection();
+            conn.Open();
+            String sql = "USE[rbi] SELECT * FROM [rbi].[dbo].[TBL_511_512_CA_GAS_TOXIC]";
+            List<TOXIC_511_512> list = new List<TOXIC_511_512>();
+            TOXIC_511_512 obj = null;
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = conn;
+                cmd.CommandText = sql;
+                using (DbDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        if (reader.HasRows)
+                        {
+                            obj = new TOXIC_511_512();
+                            obj.ToxicName = reader.GetString(0);
+                            obj.ReleaseDuration = reader.GetString(1);
+                            obj.a = (float)reader.GetDouble(2);
+                            obj.b = (float)reader.GetDouble(3);
+                            list.Add(obj);
+                        }
+                    }
+                }
+            }
+            catch
+            {
+                MessageBox.Show("GET DATA TOXIC FAIL!");
+            }
+            finally
+            {
+                conn.Close();
+                conn.Dispose();
+            }
+            return list;
+        }
+        public List<TOXIC_513> GET_TBL_513()
+        {
+            conn = MSSQLDBUtils.GetDBConnection();
+            conn.Open();
+            List<TOXIC_513> list = new List<TOXIC_513>();
+            TOXIC_513 obj = null;
+            String sql = "USE[rbi] SELECT * FROM [rbi].[dbo].[TBL_513_CA_TOXIC]";
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = conn;
+                cmd.CommandText = sql;
+                using (DbDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        if (reader.HasRows)
+                        {
+                            obj = new TOXIC_513();
+                            obj.TOXIC_NAME = reader.GetString(0);
+                            obj.TOXIC_TYPE = reader.GetString(1);
+                            obj.DURATION = reader.GetString(2);
+                            obj.a = (float)reader.GetDouble(3);
+                            obj.b = (float)reader.GetDouble(4);
+                            list.Add(obj);
+                        }
+                    }
+                }
+            }
+            catch
+            {
+                MessageBox.Show("GET DATA TOXIC FAIL!");
+            }
+            finally
+            {
+                conn.Close();
+                conn.Dispose();
+            }
+            return list;
+        }
         // get DATA FROM TBL_511
         public int GET_TBL_511(float ART, int INSP, String Effective)
         {

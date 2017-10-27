@@ -1,4 +1,4 @@
-﻿using RBI.Object.ObjectMSSQL;
+﻿using RBI.Object;
 using System;
 using System.Collections.Generic;
 using System.Data.Common;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using RBI.Object.ObjectMSSQL;
 namespace RBI.DAL.MSSQL
 {
     class INSPECTION_COVERAGE_DETAIL_ConnectUtils
@@ -17,7 +17,6 @@ namespace RBI.DAL.MSSQL
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             String sql = "USE [rbi]" +
-                        "GO" +
                         "INSERT INTO [dbo].[INSPECTION_COVERAGE_DETAIL]" +
                         "([CoverageID]" +
                         ",[ComponentID]" +
@@ -35,8 +34,7 @@ namespace RBI.DAL.MSSQL
                         ",'" + InspectionDate + "'" +
                         ",'" + EffectivenessCode + "'" +
                         ",'" + CarriedOut + "'" +
-                        ",'" + CarriedOutDate + "')" +
-                        "GO";
+                        ",'" + CarriedOutDate + "')";
             try
             {
                 SqlCommand cmd = new SqlCommand();
@@ -59,7 +57,6 @@ namespace RBI.DAL.MSSQL
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             String sql = "USE [rbi]" +
-                        "GO" +
                         "UPDATE [dbo].[INSPECTION_COVERAGE_DETAIL]" +
                         "SET [CoverageID] = '" + CoverageID + "'" +
                         ",[ComponentID] = '" + ComponentID + "'" +
@@ -68,10 +65,8 @@ namespace RBI.DAL.MSSQL
                         ",[InspectionDate] = '" + InspectionDate + "'" +
                         ",[EffectivenessCode] = '" + EffectivenessCode + "'" +
                         ",[CarriedOut] = '" + CarriedOut + "'" +
-                        ",[CarriedOutDate] = '" + CarriedOutDate + "'" +
-                        
-                        "WHERE [CoverageDetailID] = '" + CoverageDetailID + "'" +
-                        "GO";
+                        ",[CarriedOutDate] = '" + CarriedOutDate + "'" +                        
+                        "WHERE [CoverageDetailID] = '" + CoverageDetailID + "'";
 
             try
             {
@@ -95,10 +90,8 @@ namespace RBI.DAL.MSSQL
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             String sql = "USE [rbi]" +
-                        "GO" +
                         "DELETE FROM [dbo].[INSPECTION_COVERAGE_DETAIL]" +
-                        "WHERE [CoverageDetailID] = '" + CoverageDetailID + "'" +
-                        "GO";
+                        "WHERE [CoverageDetailID] = '" + CoverageDetailID + "'";
             try
             {
                 SqlCommand cmd = new SqlCommand();
@@ -131,8 +124,7 @@ namespace RBI.DAL.MSSQL
                           ",[EffectivenessCode]" +
                           ",[CarriedOut]" +
                           ",[CarriedOutDate]" +
-
-                          "From [dbo].[INSPECTION_COVERAGE_DETAIL] go";
+                          "From [dbo].[INSPECTION_COVERAGE_DETAIL]";
             try
             {
                 SqlCommand cmd = new SqlCommand();

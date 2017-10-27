@@ -1,4 +1,4 @@
-﻿using RBI.Object.ObjectMSSQL;
+﻿using RBI.Object;
 using System;
 using System.Collections.Generic;
 using System.Data.Common;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using RBI.Object.ObjectMSSQL;
 namespace RBI.DAL.MSSQL
 {
     class REPORT_TEMPLATE_ASSESSMENT_ConnectUtils
@@ -17,14 +17,14 @@ namespace RBI.DAL.MSSQL
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             String sql = "USE [rbi]" +
-                        "GO" +
+                        " " +
                         "INSERT INTO [dbo].[REPORT_TEMPLATE_ASSESSMENT]" +
                         "([ID]" +
                         ",[TemplateID])" +
                         "VALUES" +
                         "('" + ID + "'" +
                         ",'" + TemplateID + "'')" +
-                        "GO";
+                        " ";
             try
             {
                 SqlCommand cmd = new SqlCommand();
@@ -47,13 +47,12 @@ namespace RBI.DAL.MSSQL
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             String sql = "USE [rbi]" +
-                        "GO" +
+                        " " +
                         "UPDATE [dbo].[REPORT_TEMPLATE_ASSESSMENT]" +
                         "SET [ID] = '" + ID + "'" +
                         ",[TemplateID] = '" + TemplateID + "'" +
-                        
                         "WHERE [ID] = '" + ID + "'" +
-                        "GO";
+                        " ";
             try
             {
                 SqlCommand cmd = new SqlCommand();
@@ -76,10 +75,10 @@ namespace RBI.DAL.MSSQL
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             String sql = "USE [rbi]" +
-                        "GO" +
+                        " " +
                         "DELETE FROM [dbo].[REPORT_TEMPLATE_ASSESSMENT]" +
                         "WHERE [ID]  = '" + ID + "' " +
-                        "GO";
+                        " ";
             try
             {
                 SqlCommand cmd = new SqlCommand();
@@ -105,9 +104,7 @@ namespace RBI.DAL.MSSQL
             REPORT_TEMPLATE_ASSESSMENT obj = null;
             String sql = " Use [rbi] Select [ID]" +
                           ",[TemplateID]" +
-                          
-
-                          "From [dbo].[REPORT_TEMPLATE_ASSESSMENT] go";
+                          "From [dbo].[REPORT_TEMPLATE_ASSESSMENT]  ";
             try
             {
                 SqlCommand cmd = new SqlCommand();
@@ -122,7 +119,6 @@ namespace RBI.DAL.MSSQL
                             obj = new REPORT_TEMPLATE_ASSESSMENT();
                             obj.ID = reader.GetInt32(0);
                             obj.TemplateID = reader.GetInt32(1);
-                            
                             list.Add(obj);
                         }
                     }

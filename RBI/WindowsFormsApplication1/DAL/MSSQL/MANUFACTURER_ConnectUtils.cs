@@ -1,4 +1,4 @@
-﻿using RBI.Object.ObjectMSSQL;
+﻿using RBI.Object;
 using System;
 using System.Collections.Generic;
 using System.Data.Common;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using RBI.Object.ObjectMSSQL;
 namespace RBI.DAL.MSSQL
 {
     class MANUFACTURER_ConnectUtils
@@ -17,12 +17,12 @@ namespace RBI.DAL.MSSQL
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             String sql = "USE [rbi]" +
-                        "GO" +
+                        " " +
                         "INSERT INTO [dbo].[MANUFACTURER]" +
                         "([ManufacturerName])" +
                         "VALUES" +
                         "('" + ManufacturerName + "')" +
-                        "GO";
+                        " ";
             try
             {
                 SqlCommand cmd = new SqlCommand();
@@ -45,12 +45,12 @@ namespace RBI.DAL.MSSQL
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             String sql = "USE [rbi]" +
-                        "GO" +
+                        " " +
                         "UPDATE [dbo].[MANUFACTURER]" +
                         "SET [ManufacturerName] = '" + ManufacturerName + "'" +
                         
                         "WHERE [ManufacturerID] = '" + ManufacturerID + "'" +
-                        "GO";
+                        " ";
             try
             {
                 SqlCommand cmd = new SqlCommand();
@@ -73,10 +73,10 @@ namespace RBI.DAL.MSSQL
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             String sql = "USE [rbi]" +
-                        "GO" +
+                        " " +
                         "DELETE FROM [dbo].[MANUFACTURER]" +
                         "WHERE [ManufacturerID] = '" + ManufacturerID + "' " +
-                        "GO";
+                        " ";
             try
             {
                 SqlCommand cmd = new SqlCommand();
@@ -102,7 +102,7 @@ namespace RBI.DAL.MSSQL
             MANUFACTURER obj = null;
             String sql = " Use [rbi] Select [ManufacturerID]" +
                           ",[ManufacturerName]" +
-                          "From [dbo].[MANUFACTURER] go";
+                          "From [dbo].[MANUFACTURER]  ";
             try
             {
                 SqlCommand cmd = new SqlCommand();

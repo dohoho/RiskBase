@@ -17,16 +17,14 @@ namespace RBI.DAL.MSSQL
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             String sql = "USE [rbi] " +
-                            " GO" +
                             " INSERT INTO[dbo].[EQUIPMENT_TYPE]" +
                             "([EquipmentTypeID]" +
                             ",[EquipmentTypeCode]" +
                             ",[EquipmentTypeName])" +
-                            "VALUE" +
+                            "VALUES" +
                             "('" + EquipmentTypeID + "'" +
                             ",'" + EquipmentTypeCode + "'" +
-                            ",'" + EquipmentTypeName + "')" +
-                            "GO";
+                            ",'" + EquipmentTypeName + "')";
             try
             {
                 SqlCommand cmd = new SqlCommand();
@@ -49,14 +47,11 @@ namespace RBI.DAL.MSSQL
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             String sql = "USE [rbi]" +
-                           " GO" +
                            " UPDATE[dbo].[EQUIPMENT_TYPER]" +
                                   "SET[EquipmentTypeID] ='"+EquipmentTypeID+"'" +
                                   ",[EquipmentTypeCode] = '"+EquipmentTypeCode+"'" +
                                   ",[EquipmentTypeName] = '"+EquipmentTypeName+"'" +
-                                  
-                                  "WHERE [EquipmentTypeID] ='" + EquipmentTypeID + "'" +
-                                  "GO";
+                                  "WHERE [EquipmentTypeID] ='" + EquipmentTypeID + "'";
             try
             {
                 SqlCommand cmd = new SqlCommand();

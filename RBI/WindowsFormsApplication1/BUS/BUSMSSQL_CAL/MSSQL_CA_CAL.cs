@@ -20,9 +20,8 @@ namespace RBI.BUS.BUSMSSQL_CAL
         public String DETECTION_TYPE { set; get; }
         public String ISULATION_TYPE { set; get; }
         public float STORED_PRESSURE { set; get; }
-        public float ATMOSPHERIC_PRESSURE { set; get; }//kPa
+        public float ATMOSPHERIC_PRESSURE { set; get; }//MPa
         public float STORED_TEMP { set; get; }//K
-        public float ATMOSPHERIC_TEMP { set; get; }
         public float MASS_INVERT { set; get; }
         public float MASS_COMPONENT { set; get; }
         public String MITIGATION_SYSTEM { set; get; }// mitigation factor
@@ -33,6 +32,7 @@ namespace RBI.BUS.BUSMSSQL_CAL
         public float ENVIRON_COST { set; get; }
         public float PERSON_DENSITY { set; get; }
         public float EQUIPMENT_COST { set; get; }
+        private String TOXIC_PHASE { set; get; }
         private String TYPE_FLUID()
         {
             String API_TYPE = null;
@@ -96,7 +96,7 @@ namespace RBI.BUS.BUSMSSQL_CAL
         private float d_n(int i)
         {
             float dn = 0;
-            if(API_COMPONENT_TYPE_NAME == "TANKBOTTOM")
+            if (API_COMPONENT_TYPE_NAME == "TANKBOTTOM")
             {
                 if (i == 1)
                 {
@@ -114,7 +114,7 @@ namespace RBI.BUS.BUSMSSQL_CAL
                 else
                     dn = 0;
             }
-            else if(API_COMPONENT_TYPE_NAME == "COURSE-1" || API_COMPONENT_TYPE_NAME == "COURSE-10" || API_COMPONENT_TYPE_NAME == "COURSE-2" || API_COMPONENT_TYPE_NAME == "COURSE-3" ||
+            else if (API_COMPONENT_TYPE_NAME == "COURSE-1" || API_COMPONENT_TYPE_NAME == "COURSE-10" || API_COMPONENT_TYPE_NAME == "COURSE-2" || API_COMPONENT_TYPE_NAME == "COURSE-3" ||
                     API_COMPONENT_TYPE_NAME == "COURSE-4" || API_COMPONENT_TYPE_NAME == "COURSE-5" || API_COMPONENT_TYPE_NAME == "COURSE-6" || API_COMPONENT_TYPE_NAME == "COURSE-7" ||
                     API_COMPONENT_TYPE_NAME == "COURSE-8" || API_COMPONENT_TYPE_NAME == "COURSE-9")
             {
@@ -125,7 +125,7 @@ namespace RBI.BUS.BUSMSSQL_CAL
                 else if (i == 3)
                     dn = 50.8f;
                 else
-                    dn = 250*TANK_DIAMETER;
+                    dn = 250 * TANK_DIAMETER;
             }
             else
             {
@@ -142,13 +142,13 @@ namespace RBI.BUS.BUSMSSQL_CAL
         }
         private float a_n(int i)
         {
-            return (float)Math.Round(Math.PI * Math.Pow(d_n(i), 2) / 4,2);
+            return (float)Math.Round(Math.PI * Math.Pow(d_n(i), 2) / 4, 2);
         }
         private float C_P()
         {
             float[] data = DAL_CAL.GET_TBL_52(FLUID);
-            float CP_C2 = (float)Math.Round((data[6] / STORED_TEMP) / (Math.Sinh(data[6] / STORED_TEMP)),2);
-            float CP_E2 = (float)Math.Round((data[8] / STORED_TEMP) / (Math.Cosh(data[8] / STORED_TEMP)),2);
+            float CP_C2 = (float)Math.Round((data[6] / STORED_TEMP) / (Math.Sinh(data[6] / STORED_TEMP)), 2);
+            float CP_E2 = (float)Math.Round((data[8] / STORED_TEMP) / (Math.Cosh(data[8] / STORED_TEMP)), 2);
             if (data[3] == 1)
                 return data[4] + data[5] * STORED_TEMP + data[6] * (float)Math.Pow(STORED_TEMP, 2) + data[7] * (float)Math.Pow(STORED_TEMP, 3);
             else if (data[3] == 2)
@@ -161,30 +161,30 @@ namespace RBI.BUS.BUSMSSQL_CAL
         private float W_n(int i)
         {
             float[] data = DAL_CAL.GET_TBL_52(FLUID);
-            float W_n = 0;
+            float W_n;
             float an = a_n(i);
-            float k = 0;
+            float k;
             float m_w = data[0];
-            float p_trans = 0;
+            float p_trans;
             float gc = 1;
-            if(FLUID_PHASE == "Liquid" || FLUID_PHASE == "Two-phase")
+            if (FLUID_PHASE == "Liquid" || FLUID_PHASE == "Two-phase" || FLUID_PHASE == "Powder")
             {
-                W_n = (float)Math.Round(0.61 * 1 * data[1]*16.02 * an * Math.Sqrt(2 * gc * Math.Abs(STORED_PRESSURE - ATMOSPHERIC_PRESSURE) / (data[1])*16.02) / (DAL_CAL.GET_TBL_3B21(1)),2);
+                W_n = (float)Math.Round(0.61 * 1 * data[1] * 16.02 * an * Math.Sqrt(2 * gc * Math.Abs(STORED_PRESSURE - ATMOSPHERIC_PRESSURE) / (data[1]) * 16.02) / (DAL_CAL.GET_TBL_3B21(1)), 2);
             }
             else
             {
                 float R = 8.314f;
                 k = (C_P() / (C_P() - R));
-                p_trans = (float)Math.Round(ATMOSPHERIC_PRESSURE * Math.Pow((k + 1) / 2, k / (k - 1)),2);
-                if(STORED_PRESSURE > p_trans)
+                p_trans = (float)Math.Round(ATMOSPHERIC_PRESSURE * Math.Pow((k + 1) / 2, k / (k - 1)), 2);
+                if (STORED_PRESSURE > p_trans)
                 {
                     float x = (float)((k * m_w * gc / (R * STORED_TEMP)) * Math.Pow(2 / (k + 1), (k + 1) / (k - 1)));
-                    W_n = (float)Math.Round(0.9 * an * STORED_PRESSURE * Math.Sqrt(Math.Abs(x)) / (DAL_CAL.GET_TBL_3B21(2)),2);
+                    W_n = (float)Math.Round(0.9 * an * STORED_PRESSURE * Math.Sqrt(Math.Abs(x)) / (DAL_CAL.GET_TBL_3B21(2)), 2);
                 }
                 else
                 {
-                    float x = (float)Math.Round((m_w * gc / (R * STORED_TEMP)) * ((2 * k) / (k - 1)) * Math.Pow(ATMOSPHERIC_PRESSURE / STORED_PRESSURE, 2 / k) * (1 - Math.Pow(ATMOSPHERIC_PRESSURE / STORED_PRESSURE, (k - 1) / k)),2);
-                    W_n = (float)Math.Round(0.9 * an * STORED_PRESSURE * Math.Sqrt(Math.Abs(x)) / (DAL_CAL.GET_TBL_3B21(2)),2);
+                    float x = (float)Math.Round((m_w * gc / (R * STORED_TEMP)) * ((2 * k) / (k - 1)) * Math.Pow(ATMOSPHERIC_PRESSURE / STORED_PRESSURE, 2 / k) * (1 - Math.Pow(ATMOSPHERIC_PRESSURE / STORED_PRESSURE, (k - 1) / k)), 2);
+                    W_n = (float)Math.Round(0.9 * an * STORED_PRESSURE * Math.Sqrt(Math.Abs(x)) / (DAL_CAL.GET_TBL_3B21(2)), 2);
                 }
             }
             return W_n;
@@ -198,9 +198,9 @@ namespace RBI.BUS.BUSMSSQL_CAL
             float mw = data[0];
             float p_trans = 0;
             float gc = 1;
-            if (FLUID_PHASE == "Liquid" || FLUID_PHASE == "Two-phase")
+            if (FLUID_PHASE == "Liquid" || FLUID_PHASE == "Two-phase" || FLUID_PHASE == "Powder")
             {
-                W_max8 = (float)Math.Round(0.61 * 1 * data[1] * 16.02 * an * Math.Sqrt(2 * gc * Math.Abs(STORED_PRESSURE - ATMOSPHERIC_PRESSURE) / (data[1] * 16.02)) / (DAL_CAL.GET_TBL_3B21(1)),2);
+                W_max8 = (float)Math.Round(0.61 * 1 * data[1] * 16.02 * an * Math.Sqrt(2 * gc * Math.Abs(STORED_PRESSURE - ATMOSPHERIC_PRESSURE) / (data[1] * 16.02)) / (DAL_CAL.GET_TBL_3B21(1)), 2);
             }
             else
             {
@@ -356,7 +356,10 @@ namespace RBI.BUS.BUSMSSQL_CAL
             float Wn = W_n(n);
             float factdi = fact_di();
             rate_n = Wn * (1 - factdi);
-            return rate_n;
+            if (rate_n == 0)
+                return 1;
+            else
+                return rate_n;
         }
         public float ld_n(int n)
         {
@@ -373,11 +376,11 @@ namespace RBI.BUS.BUSMSSQL_CAL
         public float fact_mit()
         {
             float fact_mit = 0;
-            if (MITIGATION_SYSTEM == "A")
+            if (MITIGATION_SYSTEM == "Inventory blowdown, couple with isolation system classification B or higher")
                 fact_mit = 0.25f;
-            else if (MITIGATION_SYSTEM == "B")
+            else if (MITIGATION_SYSTEM == "Fire water deluge system and monitors")
                 fact_mit = 0.2f;
-            else if (MITIGATION_SYSTEM == "C")
+            else if (MITIGATION_SYSTEM == "Fire water monitors only")
                 fact_mit = 0.05f;
             else
                 fact_mit = 0.15f;
@@ -385,13 +388,17 @@ namespace RBI.BUS.BUSMSSQL_CAL
         }
         public float eneff_n(int n)
         {
-            return (float)(4 * Math.Log10(DAL_CAL.GET_TBL_3B21(4) * mass_n(n)) - 15);
+            float eff = (float)(4 * Math.Log10(DAL_CAL.GET_TBL_3B21(4) * mass_n(n)) - 15);
+            if (eff == 0)
+                return 1;
+            else
+                return eff;
         }
         public float a_cont(int select)
         {
             float[] data = DAL_CAL.GET_TBL_58(FLUID);
             float[] a_cont = { 0, 0, 0, 0 };
-            if (FLUID_PHASE == "Gas" || FLUID_PHASE == "Vapor")
+            if (GET_RELEASE_PHASE() == "Gas")
             {
                 a_cont[0] = data[0];
                 a_cont[1] = data[4];
@@ -405,16 +412,16 @@ namespace RBI.BUS.BUSMSSQL_CAL
                 a_cont[2] = data[10];
                 a_cont[3] = data[14];
             }
-            if (a_cont[select-1] == 0)
+            if (a_cont[select - 1] == 0)
                 return 1;
             else
-                return a_cont[select-1];
+                return a_cont[select - 1];
         }
         public float b_cont(int select)
         {
             float[] data = DAL_CAL.GET_TBL_58(FLUID);
             float[] b_cont = { 0, 0, 0, 0 };
-            if (FLUID_PHASE == "Gas" || FLUID_PHASE == "Vapor" )
+            if (GET_RELEASE_PHASE() == "Gas")
             {
                 b_cont[0] = data[1];
                 b_cont[1] = data[5];
@@ -428,13 +435,13 @@ namespace RBI.BUS.BUSMSSQL_CAL
                 b_cont[2] = data[11];
                 b_cont[3] = data[15];
             }
-            return b_cont[select-1];
+            return b_cont[select - 1];
         }
         private float a_inj(int select)
         {
             float[] data = DAL_CAL.GET_TBL_59(FLUID);
             float[] a_inj = { 0, 0, 0, 0 };
-            if (FLUID_PHASE == "Gas" || FLUID_PHASE == "Vapor")
+            if (GET_RELEASE_PHASE() == "Gas")
             {
                 a_inj[0] = data[0];
                 a_inj[1] = data[4];
@@ -448,13 +455,13 @@ namespace RBI.BUS.BUSMSSQL_CAL
                 a_inj[2] = data[10];
                 a_inj[3] = data[14];
             }
-            return a_inj[select-1];
+            return a_inj[select - 1];
         }
         private float b_inj(int select)
         {
             float[] data = DAL_CAL.GET_TBL_59(FLUID);
             float[] b_inj = { 0, 0, 0, 0 };//{ data[1], data[3], data[5], data[7], data[9], data[11], data[13], data[15] };
-            if (FLUID_PHASE == "Gas" || FLUID_PHASE == "Vapor")
+            if (GET_RELEASE_PHASE() == "Gas")
             {
                 b_inj[0] = data[1];
                 b_inj[1] = data[5];
@@ -468,16 +475,16 @@ namespace RBI.BUS.BUSMSSQL_CAL
                 b_inj[2] = data[11];
                 b_inj[3] = data[15];
             }
-            return b_inj[select-1];
+            return b_inj[select - 1];
         }
         private float ca_cmdn_cont(int select, int n)
         {
             float ca_cmdn_cont = 0;
             String API_FLUID_TYPE = TYPE_FLUID();
             if ((GET_RELEASE_PHASE() == "Liquid") && (API_FLUID_TYPE == "TYPE 0"))
-                ca_cmdn_cont = (float)Math.Round(Math.Min(a_cont(select) * Math.Pow(rate_n(n), b_cont(select)), DAL_CAL.GET_TBL_3B21(7)) * (1 - fact_mit()),2);
+                ca_cmdn_cont = (float)Math.Round(Math.Min(a_cont(select) * Math.Pow(rate_n(n), b_cont(select)), DAL_CAL.GET_TBL_3B21(7)) * (1 - fact_mit()), 2);
             else
-                ca_cmdn_cont = (float)Math.Round(a_cont(select) * Math.Pow(rate_n(n), b_cont(select)) * (1 - fact_mit()),2);
+                ca_cmdn_cont = (float)Math.Round(a_cont(select) * Math.Pow(rate_n(n), b_cont(select)) * (1 - fact_mit()), 2);
             return ca_cmdn_cont;
         }
         private float effrate_n(int select, int n)
@@ -485,7 +492,7 @@ namespace RBI.BUS.BUSMSSQL_CAL
             float effrate_n = 0;
             String API_FLUID_TYPE = TYPE_FLUID();
             if ((GET_RELEASE_PHASE() == "Liquid") && (API_FLUID_TYPE == "TYPE 0"))
-                effrate_n = (float)Math.Round((1 / (DAL_CAL.GET_TBL_3B21(4)) * Math.Exp(Math.Log10(ca_cmdn_cont(select, n) / (a_cont(select) * (DAL_CAL.GET_TBL_3B21(8)))) * Math.Pow(b_cont(select), -1))),2);
+                effrate_n = (float)Math.Round((1 / (DAL_CAL.GET_TBL_3B21(4)) * Math.Exp(Math.Log10(ca_cmdn_cont(select, n) / (a_cont(select) * (DAL_CAL.GET_TBL_3B21(8)))) * Math.Pow(b_cont(select), -1))), 2);
             else
                 effrate_n = rate_n(n);
             return effrate_n;
@@ -495,21 +502,21 @@ namespace RBI.BUS.BUSMSSQL_CAL
             float ca_cmdn_inst = 0;
             String API_FLUID_TYPE = TYPE_FLUID();
             if ((GET_RELEASE_PHASE() == "Liquid") && (API_FLUID_TYPE == "TYPE 0"))
-                ca_cmdn_inst = (float)Math.Round(Math.Min(a_cont(select) * Math.Pow(mass_n(n), b_cont(select)), (DAL_CAL.GET_TBL_3B21(7))) * ((1 - fact_mit()) / eneff_n(n)),2);
+                ca_cmdn_inst = (float)Math.Round(Math.Min(a_cont(select) * Math.Pow(mass_n(n), b_cont(select)), (DAL_CAL.GET_TBL_3B21(7))) * ((1 - fact_mit()) / eneff_n(n)), 2);
             else
-                ca_cmdn_inst = (float)Math.Round(a_cont(select) * Math.Pow(mass_n(n), b_cont(select)) * (1 - fact_mit()),2);
+                ca_cmdn_inst = (float)Math.Round(a_cont(select) * Math.Pow(mass_n(n), b_cont(select)) * (1 - fact_mit()), 2);
             return ca_cmdn_inst;
         }
         public float ca_injn_cont(int select, int n)
         {
-            float ca_injn_cont = 0;
-            ca_injn_cont = (float)Math.Round(a_inj(select) * Math.Pow(effrate_n(select, n), b_inj(select)) * (1 - fact_mit()),2);
+            float ca_injn_cont;
+            ca_injn_cont = (float)Math.Round(a_inj(select) * Math.Pow(effrate_n(select, n), b_inj(select)) * (1 - fact_mit()), 2);
             return ca_injn_cont;
         }
         public float ca_injn_inst(int select, int n)
         {
-            float ca_injn_inst = 0;
-            ca_injn_inst = (float)Math.Round(a_inj(select) * Math.Pow(effrate_n(select, n), b_inj(select)) * ((1 - fact_mit()) / eneff_n(n)),2);
+            float ca_injn_inst;
+            ca_injn_inst = (float)Math.Round(a_inj(select) * Math.Pow(effrate_n(select, n), b_inj(select)) * ((1 - fact_mit()) / eneff_n(n)), 2);
             return ca_injn_inst;
         }
         public double fact_n_ic(int n)
@@ -524,7 +531,7 @@ namespace RBI.BUS.BUSMSSQL_CAL
         {
             float[] data = DAL_CAL.GET_TBL_52(FLUID);
             float fact_ait = 0;
-            float ait = (float)Math.Round((data[9]-32)/1.8,2);
+            float ait = 273 + (float)Math.Round((data[9] - 32) / 1.8, 2);
             if ((STORED_TEMP + (DAL_CAL.GET_TBL_3B21(6))) <= ait)
                 fact_ait = 0;
             else if ((STORED_TEMP - (DAL_CAL.GET_TBL_3B21(6))) >= ait)
@@ -546,22 +553,52 @@ namespace RBI.BUS.BUSMSSQL_CAL
             float caailinjn = (float)(Math.Abs(ca_injn_cont(2, n)) * fact_n_ic(n) + Math.Abs(ca_injn_inst(4, n)) * (1 - fact_n_ic(n)));
             float caainlinjn = (float)(Math.Abs(ca_injn_cont(1, n)) * fact_n_ic(n) + Math.Abs(ca_injn_inst(3, n)) * (1 - fact_n_ic(n)));
             return caailinjn * fact_ait() + caainlinjn * (1 - fact_ait());
+
+        }
+        private Boolean checkFlame()
+        {
+            Boolean check = false;
+            string[] itemsFrammable = { "C1-C2", "C3-C4", "C5", "C6-C8", "C9-C12", "C13-C16", "C17-C25", "C25+", "H2", "H2S", "HF", "CO", "DEE", "Methanol", "PO", "Styrene", "Aromatics", "EEA", "EE", "EG", "EO" };
+            for (int i = 0; i < itemsFrammable.Length; i++)
+            {
+                if (FLUID == itemsFrammable[i])
+                {
+                    check = true;
+                    break;
+                }
+            }
+            return check;
         }
         public float ca_cmd_flame()
         {
-            float t = 0;
-            API_COMPONENT_TYPE obj = GET_DATA_API_COM();
-            t = obj.GFFSmall * ca_cmdn_flame(1) + obj.GFFMedium * ca_cmdn_flame(2) + obj.GFFLarge * ca_cmdn_flame(3) + obj.GFFRupture * ca_cmdn_flame(4);
-            float ca_cmd_flame = t / obj.GFFTotal;
-            return Math.Abs(ca_cmd_flame);
+            if (!checkFlame())
+            {
+                return 0;
+            }
+            else
+            {
+                float t = 0;
+                API_COMPONENT_TYPE obj = GET_DATA_API_COM();
+                t = obj.GFFSmall * ca_cmdn_flame(1) + obj.GFFMedium * ca_cmdn_flame(2) + obj.GFFLarge * ca_cmdn_flame(3) + obj.GFFRupture * ca_cmdn_flame(4);
+                float ca_cmd_flame = t / obj.GFFTotal;
+                return Math.Abs(ca_cmd_flame);
+            }
+
         }
         public float ca_inj_flame()
         {
-            float t = 0;
-            API_COMPONENT_TYPE obj = GET_DATA_API_COM();
-            t = obj.GFFSmall * ca_injn_flame(1) + obj.GFFMedium * ca_injn_flame(2) + obj.GFFLarge * ca_injn_flame(3) + obj.GFFRupture * ca_injn_flame(4);
-            float ca_inj = t / obj.GFFTotal;
-            return Math.Abs(ca_inj);
+            if (!checkFlame())
+            {
+                return 0;
+            }
+            else
+            {
+                float t;
+                API_COMPONENT_TYPE obj = GET_DATA_API_COM();
+                t = obj.GFFSmall * ca_injn_flame(1) + obj.GFFMedium * ca_injn_flame(2) + obj.GFFLarge * ca_injn_flame(3) + obj.GFFRupture * ca_injn_flame(4);
+                float ca_inj = t / obj.GFFTotal;
+                return Math.Abs(ca_inj);
+            }
         }
         // TOXIC CONSEQUENCE
         public float rate_tox_n(int n)
@@ -572,89 +609,138 @@ namespace RBI.BUS.BUSMSSQL_CAL
         {
             return TOXIC_PERCENT * mass_n(n);
         }
-        //public TOXIC_511_512 getToxic()
-        //{
-        //    TOXIC_511_512 obj = new TOXIC_511_512();
-        //    List<TOXIC_511_512> list = DAL_CAL.GET_TBL_511_512();
-        //    for(int i=0; i< list.Count; i++)
-        //    {
-        //        if (list[i].ToxicName == FLUID && list[i].ReleaseDuration == RELEASE_DURATION)
-        //            obj = list[i];
-        //    }
-        //    return obj;
-        //}
-        //public TOXIC_513 getToxic513()
-        //{
-        //    TOXIC_513 obj = new TOXIC_513();
-        //    List<TOXIC_513> list = DAL_CAL.GET_TBL_513();
-        //    for(int i = 0; i< list.Count; i++)
-        //    {
-        //        if (list[i].TOXIC_NAME == FLUID && list[i].TOXIC_TYPE == FLUID_PHASE && list[i].DURATION == RELEASE_DURATION)
-        //            obj = list[i];
-        //    }
-        //    return obj;
-        //}
-        //public float ca_injn_tox(int n)
-        //{
-            //TOXIC_511_512 obj = getToxic();
-            //TOXIC_513 obj1 = getToxic513();
-            //float C8 = DAL_CAL.GET_TBL_3B21(8);
-            //float C4 = DAL_CAL.GET_TBL_3B21(4);
-            //String releasetype = releaseType(n);
+        public TOXIC_511_512 getToxic()
+        {
+            TOXIC_511_512 obj = new TOXIC_511_512();
+            List<TOXIC_511_512> list = DAL_CAL.GET_TBL_511_512();
+            for (int i = 0; i < list.Count; i++)
+            {
+                if (list[i].ToxicName == FLUID && list[i].ReleaseDuration == RELEASE_DURATION)
+                    obj = list[i];
+            }
+            return obj;
+        }
+        public TOXIC_513 getToxic513()
+        {
+            TOXIC_513 obj = new TOXIC_513();
+            List<TOXIC_513> list = DAL_CAL.GET_TBL_513();
+            if (FLUID_PHASE == "Vapor")
+                TOXIC_PHASE = "Gas";
+            else
+                TOXIC_PHASE = "Liquid";
+            for (int i = 0; i < list.Count; i++)
+            {
+                if (list[i].TOXIC_NAME == FLUID && list[i].TOXIC_TYPE == TOXIC_PHASE && list[i].DURATION == RELEASE_DURATION)
+                    obj = list[i];
+            }
+            return obj;
+        }
+        public float ca_injn_tox(int n)
+        {
+            TOXIC_511_512 obj = getToxic();
+            TOXIC_513 obj1 = getToxic513();
+            float C8 = DAL_CAL.GET_TBL_3B21(8);
+            float C4 = DAL_CAL.GET_TBL_3B21(4);
+            String releasetype = releaseType(n);
+            if (obj.ToxicName == "HF" || obj.ToxicName == "H2S")
+            {
+                double log = 0;
+                if (releasetype == "Continuous")
+                    log = obj.a * Math.Log10(C4 * rate_tox_n(n)) + obj.b;
+                else
+                    log = obj.a * Math.Log10(C4 * mass_tox_n(n)) + obj.b;
+                return (float)Math.Round(C8 * Math.Pow(10, log), 4);
+            }
+            else if (obj.ToxicName == "Ammonia" || obj.ToxicName == "Chlorine")
+            {
+                if (releasetype == "Continuous")
+                    return (float)Math.Round(obj.a * Math.Pow(rate_tox_n(n), obj.b), 4);
+                else
+                    return (float)Math.Round(obj.a * Math.Pow(mass_tox_n(n), obj.b), 4);
+            }
+            else if (obj1.TOXIC_NAME == "AlCl3" || obj1.TOXIC_NAME == "CO" || obj1.TOXIC_NAME == "HCl" || obj1.TOXIC_NAME == "Nitric Acid" || obj1.TOXIC_NAME == "NO2"
+                    || obj1.TOXIC_NAME == "Phosgene" || obj1.TOXIC_NAME == "TDI" || obj1.TOXIC_NAME == "EE" || obj1.TOXIC_NAME == "EO" || obj1.TOXIC_NAME == "PO")
+            {
+                if (releasetype == "Continuous")
+                    return (float)Math.Round(obj1.a * Math.Pow(rate_tox_n(n), obj1.b), 4);
+                else
+                    return (float)Math.Round(obj1.a * Math.Pow(mass_tox_n(n), obj1.b), 4);
+            }
+            else
+            {
+                return 0;
+            }
+        }
+        private Boolean checkToxic()
+        {
+            Boolean check = false;
+            string[] itemsToxic = { "Nitric Acid", "AlCl3", "TDI", "EE" };
+            if (FLUID == "H2S" && TOXIC_PERCENT > (100 * Math.Pow(10, -4)))
+                check = true;
+            else if (FLUID == "HF" && TOXIC_PERCENT > (30 * Math.Pow(10, -4)))
+                check = true;
+            else if (FLUID == "CO" && TOXIC_PERCENT > (1200 * Math.Pow(10, -4)))
+                check = true;
+            else if (FLUID == "HCl" && TOXIC_PERCENT > (50 * Math.Pow(10, -4)))
+                check = true;
+            else if (FLUID == "NO2" && TOXIC_PERCENT > (20 * Math.Pow(10, -4)))
+                check = true;
+            else if (FLUID == "Phosgene" && TOXIC_PERCENT > (2 * Math.Pow(10, -4)))
+                check = true;
+            else if (FLUID == "PO" && TOXIC_PERCENT > (400 * Math.Pow(10, -4)))
+                check = true;
+            else if (FLUID == "EO" && TOXIC_PERCENT > (800 * Math.Pow(10, -4)))
+                check = true;
+            else if (FLUID == "Ammonia" && TOXIC_PERCENT > (10 * Math.Pow(10, -4)))
+                check = true;
+            else if (FLUID == "Chlorine" && TOXIC_PERCENT > (10 * Math.Pow(10, -4)))
+                check = true;
+            else
+            {
+                for (int i = 0; i < itemsToxic.Length; i++)
+                {
+                    if (FLUID == itemsToxic[i])
+                    {
+                        check = true;
+                        break;
+                    }
+                }
+            }
+            return check;
+        }
+        public float ca_inj_tox()
+        {
+            API_COMPONENT_TYPE obj = GET_DATA_API_COM();
+            if (!checkToxic())
+            {
+                return 0;
+            }
+            else
+            {
+                float t = 0;
+                t = obj.GFFSmall * ca_injn_tox(1) + obj.GFFMedium * ca_injn_tox(2) + obj.GFFLarge * ca_injn_tox(3) + obj.GFFRupture * ca_injn_tox(4);
+                float ca_inj_tox = t / obj.GFFTotal;
+                return Math.Abs(ca_inj_tox);
+            }
 
-            //if (obj.ToxicName == "HF" || obj.ToxicName == "H2S")
-            //{
-            //    //c = cd[0], d = cd[1]
-            //    double log = 0;
-            //    if (releasetype == "Continuous")
-            //        log = obj.a * Math.Log10(C4 * rate_tox_n(n)) + obj.b;
-            //    else
-            //        log = obj.a * Math.Log10(C4 * mass_tox_n(n)) + obj.b;
-            //    return (float)Math.Round(C8 * Math.Pow(10, log), 4);
-            //}
-            //else if (obj.ToxicName == "Ammonia" || obj.ToxicName == "Chlorine")
-            //{
-            //    if (releasetype == "Continuous")
-            //        return (float)Math.Round(obj.a * Math.Pow(rate_tox_n(n), obj.b), 4);
-            //    else
-            //        return (float)Math.Round(obj.a * Math.Pow(mass_tox_n(n), obj.b), 4);
-            //}
-            //else if (obj1.TOXIC_NAME == "Aluminum Chloride" || obj1.TOXIC_NAME == "CO" || obj1.TOXIC_NAME == "HCL" || obj1.TOXIC_NAME == "Nitric Acid" || obj1.TOXIC_NAME == "NO2"
-            //        || obj1.TOXIC_NAME == "Phosgene" || obj1.TOXIC_NAME == "TDI" || obj1.TOXIC_NAME == "EE" || obj1.TOXIC_NAME == "EO" || obj1.TOXIC_NAME == "PO")
-            //{
-            //    if (releasetype == "Continuous")
-            //        return (float)Math.Round(obj.a * Math.Pow(rate_tox_n(n), obj.b), 4);
-            //    else
-            //        return (float)Math.Round(obj.a * Math.Pow(mass_tox_n(n), obj.b), 4);
-            //}
-            //else
-            //    return 0;
-        //}
-        //public float ca_inj_tox()
-        //{
-        //    API_COMPONENT_TYPE obj = GET_DATA_API_COM();
-        //    float t = 0;
-        //    t = obj.GFFSmall * ca_injn_tox(1) + obj.GFFMedium * ca_injn_tox(2) + obj.GFFLarge * ca_injn_tox(3) + obj.GFFRupture * ca_injn_tox(4);
-        //    float ca_inj_tox = t / obj.GFFTotal;
-        //    return Math.Abs(ca_inj_tox);
-        //}
+        }
         // Step 10 non flammable non toxic consequence
         public float ca_injn_contnfnt(int n)
         {
             float ca_injn_cont = 0;
-            float g = (float)Math.Round(2696 - 21.9 * (DAL_CAL.GET_TBL_3B21(11)) * (STORED_PRESSURE - ATMOSPHERIC_PRESSURE) + 1.474 * Math.Pow(((DAL_CAL.GET_TBL_3B21(11)) * (STORED_PRESSURE - ATMOSPHERIC_PRESSURE)), 2),4);
-            float h = (float)Math.Round(0.31 - 0.00032 * Math.Pow(((DAL_CAL.GET_TBL_3B21(11)) * (STORED_PRESSURE - ATMOSPHERIC_PRESSURE) - 40), 2),4);
+            float g = (float)Math.Round(2696 - 21.9 * (DAL_CAL.GET_TBL_3B21(11)) * (STORED_PRESSURE - ATMOSPHERIC_PRESSURE) + 1.474 * Math.Pow(((DAL_CAL.GET_TBL_3B21(11)) * (STORED_PRESSURE - ATMOSPHERIC_PRESSURE)), 2), 4);
+            float h = (float)Math.Round(0.31 - 0.00032 * Math.Pow(((DAL_CAL.GET_TBL_3B21(11)) * (STORED_PRESSURE - ATMOSPHERIC_PRESSURE) - 40), 2), 4);
             if (FLUID == "Steam")
-                ca_injn_cont = (float)Math.Round((DAL_CAL.GET_TBL_3B21(9)) * rate_n(n),4);
+                ca_injn_cont = (float)Math.Round((DAL_CAL.GET_TBL_3B21(9)) * rate_n(n), 4);
             else
-                ca_injn_cont = (float)Math.Round(0.2 * (DAL_CAL.GET_TBL_3B21(8)) * g * Math.Pow((DAL_CAL.GET_TBL_3B21(4)) * rate_n(n), h),2);
+                ca_injn_cont = (float)Math.Round(0.2 * (DAL_CAL.GET_TBL_3B21(8)) * g * Math.Pow((DAL_CAL.GET_TBL_3B21(4)) * rate_n(n), h), 2);
             return ca_injn_cont;
         }
         public float ca_injn_instnfnt(int n)
         {
             float ca_injn_inst = 0;
             if (FLUID == "Steam")
-                ca_injn_inst = (float)Math.Round((DAL_CAL.GET_TBL_3B21(10)) * Math.Pow(mass_n(n), 0.6384),4);
+                ca_injn_inst = (float)Math.Round((DAL_CAL.GET_TBL_3B21(10)) * Math.Pow(mass_n(n), 0.6384), 4);
             else
                 ca_injn_inst = 0;
             return ca_injn_inst;
@@ -672,33 +758,54 @@ namespace RBI.BUS.BUSMSSQL_CAL
         {
             return ca_injn_instnfnt(n) * fact_n_icnfnt(n) + ca_injn_contnfnt(n) * (1 - fact_n_icnfnt(n));
         }
+        private Boolean checkNone()
+        {
+            Boolean check = false;
+            string[] itemsNoneTF = { "Steam", "Acid", "Caustic" };
+            for (int i = 0; i < itemsNoneTF.Length; i++)
+            {
+                if (FLUID == itemsNoneTF[i])
+                {
+                    check = true;
+                    break;
+                }
+            }
+            return check;
+        }
         public float ca_inj_nfnt()
         {
-            float t = 0;
-            API_COMPONENT_TYPE obj = GET_DATA_API_COM();
-            t = obj.GFFSmall * ca_injn_leaknfnt(1) + obj.GFFMedium * ca_injn_leaknfnt(2) + obj.GFFLarge * ca_injn_leaknfnt(3) + obj.GFFRupture * ca_injn_leaknfnt(4);
-            float ca_inj_nfnt = t / obj.GFFTotal;
-            return Math.Abs(ca_inj_nfnt);
+            if (!checkNone())
+            {
+                return 0;
+            }
+            else
+            {
+                float t = 0;
+                API_COMPONENT_TYPE obj = GET_DATA_API_COM();
+                t = obj.GFFSmall * ca_injn_leaknfnt(1) + obj.GFFMedium * ca_injn_leaknfnt(2) + obj.GFFLarge * ca_injn_leaknfnt(3) + obj.GFFRupture * ca_injn_leaknfnt(4);
+                float ca_inj_nfnt = t / obj.GFFTotal;
+                return Math.Abs(ca_inj_nfnt);
+            }
         }
         // Step 11 Component and Injure consequence
         public float ca_cmd()
         {
             return ca_cmd_flame();
         }
-        //public float ca_inj()
-        //{
-        //    float cainjflame = ca_inj_flame();
-        //    float cainjtox = ca_inj_tox();
-        //    float cainjnfnt = ca_inj_nfnt();
-        //    return Math.Max(Math.Max(cainjflame, cainjtox), cainjnfnt);
-        //}
+        public float ca_inj()
+        {
+            float cainjflame = ca_inj_flame();
+            float cainjtox = ca_inj_tox();
+            float cainjnfnt = ca_inj_nfnt();
+            return Math.Max(Math.Max(cainjflame, cainjtox), cainjnfnt);
+        }
         // Step 12: financial
         public float fc_cmd()
         {
             float fc_cmd = 0;
             API_COMPONENT_TYPE obj = GET_DATA_API_COM();
             float t = 0;
-            t = obj.GFFSmall * obj.HoleCostSmall + obj.GFFMedium * obj.HoleCostMedium + obj.GFFLarge * obj.HoleCostLarge + obj.GFFRupture * obj.GFFTotal;
+            t = obj.GFFSmall * obj.HoleCostSmall + obj.GFFMedium * obj.HoleCostMedium + obj.GFFLarge * obj.HoleCostLarge + obj.GFFRupture * obj.HoleCostRupture;
             fc_cmd = t * MATERIAL_COST / obj.GFFTotal;
             return fc_cmd;
         }
@@ -731,11 +838,11 @@ namespace RBI.BUS.BUSMSSQL_CAL
             float fc_prod = (outage_cmd() + outage_affa()) * PRODUCTION_COST;
             return fc_prod;
         }
-        //public float fc_inj()
-        //{
-        //    float fc_inj = ca_inj() * PERSON_DENSITY * INJURE_COST;
-        //    return fc_inj;
-        //}
+        public float fc_inj()
+        {
+            float fc_inj = ca_inj() * PERSON_DENSITY * INJURE_COST;
+            return fc_inj;
+        }
         public float vol_n_env(int n)
         {
             float vol_n_env = 0;
@@ -783,7 +890,7 @@ namespace RBI.BUS.BUSMSSQL_CAL
                     break;
             }
             float[] data = DAL_CAL.GET_TBL_52(FLUID);
-            vol_n_env = (float)((DAL_CAL.GET_TBL_3B21(13)) * massn * (1 - frac_evap) / (data[1]* 16.02));
+            vol_n_env = (float)((DAL_CAL.GET_TBL_3B21(13)) * massn * (1 - frac_evap) / (data[1] * 16.02));
             return vol_n_env;
         }
         public float fc_environ()
@@ -795,17 +902,17 @@ namespace RBI.BUS.BUSMSSQL_CAL
             fc_environ = t * ENVIRON_COST / obj.GFFTotal;
             return fc_environ;
         }
-        //public float fc()
-        //{
-        //    float fc = 0;
-        //    float fccmd = fc_cmd();
-        //    float fcaffa = fc_affa();
-        //    float fcprod = fc_prod();
-        //    float fcinj = fc_inj();
-        //    float fcenviron = fc_environ();
-        //    fc = fccmd + fcaffa + fcprod + fcinj + fcenviron;
-        //    return fc;
-        //} 
+        public float fc()
+        {
+            float fc = 0;
+            float fccmd = fc_cmd();
+            float fcaffa = fc_affa();
+            float fcprod = fc_prod();
+            float fcinj = fc_inj();
+            float fcenviron = fc_environ();
+            fc = fccmd + fcaffa + fcprod + fcinj + fcenviron;
+            return fc;
+        }
 
         // Storage tank
         /*
@@ -815,7 +922,6 @@ namespace RBI.BUS.BUSMSSQL_CAL
         public float Cd = 0.61f;
         public float SHELL_COURSE_HEIGHT { set; get; }
         public float TANK_DIAMETER { set; get; }
-        public float BBL_RUPTURE_N;
         public Boolean PREVENTION_BARRIER { set; get; }//Release Prevention Barrier
         public String EnvironSensitivity { set; get; }
         public float P_lvdike { set; get; }
@@ -852,9 +958,10 @@ namespace RBI.BUS.BUSMSSQL_CAL
         }
         public float Bbl_leak_n(int n)
         {
+            Console.WriteLine("W_n(" + n + "):" + W_n_Tank(n));
             if (d_n(n) <= 50.8)
             {
-                return Math.Min(W_n(n) * ld_tank(n), Bbl_avail(n));
+                return Math.Min(W_n_Tank(n) * ld_tank(n), Bbl_avail(n));
             }
             else
                 return Bbl_avail(n);
@@ -862,7 +969,7 @@ namespace RBI.BUS.BUSMSSQL_CAL
         public int[] getCost()
         {
             int[] costTANK = { 0, 0, 0, 0, 0, 0 };
-            if(EnvironSensitivity == "High")
+            if (EnvironSensitivity == "High")
             {
                 costTANK[0] = 10;
                 costTANK[1] = 50;
@@ -871,7 +978,7 @@ namespace RBI.BUS.BUSMSSQL_CAL
                 costTANK[4] = 10000;
                 costTANK[5] = 5000;
             }
-            else if(EnvironSensitivity == "Medium")
+            else if (EnvironSensitivity == "Medium")
             {
                 costTANK[0] = 10;
                 costTANK[1] = 50;
@@ -880,7 +987,7 @@ namespace RBI.BUS.BUSMSSQL_CAL
                 costTANK[4] = 5000;
                 costTANK[5] = 1500;
             }
-            else if(EnvironSensitivity == "Low")
+            else if (EnvironSensitivity == "Low")
             {
                 costTANK[0] = 10;
                 costTANK[1] = 50;
@@ -964,6 +1071,7 @@ namespace RBI.BUS.BUSMSSQL_CAL
             return FC_leak_environ() + FC_rupture_environ();
         }
         //Step 12: Compute total Financial
+
         public double FC_total_shell()
         {
             return fc_cmd() + FC_environ_shell() + fc_prod();
@@ -1033,7 +1141,7 @@ namespace RBI.BUS.BUSMSSQL_CAL
         public float k_h_water()
         {
             float[] k_h = k_h_bottom();
-            return (DAL_CAL.GET_TBL_3B21(13)) * (k_h[0] + k_h[1]) / 2;
+            return (DAL_CAL.GET_TBL_3B21(31)) * (k_h[0] + k_h[1]) / 2;
         }
         public float rate_n_tank_bottom()
         {
@@ -1062,17 +1170,17 @@ namespace RBI.BUS.BUSMSSQL_CAL
         private float[] GET_PL_UL()
         {
             float[] data = { 0, 0 };
-            if(TANK_FLUID == "Gasoline")
+            if (TANK_FLUID == "Gasoline")
             {
                 data[0] = 684.018f;
                 data[1] = (float)(4.01 * Math.Pow(10, -3));
             }
-            else if(TANK_FLUID == "Light Diesel Oil")
+            else if (TANK_FLUID == "Light Diesel Oil")
             {
                 data[0] = 734.011f;
                 data[1] = (float)(1.04 * Math.Pow(10, -3));
             }
-            else if(TANK_FLUID == "Heavy Diesel Oil")
+            else if (TANK_FLUID == "Heavy Diesel Oil")
             {
                 data[0] = 764.527f;
                 data[1] = (float)(2.46 * Math.Pow(10, -3));
@@ -1111,7 +1219,7 @@ namespace RBI.BUS.BUSMSSQL_CAL
         public float Bbl_leak_groundwater()
         {
             if (t_gl_bottom() > t_ld_tank_bottom())
-                return Bbl_leak_n_bottom() * ((t_ld_tank_bottom() - t_gl_bottom()) / t_ld_tank_bottom());
+                return Bbl_leak_n_bottom() * ((t_gl_bottom() - t_ld_tank_bottom()) / t_gl_bottom());
             else
                 return 0;
         }
@@ -1162,7 +1270,7 @@ namespace RBI.BUS.BUSMSSQL_CAL
         {
             float sum = 0;
             API_COMPONENT_TYPE obj = GET_DATA_API_COM();
-            sum = (float)(obj.GFFSmall * obj.HoleCostSmall + obj.GFFMedium * obj.HoleCostMedium + obj.GFFLarge * obj.HoleCostLarge + obj.HoleCostRupture * Math.Pow(DAL_CAL.GET_TBL_3B21(36), 2));
+            sum = (float)(obj.GFFSmall * obj.HoleCostSmall + obj.GFFMedium * obj.HoleCostMedium + obj.GFFLarge * obj.HoleCostLarge + obj.HoleCostRupture * Math.Pow(TANK_DIAMETER / DAL_CAL.GET_TBL_3B21(36), 2));
             return sum * MATERIAL_COST / obj.GFFTotal;
         }
         public double FC_total_bottom()

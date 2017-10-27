@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using RBI.Object.ObjectMSSQL;
 namespace RBI.DAL.MSSQL
 {
     class RW_EXTRA_FIELDS_ConnectUtils
@@ -18,7 +18,7 @@ namespace RBI.DAL.MSSQL
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             String sql = "USE [rbi]" +
-                        "GO" +
+                        " " +
                         "INSERT INTO [dbo].[RW_EXTRA_FIELDS]" +
                         "([ID]" +
                         ",[ObjectField001]" +
@@ -123,7 +123,7 @@ namespace RBI.DAL.MSSQL
                         ",'" + ObjectField048 + "'" +
                         ",'" + ObjectField049 + "'" +
                         ",'" + ObjectField050 + "')" +
-                        "GO";
+                        " ";
             try
             {
                 SqlCommand cmd = new SqlCommand();
@@ -149,7 +149,7 @@ namespace RBI.DAL.MSSQL
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             String sql = "USE [rbi]" +
-                        "GO" +
+                        " " +
                         "UPDATE [dbo].[RW_EXTRA_FIELDS]" +
                         "SET [ID] = '" + ID + "'" +
                         ",[ObjectField001] = '" + ObjectField001 + "'" +
@@ -204,7 +204,7 @@ namespace RBI.DAL.MSSQL
                         ",[ObjectField050] = '" + ObjectField050 + "'" +
                         
                         " WHERE [ID] = '" + ID + "'" +
-                        "GO";
+                        " ";
             try
             {
                 SqlCommand cmd = new SqlCommand();
@@ -227,10 +227,10 @@ namespace RBI.DAL.MSSQL
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             String sql = "USE [rbi]" +
-                        "GO" +
+                        " " +
                         "DELETE FROM [dbo].[RW_EXTRA_FIELDS]" +
                         " WHERE [ID] ='" + ID + "'" +
-                        "GO";
+                        " ";
             try
             {
                 SqlCommand cmd = new SqlCommand();

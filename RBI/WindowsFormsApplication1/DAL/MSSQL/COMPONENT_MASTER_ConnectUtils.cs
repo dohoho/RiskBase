@@ -17,7 +17,6 @@ namespace RBI.DAL.MSSQL
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             String sql = "USE [rbi]" +
-                            "GO" +
                             "INSERT INTO [dbo].[COMPONENT_MASTER]" +
                             "([ComponentNumber]" +
                             ",[EquipmentID]" +
@@ -37,8 +36,7 @@ namespace RBI.DAL.MSSQL
                             ",'" + IsEquipment + "'" +
                             ",'" + IsEquipmentLinked + "'" +
                             ",'" + APIComponentTypeID + "'" +
-                            ",'" + Environment.UserName + "')" +
-                            "GO";
+                            ",'" + Environment.UserName + "')";
             try
             {
                 SqlCommand cmd = new SqlCommand();
@@ -62,7 +60,6 @@ namespace RBI.DAL.MSSQL
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             String sql = "USE [rbi]" +
-                            "GO" +
                             "UPDATE [dbo].[COMPONENT_MASTER]" +
                             "   SET [ComponentNumber] = '" + ComponentNumber + "'" +
                             "      ,[EquipmentID] = '" + ComponentID + "'" +
@@ -74,8 +71,7 @@ namespace RBI.DAL.MSSQL
                             "      ,[APIComponentTypeID] = '" + APIComponentTypeID + "'" +
                             "      ,[Modified] = '" + DateTime.Now + "'" +
                             "      ,[ModifiedBy] = '" + Environment.UserName + "'" +
-                            " WHERE [ComponentID] = '" + ComponentID + "'" +
-                            "GO";
+                            " WHERE [ComponentID] = '" + ComponentID + "'";
             try
             {
                 SqlCommand cmd = new SqlCommand();
@@ -122,7 +118,7 @@ namespace RBI.DAL.MSSQL
             conn.Open();
             List<COMPONENT_MASTER> list = new List<COMPONENT_MASTER>();
             COMPONENT_MASTER obj = null;
-            String sql = "USE [rbi]  go SELECT [ComponentID]" +
+            String sql = "USE [rbi] SELECT [ComponentID]" +
                         ",[ComponentNumber]" +
                         ",[EquipmentID]" +
                         ",[ComponentTypeID]" +
@@ -131,7 +127,7 @@ namespace RBI.DAL.MSSQL
                         ",[IsEquipment]" +
                         ",[IsEquipmentLinked]" +
                         ",[APIComponentTypeID]" +
-                        "  FROM [rbi].[dbo].[COMPONENT_MASTER] go";
+                        "  FROM [rbi].[dbo].[COMPONENT_MASTER]";
             try
             {
                 SqlCommand cmd = new SqlCommand();

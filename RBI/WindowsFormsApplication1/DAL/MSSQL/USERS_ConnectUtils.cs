@@ -33,7 +33,6 @@ namespace RBI.DAL.MSSQL
                            ",[IsActive]" +
                            ",[LicenseKey]" +
                            ",[Password])" +
-                           
                            " VALUES" +
                            "( '" + UserID + "'" +
                            ", '" + Title + "'" +
@@ -74,7 +73,7 @@ namespace RBI.DAL.MSSQL
                           "UPDATE [dbo].[USERS] " +
                           "SET[UserID] = '" + UserID + "'" +
                           ",[Title] = '" + Title + "'" +
-                          ",[ FirstName] = '" + FirstName + "'" +
+                          ",[FirstName] = '" + FirstName + "'" +
                           ",[LastName] = '" + LastName + "'" +
                           ",[JobTitle] = '" + JobTitle + "'" +
                           ",[Department] = '" + Department + "'" +
@@ -85,7 +84,6 @@ namespace RBI.DAL.MSSQL
                           ",[IsActive] = '" + IsActive + "'" +
                           ",[LicenseKey] = '" + LicenseKey + "'" +
                           ",[Password] = '" + Password + "'" +
-                          
                           " WHERE [UserID] = '" + UserID + "'";
             try
             {
@@ -135,7 +133,7 @@ namespace RBI.DAL.MSSQL
             conn.Open();
             List<USERS> list = new List<USERS>();
             USERS obj = null;
-            String sql = "Use [rbi] GO" +
+            String sql = "Use [rbi] " +
                         "SELECT [UserID]" +
                         ",[Title]" +
                         ",[FirstName]" +
@@ -150,7 +148,7 @@ namespace RBI.DAL.MSSQL
                         ",[LicenseKey]" +
                         ",[Password]" +
                         "  FROM [rbi].[dbo].[USERS]" +
-                        " GO";
+                        " ";
             try
             {
                 SqlCommand cmd = new SqlCommand();

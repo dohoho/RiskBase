@@ -18,7 +18,6 @@ namespace RBI.DAL.MSSQL
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             String sql = "USE [rbi] " +
-                            " GO" +
                             " INSERT INTO[dbo].[EXTRA_FIELDS_SETTING_COMPONENT]" +
                             "([ExtraFieldID]" +
                             ",[FieldID]" +
@@ -29,8 +28,7 @@ namespace RBI.DAL.MSSQL
                             ",[FieldSize]" +
                             ",[IsActive]" +
                             ",[IsCreated])" +
-                            
-                            "VALUE" +
+                            "VALUES" +
                             "('" + ExtraFieldID + "'" +
                             ",'" + FieldID + "'" +
                             ",'" + FieldName + "'" +
@@ -39,9 +37,7 @@ namespace RBI.DAL.MSSQL
                             ",'" + FieldType + "'" +
                             ",'" + FieldSize + "'" +
                             ",'" + IsActive + "'" +
-                            ",'" + IsCreated + "')" +
-                            
-                            "GO";
+                            ",'" + IsCreated + "')";
             try
             {
                 SqlCommand cmd = new SqlCommand();
@@ -65,7 +61,6 @@ namespace RBI.DAL.MSSQL
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             String sql = "USE [rbi]" +
-                           " GO" +
                            " UPDATE[dbo].[EXTRA_FIELDS_SETTING_COMPONENT]" +
                                   "SET[ExtraFieldID] ='" + ExtraFieldID + "'" +
                                   ",[FieldID] = '" + FieldID + "'" +
@@ -76,9 +71,7 @@ namespace RBI.DAL.MSSQL
                                   ",[FieldSize] = '" + FieldSize + "'" +
                                   ",[IsActive] = '" + IsActive + "'" +
                                   ",[IsCreated] = '" + IsCreated + "'" +
-                                  
-                                  "WHERE [ExtraFieldID] ='" + ExtraFieldID + "'" +
-                                  "GO";
+                                  "WHERE [ExtraFieldID] ='" + ExtraFieldID + "'";
             try
             {
                 SqlCommand cmd = new SqlCommand();

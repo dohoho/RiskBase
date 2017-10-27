@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RBI.Object.ObjectMSSQL;
+using System;
 using System.Collections.Generic;
 using System.Data.Common;
 using System.Data.SqlClient;
@@ -6,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using RBI.Object.ObjectMSSQL;
+
 namespace RBI.DAL.MSSQL
 {
     class USERS_PERMISSIONS_ConnectUtils
@@ -24,7 +25,6 @@ namespace RBI.DAL.MSSQL
                            ",Allowed]" +
                            ",[Type]" +
                            ",[Active])" +
-                           
                            " VALUES" +
                            "( '" + UserID + "'" +
                            ", '" + Category + "'" +
@@ -58,12 +58,11 @@ namespace RBI.DAL.MSSQL
                           "UPDATE [dbo].[USER_PERMISSONS] " +
                           "SET[UserPermissionID] = '" + UserPermissionID + "'" +
                           ",[UserID] = '" + UserID + "'" +
-                          ",[ Category] = '" + Category + "'" +
+                          ",[Category] = '" + Category + "'" +
                           ",[Permission] = '" + Permission + "'" +
                           ",[Allowed] = '" + Allowed + "'" +
                           ",[Type] = '" + Type + "'" +
                           ",[Active] = '" + Active + "'" +
-                          
                           " WHERE [UserPermissionID] = '" + UserPermissionID + "'";
             try
             {

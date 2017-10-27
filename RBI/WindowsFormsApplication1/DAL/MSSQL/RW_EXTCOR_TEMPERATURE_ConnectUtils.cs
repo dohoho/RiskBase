@@ -1,4 +1,4 @@
-﻿using RBI.Object.ObjectMSSQL;
+﻿using RBI.Object;
 using System;
 using System.Collections.Generic;
 using System.Data.Common;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using RBI.Object.ObjectMSSQL;
 namespace RBI.DAL.MSSQL
 {
     class RW_EXTCOR_TEMPERATURE_ConnectUtils
@@ -17,7 +17,7 @@ namespace RBI.DAL.MSSQL
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             String sql = "USE [rbi]" +
-                        "GO" +
+                        " " +
                         "INSERT INTO [dbo].[RW_EXTCOR_TEMPERATURE]" +
                         "([ID]" +
                         ",[Minus12ToMinus8]" +
@@ -42,7 +42,7 @@ namespace RBI.DAL.MSSQL
                         ",'" + Plus135ToPlus162 + "'" +
                         ",'" + Plus162ToPlus176 + "'" +
                         ",'" + MoreThanPlus176 + "')" +
-                        "GO";
+                        " ";
             try
             {
                 SqlCommand cmd = new SqlCommand();
@@ -65,7 +65,7 @@ namespace RBI.DAL.MSSQL
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             String sql = "USE [rbi]" +
-                        "GO" +
+                        " " +
                         "UPDATE [dbo].[RW_EXTCOR_TEMPERATURE]" +
                         "SET [ID] = '" + ID + "'" +
                         ",[Minus12ToMinus8] = '" + Minus12ToMinus8 + "'" +
@@ -79,7 +79,7 @@ namespace RBI.DAL.MSSQL
                         ",[Plus162ToPlus176] = '" + Plus162ToPlus176 + "'" +
                         ",[MoreThanPlus176] = '" + MoreThanPlus176 + "'" +
                         " WHERE [ID] = '" + ID + "'" +
-                        "GO";
+                        " ";
             try
             {
                 SqlCommand cmd = new SqlCommand();
@@ -102,10 +102,10 @@ namespace RBI.DAL.MSSQL
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             String sql = "USE [rbi]" +
-                        "GO" +
+                        " " +
                         "DELETE FROM [dbo].[RW_EXTCOR_TEMPERATURE]" +
                         " WHERE [ID] ='" + ID + "'" +
-                        "GO";
+                        " ";
             try
             {
                 SqlCommand cmd = new SqlCommand();
@@ -141,7 +141,7 @@ namespace RBI.DAL.MSSQL
                         ",[Plus135ToPlus162]" +
                         ",[Plus162ToPlus176]" +
                         ",[MoreThanPlus176]" +
-                          "From [dbo].[RW_EXTCOR_TEMPERATURE] go";
+                          "From [dbo].[RW_EXTCOR_TEMPERATURE]  ";
             try
             {
                 SqlCommand cmd = new SqlCommand();

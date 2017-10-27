@@ -1,4 +1,4 @@
-﻿
+﻿using RBI.Object.ObjectMSSQL;
 using System;
 using System.Collections.Generic;
 using System.Data.Common;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using RBI.Object.ObjectMSSQL;
+
 namespace RBI.DAL.MSSQL
 {
     class USERS_PERMISSION_List_ConnectUtils
@@ -70,7 +70,7 @@ namespace RBI.DAL.MSSQL
                           ",[ObjectType] = '" + ObjectType + "'" +
                           ",[Action] = '" + Action + "'" +
                           ",[Active] = '" + Active + "'" +
-                          ",[ SortOrder]='" + SortOrder + "'"+
+                          ",[SortOrder]='" + SortOrder + "'"+
                           
                           " WHERE [PermissionID] = '" + PermissionID + "'";
             try

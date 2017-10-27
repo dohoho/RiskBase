@@ -17,7 +17,6 @@ namespace RBI.DAL.MSSQL
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             String sql = "USE [rbi]" +
-                        "GO" +
                         "INSERT INTO [dbo].[ITEM_LIST_CONFIG]" +
                         "([UserID]" +
                         ",[TreeNode]" +
@@ -27,8 +26,7 @@ namespace RBI.DAL.MSSQL
                         "('" + UserID + "'" +
                         ",'" + TreeNode + "'" +
                         ",'" + NodeSeq + "'" +
-                        ",'" + ParentID + "')" +
-                        "GO";
+                        ",'" + ParentID + "')";
 
             try
             {
@@ -52,15 +50,13 @@ namespace RBI.DAL.MSSQL
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             String sql = "USE [rbi]" +
-                        "GO" +
                         "UPDATE [dbo].[ITEM_LIST_CONFIG]" +
                         "SET [UserID] = '" + UserID + "'" +
                         ",[TreeNode] = '" + TreeNode + "'" +
                         ",[NodeSeq] = '" + NodeSeq + "'" +
                         ",[ParentID] = '" + ParentID + "'" +
                         
-                        "WHERE [ItemListConfigID] = '" + ItemListConfigID + "' " +
-                        "GO";
+                        "WHERE [ItemListConfigID] = '" + ItemListConfigID + "' ";
 
             try
             {
@@ -84,10 +80,10 @@ namespace RBI.DAL.MSSQL
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             String sql = "USE [rbi]" +
-                        "GO" +
+                        " " +
                         "DELETE FROM [dbo].[ITEM_LIST_CONFIG]" +
                         "WHERE [ItemListConfigID] = '" + ItemListConfigID + "' " +
-                        "GO";
+                        " ";
             try
             {
                 SqlCommand cmd = new SqlCommand();
@@ -116,7 +112,7 @@ namespace RBI.DAL.MSSQL
                           ",[TreeNode]" +
                           ",[NodeSeq]" +
                           ",[ParentID]" +
-                          "From [dbo].[ITEM_LIST_CONFIG] go";
+                          "From [dbo].[ITEM_LIST_CONFIG]  ";
             try
             {
                 SqlCommand cmd = new SqlCommand();

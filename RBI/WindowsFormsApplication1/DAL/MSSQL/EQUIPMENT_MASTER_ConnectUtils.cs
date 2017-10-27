@@ -17,7 +17,6 @@ namespace RBI.DAL.MSSQL
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             String sql = "USE [rbi] " +
-                            " GO" +
                             " INSERT INTO[dbo].[EQUIPMENT_MASTER]" +
                             "([EquipmentNumber]" +
                             ",[EquipmentTypeID]" +
@@ -47,9 +46,7 @@ namespace RBI.DAL.MSSQL
                             ",'" + EquipmentDesc + "'" +
                             ",'" + IsArchived + "'" +
                             ",'" + Archived + "'" +
-                            ",'" + ArchivedBy + "')" +
-                            
-                            "GO";
+                            ",'" + ArchivedBy + "')";
                            
             try
             {
@@ -73,13 +70,12 @@ namespace RBI.DAL.MSSQL
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             String sql = "USE [rbi]" +
-                           " GO" +
                            " UPDATE[dbo].[EQUIPMENT_MASTER]" +
                                   "SET[EquipmentID] ='"+EquipmentID+"'" +
                                   ",[EquipmentNumber] = '"+EquipmentNumber+"'" +
                                   ",[EquipmentTypeID] = '"+EquipmentTypeID+"'" +
                                   ",[EquipmentName] = '"+EquipmentName+"'" +
-                                  ",[CommissionDate] = '"+CommissionDate+"'" +
+                                  ",[CommissionDate] = '"+CommissionDate +"'" +
                                   ",[DesignCodeID] = '"+DesignCodeID+"'" +
                                   ",[SiteID] = '"+SiteID+"'" +
                                   ",[FacilityID] = '"+FacilityID+"'" +
@@ -90,9 +86,7 @@ namespace RBI.DAL.MSSQL
                                   ",[IsArchived] = '"+IsArchived+"'" +
                                   ",[Archived] = '"+Archived+"'" +
                                   ",[ArchivedBy] = '"+ArchivedBy+"'" +
-                                 
-                                 "WHERE [EquipmentID] ='" + EquipmentID + "'" +
-                                  "GO";
+                                 "WHERE [EquipmentID] ='" + EquipmentID + "'";
             try
             {
                 SqlCommand cmd = new SqlCommand();
@@ -153,7 +147,7 @@ namespace RBI.DAL.MSSQL
                           ",[IsArchived]" +
                           ",[Archived]" +
                           ",[ArchivedBy]" +
-                          "From [rbi].[dbo].[COMPONENT_TYPE] go";
+                          "From [rbi].[dbo].[COMPONENT_TYPE]";
             try
             {
                 SqlCommand cmd = new SqlCommand();

@@ -17,7 +17,7 @@ namespace RBI.DAL.MSSQL
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             String sql = "USE [rbi]" +
-                        "GO" +
+                        " " +
                         "INSERT INTO [dbo].[RW_FULL_FCOF]" +
                         "([ID]" +
                         ",[FCoFValue]" +
@@ -40,7 +40,7 @@ namespace RBI.DAL.MSSQL
                         ",'" + popdens + "'" +
                         ",'" + injcost + "'" +
                         ",'" + FCoFMatrixValue + "')" +
-                        "GO";
+                        " ";
             try
             {
                 SqlCommand cmd = new SqlCommand();
@@ -63,7 +63,7 @@ namespace RBI.DAL.MSSQL
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             String sql = "USE [rbi]" +
-                        "GO" +
+                        " " +
                         "UPDATE [dbo].[RW_FULL_FCOF]" +
                         "SET [ID] = '" + ID + "'" +
                         ",[FCoFValue] = '" + FCoFValue + "'" +
@@ -77,7 +77,7 @@ namespace RBI.DAL.MSSQL
                         ",[FCoFMatrixValue] = '" + FCoFMatrixValue + "'" +
                         
                         " WHERE [ID] = '" + ID + "'" +
-                        "GO";
+                        " ";
             try
             {
                 SqlCommand cmd = new SqlCommand();
@@ -100,10 +100,10 @@ namespace RBI.DAL.MSSQL
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             String sql = "USE [rbi]" +
-                        "GO" +
+                        " " +
                         "DELETE FROM [dbo].[RW_FULL_FCOF]" +
                         " WHERE [ID] ='" + ID + "'" +
-                        "GO";
+                        " ";
             try
             {
                 SqlCommand cmd = new SqlCommand();
@@ -140,7 +140,7 @@ namespace RBI.DAL.MSSQL
                         ",[popdens]" +
                         ",[injcost]" +
                         ",[FCoFMatrixValue]" +
-                         "From [dbo].[RW_FULL_FCOF] go";
+                         "From [dbo].[RW_FULL_FCOF]  ";
             try
             {
                 SqlCommand cmd = new SqlCommand();

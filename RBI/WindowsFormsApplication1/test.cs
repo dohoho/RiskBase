@@ -24,5 +24,22 @@ namespace RBI
             MSSQL_RBI_CAL_ConnUtils ms = new MSSQL_RBI_CAL_ConnUtils();
             MessageBox.Show( ms.GET_TBL_511(0.06f, 0, "E").ToString());
         }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            string a = textBox1.Text;
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+            if(a.Contains('.')&&e.KeyChar=='.')
+            {
+                e.Handled = true;
+            }
+        }
     }
 }

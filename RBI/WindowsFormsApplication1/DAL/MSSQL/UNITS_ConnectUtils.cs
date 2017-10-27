@@ -17,11 +17,10 @@ namespace RBI.DAL.MSSQL
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             String sql = "USE [rbi]" +
-                           "INSERT INTO [dbo].[ USER_GROUPS]" +
+                           "INSERT INTO [dbo].[USER_GROUPS]" +
                            "([UnitID]" +
                            ",[UnitName]" +
                            ",[SelectedUnit])" +
-                           
                            " VALUES" +
                            "(  '" + UnitID + "'" +
                             ", '" + UnitName + "'" +
@@ -53,8 +52,6 @@ namespace RBI.DAL.MSSQL
                               "SET[UnitID] = '" + UnitID + "'" +
                               ",[UnitName] = '" + UnitName + "'" +
                               ",[SelectedUnit] = '" + SelectedUnit + "'" +
-
-                              
                               " WHERE [UnitID] = '" + UnitID + "'";
                 try
                 {
@@ -106,12 +103,12 @@ namespace RBI.DAL.MSSQL
             conn.Open();
             List<UNITS> list = new List<UNITS>();
             UNITS obj = null;
-            String sql = "Use [rbi] GO" +
+            String sql = "Use [rbi] " +
                         "SELECT [UnitID]" +
                         ",[UnitName]" +
                         ",[SelectedUnit]" +
                         "  FROM [rbi].[dbo].[UNITS]" +
-                        " GO";
+                        " ";
             try
             {
                 SqlCommand cmd = new SqlCommand();

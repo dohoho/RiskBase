@@ -17,14 +17,12 @@ namespace RBI.DAL.MSSQL
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             String sql = "USE[rbi]"+
-                            "GO" +
                             "INSERT INTO [dbo].[DM_CATEGORY]" +
                             "([DMCategoryID]" +
                             ",[DMCategoryName])" +
                             "VALUES" +
                             "('"+DMCategoryID+"'" +
-                            ",'"+DMCategoryName+"')" +
-                            "GO";
+                            ",'"+DMCategoryName+"')";
 
             try
             {
@@ -48,13 +46,11 @@ namespace RBI.DAL.MSSQL
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             String sql = "USE [rbi]" +
-                        "GO" +
                         "UPDATE [dbo].[DM_CATEGORY]" +
                         "SET [DMCategoryID] = '"+DMCategoryID+"'" +
                         ",[DMCategoryName] = '"+DMCategoryName+"'" +
                         ",[Modified] = '"+DateTime.Now+"'" +
-                        "WHERE [DMCategoryID] = '"+DMCategoryID+"'" +
-                        "GO";
+                        "WHERE [DMCategoryID] = '"+DMCategoryID+"'";
             try
             {
                 SqlCommand cmd = new SqlCommand();
@@ -77,10 +73,8 @@ namespace RBI.DAL.MSSQL
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             String sql = "USE [rbi]" +
-                        "GO" +
                         "DELETE FROM [dbo].[DM_CATEGORY]" +
-                        "WHERE [DMCategoryID] = '" + DMCategoryID + "'" +
-                        "GO";
+                        "WHERE [DMCategoryID] = '" + DMCategoryID + "'";
             try
             {
                 SqlCommand cmd = new SqlCommand();
@@ -106,7 +100,7 @@ namespace RBI.DAL.MSSQL
             conn.Open();
             String sql = " Use [rbi] Select [DMCategoryID]"+
                           ",[DMCategoryName]"+
-                          "From [rbi].[dbo].[DM_CATEGORY] go";
+                          "From [rbi].[dbo].[DM_CATEGORY] ";
             try
             {
                 SqlCommand cmd = new SqlCommand();

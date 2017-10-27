@@ -9,12 +9,12 @@ namespace RBI.Object.ObjectMSSQL
     public class FACILITY_RISK_TARGET
     {
         public int FacilityID { set; get; }
-        public double RiskTarget_A { set; get; }
-        public double RiskTarget_B { set; get; }
-        public double RiskTarget_C { set; get; }
-        public double RiskTarget_D { set; get; }
-        public double RiskTarget_E { set; get; }
-        public double RiskTarget_CA { set; get; }
-        public double RiskTarget_FC { set; get; }
+        public float RiskTarget_A { set; get; }
+        public float RiskTarget_B { set; get; }
+        public float RiskTarget_C { set; get; }
+        public float RiskTarget_D { set; get; }
+        public float RiskTarget_E { set; get; }
+        public float RiskTarget_CA { set; get; }
+        public float RiskTarget_FC { set; get; }
     }
 }

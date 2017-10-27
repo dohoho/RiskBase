@@ -17,7 +17,6 @@ namespace RBI.DAL.MSSQL
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             String sql = "USE [rbi] " +
-                            " GO" +
                             " INSERT INTO[dbo].[COMPONENT_DETAIL]" +
                             "([ComponentID]" +
                             ",[MaterialID]" +
@@ -25,8 +24,7 @@ namespace RBI.DAL.MSSQL
                             "VALUES" +
                             "('"+ComponentID+"'" +
                             ",'"+MaterialID+"'" +
-                            ",'"+StreamID+"')" +
-                            " GO";
+                            ",'"+StreamID+"')";
             try
             {
                 SqlCommand cmd = new SqlCommand();
@@ -49,14 +47,12 @@ namespace RBI.DAL.MSSQL
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             String sql = "USE [rbi]" +
-                           " GO" +
                            " UPDATE[dbo].[COMPONENT_DETAIL]" +
                                   "SET [ComponentID] ='"+ComponentID+"'" +
                                   ",[MaterialID] = '"+MaterialID+"'" +
                                   ",[StreamID] = '"+StreamID+"'" +
                                   ",[Modified] = '"+DateTime.Now+"'" +
-                            "WHERE [ComponentID] ='"+ComponentID+"'" +
-                            "GO";
+                            "WHERE [ComponentID] ='"+ComponentID+"'";
             try
             {
                 SqlCommand cmd = new SqlCommand();
@@ -104,7 +100,7 @@ namespace RBI.DAL.MSSQL
             String sql = " Use [rbi] Select [ComponentID]" +
                           ",[MaterialID]" +
                           ",[StreamID]" +
-                          "From [rbi].[dbo].[COMPONENT_DETAIL] Where [ComponentID] ='" + ComponentID + "' go";
+                          "From [rbi].[dbo].[COMPONENT_DETAIL] Where [ComponentID] ='" + ComponentID + "'";
             try
             {
                 SqlCommand cmd = new SqlCommand();
@@ -143,7 +139,7 @@ namespace RBI.DAL.MSSQL
             String sql = " Use [rbi] Select [ComponentID]" +
                           ",[MaterialID]" +
                           ",[StreamID]" +
-                          "From [rbi].[dbo].[COMPONENT_DETAIL] go";
+                          "From [rbi].[dbo].[COMPONENT_DETAIL]";
             try
             {
                 SqlCommand cmd = new SqlCommand();

@@ -98,6 +98,85 @@
     <Compile Include="BUS\BUSExcel\BusEquipmentTempExcel.cs" />
     <Compile Include="BUS\BUSExcel\BusImportExcel.cs" />
     <Compile Include="BUS\BUSMSSQL\API_COMPONENT_TYPE_BUS.cs" />
+    <Compile Include="BUS\BUSMSSQL\COMPONENT_DETAIL_BUS.cs" />
+    <Compile Include="BUS\BUSMSSQL\COMPONENT_MASTER_BUS.cs" />
+    <Compile Include="BUS\BUSMSSQL\COMPONENT_MODELLING_BUS.cs" />
+    <Compile Include="BUS\BUSMSSQL\COMPONENT_TYPE _BUS.cs" />
+    <Compile Include="BUS\BUSMSSQL\DESIGN_CODE _BUS.cs" />
+    <Compile Include="BUS\BUSMSSQL\DM_CATEGORY_BUS.cs" />
+    <Compile Include="BUS\BUSMSSQL\DM_EXPECTED_TYPE_BUS.cs" />
+    <Compile Include="BUS\BUSMSSQL\DM_ITEMS_BUS.cs" />
+    <Compile Include="BUS\BUSMSSQL\EQUIPMENT_EXTRA_FIELDS _BUS.cs" />
+    <Compile Include="BUS\BUSMSSQL\EQUIPMENT_MASTER _BUS.cs" />
+    <Compile Include="BUS\BUSMSSQL\EQUIPMENT_REVISION_BUS.cs" />
+    <Compile Include="BUS\BUSMSSQL\EQUIPMENT_REVISION_INSPECTION_BUS.cs" />
+    <Compile Include="BUS\BUSMSSQL\EQUIPMENT_REVISION_INSPECTION_COVERAGE_BUS.cs" />
+    <Compile Include="BUS\BUSMSSQL\EQUIPMENT_TYPE _BUS.cs" />
+    <Compile Include="BUS\BUSMSSQL\EXTRA_FIELDS_LOOKUP_BUS.cs" />
+    <Compile Include="BUS\BUSMSSQL\EXTRA_FIELDS_LOOKUP_COMPONENT_BUS.cs" />
+    <Compile Include="BUS\BUSMSSQL\EXTRA_FIELDS_SETTING_BUS.cs" />
+    <Compile Include="BUS\BUSMSSQL\EXTRA_FIELDS_SETTING_COMPONENT_BUS.cs" />
+    <Compile Include="BUS\BUSMSSQL\FACILITY_BUS.cs" />
+    <Compile Include="BUS\BUSMSSQL\FACILITY_RISK_TARGET_BUS.cs" />
+    <Compile Include="BUS\BUSMSSQL\FILE_COMPONENT_BUS.cs" />
+    <Compile Include="BUS\BUSMSSQL\FILE_EQUIPMENT_BUS.cs" />
+    <Compile Include="BUS\BUSMSSQL\FILE_FACILITY_BUS.cs" />
+    <Compile Include="BUS\BUSMSSQL\GENERIC_FLUID_BUS.cs" />
+    <Compile Include="BUS\BUSMSSQL\GENERIC_MATERIAL_BUS.cs" />
+    <Compile Include="BUS\BUSMSSQL\IMAGE_COMPONENT_BUS.cs" />
+    <Compile Include="BUS\BUSMSSQL\IMAGE_EQUIPMENT_BUS.cs" />
+    <Compile Include="BUS\BUSMSSQL\IMAGE_FACILITY_BUS.cs" />
+    <Compile Include="BUS\BUSMSSQL\IM_ITEMS_BUS.cs" />
+    <Compile Include="BUS\BUSMSSQL\IM_TYPE_BUS.cs" />
+    <Compile Include="BUS\BUSMSSQL\INSPECTION_COVERAGE_BUS.cs" />
+    <Compile Include="BUS\BUSMSSQL\INSPECTION_COVERAGE_DETAIL_BUS.cs" />
+    <Compile Include="BUS\BUSMSSQL\INSPECTION_COVERAGE_EQUIPMENT_BUS.cs" />
+    <Compile Include="BUS\BUSMSSQL\INSPECTION_PLAN_BUS.cs" />
+    <Compile Include="BUS\BUSMSSQL\ITEM_LIST_CONFIG_BUS.cs" />
+    <Compile Include="BUS\BUSMSSQL\MANUFACTURER_BUS.cs" />
+    <Compile Include="BUS\BUSMSSQL\POINTS_BUS.cs" />
+    <Compile Include="BUS\BUSMSSQL\REPORT_TEMPLATE_ASSESSMENT_BUS.cs" />
+    <Compile Include="BUS\BUSMSSQL\REPORT_TEMPLATE_BUS.cs" />
+    <Compile Include="BUS\BUSMSSQL\REPORT_TEMPLATE_COMPONENT_DEFAULT_BUS.cs" />
+    <Compile Include="BUS\BUSMSSQL\REPORT_TEMPLATE_EQUIPMENT_BUS.cs" />
+    <Compile Include="BUS\BUSMSSQL\RW_ASSESSMEN_BUS.cs" />
+    <Compile Include="BUS\BUSMSSQL\RW_CF_MASTER_BUS.cs" />
+    <Compile Include="BUS\BUSMSSQL\RW_COATING_BUS.cs" />
+    <Compile Include="BUS\BUSMSSQL\RW_COMPONENT_BUS.cs" />
+    <Compile Include="BUS\BUSMSSQL\RW_CORROSION_RATE_TANK_BUS.cs" />
+    <Compile Include="BUS\BUSMSSQL\RW_DAMAGE_MECHANISM_BUS.cs" />
+    <Compile Include="BUS\BUSMSSQL\RW_EQUIPMENT_BUS.cs" />
+    <Compile Include="BUS\BUSMSSQL\RW_EXTCOR_TEMPERATURE_BUS.cs" />
+    <Compile Include="BUS\BUSMSSQL\RW_EXTRA_FIELDS_BUS.cs" />
+    <Compile Include="BUS\BUSMSSQL\RW_FULL_COF_BUS.cs" />
+    <Compile Include="BUS\BUSMSSQL\RW_FULL_COF_FLUID_BUS.cs" />
+    <Compile Include="BUS\BUSMSSQL\RW_FULL_COF_HOLE_SIZE_BUS.cs" />
+    <Compile Include="BUS\BUSMSSQL\RW_FULL_COF_INPUT_BUS.cs" />
+    <Compile Include="BUS\BUSMSSQL\RW_FULL_COF_TANK_BUS.cs" />
+    <Compile Include="BUS\BUSMSSQL\RW_FULL_FCOF_BUS.cs" />
+    <Compile Include="BUS\BUSMSSQL\RW_FULL_POF_BUS.cs" />
+    <Compile Include="BUS\BUSMSSQL\RW_LF_DETAIL_BUS.cs" />
+    <Compile Include="BUS\BUSMSSQL\RW_LF_MASTER_BUS.cs" />
+    <Compile Include="BUS\BUSMSSQL\RW_MATERIAL_BUS.cs" />
+    <Compile Include="BUS\BUSMSSQL\RW_POINTS_BUS.cs" />
+    <Compile Include="BUS\BUSMSSQL\RW_PRIMARY_FLUID_BUS.cs" />
+    <Compile Include="BUS\BUSMSSQL\RW_REVISION_INSPECTION_BUS.cs" />
+    <Compile Include="BUS\BUSMSSQL\RW_RISK_TARGET_BUS.cs" />
+    <Compile Include="BUS\BUSMSSQL\RW_SAFETY_FACTOR_BUS.cs" />
+    <Compile Include="BUS\BUSMSSQL\RW_SECONDARY_FLUID_BUS.cs" />
+    <Compile Include="BUS\BUSMSSQL\RW_SETTINGS_BUS.cs" />
+    <Compile Include="BUS\BUSMSSQL\RW_STREAM_BUS.cs" />
+    <Compile Include="BUS\BUSMSSQL\RW_THICKNESS_BUS.cs" />
+    <Compile Include="BUS\BUSMSSQL\SAFETY_FACTORS_BUS.cs" />
+    <Compile Include="BUS\BUSMSSQL\SITES_BUS.cs" />
+    <Compile Include="BUS\BUSMSSQL\THICKNESS_READING_BUS.cs" />
+    <Compile Include="BUS\BUSMSSQL\UNITS_BUS.cs" />
+    <Compile Include="BUS\BUSMSSQL\UNIT_DESCRIPTOR_BUS.cs" />
+    <Compile Include="BUS\BUSMSSQL\USERS_BUS.cs" />
+    <Compile Include="BUS\BUSMSSQL\USER_GROUPS_BUS.cs" />
+    <Compile Include="BUS\BUSMSSQL\USER_PERMISSIONS_BUS.cs" />
+    <Compile Include="BUS\BUSMSSQL\USER_PERMISSION_LIST_BUS.cs" />
+    <Compile Include="BUS\BUSMSSQL_CAL\BUS_TOXIC.cs" />
     <Compile Include="BUS\BUSMSSQL_CAL\MSSQL_CA_CAL.cs" />
     <Compile Include="BUS\BUSMSSQL_CAL\MSSQL_DM_CAL.cs" />
     <Compile Include="DAL\ExcelConnect.cs" />
@@ -210,6 +289,7 @@
     <Compile Include="DAL\RiskSummaryConnUtils1.cs" />
     <Compile Include="Object\Component.cs" />
     <Compile Include="Object\ObjectMSSQL\API_COMPONENT_TYPE.cs" />
+    <Compile Include="Object\ObjectMSSQL\RW_CA.cs" />
     <Compile Include="Object\ObjectMSSQL\COMPONENT_DETAIL.cs" />
     <Compile Include="Object\ObjectMSSQL\COMPONENT_MASTER.cs" />
     <Compile Include="Object\ObjectMSSQL\COMPONENT_MODELLING.cs" />
@@ -253,6 +333,7 @@
     <Compile Include="Object\ObjectMSSQL\REPORT_TEMPLATE_COMPONENT_DEFAULT.cs" />
     <Compile Include="Object\ObjectMSSQL\REPORT_TEMPLATE_EQUIPMENT.cs" />
     <Compile Include="Object\ObjectMSSQL\RW_ASSESSMENT.cs" />
+    <Compile Include="Object\ObjectMSSQL\RW_CA_TANK.cs" />
     <Compile Include="Object\ObjectMSSQL\RW_CF_MASTER.cs" />
     <Compile Include="Object\ObjectMSSQL\RW_COATING.cs" />
     <Compile Include="Object\ObjectMSSQL\RW_COMPONENT.cs" />
@@ -305,23 +386,29 @@
     <Compile Include="PRE\subForm\ImportExcel.Designer.cs">
       <DependentUpon>ImportExcel.cs</DependentUpon>
     </Compile>
-    <Compile Include="PRE\subForm\InputDataForm\Equipment.cs">
+    <Compile Include="PRE\subForm\InputDataForm\frmEquipment.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PRE\subForm\InputDataForm\Equipment.Designer.cs">
-      <DependentUpon>Equipment.cs</DependentUpon>
+    <Compile Include="PRE\subForm\InputDataForm\frmEquipment.Designer.cs">
+      <DependentUpon>frmEquipment.cs</DependentUpon>
     </Compile>
-    <Compile Include="PRE\subForm\InputDataForm\Facility.cs">
+    <Compile Include="PRE\subForm\InputDataForm\frmFacility.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PRE\subForm\InputDataForm\Facility.Designer.cs">
-      <DependentUpon>Facility.cs</DependentUpon>
+    <Compile Include="PRE\subForm\InputDataForm\frmFacility.Designer.cs">
+      <DependentUpon>frmFacility.cs</DependentUpon>
     </Compile>
-    <Compile Include="PRE\subForm\InputDataForm\FacilityInput.cs">
+    <Compile Include="PRE\subForm\InputDataForm\frmFacilityInput.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PRE\subForm\InputDataForm\FacilityInput.Designer.cs">
-      <DependentUpon>FacilityInput.cs</DependentUpon>
+    <Compile Include="PRE\subForm\InputDataForm\frmFacilityInput.Designer.cs">
+      <DependentUpon>frmFacilityInput.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PRE\subForm\InputDataForm\frmAllSites.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PRE\subForm\InputDataForm\frmAllSites.Designer.cs">
+      <DependentUpon>frmAllSites.cs</DependentUpon>
     </Compile>
     <Compile Include="PRE\subForm\InputDataForm\frmGenericFluids.cs">
       <SubType>Form</SubType>
@@ -329,41 +416,41 @@
     <Compile Include="PRE\subForm\InputDataForm\frmGenericFluids.Designer.cs">
       <DependentUpon>frmGenericFluids.cs</DependentUpon>
     </Compile>
-    <Compile Include="PRE\subForm\InputDataForm\ImportInspection.cs">
+    <Compile Include="PRE\subForm\InputDataForm\frmImportInspection.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PRE\subForm\InputDataForm\ImportInspection.Designer.cs">
-      <DependentUpon>ImportInspection.cs</DependentUpon>
+    <Compile Include="PRE\subForm\InputDataForm\frmImportInspection.Designer.cs">
+      <DependentUpon>frmImportInspection.cs</DependentUpon>
     </Compile>
-    <Compile Include="PRE\subForm\InputDataForm\NewFluid.cs">
+    <Compile Include="PRE\subForm\InputDataForm\frmNewFluid.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PRE\subForm\InputDataForm\NewFluid.Designer.cs">
-      <DependentUpon>NewFluid.cs</DependentUpon>
+    <Compile Include="PRE\subForm\InputDataForm\frmNewFluid.Designer.cs">
+      <DependentUpon>frmNewFluid.cs</DependentUpon>
     </Compile>
-    <Compile Include="PRE\subForm\InputDataForm\NewManufacturer.cs">
+    <Compile Include="PRE\subForm\InputDataForm\frmNewManufacturer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PRE\subForm\InputDataForm\NewManufacturer.Designer.cs">
-      <DependentUpon>NewManufacturer.cs</DependentUpon>
+    <Compile Include="PRE\subForm\InputDataForm\frmNewManufacturer.Designer.cs">
+      <DependentUpon>frmNewManufacturer.cs</DependentUpon>
     </Compile>
-    <Compile Include="PRE\subForm\InputDataForm\NewComponent.cs">
+    <Compile Include="PRE\subForm\InputDataForm\frmNewComponent.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PRE\subForm\InputDataForm\NewComponent.Designer.cs">
-      <DependentUpon>NewComponent.cs</DependentUpon>
+    <Compile Include="PRE\subForm\InputDataForm\frmNewComponent.Designer.cs">
+      <DependentUpon>frmNewComponent.cs</DependentUpon>
     </Compile>
-    <Compile Include="PRE\subForm\InputDataForm\NewMaterial.cs">
+    <Compile Include="PRE\subForm\InputDataForm\frmNewMaterial.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PRE\subForm\InputDataForm\NewMaterial.Designer.cs">
-      <DependentUpon>NewMaterial.cs</DependentUpon>
+    <Compile Include="PRE\subForm\InputDataForm\frmNewMaterial.Designer.cs">
+      <DependentUpon>frmNewMaterial.cs</DependentUpon>
     </Compile>
-    <Compile Include="PRE\subForm\InputDataForm\NewSite.cs">
+    <Compile Include="PRE\subForm\InputDataForm\frmNewSite.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PRE\subForm\InputDataForm\NewSite.Designer.cs">
-      <DependentUpon>NewSite.cs</DependentUpon>
+    <Compile Include="PRE\subForm\InputDataForm\frmNewSite.Designer.cs">
+      <DependentUpon>frmNewSite.cs</DependentUpon>
     </Compile>
     <Compile Include="PRE\subForm\InputDataForm\UCAssessmentInfo.cs">
       <SubType>UserControl</SubType>
@@ -400,6 +487,12 @@
     </Compile>
     <Compile Include="PRE\subForm\InputDataForm\UCComponentProperties.Designer.cs">
       <DependentUpon>UCComponentProperties.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PRE\subForm\InputDataForm\UCMaterialTank.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PRE\subForm\InputDataForm\UCMaterialTank.Designer.cs">
+      <DependentUpon>UCMaterialTank.cs</DependentUpon>
     </Compile>
     <Compile Include="PRE\subForm\OutputDataForm\UCInternalThinningDamageFactor.cs">
       <SubType>UserControl</SubType>
@@ -489,35 +582,38 @@
     <EmbeddedResource Include="PRE\subForm\ImportExcel.resx">
       <DependentUpon>ImportExcel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PRE\subForm\InputDataForm\Equipment.resx">
-      <DependentUpon>Equipment.cs</DependentUpon>
+    <EmbeddedResource Include="PRE\subForm\InputDataForm\frmEquipment.resx">
+      <DependentUpon>frmEquipment.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PRE\subForm\InputDataForm\Facility.resx">
-      <DependentUpon>Facility.cs</DependentUpon>
+    <EmbeddedResource Include="PRE\subForm\InputDataForm\frmFacility.resx">
+      <DependentUpon>frmFacility.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PRE\subForm\InputDataForm\FacilityInput.resx">
-      <DependentUpon>FacilityInput.cs</DependentUpon>
+    <EmbeddedResource Include="PRE\subForm\InputDataForm\frmFacilityInput.resx">
+      <DependentUpon>frmFacilityInput.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PRE\subForm\InputDataForm\frmAllSites.resx">
+      <DependentUpon>frmAllSites.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PRE\subForm\InputDataForm\frmGenericFluids.resx">
       <DependentUpon>frmGenericFluids.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PRE\subForm\InputDataForm\ImportInspection.resx">
-      <DependentUpon>ImportInspection.cs</DependentUpon>
+    <EmbeddedResource Include="PRE\subForm\InputDataForm\frmImportInspection.resx">
+      <DependentUpon>frmImportInspection.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PRE\subForm\InputDataForm\NewComponent.resx">
-      <DependentUpon>NewComponent.cs</DependentUpon>
+    <EmbeddedResource Include="PRE\subForm\InputDataForm\frmNewComponent.resx">
+      <DependentUpon>frmNewComponent.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PRE\subForm\InputDataForm\NewFluid.resx">
-      <DependentUpon>NewFluid.cs</DependentUpon>
+    <EmbeddedResource Include="PRE\subForm\InputDataForm\frmNewFluid.resx">
+      <DependentUpon>frmNewFluid.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PRE\subForm\InputDataForm\NewManufacturer.resx">
-      <DependentUpon>NewManufacturer.cs</DependentUpon>
+    <EmbeddedResource Include="PRE\subForm\InputDataForm\frmNewManufacturer.resx">
+      <DependentUpon>frmNewManufacturer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PRE\subForm\InputDataForm\NewMaterial.resx">
-      <DependentUpon>NewMaterial.cs</DependentUpon>
+    <EmbeddedResource Include="PRE\subForm\InputDataForm\frmNewMaterial.resx">
+      <DependentUpon>frmNewMaterial.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PRE\subForm\InputDataForm\NewSite.resx">
-      <DependentUpon>NewSite.cs</DependentUpon>
+    <EmbeddedResource Include="PRE\subForm\InputDataForm\frmNewSite.resx">
+      <DependentUpon>frmNewSite.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PRE\subForm\InputDataForm\UCAssessmentInfo.resx">
       <DependentUpon>UCAssessmentInfo.cs</DependentUpon>
@@ -536,6 +632,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PRE\subForm\InputDataForm\UCComponentProperties.resx">
       <DependentUpon>UCComponentProperties.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PRE\subForm\InputDataForm\UCMaterialTank.resx">
+      <DependentUpon>UCMaterialTank.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PRE\subForm\OutputDataForm\UCDamageMechanism.resx">
       <DependentUpon>UCDamageMechanism.cs</DependentUpon>

@@ -1,4 +1,4 @@
-﻿using RBI.Object.ObjectMSSQL;
+﻿using RBI.Object;
 using System;
 using System.Collections.Generic;
 using System.Data.Common;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using RBI.Object.ObjectMSSQL;
 namespace RBI.DAL.MSSQL
 {
     class INSPECTION_PLAN_ConnectUtils
@@ -17,7 +17,6 @@ namespace RBI.DAL.MSSQL
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             String sql = "USE [rbi]" +
-                        "GO" +
                         "INSERT INTO [dbo].[INSPECTION_PLAN]" +
                         "([InspPlanName]" +
                         ",[InspPlanDate]" +
@@ -25,8 +24,7 @@ namespace RBI.DAL.MSSQL
                         "VALUES" +
                         "('" + InspPlanName + "'" +
                         ",'" + InspPlanDate + "'" +
-                        ",'" + Remarks + "')" +
-                        "GO";
+                        ",'" + Remarks + "')";
             try
             {
                 SqlCommand cmd = new SqlCommand();
@@ -49,14 +47,11 @@ namespace RBI.DAL.MSSQL
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             String sql = "USE [rbi]" +
-                        "GO" +
                         "UPDATE [dbo].[INSPECTION_PLAN]" +
                         "SET [InspPlanName] = '" + InspPlanName + "'" +
                         ",[InspPlanDate] = '" + InspPlanDate + "'" +
-                        ",[Remarks] = '" + Remarks + "'" +
-                        
-                        "WHERE [PlanID] = '" + PlanID + "'" +
-                        "GO";
+                        ",[Remarks] = '" + Remarks + "'" +                        
+                        "WHERE [PlanID] = '" + PlanID + "'";
             try
             {
                 SqlCommand cmd = new SqlCommand();
@@ -79,10 +74,8 @@ namespace RBI.DAL.MSSQL
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             String sql = "USE [rbi]" +
-                        "GO" +
                         "DELETE FROM [dbo].[INSPECTION_PLAN]" +
-                        "WHERE [PlanID] = '" + PlanID + "'" +
-                        "GO";
+                        "WHERE [PlanID] = '" + PlanID + "'";
             try
             {
                 SqlCommand cmd = new SqlCommand();
@@ -110,7 +103,7 @@ namespace RBI.DAL.MSSQL
                           ",[InspPlanName]" +
                           ",[InspPlanDate]" +
                           ",[Remarks]" +
-                          "From [dbo].[INSPECTION_PLAN] go";
+                          "From [dbo].[INSPECTION_PLAN]";
             try
             {
                 SqlCommand cmd = new SqlCommand();

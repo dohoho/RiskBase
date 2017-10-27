@@ -1,4 +1,4 @@
-﻿using RBI.Object.ObjectMSSQL;
+﻿using RBI.Object;
 using System;
 using System.Collections.Generic;
 using System.Data.Common;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using RBI.Object.ObjectMSSQL;
 namespace RBI.DAL.MSSQL
 {
     class RW_CF_MASTER_ConnectUtils
@@ -17,7 +17,7 @@ namespace RBI.DAL.MSSQL
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             String sql = "USE [rbi]" +
-                        "GO" +
+                        " " +
                         "INSERT INTO [dbo].[RW_CF_MASTER]" +
                         "([ID]" +
                         ",[CF1]" +
@@ -40,7 +40,7 @@ namespace RBI.DAL.MSSQL
                         ",'" + CF7 + "'" +
                         ",'" + CF8 + "'" +
                         ",'" + CF9 + "')" +
-                        "GO";
+                        " ";
             try
             {
                 SqlCommand cmd = new SqlCommand();
@@ -63,7 +63,7 @@ namespace RBI.DAL.MSSQL
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             String sql = "USE [rbi]" +
-                        "GO" +
+                        " " +
                         "UPDATE [dbo].[RW_CF_MASTER]" +
                         "SET [ID] = '" + ID + "'" +
                         ",[CF1] = '" + CF1 + "'" +
@@ -77,7 +77,7 @@ namespace RBI.DAL.MSSQL
                         ",[CF9] = '" + CF9 + "'" +
                         
                         " WHERE [ID] = '" + ID + "'" +
-                        "GO";
+                        " ";
             try
             {
                 SqlCommand cmd = new SqlCommand();
@@ -100,10 +100,10 @@ namespace RBI.DAL.MSSQL
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             String sql = "USE [rbi]" +
-                        "GO" +
+                        " " +
                         "DELETE FROM [dbo].[RW_CF_MASTER]" +
                         "WHERE [ID]  = '" + ID + "' " +
-                        "GO";
+                        " ";
             try
             {
                 SqlCommand cmd = new SqlCommand();
@@ -137,7 +137,7 @@ namespace RBI.DAL.MSSQL
                           ",[CF7]" +
                           ",[CF8]" +
                           ",[CF9]" +
-                          "From [dbo].[RW_CF_MASTER] go";
+                          "From [dbo].[RW_CF_MASTER]  ";
             try
             {
                 SqlCommand cmd = new SqlCommand();

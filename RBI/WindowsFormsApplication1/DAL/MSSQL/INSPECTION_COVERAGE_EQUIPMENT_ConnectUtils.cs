@@ -1,4 +1,4 @@
-﻿using RBI.Object.ObjectMSSQL;
+﻿using RBI.Object;
 using System;
 using System.Collections.Generic;
 using System.Data.Common;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using RBI.Object.ObjectMSSQL;
 namespace RBI.DAL.MSSQL
 {
     class INSPECTION_COVERAGE_EQUIPMENT_ConnectUtils
@@ -17,14 +17,12 @@ namespace RBI.DAL.MSSQL
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             String sql = "USE [rbi]" +
-                        "GO" +
                         "INSERT INTO [dbo].[INSPECTION_COVERAGE_EQUIPMENT]" +
                         "([CoverageID]" +
                         ",[EquipmentID])" +
                         "VALUES" +
                         "('" + CoverageID + "'" +
-                        ",'" + EquipmentID + "')" +
-                        "GO";
+                        ",'" + EquipmentID + "')";
             try
             {
                 SqlCommand cmd = new SqlCommand();
@@ -47,13 +45,10 @@ namespace RBI.DAL.MSSQL
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             String sql = "USE [rbi]" +
-                        "GO" +
                         "UPDATE [dbo].[INSPECTION_COVERAGE_EQUIPMENT]" +
                         "SET [CoverageID] = '" + CoverageID + "'" +
-                        ",[EquipmentID] = '" + EquipmentID + "'" +
-                      
-                        "WHERE [CoverageID] = '" + CoverageID + "' " +
-                        "GO";
+                        ",[EquipmentID] = '" + EquipmentID + "'" +                      
+                        "WHERE [CoverageID] = '" + CoverageID + "' ";
             try
             {
                 SqlCommand cmd = new SqlCommand();
@@ -76,10 +71,8 @@ namespace RBI.DAL.MSSQL
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             String sql = "USE [rbi]" +
-                        "GO" +
                         "DELETE FROM [dbo].[INSPECTION_COVERAGE_EQUIPMENT]" +
-                        "WHERE [CoverageID] = '" + CoverageID + "' " +
-                        "GO";
+                        "WHERE [CoverageID] = '" + CoverageID + "' ";
             try
             {
                 SqlCommand cmd = new SqlCommand();
@@ -105,7 +98,7 @@ namespace RBI.DAL.MSSQL
             INSPECTION_COVERAGE_EQUIPMENT obj = null;
             String sql = " Use [rbi] Select [CoverageID]" +
                           ",[EquipmentID]" +
-                          "From [dbo].[INSPECTION_COVERAGE_EQUIPMENT] go";
+                          "From [dbo].[INSPECTION_COVERAGE_EQUIPMENT]";
             try
             {
                 SqlCommand cmd = new SqlCommand();

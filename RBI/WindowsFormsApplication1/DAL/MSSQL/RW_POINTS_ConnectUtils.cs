@@ -29,7 +29,6 @@ namespace RBI.DAL.MSSQL
                            ",[Specification]" +
                            ",[Size]" +
                            ",[MinReqThickness]"+
-
                              ",[ThicknessReading]" +
                            ",[ThicknessDate]" +
                            ",[NominalThickness]" +
@@ -39,7 +38,6 @@ namespace RBI.DAL.MSSQL
                            ",[CalculatedRemainingLife]"+
                            ",[CalculatedRemainingLife]"+
                            ",[k])"+
-                           
                            " VALUES" +
                            "(  '" + ID + "'" +
                             ", '" + PointID + "'" +
@@ -88,7 +86,7 @@ namespace RBI.DAL.MSSQL
                               ",[PointID] = '" + PointID + "'" +
                               ",[PointName] = '" + PointName + "'" +
                               ",[GaugePoint] = '" + GaugePoint + "'" +
-                              ",[ PointLocation] = '" + PointLocation + "'" +
+                              ",[PointLocation] = '" + PointLocation + "'" +
                              ",[PIDNo] = '" + PIDNo + "'" +
                              ",[FittingDesc] = '" + FittingDesc + "'" +
                               ",[Specification] = '" + Specification + "'" +
@@ -101,8 +99,6 @@ namespace RBI.DAL.MSSQL
                               ",[CalculatedCorrosionRate] = '" + CalculatedCorrosionRate + "'" +
                               ",[CalculatedRemainingLife] = '" + CalculatedRemainingLife + "'" +
                               ",[k] = '" + k + "'" +
-                             
-
                               " WHERE [PointID] = '" + PointID + "'";
                 try
                 {

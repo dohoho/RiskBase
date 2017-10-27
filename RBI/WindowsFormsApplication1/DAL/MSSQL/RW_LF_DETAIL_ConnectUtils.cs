@@ -21,26 +21,25 @@ namespace RBI.DAL.MSSQL
                            "INSERT INTO [dbo].[RW_LF_DETAIL]" +
                            "([ID]" +
                            ",[DMItemID]" +
-                           ",[ LF2AP1]" +
-                           ",[ LF2AP2]" +
-                            ",[ LF2AP3]" +
+                           ",[LF2AP1]" +
+                           ",[LF2AP2]" +
+                            ",[LF2AP3]" +
                             ",[LF2FactorAP1]" +
                            ",[LF2FactorAP2]" +
                            ",[LF2FactorAP3]" +
                            ",[LF3]" +
-                           ",[ LF3Factor]" +
+                           ",[LF3Factor]" +
                             ",[LCF]" +
                             ",[LHAP1Category]" +
-                           ",[ LHAP2Category]" +
-                           ",[ LHA3Category]" +
-                            ",[ LHAP1Value]" +
+                           ",[LHAP2Category]" +
+                           ",[LHA3Category]" +
+                            ",[LHAP1Value]" +
                             ",[LHAP2Value]" +
                            ",[LHAP3Value]" +
                            ",[CoFValue]" +
                            ",[CoFCategory]" +
-                           ",[ RLI]" +
+                           ",[RLI]" +
                             ",[IsEL])" +
-                           
                            " VALUES" +
                            "(  '" + ID + "'" +
                             ", '" + DMItemID + "'" +
@@ -89,12 +88,12 @@ namespace RBI.DAL.MSSQL
                 String sql = "USE [rbi]" +
                               "UPDATE [dbo].[RW_LF_DETAIL] " +
                               "SET[ID] = '" + ID + "'" +
-                              ",[ DMItemID] = '" + DMItemID + "'" +
-                              ",[ LF2AP1] = '" + LF2AP1 + "'" +
-                              ",[ LF2AP2] = '" + LF2AP2 + "'" +
-                              ",[  LF2AP3] = '" + LF2AP3 + "'" +
-                             ",[ LF2FactorAP1] = '" + LF2FactorAP1 + "'" +
-                             ",[ LF2FactorAP2] = '" + LF2FactorAP2 + "'" +
+                              ",[DMItemID] = '" + DMItemID + "'" +
+                              ",[LF2AP1] = '" + LF2AP1 + "'" +
+                              ",[LF2AP2] = '" + LF2AP2 + "'" +
+                              ",[LF2AP3] = '" + LF2AP3 + "'" +
+                             ",[LF2FactorAP1] = '" + LF2FactorAP1 + "'" +
+                             ",[LF2FactorAP2] = '" + LF2FactorAP2 + "'" +
                               ",[LF2FactorAP3] = '" + LF2FactorAP3 + "'" +
                               ",[LF3] = '" + LF3 + "'" +
                               ",[LF3Factor] = '" + LF3Factor + "'" +
@@ -102,15 +101,13 @@ namespace RBI.DAL.MSSQL
                              ",[LHAP1Category] = '" + LHAP1Category + "'" +
                               ",[LHAP2Category = '" + LHAP2Category + "'" +
                               ",[LHAP3Category] = '" + LHAP3Category + "'" +
-                              ",[ LHAP1Value] = '" + LHAP1Value + "'" +
-                              ",[ LHAP2Value] = '" + LHAP3Value + "'" +
+                              ",[LHAP1Value] = '" + LHAP1Value + "'" +
+                              ",[LHAP2Value] = '" + LHAP3Value + "'" +
                               ",[LHAP3Value] = '" + LHAP3Value + "'" +
-                              ",[  CoFValue] = '" + CoFValue + "'" +
-                             ",[ CoFCategory] = '" + CoFCategory + "'" +
-                             ",[ RLI] = '" + RLI + "'" +
+                              ",[CoFValue] = '" + CoFValue + "'" +
+                             ",[CoFCategory] = '" + CoFCategory + "'" +
+                             ",[RLI] = '" + RLI + "'" +
                               ",[IsEL] = '" + IsEL + "'" +
-                            
-
                               " WHERE [ID] = '" + ID + "'" + " AND [DMItemID]='" + DMItemID + "'";
                 try
                 {
@@ -164,26 +161,26 @@ namespace RBI.DAL.MSSQL
             RW_LF_DETAIL obj = null;
             String sql = " Use [rbi] Select [ID]" +
                           ",[DMItemID]" +
-                          ",[ LF2AP1]" +
-                          ",[ LF2AP2]" +
-                          ",[ LF2AP3]" +
+                          ",[LF2AP1]" +
+                          ",[LF2AP2]" +
+                          ",[LF2AP3]" +
                           ",[LF2FactorAP1]" +
                           ",[LF2FactorAP2]" +
                           ",[LF2FactorAP3]" +
                           ",[LF3]" +
-                          ",[ LF3Factor]" +
+                          ",[LF3Factor]" +
                           ",[LCF]" +
                           ",[LHAP1Category]" +
-                          ",[ LHAP2Category]" +
-                          ",[ LHA3Category]" +
-                          ",[ LHAP1Value]" +
+                          ",[LHAP2Category]" +
+                          ",[LHA3Category]" +
+                          ",[LHAP1Value]" +
                           ",[LHAP2Value]" +
                           ",[LHAP3Value]" +
                           ",[CoFValue]" +
                           ",[CoFCategory]" +
-                          ",[ RLI]" +
+                          ",[RLI]" +
                           ",[IsEL]"+
-                          "From [dbo].[RW_LF_DETAIL] go";
+                          "From [dbo].[RW_LF_DETAIL]";
             try {
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = conn;

@@ -17,14 +17,12 @@ namespace RBI.DAL.MSSQL
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             String sql = "USE [rbi]" +
-                        "GO" +
                         "INSERT INTO [dbo].[DESIGN_CODE]" +
                         "([DesignCode]" +
                         ",[DesignCodeApp])" +
                         "VALUES" +
                         "('" + DesignCode + "'" +
-                        ",'" + DesignCodeApp + "')" +
-                        "GO";
+                        ",'" + DesignCodeApp + "')";
             try
             {
                 SqlCommand cmd = new SqlCommand();
@@ -47,13 +45,11 @@ namespace RBI.DAL.MSSQL
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             String sql = "USE [rbi]" +
-                        "GO" +
                         "UPDATE [dbo].[DESIGN_CODE]" +
                         "SET [DesignCode] = '" + DesignCode + "'" +
                         ",[DesignCodeApp] = '" + DesignCodeApp + "'" +
                         ",[Modified] = '" + DateTime.Now + "'" +
-                        "WHERE [DesignCodeID] = '" + DesignCodeID + "'" +
-                        "GO";
+                        "WHERE [DesignCodeID] = '" + DesignCodeID + "'";
             try
             {
                 SqlCommand cmd = new SqlCommand();
@@ -76,10 +72,8 @@ namespace RBI.DAL.MSSQL
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             String sql = "USE [rbi]" +
-                        "GO" +
                         "DELETE FROM [dbo].[DESIGN_CODE]" +
-                        "WHERE [DesignCodeID] = '" + DesignCodeID + "'" +
-                        "GO";
+                        "WHERE [DesignCodeID] = '" + DesignCodeID + "'";
             try
             {
                 SqlCommand cmd = new SqlCommand();
@@ -106,7 +100,7 @@ namespace RBI.DAL.MSSQL
             String sql = " Use [rbi] Select [DesignCodeID]"+
                           ",[DesignCode]"+
                           ",[DesignCodeApp]"+
-                          "From [rbi].[dbo].[DESIGN_CODE] go";
+                          "From [rbi].[dbo].[DESIGN_CODE] ";
             try
             {
                 SqlCommand cmd = new SqlCommand();

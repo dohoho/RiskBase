@@ -17,7 +17,7 @@ namespace RBI.DAL.MSSQL
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             String sql = "USE [rbi]" +
-                           "INSERT INTO [dbo].[ USER_GROUPS]" +
+                           "INSERT INTO [dbo].[USER_GROUPS]" +
                            "([UserGroup]" +
                            ",[SysGroup]" +
                            ",[Disabled])" +

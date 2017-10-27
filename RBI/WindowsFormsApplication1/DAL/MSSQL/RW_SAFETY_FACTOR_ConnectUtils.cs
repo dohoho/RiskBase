@@ -25,7 +25,6 @@ namespace RBI.DAL.MSSQL
                            ",[C]" +
                            ",[D]" +
                            ",[E])" +
-                           
                            " VALUES" +
                            "(  '" + ID + "'" +
                             ", '" + SafetyFactorName + "'" +
@@ -61,12 +60,10 @@ namespace RBI.DAL.MSSQL
                               "SET[ID] = '" + ID + "'" +
                               ",[SafetyFactorName] = '" + SafetyFactorName + "'" +
                               ",[A] = '" + A + "'" +
-
                                ",[B] = '" + B + "'" +
                               ",[C] = '" + C + "'" +
                               ",[D] = '" + D + "'" +
                               ",[E] = '" + E + "'" +
-                              
                               " WHERE [ID] = '" + ID + "'";
                 try
                 {
@@ -149,13 +146,13 @@ namespace RBI.DAL.MSSQL
             RW_SAFETY_FACTOR obj = null;
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
-            String sql = "USE [rbi]  go SELECT ID]"+
+            String sql = "USE [rbi] SELECT ID]"+
                           ",[SafetyFactorScheme]"+
                           ",[A]"+
                           ",[B]"+
                           ",[C]"+
                           ",[D]"+
-                          ",[E] FROM [dbo].[RW_SAFETY_FACTOR] go";
+                          ",[E] FROM [dbo].[RW_SAFETY_FACTOR] ";
             try
             {
                 SqlCommand cmd = new SqlCommand();

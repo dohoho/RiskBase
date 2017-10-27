@@ -1,4 +1,4 @@
-﻿using RBI.Object.ObjectMSSQL;
+﻿using RBI.Object;
 using System;
 using System.Collections.Generic;
 using System.Data.Common;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using RBI.Object.ObjectMSSQL;
 namespace RBI.DAL.MSSQL
 {
     class POINTS_ConnectUtils
@@ -17,7 +17,7 @@ namespace RBI.DAL.MSSQL
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             String sql = "USE [rbi]" +
-                        "GO" +
+                        " " +
                         "INSERT INTO [dbo].[POINTS]" +
                         "([PointName]" +
                         ",[ComponentID]" +
@@ -38,7 +38,7 @@ namespace RBI.DAL.MSSQL
                         ",'" + ThicknessPrevious + "'" +
                         ",'" + DateCurrent + "'" +
                         ",'" + DatePrevious + "')" +
-                        "GO";
+                        " ";
             try
             {
                 SqlCommand cmd = new SqlCommand();
@@ -61,7 +61,7 @@ namespace RBI.DAL.MSSQL
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             String sql = "USE [rbi]" +
-                        "GO" +
+                        " " +
                         "UPDATE [dbo].[POINTS]" +
                         "SET [PointName] = '" + PointName + "'" +
                         ",[ComponentID] = '" + ComponentID + "'" +
@@ -74,7 +74,7 @@ namespace RBI.DAL.MSSQL
                         ",[DatePrevious] = '" + DatePrevious + "'" +
                        
                         "WHERE [PointID] ='" + PointID + "'" +
-                        "GO";
+                        " ";
 
             try
             {
@@ -98,10 +98,10 @@ namespace RBI.DAL.MSSQL
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             String sql = "USE [rbi]" +
-                        "GO" +
+                        " " +
                         "DELETE FROM [dbo].[POINTS]" +
                         "WHERE [PointID]  = '" + PointID + "' " +
-                        "GO";
+                        " ";
             try
             {
                 SqlCommand cmd = new SqlCommand();
@@ -135,7 +135,7 @@ namespace RBI.DAL.MSSQL
                           ",[ThicknessPrevious]" +
                           ",[DateCurrent]" +
                           ",[DatePrevious]" +
-                          "From [dbo].[POINTS] go";
+                          "From [dbo].[POINTS]  ";
             try
             {
                 SqlCommand cmd = new SqlCommand();

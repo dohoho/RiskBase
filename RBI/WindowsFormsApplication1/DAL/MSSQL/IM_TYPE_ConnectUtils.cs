@@ -1,4 +1,4 @@
-﻿using RBI.Object.ObjectMSSQL;
+﻿using RBI.Object;
 using System;
 using System.Collections.Generic;
 using System.Data.Common;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using RBI.Object.ObjectMSSQL;
 namespace RBI.DAL.MSSQL
 {
     class IM_TYPE_ConnectUtils
@@ -17,7 +17,6 @@ namespace RBI.DAL.MSSQL
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             String sql = "USE [rbi]" +
-                        "GO" +
                         "INSERT INTO [dbo].[IM_TYPE]" +
                         "([IMTypeID]" +
                         ",[IMTypeName]" +
@@ -27,9 +26,7 @@ namespace RBI.DAL.MSSQL
                         "('" + IMTypeID + "'" +
                         ",'" + IMTypeName + "'" +
                         ",'" + IMTypeCode + "'" +
-                        ",'" + IMItemID + "')" +
-                        
-                        "GO";
+                        ",'" + IMItemID + "')";
             try
             {
                 SqlCommand cmd = new SqlCommand();
@@ -52,15 +49,12 @@ namespace RBI.DAL.MSSQL
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             String sql = "USE [rbi]" +
-                        "GO" +
                         "UPDATE [dbo].[IM_TYPE]" +
                         "SET [IMTypeID] = '" + IMTypeID + "'" +
                         ",[IMTypeName] = '" + IMTypeName + "'" +
                         ",[IMTypeCode] = '" + IMTypeCode + "'" +
                         ",[IMItemID] = '" + IMItemID + "'" +
-                        
-                        " WHERE [IMTypeID] = '" + IMTypeID + "'" +
-                        "GO";
+                        " WHERE [IMTypeID] = '" + IMTypeID + "'";
             try
             {
                 SqlCommand cmd = new SqlCommand();
@@ -83,10 +77,8 @@ namespace RBI.DAL.MSSQL
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             String sql = "USE [rbi]" +
-                        "GO" +
                         "DELETE FROM [dbo].[IM_TYPE]" +
-                        " WHERE [IMTypeID] = '" + IMTypeID + "'" +
-                        "GO";
+                        " WHERE [IMTypeID] = '" + IMTypeID + "'";
             try
             {
                 SqlCommand cmd = new SqlCommand();
@@ -114,9 +106,7 @@ namespace RBI.DAL.MSSQL
                           ",[IMTypeName]" +
                           ",[IMTypeCode]" +
                           ",[IMItemID]" +
-
-
-                          "From [dbo].[IM_ITEMS] go";
+                          "From [dbo].[IM_ITEMS]";
             try
             {
                 SqlCommand cmd = new SqlCommand();

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RBI.DAL
+namespace RBI.DAL.MSSQL
 {
     class SQL_DBConnectUtils
     {

@@ -17,7 +17,7 @@ namespace RBI.DAL.MSSQL
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             String sql = "USE [rbi]" +
-                        "GO" +
+                        " " +
                         "INSERT INTO [dbo].[RW_FULL_COF_TANK]" +
                         "([ID]" +
                         ",[CoFValue]" +
@@ -30,7 +30,7 @@ namespace RBI.DAL.MSSQL
                         ",'" + CoFCategory + "'" +
                         ",'" + ProdCost + "'" +
                         ",'" + CoFMatrixValue + "')" +
-                        "GO";
+                        " ";
             try
             {
                 SqlCommand cmd = new SqlCommand();
@@ -53,7 +53,7 @@ namespace RBI.DAL.MSSQL
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             String sql = "USE [rbi]" +
-                        "GO" +
+                        " " +
                         "UPDATE [dbo].[RW_FULL_COF_TANK]" +
                         "SET [ID] = '" + ID + "'" +
                         ",[CoFValue] = '" + CoFValue + "'" +
@@ -62,7 +62,7 @@ namespace RBI.DAL.MSSQL
                         ",[CoFMatrixValue] = '" + CoFMatrixValue + "'" +
                         
                         " WHERE [ID] = '" + ID + "'" +
-                        "GO";
+                        " ";
             try
             {
                 SqlCommand cmd = new SqlCommand();
@@ -85,10 +85,10 @@ namespace RBI.DAL.MSSQL
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             String sql = "USE [rbi]" +
-                        "GO" +
+                        " " +
                         "DELETE FROM [dbo].[RW_FULL_COF_TANK]" +
                         " WHERE [ID] ='" + ID + "'" +
-                        "GO";
+                        " ";
             try
             {
                 SqlCommand cmd = new SqlCommand();
@@ -118,7 +118,7 @@ namespace RBI.DAL.MSSQL
                         ",[CoFCategory]" +
                         ",[ProdCost]" +
                         ",[CoFMatrixValue]" +
-                          "From [dbo].[RW_FULL_COF_TANK] go";
+                          "From [dbo].[RW_FULL_COF_TANK]  ";
             try
             {
                 SqlCommand cmd = new SqlCommand();

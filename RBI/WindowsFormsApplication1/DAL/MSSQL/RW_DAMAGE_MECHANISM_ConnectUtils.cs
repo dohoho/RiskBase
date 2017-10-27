@@ -1,4 +1,4 @@
-﻿using RBI.Object.ObjectMSSQL;
+﻿using RBI.Object;
 using System;
 using System.Collections.Generic;
 using System.Data.Common;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using RBI.Object.ObjectMSSQL;
 namespace RBI.DAL.MSSQL
 {
     class RW_DAMAGE_MECHANISM_ConnectUtils
@@ -20,7 +20,7 @@ namespace RBI.DAL.MSSQL
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             String sql = "USE [rbi] " +
-                            " GO" +
+                            "  " +
                             " INSERT INTO[dbo].[RW_DAMAGE_MECHANISM]" +
                             "([ID]" +
                             ",[DMItemID]" +
@@ -41,7 +41,6 @@ namespace RBI.DAL.MSSQL
                             ",[NumberOfInspections]" +
                             ",[LastInspDate]" +
                             ",[InspDueDate])" +
-                            
                             "VALUES" +
                             "('" + ID + "'" +
                             ",'" + DMItemID + "'" +
@@ -63,7 +62,7 @@ namespace RBI.DAL.MSSQL
                             ",'" + LastInspDate + "'" +
                             ",'" + InspDueDate + "')" +
                             
-                            " GO";
+                            "  ";
             try
             {
                 SqlCommand cmd = new SqlCommand();
@@ -89,7 +88,7 @@ namespace RBI.DAL.MSSQL
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             String sql = "USE [rbi]" +
-                           " GO" +
+                           "  " +
                            " UPDATE[dbo].[RW_DAMAGE_MECHANISM]" +
                                   "SET[ID] ='"+ID+"'" +
                                   ",[DMItemID] = '"+DMItemID+"'" +
@@ -112,7 +111,7 @@ namespace RBI.DAL.MSSQL
                                   ",[InspDueDate] = '"+InspDueDate+"'" +
                                   ",[Modified] = '"+DateTime.Now+"'" +
                                   "WHERE [ID] ='" + ID + "' AND [DMItemID] ='" + DMItemID + "'" +
-                                  "GO";
+                                  " ";
             try
             {
                 SqlCommand cmd = new SqlCommand();
@@ -178,7 +177,7 @@ namespace RBI.DAL.MSSQL
                             ",[NumberOfInspections]" +
                             ",[LastInspDate]" +
                             ",[InspDueDate]" +
-                          "From [dbo].[RW_DAMAGE_MECHANISM] go";
+                          "From [dbo].[RW_DAMAGE_MECHANISM]  ";
             try
             {
                 SqlCommand cmd = new SqlCommand();

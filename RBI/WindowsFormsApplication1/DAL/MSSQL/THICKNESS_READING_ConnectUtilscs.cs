@@ -27,7 +27,6 @@ namespace RBI.DAL.MSSQL
                            ",[CorrosionRate]" +
                            ",[ValidReading]" +
                            ",[Comment])" +
-                           
                            " VALUES" +
                            "(  '" + PointID + "'" +
                            ", '" + ThicknessDate + "'" +
@@ -65,15 +64,12 @@ namespace RBI.DAL.MSSQL
                               "SET[ThicknessID] = '" + ThicknessID + "'" +
                               ",[PointID] = '" + PointID + "'" +
                               ",[ThicknessDate] = '" + ThicknessDate + "'" +
-
                                ",[Orientation] = '" + Orientation + "'" +
                               ",[MaxReading] = '" + MaxReading + "'" +
                               ",[ThicknessReading] = '" + ThicknessReading + "'" +
-
                               ",[CorrosionRate] = '" + CorrosionRate + "'" +
                               ",[ValidReading] = '" + ValidReading + "'" +
                               ",[Comment] = '" + Comment + "'" +
-                              
                               " WHERE [ThicknessID] = '" + ThicknessID + "'";
                 try
                 {

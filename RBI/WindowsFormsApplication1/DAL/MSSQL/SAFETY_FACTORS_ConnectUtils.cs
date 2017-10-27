@@ -115,7 +115,7 @@ namespace RBI.DAL.MSSQL
             conn.Open();
             List<SAFETY_FACTORS> list = new List<SAFETY_FACTORS>();
             SAFETY_FACTORS obj = null;
-            String sql = "Use [rbi] GO" +
+            String sql = "Use [rbi] " +
                         "SELECT [SafetyFactorID]" +
                         ",[SafetyFactorName]" +
                         ",[A]" +
@@ -124,7 +124,7 @@ namespace RBI.DAL.MSSQL
                         ",[D]" +
                         ",[E]" +
                         "  FROM [rbi].[dbo].[SAFETY_FACTORS]" +
-                        " GO";
+                        " ";
             try
             {
                 SqlCommand cmd = new SqlCommand();

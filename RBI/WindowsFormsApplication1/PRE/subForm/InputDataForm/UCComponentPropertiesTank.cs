@@ -31,6 +31,13 @@ namespace RBI.PRE.subForm.InputDataForm
             comp.ConcreteFoundation = chkConcreteAsphalt.Checked ? 1 : 0;
             return comp;
         }
-       
+        public RW_CA_TANK getDataforTank()
+        {
+            RW_CA_TANK tank = new RW_CA_TANK();
+            tank.TANK_DIAMETER = txtTankDiameter.Text != "" ? float.Parse(txtTankDiameter.Text) : 0;
+            tank.PREVENTION_BARRIER = chkPreventionBarrier.Checked == true ? 1 : 0;
+            tank.SHELL_COURSE_HEIGHT = txtShellCourseHeight.Text != "" ? float.Parse(txtShellCourseHeight.Text) : 0;
+            return tank;
+        }
     }
 }

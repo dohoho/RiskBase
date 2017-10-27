@@ -26,9 +26,7 @@ namespace RBI.DAL.MSSQL
                            ",[Orientation]" +
                            ",[InspectionComment]" +
                            ",[AnalysisComment]" +
-                           ",[ValidReading])" +
-                       
-                           
+                           ",[ValidReading])" +                          
                            " VALUES" +
                            "(  '" + ID + "'" +
                             ", '" + PointID + "'" +
@@ -73,7 +71,6 @@ namespace RBI.DAL.MSSQL
                               ",[InspectionComment] = '" + InspectionComment + "'" +
                               ",[AnalysisComment] = '" + AnalysisComment + "'" +
                               ",[ValidReading] = '" + ValidReading + "'" +
-                              
                               " WHERE [ID] = '" +ID + "'";
                 try
                 {

@@ -27,7 +27,6 @@ namespace RBI.DAL.MSSQL
                            ",[RiskTarget_E]" +
                             ",[RiskTarget_CA]" +
                            ",[RiskTarget_FC])" +
-                           
                            " VALUES" +
                            "(  '" + ID + "'" +
                             ", '" + RiskTarget_A + "'" +
@@ -70,7 +69,6 @@ namespace RBI.DAL.MSSQL
                               ",[RiskTarget_E] = '" + RiskTarget_E + "'" +
                                ",[RiskTarget_CA] = '" + RiskTarget_CA + "'" +
                               ",[RiskTarget_FC] = '" + RiskTarget_FC + "'" +
-                              
                               " WHERE [ID] = '" + ID + "'";
                 try
                 {
@@ -155,7 +153,7 @@ namespace RBI.DAL.MSSQL
             RW_RISK_TARGET obj = null;
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
-            String sql = "USE [rbi] go " +
+            String sql = "USE [rbi]  " +
                         "SELECT [ID]" +
                         ",[RiskTarget_A]" +
                         ",[RiskTarget_B]" +
@@ -164,7 +162,7 @@ namespace RBI.DAL.MSSQL
                         ",[RiskTarget_E]" +
                         ",[RiskTarget_CA]" +
                         ",[RiskTarget_FC]" +
-                        "  FROM [rbi].[dbo].[RW_RISK_TARGET] go";
+                        "  FROM [rbi].[dbo].[RW_RISK_TARGET] ";
             try
             {
                 SqlCommand cmd = new SqlCommand();

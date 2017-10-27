@@ -1,4 +1,4 @@
-﻿using RBI.Object.ObjectMSSQL;
+﻿using RBI.Object;
 using System;
 using System.Collections.Generic;
 using System.Data.Common;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using RBI.Object.ObjectMSSQL;
 namespace RBI.DAL.MSSQL
 {
     class RW_ASSESSMENT_ConnectUtils
@@ -17,7 +17,7 @@ namespace RBI.DAL.MSSQL
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             String sql = "USE [rbi]" +
-                        "GO" +
+                        " " +
                         "INSERT INTO [dbo].[RW_ASSESSMENT]" +
                         "([EquipmentID]" +
                         ",[ComponentID]" +
@@ -50,7 +50,7 @@ namespace RBI.DAL.MSSQL
                         ",'" + AdoptedDate + "'" +
                         ",'" + RecommendedBy + "'" +
                         ",'" + RecommendedDate + "')" +
-                        "GO";
+                        " ";
 
             try
             {
@@ -74,7 +74,7 @@ namespace RBI.DAL.MSSQL
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             String sql = "USE [rbi]" +
-                        "GO" +
+                        " " +
                         "UPDATE [dbo].[RW_ASSESSMENT]" +
                         "SET [EquipmentID] = '" + EquipmentID + "'" +
                         ",[ComponentID] = '" + ComponentID + "'" +
@@ -93,7 +93,7 @@ namespace RBI.DAL.MSSQL
                         ",[RecommendedDate] = '" + RecommendedDate + "'" +
                         
                         " WHERE [ID] = '" + ID + "'" +
-                        "GO";
+                        " ";
             try
             {
                 SqlCommand cmd = new SqlCommand();
@@ -116,10 +116,10 @@ namespace RBI.DAL.MSSQL
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             String sql = "USE [rbi]" +
-                        "GO" +
+                        " " +
                         "DELETE FROM [dbo].[RW_ASSESSMENT]" +
                         "WHERE [ID]  = '" + ID + "' " +
-                        "GO";
+                        " ";
             try
             {
                 SqlCommand cmd = new SqlCommand();
@@ -159,7 +159,7 @@ namespace RBI.DAL.MSSQL
                           ",[AdoptedDate]" +
                           ",[RecommendedBy]" +
                           ",[RecommendedDate]" +
-                          "From [dbo].[RW_ASSESSMENT] go";
+                          "From [dbo].[RW_ASSESSMENT]  ";
             try
             {
                 SqlCommand cmd = new SqlCommand();

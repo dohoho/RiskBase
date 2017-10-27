@@ -1,4 +1,4 @@
-﻿using RBI.Object.ObjectMSSQL;
+﻿using RBI.Object;
 using System;
 using System.Collections.Generic;
 using System.Data.Common;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using RBI.Object.ObjectMSSQL;
 namespace RBI.DAL.MSSQL
 {
     class RW_FULL_COF_ConnectUtils
@@ -17,7 +17,7 @@ namespace RBI.DAL.MSSQL
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             String sql = "USE [rbi]" +
-                        "GO" +
+                        " " +
                         "INSERT INTO [dbo].[RW_FULL_COF]" +
                         "([ID]" +
                         ",[CoFValue]" +
@@ -28,7 +28,7 @@ namespace RBI.DAL.MSSQL
                         ",'" + CoFValue + "'" +
                         ",'" + CoFCategory + "'" +
                         ",'" + CoFMatrixValue + "')" +
-                        "GO";
+                        " ";
             try
             {
                 SqlCommand cmd = new SqlCommand();
@@ -51,7 +51,7 @@ namespace RBI.DAL.MSSQL
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             String sql = "USE [rbi]" +
-                        "GO" +
+                        " " +
                         "UPDATE [dbo].[RW_FULL_COF]" +
                         "SET [ID] = '" + ID + "'" +
                         ",[CoFValue] = '" + CoFValue + "'" +
@@ -59,7 +59,7 @@ namespace RBI.DAL.MSSQL
                         ",[CoFMatrixValue] = '" + CoFMatrixValue + "'" +
                         
                         " WHERE [ID] = '" + ID + "'" +
-                        "GO";
+                        " ";
             try
             {
                 SqlCommand cmd = new SqlCommand();
@@ -82,10 +82,10 @@ namespace RBI.DAL.MSSQL
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             String sql = "USE [rbi]" +
-                        "GO" +
+                        " " +
                         "DELETE FROM [dbo].[RW_FULL_COF]" +
                         " WHERE [ID] ='" + ID + "'" +
-                        "GO";
+                        " ";
             try
             {
                 SqlCommand cmd = new SqlCommand();
@@ -114,7 +114,7 @@ namespace RBI.DAL.MSSQL
                            ",[CoFValue]" +
                            ",[CoFCategory]" +
                            ",[CoFMatrixValue]" +
-                          "From [dbo].[RW_FULL_COF] go";
+                          "From [dbo].[RW_FULL_COF]  ";
             try
             {
                 SqlCommand cmd = new SqlCommand();

@@ -17,7 +17,6 @@ namespace RBI.DAL.MSSQL
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             String sql = "USE [rbi] " +
-                            " GO" +
                             " INSERT INTO[dbo].[DM_ITEMS]" +
                             "([DMItemID]" +
                             ",[DMDescription]" +
@@ -33,8 +32,7 @@ namespace RBI.DAL.MSSQL
                             ",'" + DMCategoryID + "'" +
                             ",'" + DMCode + "'" +
                             ",'" + HasDF + "'" +
-                            ",'" + FailureMode + "')" +
-                            " GO";
+                            ",'" + FailureMode + "')";
             try
             {
                 SqlCommand cmd = new SqlCommand();
@@ -57,7 +55,6 @@ namespace RBI.DAL.MSSQL
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             String sql = "USE [rbi]" +
-                           " GO" +
                            " UPDATE[dbo].[DM_ITEMS]" +
                                   "SET[DMItemID] ='"+DMItemID+"'" +
                                   ",[DMDescription] = '"+DMDescription+"'" +
@@ -65,9 +62,7 @@ namespace RBI.DAL.MSSQL
                                   ",[DMCategoryID] = '"+DMCategoryID+"'" +
                                   ",[DMCode] = '"+DMCode+"'" +
                                   ",[HasDF] = '"+HasDF+"'" +
-                                  
-                                  "WHERE [DMItemID] ='" + DMItemID + "'" +
-                                  "GO";
+                                  "WHERE [DMItemID] ='" + DMItemID + "'";
             try
             {
                 SqlCommand cmd = new SqlCommand();
@@ -124,7 +119,7 @@ namespace RBI.DAL.MSSQL
                           ",[DMCode]"+
                           ",[HasDF]"+
                           ",[FailureMode]"+
-                          "From [rbi].[dbo].[DM_ITEMS] go";
+                          "From [rbi].[dbo].[DM_ITEMS]";
             try
             {
                 SqlCommand cmd = new SqlCommand();

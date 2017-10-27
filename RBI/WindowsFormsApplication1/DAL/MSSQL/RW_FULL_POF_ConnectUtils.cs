@@ -21,52 +21,51 @@ namespace RBI.DAL.MSSQL
                            "INSERT INTO [dbo].[RW_FULL_POF]" +
                            "([ID]" +
                            ",[ThinningAP1]" +
-                           ",[ ThinningAP2]" +
-                           ",[ ThinningAP3]" +
-                            ",[ SCCAP1]" +
+                           ",[ThinningAP2]" +
+                           ",[ThinningAP3]" +
+                            ",[SCCAP1]" +
                             ",[SCCAP2]" +
                            ",[SCCAP3]" +
                            ",[ExternalAP1]" +
                            ",[ExternalAP2]" +
-                           ",[ ExternalAP3]" +
+                           ",[ExternalAP3]" +
                             ",[BrittleAP1]" +
                             ",[BrittleAP2]" +
-                           ",[ BrittleAP3]" +
-                           ",[ HTHA_AP1]" +
-                            ",[ HTHA_AP2]" +
+                           ",[BrittleAP3]" +
+                           ",[HTHA_AP1]" +
+                            ",[HTHA_AP2]" +
                             ",[HTHA_AP3]" +
                            ",[FatigueAP1]" +
                            ",[FatigueAP2]" +
                            ",[FatigueAP3]" +
-                           ",[ FMS]" +
+                           ",[FMS]" +
                             ",[ThinningType]" +
                             ",[GFFTotal]"+
                             ",[ThinningLocalAP1]" +
-                           ",[ ThinningLocalAP2]" +
-                           ",[ ThinningLocalAP3]" +
-                            ",[ ThinningGeneralAP1]" +
+                           ",[ThinningLocalAP2]" +
+                           ",[ThinningLocalAP3]" +
+                            ",[ThinningGeneralAP1]" +
                             ",[ThinningGeneralAP2]" +
                            ",[ThinningGeneralAP3]" +
                            ",[TotalDFAP1]" +
                            ",[TotalDFAP2]" +
-                           ",[ TotalDFAP3]" +
+                           ",[TotalDFAP3]" +
                             ",[PoFAP1]" +
                             ",[PoFAP2]" +
-                           ",[ PoFAP3]" +
-                           ",[ MatrixPoFAP1]" +
-                            ",[ MatrixPoFAP2]" +
+                           ",[PoFAP3]" +
+                           ",[MatrixPoFAP1]" +
+                            ",[MatrixPoFAP2]" +
                             ",[MatrixPoFAP3]" +
                            ",[RLI]" +
                            ",[SemiAP1]" +
                            ",[SemiAP2]" +
-                           ",[ SemiAP3]" +
+                           ",[SemiAP3]" +
                             ",[PoFAP1Category]" +
                            ",[PoFAP2Category]" +
                            ",[PoFAP3Category]" +
                            ",[CoFValue]" +
                            ",[CoFCategory]"+
                            ",[CoFMatrixValue])"+
-                           
                            " VALUES" +
                            "(  '" + ID + "'" +
                             ", '" + ThinningAP1 + "'" +
@@ -142,12 +141,12 @@ namespace RBI.DAL.MSSQL
                 String sql = "USE [rbi]" +
                               "UPDATE [dbo].[RW_FULL_POFL] " +
                               "SET[ID] = '" + ID + "'" +
-                              ",[ ThinningAP1] = '" + ThinningAP1 + "'" +
-                              ",[ ThinningAP2] = '" + ThinningAP2 + "'" +
+                              ",[ThinningAP1] = '" + ThinningAP1 + "'" +
+                              ",[ThinningAP2] = '" + ThinningAP2 + "'" +
                               ",[ThinningAP3] = '" + ThinningAP3 + "'" +
-                              ",[  SCCAP1] = '" + SCCAP1 + "'" +
-                             ",[  SCCAP2] = '" + SCCAP2 + "'" +
-                             ",[  SCCAP3] = '" + SCCAP3 + "'" +
+                              ",[SCCAP1] = '" + SCCAP1 + "'" +
+                             ",[SCCAP2] = '" + SCCAP2 + "'" +
+                             ",[SCCAP3] = '" + SCCAP3 + "'" +
                               ",[ExternalAP1] = '" + ExternalAP1 + "'" +
                               ",[ExternalAP2] = '" + ExternalAP2 + "'" +
                               ",[ExternalAP3] = '" + ExternalAP3 + "'" +
@@ -155,19 +154,19 @@ namespace RBI.DAL.MSSQL
                              ",[BrittleAP2] = '" + BrittleAP2 + "'" +
                               ",[BrittleAP3]= '" + BrittleAP3 + "'" +
                               ",[HTHA_AP1] = '" + HTHA_AP1 + "'" +
-                              ",[ HTHA_AP2] = '" + HTHA_AP2 + "'" +
+                              ",[HTHA_AP2] = '" + HTHA_AP2 + "'" +
                               ",[HTHA_AP3] = '" + HTHA_AP3 + "'" +
                               ",[FatigueAP1] = '" + FatigueAP1 + "'" +
-                              ",[  FatigueAP2] = '" + FatigueAP2 + "'" +
-                             ",[ FatigueAP3] = '" + FatigueAP3 + "'" +
-                             ",[ FMS] = '" + FMS + "'" +
+                              ",[FatigueAP2] = '" + FatigueAP2 + "'" +
+                             ",[FatigueAP3] = '" + FatigueAP3 + "'" +
+                             ",[FMS] = '" + FMS + "'" +
                               ",[ThinningType] = '" + ThinningType + "'" +
-                              ",[ GFFTotal] = '" + GFFTotal + "'" +
-                              ",[ ThinningLocalAP1] = '" + ThinningLocalAP1 + "'" +
+                              ",[GFFTotal] = '" + GFFTotal + "'" +
+                              ",[ThinningLocalAP1] = '" + ThinningLocalAP1 + "'" +
                               ",[ThinningLocalAP2] = '" + ThinningLocalAP2 + "'" +
-                              ",[ ThinningLocalAP3] = '" + ThinningLocalAP3 + "'" +
-                             ",[  ThinningGeneralAP1] = '" + ThinningGeneralAP1 + "'" +
-                             ",[ ThinningGeneralAP2] = '" + ThinningGeneralAP2 + "'" +
+                              ",[ThinningLocalAP3] = '" + ThinningLocalAP3 + "'" +
+                             ",[ThinningGeneralAP1] = '" + ThinningGeneralAP1 + "'" +
+                             ",[ThinningGeneralAP2] = '" + ThinningGeneralAP2 + "'" +
                               ",[ThinningGeneralAP3] = '" + ThinningGeneralAP3 + "'" +
                               ",[TotalDFAP1] = '" + TotalDFAP1 + "'" +
                               ",[TotalDFAP2] = '" + TotalDFAP2 + "'" +
@@ -175,21 +174,19 @@ namespace RBI.DAL.MSSQL
                              ",[PoFAP1] = '" + PoFAP1 + "'" +
                               ",[PoFAP2]= '" + PoFAP2 + "'" +
                               ",[PoFAP3] = '" + PoFAP3 + "'" +
-                              ",[ MatrixPoFAP1] = '" + MatrixPoFAP1 + "'" +
+                              ",[MatrixPoFAP1] = '" + MatrixPoFAP1 + "'" +
                               ",[MatrixPoFAP2] = '" + MatrixPoFAP2 + "'" +
                               ",[MatrixPoFAP3] = '" + MatrixPoFAP3 + "'" +
-                              ",[  RLI] = '" + RLI + "'" +
-                             ",[ SemiAP1] = '" + SemiAP1 + "'" +
-                             ",[ SemiAP2] = '" + SemiAP2 + "'" +
+                              ",[RLI] = '" + RLI + "'" +
+                             ",[SemiAP1] = '" + SemiAP1 + "'" +
+                             ",[SemiAP2] = '" + SemiAP2 + "'" +
                               ",[SemiAP3] = '" + SemiAP3 + "'" +
-                               ",[ PoFAP1Category] = '" + PoFAP1Category + "'" +
+                               ",[PoFAP1Category] = '" + PoFAP1Category + "'" +
                               ",[PoFAP2Category] = '" + PoFAP2Category + "'" +
                               ",[PoFAP3Category] = '" + PoFAP3Category + "'" +
-                              ",[ CoFValue] = '" + CoFValue + "'" +
-                             ",[ CoFCategory] = '" + CoFCategory + "'" +
-                             ",[ CoFMatrixValue] = '" + CoFMatrixValue + "'" +
-                             
-
+                              ",[CoFValue] = '" + CoFValue + "'" +
+                             ",[CoFCategory] = '" + CoFCategory + "'" +
+                             ",[CoFMatrixValue] = '" + CoFMatrixValue + "'" +                           
                               " WHERE [ID] = '" + ID + "'";
                 try
                 {
@@ -243,52 +240,52 @@ namespace RBI.DAL.MSSQL
             RW_FULL_POF obj = null;
             String sql = "Use [rbi] Select [ID]" +
                            ",[ThinningAP1]" +
-                           ",[ ThinningAP2]" +
-                           ",[ ThinningAP3]" +
-                            ",[ SCCAP1]" +
+                           ",[ThinningAP2]" +
+                           ",[ThinningAP3]" +
+                            ",[SCCAP1]" +
                             ",[SCCAP2]" +
                            ",[SCCAP3]" +
                            ",[ExternalAP1]" +
                            ",[ExternalAP2]" +
-                           ",[ ExternalAP3]" +
+                           ",[ExternalAP3]" +
                             ",[BrittleAP1]" +
                             ",[BrittleAP2]" +
-                           ",[ BrittleAP3]" +
-                           ",[ HTHA_AP1]" +
-                            ",[ HTHA_AP2]" +
+                           ",[BrittleAP3]" +
+                           ",[HTHA_AP1]" +
+                            ",[HTHA_AP2]" +
                             ",[HTHA_AP3]" +
                            ",[FatigueAP1]" +
                            ",[FatigueAP2]" +
                            ",[FatigueAP3]" +
-                           ",[ FMS]" +
+                           ",[FMS]" +
                             ",[ThinningType]" +
                             ",[GFFTotal]" +
                             ",[ThinningLocalAP1]" +
-                           ",[ ThinningLocalAP2]" +
-                           ",[ ThinningLocalAP3]" +
-                            ",[ ThinningGeneralAP1]" +
+                           ",[ThinningLocalAP2]" +
+                           ",[ThinningLocalAP3]" +
+                            ",[ThinningGeneralAP1]" +
                             ",[ThinningGeneralAP2]" +
                            ",[ThinningGeneralAP3]" +
                            ",[TotalDFAP1]" +
                            ",[TotalDFAP2]" +
-                           ",[ TotalDFAP3]" +
+                           ",[TotalDFAP3]" +
                             ",[PoFAP1]" +
                             ",[PoFAP2]" +
-                           ",[ PoFAP3]" +
-                           ",[ MatrixPoFAP1]" +
-                            ",[ MatrixPoFAP2]" +
+                           ",[PoFAP3]" +
+                           ",[MatrixPoFAP1]" +
+                            ",[MatrixPoFAP2]" +
                             ",[MatrixPoFAP3]" +
                            ",[RLI]" +
                            ",[SemiAP1]" +
                            ",[SemiAP2]" +
-                           ",[ SemiAP3]" +
+                           ",[SemiAP3]" +
                             ",[PoFAP1Category]" +
                            ",[PoFAP2Category]" +
                            ",[PoFAP3Category]" +
                            ",[CoFValue]" +
                            ",[CoFCategory]" +
                            ",[CoFMatrixValue]" +
-                          "From [dbo].[RW_FULL_POF] go";
+                          "From [dbo].[RW_FULL_POF]  ";
             try
             {
                 SqlCommand cmd = new SqlCommand();

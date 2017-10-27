@@ -17,15 +17,12 @@ namespace RBI.DAL.MSSQL
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             String sql = "USE [rbi]" +
-                            "GO" +
                             "INSERT INTO [dbo].[DM_EXPECTED_TYPE]" +
                             "([ExpectedTypeID]" +
                             ",[ExpectedTypeName])" +
                            "VALUES" +
                             "('" + ExpectedTypeID + "'" +
-                            ",'" + ExpectedTypeName + "')" +
-                            
-                            "GO";
+                            ",'" + ExpectedTypeName + "')";
             try
             {
                 SqlCommand cmd = new SqlCommand();
@@ -50,12 +47,10 @@ namespace RBI.DAL.MSSQL
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             String sql = "USE [rbi]" +
-                            "GO" +
                             "UPDATE [dbo].[DM_EXPECTED_TYPE]" +
                             "   SET [ExpectedTypeID] = '" + ExpectedTypeID + "'" +
                             "      ,[ExpectedTypeName] = '" + ExpectedTypeName + "'" +
-                            " WHERE [ExpectedTypeID] = '" + ExpectedTypeID + "'" +
-                            "GO";
+                            " WHERE [ExpectedTypeID] = '" + ExpectedTypeID + "'";
             try
             {
                 SqlCommand cmd = new SqlCommand();
@@ -104,7 +99,7 @@ namespace RBI.DAL.MSSQL
             conn.Open();
             String sql = " Use [rbi] Select [ExpectedTypeID]" +
                           ",[ExpectedTypeName]" +
-                          "From [rbi].[dbo].[DM_CATEGORY] go";
+                          "From [rbi].[dbo].[DM_CATEGORY] ";
             try
             {
                 SqlCommand cmd = new SqlCommand();

@@ -28,7 +28,6 @@ namespace RBI.DAL.MSSQL
                            ",[EffectivenessCode]" +
                            ",[Findings]"+
                            ",[FindingRTF])"+
-                           
                            " VALUES" +
                            "(  '" + ID + "'" +
                             ", '" + CoverageDetailID + "'" +
@@ -75,7 +74,6 @@ namespace RBI.DAL.MSSQL
                               ",[EffectivenessCode] = '" + EffectivenessCode + "'" +
                                 ",[Findings] = '" + Findings + "'" +
                                ",[FindingRTF] = '" + FindingRTF + "'" +
-                             
                               " WHERE [ID] = '" + ID + "'" +", AND [CoverageDetailID] = '" + CoverageDetailID + "'" ;
                 try
                 {

@@ -17,18 +17,14 @@ namespace RBI.DAL.MSSQL
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             String sql = "USE [rbi] " +
-                            " GO" +
                             " INSERT INTO[dbo].[EXTRA_FIELDS_LOOKUP_COMPONENT]" +
                             "([ExtraFieldID]" +
                             ",[LookupText]" +
                             ",[LookupValue])" +
-                            
-                            "VALUE " +
+                            "VALUES " +
                             "('" + ExtraFieldID + "'" +
                             ",'" + LookupText + "'" +
-                            ",'" + LookupValue + "')" +
-                            
-                            "GO";
+                            ",'" + LookupValue + "')";
             try
             {
                 SqlCommand cmd = new SqlCommand();
@@ -51,15 +47,12 @@ namespace RBI.DAL.MSSQL
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             String sql = "USE [rbi]" +
-                           " GO" +
                            " UPDATE[dbo].[EXTRA_FIELDS_LOOKUP_COMPONENT]" +
                                   "SET[LookupID] ='" + LookupID + "'" +
                                   ",[ExtraFieldID] = '" + ExtraFieldID + "'" +
                                   ",[LookupText] = '" + LookupText + "'" +
                                   ",[LookupValue] = '" + LookupValue + "'" +
-                                  
-                                  "WHERE [LookupID] ='" + LookupID + "'" +
-                                  "GO";
+                                  "WHERE [LookupID] ='" + LookupID + "'";
             try
             {
                 SqlCommand cmd = new SqlCommand();

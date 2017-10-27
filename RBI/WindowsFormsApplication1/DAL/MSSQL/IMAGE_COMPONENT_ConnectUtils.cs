@@ -1,4 +1,4 @@
-﻿using RBI.Object.ObjectMSSQL;
+﻿using RBI.Object;
 using System;
 using System.Collections.Generic;
 using System.Data.Common;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using RBI.Object.ObjectMSSQL;
 namespace RBI.DAL.MSSQL
 {
     class IMAGE_COMPONENT_ConnectUtils
@@ -23,7 +23,6 @@ namespace RBI.DAL.MSSQL
                            ",[ImageDescription]" +
                            ",[ImageBinary]" +
                            ",[ImageBinarySmall])" +
-                          
                            " VALUES" +
                            "(  '" + ComponentID + "'" +
                             ", '" + ImageName + "'" +
@@ -56,12 +55,10 @@ namespace RBI.DAL.MSSQL
                               "UPDATE [dbo].[IMAGE_COMPONENT] " +
                               "SET[ImageID] = '" + ImageID + "'" +
                               ",[ComponentID] = '" + ComponentID + "'" +
-
-                               ",[ImageName] = '" + ImageName + "'" +
+                              ",[ImageName] = '" + ImageName + "'" +
                               ",[ImageDescription] = '" + ImageDescription + "'" +
                               ",[ImageBinary] = '" + ImageBinary + "'" +
                               ",[ImageBinarySmall] = '" + ImageBinarySmall + "'" +
-
                               " WHERE [ImageID] = '" + ImageID + "'";
                 try
                 {
@@ -116,9 +113,7 @@ namespace RBI.DAL.MSSQL
                           ",[ImageDescription]" +
                           ",[ImageBinary]" +
                           ",[ImageBinarySmall]" +
-
-
-                          "From [dbo].[IMAGE_COMPONENT] go";
+                          "From [dbo].[IMAGE_COMPONENT] ";
             try
             {
                 SqlCommand cmd = new SqlCommand();

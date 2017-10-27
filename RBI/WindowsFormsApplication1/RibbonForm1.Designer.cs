@@ -88,7 +88,6 @@
             this.dockPanel2 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel2_Container = new DevExpress.XtraBars.Docking.ControlContainer();
             this.treeListProject = new DevExpress.XtraTreeList.TreeList();
-            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
             this.dockPanel1 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
             this.navBarControl2 = new DevExpress.XtraNavBar.NavBarControl();
@@ -103,6 +102,7 @@
             this.navNoInspection = new DevExpress.XtraNavBar.NavBarItem();
             this.navStream = new DevExpress.XtraNavBar.NavBarItem();
             this.navRiskFactor = new DevExpress.XtraNavBar.NavBarItem();
+            this.navCA = new DevExpress.XtraNavBar.NavBarItem();
             this.imageCollection1 = new DevExpress.Utils.ImageCollection(this.components);
             this.navGrRecord = new DevExpress.XtraNavBar.NavBarGroup();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
@@ -114,7 +114,6 @@
             this.dockPanel2.SuspendLayout();
             this.dockPanel2_Container.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.treeListProject)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
             this.dockPanel1.SuspendLayout();
             this.dockPanel1_Container.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.navBarControl2)).BeginInit();
@@ -214,7 +213,7 @@
             // 
             // btnPlant
             // 
-            this.btnPlant.Caption = "Plant";
+            this.btnPlant.Caption = "Site";
             this.btnPlant.Id = 6;
             this.btnPlant.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnPlant.ImageOptions.Image")));
             this.btnPlant.Name = "btnPlant";
@@ -632,7 +631,6 @@
             // dockPanel2_Container
             // 
             this.dockPanel2_Container.Controls.Add(this.treeListProject);
-            this.dockPanel2_Container.Controls.Add(this.textEdit1);
             this.dockPanel2_Container.Location = new System.Drawing.Point(4, 38);
             this.dockPanel2_Container.Name = "dockPanel2_Container";
             this.dockPanel2_Container.Size = new System.Drawing.Size(175, 481);
@@ -640,22 +638,14 @@
             // 
             // treeListProject
             // 
-            this.treeListProject.Location = new System.Drawing.Point(3, 29);
+            this.treeListProject.Location = new System.Drawing.Point(6, 3);
             this.treeListProject.Name = "treeListProject";
             this.treeListProject.OptionsLayout.AddNewColumns = false;
-            this.treeListProject.Size = new System.Drawing.Size(185, 507);
+            this.treeListProject.Size = new System.Drawing.Size(169, 475);
             this.treeListProject.TabIndex = 1;
             this.treeListProject.DoubleClick += new System.EventHandler(this.treeListProject_DoubleClick);
             this.treeListProject.MouseDown += new System.Windows.Forms.MouseEventHandler(this.treeListProject_MouseDown);
             this.treeListProject.MouseUp += new System.Windows.Forms.MouseEventHandler(this.treeListProject_MouseUp);
-            // 
-            // textEdit1
-            // 
-            this.textEdit1.Location = new System.Drawing.Point(3, 3);
-            this.textEdit1.MenuManager = this.ribbon;
-            this.textEdit1.Name = "textEdit1";
-            this.textEdit1.Size = new System.Drawing.Size(185, 20);
-            this.textEdit1.TabIndex = 0;
             // 
             // dockPanel1
             // 
@@ -692,11 +682,12 @@
             this.navCoating,
             this.navNoInspection,
             this.navStream,
-            this.navRiskFactor});
+            this.navRiskFactor,
+            this.navCA});
             this.navBarControl2.Location = new System.Drawing.Point(2, 0);
             this.navBarControl2.Name = "navBarControl2";
             this.navBarControl2.OptionsNavPane.ExpandedWidth = 163;
-            this.navBarControl2.Size = new System.Drawing.Size(163, 442);
+            this.navBarControl2.Size = new System.Drawing.Size(163, 466);
             this.navBarControl2.TabIndex = 0;
             this.navBarControl2.Text = "navBarControl2";
             // 
@@ -719,7 +710,8 @@
             new DevExpress.XtraNavBar.NavBarItemLink(this.navCoating),
             new DevExpress.XtraNavBar.NavBarItemLink(this.navNoInspection),
             new DevExpress.XtraNavBar.NavBarItemLink(this.navStream),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.navRiskFactor)});
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navRiskFactor),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navCA)});
             this.navBarGroup2.Name = "navBarGroup2";
             // 
             // navAssessmentInfo
@@ -785,6 +777,12 @@
             this.navRiskFactor.SmallImage = ((System.Drawing.Image)(resources.GetObject("navRiskFactor.SmallImage")));
             this.navRiskFactor.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navRiskFactor_LinkClicked);
             // 
+            // navCA
+            // 
+            this.navCA.Caption = "Consequen Analysis";
+            this.navCA.Name = "navCA";
+            this.navCA.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navCA_LinkClicked);
+            // 
             // imageCollection1
             // 
             this.imageCollection1.ImageStream = ((DevExpress.Utils.ImageCollectionStreamer)(resources.GetObject("imageCollection1.ImageStream")));
@@ -826,7 +824,6 @@
             this.dockPanel2.ResumeLayout(false);
             this.dockPanel2_Container.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.treeListProject)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
             this.dockPanel1.ResumeLayout(false);
             this.dockPanel1_Container.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.navBarControl2)).EndInit();
@@ -898,7 +895,6 @@
         private DevExpress.XtraBars.Docking.DockPanel dockPanel2;
         private DevExpress.XtraBars.Docking.ControlContainer dockPanel2_Container;
         private DevExpress.XtraTreeList.TreeList treeListProject;
-        private DevExpress.XtraEditors.TextEdit textEdit1;
         private DevExpress.XtraNavBar.NavBarControl navBarControl2;
         private DevExpress.XtraNavBar.NavBarGroup navBarGroup1;
         private DevExpress.XtraNavBar.NavBarGroup navBarGroup2;
@@ -913,5 +909,6 @@
         private DevExpress.XtraNavBar.NavBarItem navStream;
         private DevExpress.XtraNavBar.NavBarItem navRiskFactor;
         private DevExpress.XtraBars.PopupMenu popupNew;
+        private DevExpress.XtraNavBar.NavBarItem navCA;
     }
 }

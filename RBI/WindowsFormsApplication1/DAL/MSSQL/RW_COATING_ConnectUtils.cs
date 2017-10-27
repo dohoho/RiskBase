@@ -1,4 +1,4 @@
-﻿using RBI.Object.ObjectMSSQL;
+﻿using RBI.Object;
 using System;
 using System.Collections.Generic;
 using System.Data.Common;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using RBI.Object.ObjectMSSQL;
 namespace RBI.DAL.MSSQL
 {
     class RW_COATING_ConnectUtils
@@ -17,7 +17,7 @@ namespace RBI.DAL.MSSQL
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             String sql = "USE [rbi]" +
-                        "GO" +
+                        " " +
                         "INSERT INTO [dbo].[RW_COATING]" +
                         "([ID]" +
                         ",[ExternalCoating]" +
@@ -50,7 +50,7 @@ namespace RBI.DAL.MSSQL
                         ",'" + InternalLinerType + "'" +
                         ",'" + CladdingCorrosionRate + "'" +
                         ",'" + SupportConfigNotAllowCoatingMaint + "')" +
-                        "GO";
+                        " ";
             try
             {
                 SqlCommand cmd = new SqlCommand();
@@ -73,7 +73,7 @@ namespace RBI.DAL.MSSQL
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             String sql = "USE [rbi]" +
-                        "GO" +
+                        " " +
                         "UPDATE [dbo].[RW_COATING]" +
                         "SET [ID] = '" + ID + "'" +
                         ",[ExternalCoating] = '" + ExternalCoating + "'" +
@@ -92,7 +92,7 @@ namespace RBI.DAL.MSSQL
                         ",[SupportConfigNotAllowCoatingMaint] = '" + SupportConfigNotAllowCoatingMaint + "'" +
                         
                         " WHERE [ID] = '" + ID + "'" +
-                        "GO";
+                        " ";
             try
             {
                 SqlCommand cmd = new SqlCommand();
@@ -115,10 +115,10 @@ namespace RBI.DAL.MSSQL
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             String sql = "USE [rbi]" +
-                        "GO" +
+                        " " +
                         "DELETE FROM [dbo].[RW_COATING]" +
                         "WHERE [ID]  = '" + ID + "' " +
-                        "GO";
+                        " ";
             try
             {
                 SqlCommand cmd = new SqlCommand();
@@ -157,7 +157,7 @@ namespace RBI.DAL.MSSQL
                           ",[InternalLinerType]" +
                           ",[CladdingCorrosionRate]" +
                           ",[ConfigNotAllowCoatingMaint]" +
-                          "From [dbo].[RW_COATING] go";
+                          "From [dbo].[RW_COATING]  ";
             try
             {
                 SqlCommand cmd = new SqlCommand();

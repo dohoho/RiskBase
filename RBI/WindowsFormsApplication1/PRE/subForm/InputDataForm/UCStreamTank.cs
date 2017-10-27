@@ -20,11 +20,9 @@ namespace RBI.PRE.subForm.InputDataForm
         RW_STREAM stream = new RW_STREAM();
         public RW_STREAM getData1()
         {
-            
             stream.AmineSolution = cbAmineSolutionComposition.Text;
             stream.AqueousOperation = chkAqueousPhaseDuringOperation.Checked ? 1 : 0;
             stream.AqueousShutdown = chkAqueousPhaseShutdown.Checked ? 1 : 0;
-
             stream.Caustic = chkEnvironmentContainsCaustic.Checked ? 1 : 0;
             stream.Chloride = float.Parse(txtChlorideIon.Text);
             stream.CO3Concentration = float.Parse(txtCO3ConcentrationWater.Text);
@@ -39,7 +37,6 @@ namespace RBI.PRE.subForm.InputDataForm
             stream.NaOHConcentration = float.Parse(txtNaOHConcentration.Text);
             stream.ReleaseFluidPercentToxic = float.Parse(txtReleaseFluidPercent.Text);
             stream.WaterpH = float.Parse(txtpHWater.Text);
-
             //if(tankbottom)
             stream.FluidHeight = float.Parse(txtFluidHeight.Text);
             stream.FluidLeaveDikePercent = float.Parse(txtPercentageLeavingDike.Text);
@@ -53,6 +50,16 @@ namespace RBI.PRE.subForm.InputDataForm
             RW_STREAM temp = new RW_STREAM();
             temp = ucOperating.getData();
             return temp;
+        }
+        public RW_CA_TANK getDataforTank()
+        {
+            RW_CA_TANK tank = new RW_CA_TANK();
+            tank.P_lvdike = txtPercentageLeavingDike.Text != "" ? float.Parse(txtPercentageLeavingDike.Text) : 0;
+            tank.P_offsite = txtPercentageFluidGoingOffsite.Text != "" ? float.Parse(txtPercentageFluidGoingOffsite.Text) : 0;
+            tank.P_onsite = txtPercentageLeavingRemainsOnSite.Text != "" ? float.Parse(txtPercentageLeavingRemainsOnSite.Text) : 0;
+            tank.FLUID_HEIGHT = txtFluidHeight.Text != "" ? float.Parse(txtFluidHeight.Text) : 0;
+            tank.TANK_FLUID = btnEditFluid.Text;
+            return tank;
         }
     }
 }

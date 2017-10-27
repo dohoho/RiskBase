@@ -1,4 +1,4 @@
-﻿using RBI.Object.ObjectMSSQL;
+﻿using RBI.Object;
 using System;
 using System.Collections.Generic;
 using System.Data.Common;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using RBI.Object.ObjectMSSQL;
 namespace RBI.DAL.MSSQL
 {
     class GENERIC_FLUID_ConnectUtils
@@ -18,7 +18,6 @@ namespace RBI.DAL.MSSQL
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             String sql = "USE [rbi]" +
-                            "GO" +
                             "INSERT INTO [dbo].[GENERIC_FLUID]" +
                             "([GenericFluid]" +
                             ",[NBP]" +
@@ -28,8 +27,7 @@ namespace RBI.DAL.MSSQL
                             ",[HealthDegree]" +
                             ",[Flammability]" +
                             ",[Reactivity])" +
-                            
-                            "VALUE" +
+                            "VALUES" +
                             "('" + GenericFluid + "'" +
                             ",'" + NBP + "'" +
                             ",'" + MW + "'" +
@@ -37,9 +35,7 @@ namespace RBI.DAL.MSSQL
                             ",'" + ChemicalFactor + "'" +
                             ",'" + HealthDegree + "'" +
                             ",'" + Flammability + "'" +
-                            ",'" + Reactivity + "')" +
-                            
-                            "GO";
+                            ",'" + Reactivity + "')";
             try
             {
                 SqlCommand cmd = new SqlCommand();
@@ -64,7 +60,6 @@ namespace RBI.DAL.MSSQL
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             String sql = "USE [rbi]" +
-                            "GO" +
                             "UPDATE [dbo].[GENERIC_FLUID]" +
                             "   SET [GenericFluidID] = '" + GenericFluidID + "'" +
                             "      ,[GenericFluid] = '" + GenericFluid + "'" +
@@ -75,9 +70,7 @@ namespace RBI.DAL.MSSQL
                             "      ,[HealthDegree] = '" + HealthDegree + "'" +
                             "      ,[Flammability] = '" + Flammability + "'" +
                             "      ,[Reactivity] = '" + Reactivity + "'" +
-                            
-                            " WHERE [GenericFluidID] = '" + GenericFluidID + "'" +
-                            "GO";
+                            " WHERE [GenericFluidID] = '" + GenericFluidID + "'";
             try
             {
                 SqlCommand cmd = new SqlCommand();
@@ -135,9 +128,7 @@ namespace RBI.DAL.MSSQL
                           ",[HealthDegree]" +
                           ",[Flammability]" +
                           ",[Reactivity]" +
-                         
-                         
-                          "From [dbo].[GENERIC_FLUID] go";
+                          "From [dbo].[GENERIC_FLUID]";
             try
             {
                 SqlCommand cmd = new SqlCommand();

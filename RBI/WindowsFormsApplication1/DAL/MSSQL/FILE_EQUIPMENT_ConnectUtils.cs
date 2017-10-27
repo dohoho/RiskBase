@@ -18,7 +18,6 @@ namespace RBI.DAL.MSSQL
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             String sql = "USE [rbi]" +
-                            "GO" +
                             "INSERT INTO [dbo].[FILE_EQUIPMENT]" +
                             "([EquipmentID]" +
                             ",[FileDocName]" +
@@ -29,8 +28,7 @@ namespace RBI.DAL.MSSQL
                             ",[FileSize]" +
                             ",[FileExt]" +
                             ",[DateUploaded])" +
-                           
-                            "VALUE" +
+                            "VALUES" +
                             "('" + EquipmentID + "'" +
                             ",'" + FileDocName + "'" +
                             ",'" + FileType + "'" +
@@ -39,9 +37,7 @@ namespace RBI.DAL.MSSQL
                             ",'" + FileBinary + "'" +
                             ",'" + FileSize + "'" +
                             ",'" + FileExt + "'" +
-                            ",'" + DateUploaded + "')" +
-                            
-                            "GO";
+                            ",'" + DateUploaded + "')";
             try
             {
                 SqlCommand cmd = new SqlCommand();
@@ -66,7 +62,6 @@ namespace RBI.DAL.MSSQL
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             String sql = "USE [rbi]" +
-                            "GO" +
                             "UPDATE [dbo].[FILE_EQUIPMENT]" +
                             "   SET [FileID] = '" + FileID + "'" +
                             "      ,[EquipmentID] = '" + EquipmentID + "'" +
@@ -78,9 +73,7 @@ namespace RBI.DAL.MSSQL
                             "      ,[FileSize] = '" + FileSize + "'" +
                             "      ,[FileExt] = '" + FileExt + "'" +
                             "      ,[DateUploaded] = '" + DateUploaded + "'" +
-                           
-                            " WHERE [FileID] = '" + FileID + "'" +
-                            "GO";
+                            " WHERE [FileID] = '" + FileID + "'";
             try
             {
                 SqlCommand cmd = new SqlCommand();
@@ -128,7 +121,6 @@ namespace RBI.DAL.MSSQL
             List<FILE_EQUIPMENT> list = new List<FILE_EQUIPMENT>();
             FILE_EQUIPMENT obj = null;
             String sql = " Use [rbi] Select [FileID]" +
-                          
                           ",[EquipmentID]" +
                           ",[FileDocName]" +
                           ",[FileType]" +
@@ -138,8 +130,7 @@ namespace RBI.DAL.MSSQL
                           ",[FileSize]" +
                           ",[FileExt]" +
                           ",[DateUploaded]" +
-                         
-                          "From [dbo].[FILE_EQUIPMENT] go";
+                          "From [dbo].[FILE_EQUIPMENT]";
             try
             {
                 SqlCommand cmd = new SqlCommand();

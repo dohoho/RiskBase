@@ -74,17 +74,17 @@
             this.label24 = new System.Windows.Forms.Label();
             this.txtFluidHeight = new System.Windows.Forms.TextBox();
             this.label23 = new System.Windows.Forms.Label();
-            this.cbPrimaryFluid = new DevExpress.XtraEditors.ImageComboBoxEdit();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnEditFluid = new DevExpress.XtraEditors.ButtonEdit();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cbAmineSolutionComposition.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbExposureAmine.Properties)).BeginInit();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cbPrimaryFluid.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnEditFluid.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -510,13 +510,13 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.btnEditFluid);
             this.groupBox2.Controls.Add(this.txtPercentageFluidGoingOffsite);
             this.groupBox2.Controls.Add(this.txtPercentageLeavingDike);
             this.groupBox2.Controls.Add(this.txtPercentageLeavingRemainsOnSite);
             this.groupBox2.Controls.Add(this.label24);
             this.groupBox2.Controls.Add(this.txtFluidHeight);
             this.groupBox2.Controls.Add(this.label23);
-            this.groupBox2.Controls.Add(this.cbPrimaryFluid);
             this.groupBox2.Controls.Add(this.label8);
             this.groupBox2.Controls.Add(this.label9);
             this.groupBox2.Controls.Add(this.label2);
@@ -580,17 +580,6 @@
             this.label23.TabIndex = 0;
             this.label23.Text = "Percentage of Fluid Leaving the\r\nDike";
             // 
-            // cbPrimaryFluid
-            // 
-            this.cbPrimaryFluid.Location = new System.Drawing.Point(232, 14);
-            this.cbPrimaryFluid.Name = "cbPrimaryFluid";
-            this.cbPrimaryFluid.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbPrimaryFluid.Properties.Appearance.Options.UseFont = true;
-            this.cbPrimaryFluid.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cbPrimaryFluid.Size = new System.Drawing.Size(471, 20);
-            this.cbPrimaryFluid.TabIndex = 2;
-            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -631,12 +620,21 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Fluid";
             // 
-            // UCStreamTankBottom
+            // btnEditFluid
+            // 
+            this.btnEditFluid.Location = new System.Drawing.Point(232, 19);
+            this.btnEditFluid.Name = "btnEditFluid";
+            this.btnEditFluid.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.btnEditFluid.Size = new System.Drawing.Size(471, 20);
+            this.btnEditFluid.TabIndex = 4;
+            // 
+            // UCStreamTank
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.groupBox1);
-            this.Name = "UCStreamTankBottom";
+            this.Name = "UCStreamTank";
             this.Size = new System.Drawing.Size(875, 550);
             this.groupBox1.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
@@ -645,7 +643,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.cbExposureAmine.Properties)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cbPrimaryFluid.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnEditFluid.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -693,7 +691,6 @@
         private System.Windows.Forms.Label label5;
         private DevExpress.XtraEditors.ImageComboBoxEdit cbAmineSolutionComposition;
         private DevExpress.XtraEditors.ImageComboBoxEdit cbExposureAmine;
-        private DevExpress.XtraEditors.ImageComboBoxEdit cbPrimaryFluid;
         private System.Windows.Forms.TextBox txtFluidHeight;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtPercentageFluidGoingOffsite;
@@ -703,5 +700,6 @@
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
+        private DevExpress.XtraEditors.ButtonEdit btnEditFluid;
     }
 }

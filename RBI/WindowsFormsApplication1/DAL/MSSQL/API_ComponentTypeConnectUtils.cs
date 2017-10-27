@@ -116,7 +116,7 @@ namespace RBI.DAL.MSSQL
         {
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
-            String sql = "USE [rbi]  go DELETE FROM [dbo].[API_COMPONENT_TYPE] WHERE [dbo].[API_COMPONENT_TYPE] = '" + APIComponentTypeID + "' go ";
+            String sql = "USE [rbi]  DELETE FROM [dbo].[API_COMPONENT_TYPE] WHERE [dbo].[API_COMPONENT_TYPE] = '" + APIComponentTypeID + "'";
             try
             {
                 SqlCommand cmd = new SqlCommand();
@@ -157,7 +157,7 @@ namespace RBI.DAL.MSSQL
                           ",[OutageMedium]" +
                           ",[OutageLarge]" +
                           ",[OutageRupture]" +
-                          "From [dbo].[API_COMPONENT_TYPE] Where [APIComponentTypeName] ='" + APIComponentTypeName + "' go";
+                          "From [dbo].[API_COMPONENT_TYPE] Where [APIComponentTypeName] ='" + APIComponentTypeName + "'";
             try
             {
                 SqlCommand cmd = new SqlCommand();
@@ -171,20 +171,19 @@ namespace RBI.DAL.MSSQL
                         {
                             obj.APIComponentTypeID = reader.GetInt32(0);
                             obj.APIComponentTypeName = APIComponentTypeName;
-                            //sua getDouble thanh getFloat
-                            obj.GFFSmall = reader.GetFloat(2);
-                            obj.GFFMedium = reader.GetFloat(3);
-                            obj.GFFLarge = reader.GetFloat(4);
-                            obj.GFFRupture = reader.GetFloat(5);
-                            obj.GFFTotal = reader.GetFloat(6);
-                            obj.HoleCostSmall = reader.GetFloat(7);
-                            obj.HoleCostMedium = reader.GetFloat(8);
-                            obj.HoleCostLarge = reader.GetFloat(9);
-                            obj.HoleCostRupture = reader.GetFloat(10);
-                            obj.OutageSmall = reader.GetFloat(11);
-                            obj.OutageMedium = reader.GetFloat(12);
-                            obj.OutageLarge = reader.GetFloat(13);
-                            obj.OutageRupture = reader.GetFloat(14);
+                            obj.GFFSmall = (float)reader.GetDouble(2);
+                            obj.GFFMedium = (float)reader.GetDouble(3);
+                            obj.GFFLarge = (float)reader.GetDouble(4);
+                            obj.GFFRupture = (float)reader.GetDouble(5);
+                            obj.GFFTotal = (float)reader.GetDouble(6);
+                            obj.HoleCostSmall = (float)reader.GetDouble(7);
+                            obj.HoleCostMedium=(float) reader.GetDouble(8);
+                            obj.HoleCostLarge = (float)reader.GetDouble(9);
+                            obj.HoleCostRupture = (float)reader.GetDouble(10);
+                            obj.OutageSmall = (float)reader.GetDouble(11);
+                            obj.OutageMedium = (float)reader.GetDouble(12);
+                            obj.OutageLarge = (float)reader.GetDouble(13);
+                            obj.OutageRupture = (float)reader.GetDouble(14);
                         }
                     }
                 }
@@ -221,7 +220,7 @@ namespace RBI.DAL.MSSQL
                           ",[OutageMedium]" +
                           ",[OutageLarge]" +
                           ",[OutageRupture]" +
-                          "From [dbo].[API_COMPONENT_TYPE] go";
+                          "From [dbo].[API_COMPONENT_TYPE]";
             try
             {
                 SqlCommand cmd = new SqlCommand();
@@ -236,19 +235,19 @@ namespace RBI.DAL.MSSQL
                             obj = new API_COMPONENT_TYPE();
                             obj.APIComponentTypeID = reader.GetInt32(0);
                             obj.APIComponentTypeName = reader.GetString(1);
-                            obj.GFFSmall = reader.GetFloat(2);
-                            obj.GFFMedium = reader.GetFloat(3);
-                            obj.GFFLarge = reader.GetFloat(4);
-                            obj.GFFRupture = reader.GetFloat(5);
-                            obj.GFFTotal = reader.GetFloat(6);
-                            obj.HoleCostSmall = reader.GetFloat(7);
-                            obj.HoleCostMedium = reader.GetFloat(8);
-                            obj.HoleCostLarge = reader.GetFloat(9);
-                            obj.HoleCostRupture = reader.GetFloat(10);
-                            obj.OutageSmall = reader.GetFloat(11);
-                            obj.OutageMedium = reader.GetFloat(12);
-                            obj.OutageLarge = reader.GetFloat(13);
-                            obj.OutageRupture = reader.GetFloat(14);
+                            obj.GFFSmall = (float)reader.GetDouble(2);
+                            obj.GFFMedium = (float)reader.GetDouble(3);
+                            obj.GFFLarge = (float)reader.GetDouble(4);
+                            obj.GFFRupture = (float)reader.GetDouble(5);
+                            obj.GFFTotal = (float)reader.GetDouble(6);
+                            obj.HoleCostSmall = (float)reader.GetDouble(7);
+                            obj.HoleCostMedium = (float)reader.GetDouble(8);
+                            obj.HoleCostLarge = (float)reader.GetDouble(9);
+                            obj.HoleCostRupture = (float)reader.GetDouble(10);
+                            obj.OutageSmall = (float)reader.GetDouble(11);
+                            obj.OutageMedium = (float)reader.GetDouble(12);
+                            obj.OutageLarge = (float)reader.GetDouble(13);
+                            obj.OutageRupture = (float)reader.GetDouble(14);
                             list.Add(obj);
                         }
                     }

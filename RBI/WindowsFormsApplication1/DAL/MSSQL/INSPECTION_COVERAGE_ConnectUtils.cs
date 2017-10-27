@@ -1,4 +1,4 @@
-﻿using RBI.Object.ObjectMSSQL;
+﻿using RBI.Object;
 using System;
 using System.Collections.Generic;
 using System.Data.Common;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using RBI.Object.ObjectMSSQL;
 namespace RBI.DAL.MSSQL
 {
     class INSPECTION_COVERAGE_ConnectUtils
@@ -17,7 +17,6 @@ namespace RBI.DAL.MSSQL
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             String sql = "USE [rbi]" +
-                        "GO" +
                         "INSERT INTO [dbo].[INSPECTION_COVERAGE]" +
                         "([PlanID]" +
                         ",[CoverageName]" +
@@ -31,8 +30,7 @@ namespace RBI.DAL.MSSQL
                         ",'" + CoverageDate + "'" +
                         ",'" + Remarks + "'" +
                         ",'" + Findings + "'" +
-                        ",'" + FindingRTF + "')" +
-                        "GO";
+                        ",'" + FindingRTF + "')";
             try
             {
                 SqlCommand cmd = new SqlCommand();
@@ -55,7 +53,6 @@ namespace RBI.DAL.MSSQL
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             String sql = "USE [rbi] " +
-                        "GO" +
                         "UPDATE [dbo].[INSPECTION_COVERAGE]" +
                         "SET [PlanID] = '" + PlanID + "'" +
                         ",[CoverageName] = '" + CoverageName + "'" +
@@ -63,9 +60,7 @@ namespace RBI.DAL.MSSQL
                         ",[Remarks] = '" + Remarks + "'" +
                         ",[Findings] = '" + Findings + "'" +
                         ",[FindingRTF] ='" + FindingRTF + "'" +
-                        
-                        "WHERE [CoverageID] = '" + CoverageID + "' " +
-                        "GO";
+                        "WHERE [CoverageID] = '" + CoverageID + "' ";
             try
             {
                 SqlCommand cmd = new SqlCommand();
@@ -88,10 +83,8 @@ namespace RBI.DAL.MSSQL
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             String sql = "USE [rbi] " +
-                        "GO" +
                         "DELETE FROM [dbo].[INSPECTION_COVERAGE]" +
-                        "WHERE [CoverageID] = '" + CoverageID + "' " +
-                        "GO";
+                        "WHERE [CoverageID] = '" + CoverageID + "' ";
             try
             {
                 SqlCommand cmd = new SqlCommand();
@@ -122,9 +115,7 @@ namespace RBI.DAL.MSSQL
                           ",[Remarks]" +
                           ",[Findings]" +
                           ",[FindingRTF]" +
-
-
-                          "From [dbo].[INSPECTION_COVERAGE] go";
+                          "From [dbo].[INSPECTION_COVERAGE]";
             try
             {
                 SqlCommand cmd = new SqlCommand();

@@ -19,7 +19,6 @@ namespace RBI.DAL.MSSQL
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             String sql = "USE [rbi] " +
-                            " GO" +
                             " INSERT INTO[dbo].[EQUIPMENT_REVISION]" +
                             "([EquipmentID]" +
                             ",[RevisionXML]" +
@@ -34,7 +33,7 @@ namespace RBI.DAL.MSSQL
                             ",[IsApproved]" +
                             ",[EndorsedBy]" +
                             ",[EndorsedDate])" +
-                            "VALUE" +
+                            "VALUES" +
                             "('" + EquipmentID + "'" +
                             ",'" + RevisionXML + "'" +
                             ",'" + RevisionNo + "'" +
@@ -47,9 +46,7 @@ namespace RBI.DAL.MSSQL
                             ",'" + ApprovedDate + "'" +
                             ",'" + IsApproved + "'" +
                             ",'" + EndorsedBy + "'" +
-                            ",'" + EndorsedDate + "')" +
-
-                            "GO";
+                            ",'" + EndorsedDate + "')";
 
             try
             {
@@ -75,7 +72,6 @@ namespace RBI.DAL.MSSQL
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             String sql = "USE [rbi]" +
-                           " GO" +
                            " UPDATE[dbo].[EQUIPMENT_REVISION]" +
                                   "SET[RevisionID] ='" + RevisionID + "'" +
                                   ",[EquipmentID] = '" + EquipmentID + "'" +
@@ -91,9 +87,7 @@ namespace RBI.DAL.MSSQL
                                   ",[IsApproved] = '" + IsApproved + "'" +
                                   ",[EndorsedBy] = '" + EndorsedBy + "'" +
                                   ",[EndorsedDate] = '" + EndorsedDate + "'" +
-
-                                  "WHERE [RevisionID] ='" + RevisionID + "'" +
-                                  "GO";
+                                  "WHERE [RevisionID] ='" + RevisionID + "'";
             try
             {
                 SqlCommand cmd = new SqlCommand();
@@ -143,7 +137,7 @@ namespace RBI.DAL.MSSQL
             EQUIPMENT_REVISION obj = null;
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
-            String sql = "USE [rbi] go" +
+            String sql = "USE [rbi] " +
                         "SELECT [RevisionID]" +
                         ",[EquipmentID]" +
                         ",[RevisionXML]" +
@@ -158,8 +152,7 @@ namespace RBI.DAL.MSSQL
                         ",[IsApproved]" +
                         ",[EndorsedBy]" +
                         ",[EndorsedDate]" +
-                        "FROM [rbi].[dbo].[EQUIPMENT_REVISION]" +
-                        "go";
+                        "FROM [rbi].[dbo].[EQUIPMENT_REVISION]";
             try
             {
                 SqlCommand cmd = new SqlCommand();

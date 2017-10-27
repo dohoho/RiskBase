@@ -57,7 +57,7 @@ namespace RBI.DAL.MSSQL
                               "UPDATE [dbo].[RW_SETTINGS] " +
                               "SET[ID] = '" + ID + "'" +
                               ",[DefaultAssessmentMethod] = '" + DefaultAssessmentMethod + "'" +
-                              ",[ SchemaVersion] = '" + SchemaVersion + "'" +
+                              ",[SchemaVersion] = '" + SchemaVersion + "'" +
                               ",[UnlockCode] = '" + UnlockCode + "'" +
                               ",[CompanyName] = '" + CompanyName + "'" +
                               " WHERE [ID] = '" + ID + "'";
@@ -112,14 +112,14 @@ namespace RBI.DAL.MSSQL
             List<RW_SETTINGS> list = new List<RW_SETTINGS>();
             RW_SETTINGS obj = null;
             String sql = "USE [rbi]" +
-                        "GO" +
+                        "" +
                         "SELECT [ID]" +
                         ",[DefaultAssessmentMethod]" +
                         ",[SchemaVersion]" +
                         ",[UnlockCode]" +
                         ",[CompanyName]" +
                         "  FROM [rbi].[dbo].[RW_SETTINGS]" +
-                        " GO";
+                        " ";
             try
             {
                 SqlCommand cmd = new SqlCommand();

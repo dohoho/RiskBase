@@ -17,14 +17,12 @@ namespace RBI.DAL.MSSQL
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             String sql = "USE [rbi]" +
-                            "GO" +
                             "INSERT INTO [dbo].[COMPONENT_MODELLING]" +
                             "([ComponentID]" +
                             ",[ObjectName])" +
                             "VALUES" +
                             "('" + ComponentID + "'" +
-                            ",'" + ObjectName + "')" +
-                            "GO";
+                            ",'" + ObjectName + "')";
             try
             {
                 SqlCommand cmd = new SqlCommand();
@@ -47,13 +45,11 @@ namespace RBI.DAL.MSSQL
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             String sql = "USE [rbi]" +
-                            "GO" +
                             "UPDATE [dbo].[COMPONENT_MODELLING]" +
                             "SET [ComponentID] = '" + ComponentID + "'" +
                             ",[ObjectName] = '" + ObjectName + "'" +
                             ",[Modified] = '" + DateTime.Now + "'" +
-                            "WHERE [ID] ='" + ID + "'" +
-                            "GO";
+                            "WHERE [ID] ='" + ID + "'";
             try
             {
                 SqlCommand cmd = new SqlCommand();
@@ -76,10 +72,8 @@ namespace RBI.DAL.MSSQL
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             String sql = "USE [rbi]" +
-                            "GO" +
                             "DELETE FROM [dbo].[COMPONENT_MODELLING] " +
-                            "WHERE [ID] ='" + ID + "'" +
-                            "GO";
+                            "WHERE [ID] ='" + ID + "'";
             try
             {
                 SqlCommand cmd = new SqlCommand();
@@ -103,10 +97,10 @@ namespace RBI.DAL.MSSQL
             conn.Open();
             List<COMPONENT_MODELLING> list = new List<COMPONENT_MODELLING>();
             COMPONENT_MODELLING obj = null;
-            String sql = "USE [rbi]  go SELECT [ID]" +
+            String sql = "USE [rbi] SELECT [ID]" +
                         ",[ComponentID]" +
                         ",[ObjectName]" +
-                        "  FROM [rbi].[dbo].[COMPONENT_MODELLING] go";
+                        "  FROM [rbi].[dbo].[COMPONENT_MODELLING] ";
             try
             {
                 SqlCommand cmd = new SqlCommand();

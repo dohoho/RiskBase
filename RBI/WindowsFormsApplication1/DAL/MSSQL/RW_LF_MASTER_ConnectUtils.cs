@@ -30,7 +30,6 @@ namespace RBI.DAL.MSSQL
                            ",[LF5]" +
                            ",[LF6]" +
                             ",[LF7])" +
-                           
                            " VALUES" +
                            "(  '" + ID + "'" +
                             ", '" + LF1Factor + "'" +
@@ -69,18 +68,16 @@ namespace RBI.DAL.MSSQL
                 String sql = "USE [rbi]" +
                               "UPDATE [dbo].[RW_LF_MASTER] " +
                               "SET[ID] = '" + ID + "'" +
-                              ",[ LF1Factor] = '" + LF1Factor + "'" +
-                              ",[ LF4Factor] = '" + LF4Factor + "'" +
-                              ",[ LF5Factor] = '" + LF5Factor + "'" +
-                              ",[  LF6Factor] = '" + LF6Factor + "'" +
-                             ",[ LF7Factor] = '" + LF7Factor + "'" +
-                             ",[ LF1] = '" + LF1 + "'" +
+                              ",[LF1Factor] = '" + LF1Factor + "'" +
+                              ",[LF4Factor] = '" + LF4Factor + "'" +
+                              ",[LF5Factor] = '" + LF5Factor + "'" +
+                              ",[LF6Factor] = '" + LF6Factor + "'" +
+                             ",[LF7Factor] = '" + LF7Factor + "'" +
+                             ",[LF1] = '" + LF1 + "'" +
                               ",[LF4] = '" +LF4 + "'" +
                               ",[LF5] = '" +LF5 + "'" +
                               ",[LF6] = '" +LF6 + "'" +
                               ",[LF7] = '" + LF7 + "'" +
-                             
-
                               " WHERE [ID] = '" + ID + "'";
                 try
                 {

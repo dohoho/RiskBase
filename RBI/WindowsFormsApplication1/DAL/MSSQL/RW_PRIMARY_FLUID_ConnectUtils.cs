@@ -27,7 +27,6 @@ namespace RBI.DAL.MSSQL
                            ",[HealthDegree]" +
                            ",[Flammability]" +
                            ",[Reactivity])" +
-                           
                            " VALUES" +
                            "(  '" + ID + "'" +
                             ", '" + FluidName + "'" +
@@ -65,11 +64,11 @@ namespace RBI.DAL.MSSQL
                               "UPDATE [dbo].[RW_PRIMARY_FLUID] " +
                               "SET[ID] = '" + ID + "'" +
                               ",[FluidName] = '" + FluidName + "'" +
-                              ",[ NBP] = '" + NBP + "'" +
+                              ",[NBP] = '" + NBP + "'" +
                               ",[MW] = '" + MW + "'" +
-                              ",[ Density] = '" + Density + "'" +
-                             ",[ ChemicalFactor] = '" + ChemicalFactor + "'" +
-                             ",[ HealthDegree] = '" + HealthDegree + "'" +
+                              ",[Density] = '" + Density + "'" +
+                             ",[ChemicalFactor] = '" + ChemicalFactor + "'" +
+                             ",[HealthDegree] = '" + HealthDegree + "'" +
                               ",[Flammability] = '" + Flammability + "'" +
                               ",[Reactivity] = '" + Reactivity + "'" +
                              
@@ -158,7 +157,7 @@ namespace RBI.DAL.MSSQL
             RW_PRIMARY_FLUID obj = null;
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
-            String sql = "USE [rbi] go " +
+            String sql = "USE [rbi]  " +
                         "SELECT [ID]" +
                         ",[FluidName]" +
                         ",[NBP]" +
@@ -169,7 +168,7 @@ namespace RBI.DAL.MSSQL
                         ",[Flammability]" +
                         ",[Reactivity]" +
                         "  FROM [rbi].[dbo].[RW_PRIMARY_FLUID]" +
-                        " go";
+                        " ";
             try
             {
                 SqlCommand cmd = new SqlCommand();

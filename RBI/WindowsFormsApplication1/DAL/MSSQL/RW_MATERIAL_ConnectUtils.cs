@@ -94,7 +94,7 @@ namespace RBI.DAL.MSSQL
                               ",[MaterialName] = '" + MaterialName + "'" +
                               ",[DesignPressure] = '" + DesignPressure + "'" +
                               ",[DesignTemperature] = '" + DesignTemperature + "'" +
-                              ",[ MinDesignTemperature] = '" + MinDesignTemperature + "'" +
+                              ",[MinDesignTemperature] = '" + MinDesignTemperature + "'" +
                              ",[BrittleFractureThickness] = '" + BrittleFractureThickness + "'" +
                              ",[CorrosionAllowance] = '" + CorrosionAllowance + "'" +
                               ",[SigmaPhase] = '" + SigmaPhase + "'" +
@@ -112,9 +112,6 @@ namespace RBI.DAL.MSSQL
                               ",[ChromeMoreEqual12]='"+ ChromeMoreEqual12 +"'"+
                               ",[AllowableStress]='" + AllowableStress + "'" +
                               ",[CostFactor]='" + CostFactor + "'" +
-                             
-
-
                               " WHERE [ID] = '" + ID + "'";
                 try
                 {
@@ -199,7 +196,7 @@ namespace RBI.DAL.MSSQL
             RW_MATERIAL obj = null;
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
-            String sql = "USE [rbi] go SELECT [ID]"+
+            String sql = "USE [rbi]  SELECT [ID]"+
                         ",[MaterialName]" +
                         ",[DesignPressure]" +
                         ",[DesignTemperature]" +
@@ -221,7 +218,7 @@ namespace RBI.DAL.MSSQL
                         ",[ChromeMoreEqual12]" +
                         ",[AllowableStress]" +
                         ",[CostFactor]" +
-                        "FROM [dbo].[RW_MATERIAL] go";
+                        "FROM [dbo].[RW_MATERIAL] ";
             try
             {
                 SqlCommand cmd = new SqlCommand();

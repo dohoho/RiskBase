@@ -125,14 +125,21 @@ namespace RBI.PRE.subForm.InputDataForm
             eq.ThermalHistory = cbThermalHistory.Text;
             eq.YearLowestExpTemp = chkEquipmentOperatingManyYear.Checked ? 1 : 0;
             eq.Volume = float.Parse(txtEquipmentVolume.Text);
-
             eq.TypeOfSoil = cbTypeSoild.Text;
             eq.EnvironmentSensitivity = cbEnvironmentalSensitivity.Text;
-            eq.DistanceToGroundWater = float.Parse(txtDistanceGroundWater.Text);
+            eq.DistanceToGroundWater = float.Parse(txtDistanceGroundWater.Text); 
             eq.AdjustmentSettle = cbAdjustmentSettlement.Text;
             eq.ComponentIsWelded = chkComponentWelded.Checked ? 1 : 0;
             eq.TankIsMaintained = chkTankMaintainedAccordance.Checked ? 1 : 0;
             return eq;
+        }
+        public RW_CA_TANK getDataforTank()
+        {
+            RW_CA_TANK tank = new RW_CA_TANK();
+            tank.EnvironSensitivity = cbEnvironmentalSensitivity.Text;
+            tank.Swg = txtDistanceGroundWater.Text != "" ? float.Parse(txtDistanceGroundWater.Text) : 0;
+            tank.Soil_type = cbTypeSoild.Text;
+            return tank;
         }
     }
 }

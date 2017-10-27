@@ -120,11 +120,11 @@ namespace RBI.DAL.MSSQL
                 String sql = "USE [rbi]" +
                               "UPDATE [dbo].[RW_STREAM] " +
                               "SET[ID] = '" + ID + "'" +
-                              ",[ AmineSolution] = '" + AmineSolution + "'" +
+                              ",[AmineSolution] = '" + AmineSolution + "'" +
                               ",[AqueousOperation] = '" + AqueousOperation + "'" +
                                ",[AqueousShutdown] = '" + AqueousShutdown + "'" +
                                 ",[ToxicConstituent] = '" + ToxicConstituent + "'" +
-                               ",[ Caustic] = '" + Caustic + "'" +
+                               ",[Caustic] = '" + Caustic + "'" +
                               ",[Chloride] = '" + Chloride + "'" +
                               ",[CO3Concentration] = '" + CO3Concentration + "'" +
                               ",[Cyanide] = '" + Cyanide + "'" +
@@ -134,18 +134,18 @@ namespace RBI.DAL.MSSQL
                                ",[FlammableFluidID] = '" + FlammableFluidID + "'" +
                               ",[FlowRate] = '" + FlowRate + "'" +
                                ",[H2S] = '" + H2S + "'" +
-                                ",[ H2SInWater] = '" + H2SInWater + "'" +
+                                ",[H2SInWater] = '" + H2SInWater + "'" +
                                ",[Hydrogen] = '" + Hydrogen + "'" +
                               ",[H2SPartialPressure] = '" + H2SPartialPressure + "'" +
                               ",[Hydrofluoric] = '" + Hydrofluoric + "'" +
                               ",[MaterialExposedToClInt] = '" + MaterialExposedToClInt + "'" +
-                                 ",[ MaxOperatingPressure] = '" + MaxOperatingPressure + "'" +
+                                 ",[MaxOperatingPressure] = '" + MaxOperatingPressure + "'" +
                               ",[MaxOperatingTemperature] = '" + MaxOperatingTemperature + "'" +
                               ",[MinOperatingPressure] = '" + MinOperatingPressure + "'" +
                               ",[MinOperatingTemperature] = '" + MinOperatingTemperature + "'" +
                               ",[CriticalExposureTemperature] = '" + CriticalExposureTemperature + "'" +
 
-                              ",[ ModelFluidID] = '" + ModelFluidID + "'" +
+                              ",[ModelFluidID] = '" + ModelFluidID + "'" +
                               ",[NaOHConcentration] = '" + NaOHConcentration + "'" +
                               ",[NonFlameToxicFluidID] = '" + NonFlameToxicFluidID + "'" +
                               ",[ReleaseFluidPercentToxic] = '" + ReleaseFluidPercentToxic + "'" +
@@ -210,7 +210,7 @@ namespace RBI.DAL.MSSQL
             List<RW_STREAM> list = new List<RW_STREAM>();
             RW_STREAM obj = null;
             String sql = "USE [rbi]" +
-                        "GO" +
+                        "" +
                         "SELECT [ID]" +
                         ",[AmineSolution]" +
                         ",[AqueousOperation]" +
@@ -249,7 +249,7 @@ namespace RBI.DAL.MSSQL
                         ",[FluidLeaveDikeRemainOnSitePercent]" +
                         ",[FluidGoOffSitePercent]" +
                         "  FROM [rbi].[dbo].[RW_STREAM]" +
-                        " GO";
+                        " ";
             try
             {
                 SqlCommand cmd = new SqlCommand();

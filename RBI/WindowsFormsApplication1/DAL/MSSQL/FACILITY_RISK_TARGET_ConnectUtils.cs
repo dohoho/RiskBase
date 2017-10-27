@@ -18,7 +18,6 @@ namespace RBI.DAL.MSSQL
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             String sql = "USE [rbi]" +
-                            "GO" +
                             "INSERT INTO [dbo].[FACILITY_RISK_TARGET]" +
                             "([FacilityID]" +
                             ",[RiskTarget_A]" +
@@ -28,8 +27,7 @@ namespace RBI.DAL.MSSQL
                             ",[RiskTarget_E]" +
                             ",[RiskTarget_CA]" +
                             ",[RiskTarget_FC])" +
-                            
-                            "VALUE" +
+                            "VALUES" +
                             "('" + FacilityID + "'" +
                             ",'" + RiskTarget_A + "'" +
                             ",'" + RiskTarget_B + "'" +
@@ -37,10 +35,7 @@ namespace RBI.DAL.MSSQL
                             ",'" + RiskTarget_D + "'" +
                             ",'" + RiskTarget_E + "'" +
                             ",'" + RiskTarget_CA + "'" +
-                            ",'" + RiskTarget_FC + "')" +
-                           
-
-                            "GO";
+                            ",'" + RiskTarget_FC + "')";
             try
             {
                 SqlCommand cmd = new SqlCommand();
@@ -66,7 +61,6 @@ namespace RBI.DAL.MSSQL
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             String sql = "USE [rbi]" +
-                            "GO" +
                             "UPDATE [dbo].[FACILITY_RISK_TARGET]" +
                             "   SET [FacilityID] = '" + FacilityID + "'" +
                             "      ,[RiskTarget_A] = '" + RiskTarget_A + "'" +
@@ -76,8 +70,7 @@ namespace RBI.DAL.MSSQL
                             "      ,[RiskTarget_CA] = '" + RiskTarget_CA + "'" +
                             "      ,[RiskTarget_FC] = '" + RiskTarget_FC + "'" +
                             
-                            " WHERE [FacilityID] = '" + FacilityID + "'" +
-                            "GO";
+                            " WHERE [FacilityID] = '" + FacilityID + "'";
             try
             {
                 SqlCommand cmd = new SqlCommand();

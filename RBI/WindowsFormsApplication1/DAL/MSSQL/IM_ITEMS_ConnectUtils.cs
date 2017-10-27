@@ -1,4 +1,4 @@
-﻿using RBI.Object.ObjectMSSQL;
+﻿using RBI.Object;
 using System;
 using System.Collections.Generic;
 using System.Data.Common;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using RBI.Object.ObjectMSSQL;
 namespace RBI.DAL.MSSQL
 {
     class IM_ITEMS_ConnectUtils
@@ -17,7 +17,6 @@ namespace RBI.DAL.MSSQL
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             String sql = "USE [rbi]" +
-                        "GO" +
                         "INSERT INTO [dbo].[IM_ITEMS]" +
                         "([IMItemID]" +
                         ",[IMDescription]" +
@@ -25,8 +24,7 @@ namespace RBI.DAL.MSSQL
                         "VALUES" +
                         "('"+IMItemID+"'" +
                         ",'"+IMDescription+"'" +
-                        ",'"+IMCode+"')" +
-                        "GO";
+                        ",'"+IMCode+"')";
             try
             {
                 SqlCommand cmd = new SqlCommand();
@@ -49,14 +47,11 @@ namespace RBI.DAL.MSSQL
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             String sql = "USE [rbi]" +
-                        "GO" +
                         "UPDATE [dbo].[IM_ITEMS]" +
                         "SET [IMItemID] = '" + IMItemID + "'" +
                         ",[IMDescription] = '" + IMDescription + "'" +
                         ",[IMCode] = '" + IMCode + "'" +
-                       
-                        " WHERE [IMItemID] = '" + IMItemID + "'" +
-                        "GO";
+                        " WHERE [IMItemID] = '" + IMItemID + "'";
 
             try
             {
@@ -80,10 +75,8 @@ namespace RBI.DAL.MSSQL
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             String sql = "USE [rbi]" +
-                        "GO" +
                         "DELETE FROM [dbo].[IM_ITEMS]" +
-                        " WHERE [IMItemID] = '" + IMItemID + "'" +
-                        "GO";
+                        " WHERE [IMItemID] = '" + IMItemID + "'";
             try
             {
                 SqlCommand cmd = new SqlCommand();
@@ -109,10 +102,8 @@ namespace RBI.DAL.MSSQL
             IM_ITEMS obj = null;
             String sql = " Use [rbi] Select [IMItemID]" +
                           ",[IMDescription]" +
-                          ",[IMCode]" +
-                         
-
-                          "From [dbo].[IM_ITEMS] go";
+                          ",[IMCode]" +                       
+                          "From [dbo].[IM_ITEMS]";
             try
             {
                 SqlCommand cmd = new SqlCommand();

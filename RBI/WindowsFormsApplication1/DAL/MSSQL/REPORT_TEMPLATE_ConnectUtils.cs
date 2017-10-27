@@ -1,4 +1,4 @@
-﻿using RBI.Object.ObjectMSSQL;
+﻿using RBI.Object;
 using System;
 using System.Collections.Generic;
 using System.Data.Common;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using RBI.Object.ObjectMSSQL;
 namespace RBI.DAL.MSSQL
 {
     class REPORT_TEMPLATE_ConnectUtils
@@ -17,7 +17,7 @@ namespace RBI.DAL.MSSQL
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             String sql = "USE [rbi]" +
-                        "GO" +
+                        " " +
                         "INSERT INTO [dbo].[REPORT_TEMPLATE]" +
                         "([TemplateName]" +
                         ",[TemplateDescription]" +
@@ -38,7 +38,7 @@ namespace RBI.DAL.MSSQL
                         ",'" + ReportVersion + "'" +
                         ",'" + Predefined + "'" +
                         ",'" + TemplateBinary + "')" +
-                        "GO";
+                        " ";
 
             try
             {
@@ -62,7 +62,7 @@ namespace RBI.DAL.MSSQL
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             String sql = "USE [rbi]" +
-                        "GO" +
+                        " " +
                         "UPDATE [dbo].[REPORT_TEMPLATE]" +
                         "SET [TemplateName] = '" + TemplateName + "'" +
                         ",[TemplateDescription] = '" + TemplateDescription + "'" +
@@ -75,7 +75,7 @@ namespace RBI.DAL.MSSQL
                         ",[TemplateBinary] = '" + TemplateBinary + "'" +
                         
                         "WHERE [TemplateID] = '" + TemplateID + "'" +
-                        "GO";
+                        " ";
             try
             {
                 SqlCommand cmd = new SqlCommand();
@@ -98,10 +98,10 @@ namespace RBI.DAL.MSSQL
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             String sql = "USE [rbi]" +
-                        "GO" +
+                        " " +
                         "DELETE FROM [dbo].[REPORT_TEMPLATE]" +
                         "WHERE [TemplateID]  = '" + TemplateID + "' " +
-                        "GO";
+                        " ";
             try
             {
                 SqlCommand cmd = new SqlCommand();
@@ -137,7 +137,7 @@ namespace RBI.DAL.MSSQL
                           ",[TemplateBinary]" +
 
 
-                          "From [dbo].[REPORT_TEMPLATE] go";
+                          "From [dbo].[REPORT_TEMPLATE]  ";
             try
             {
                 SqlCommand cmd = new SqlCommand();

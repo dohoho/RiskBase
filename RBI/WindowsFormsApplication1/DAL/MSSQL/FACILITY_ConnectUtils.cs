@@ -18,18 +18,14 @@ namespace RBI.DAL.MSSQL
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             String sql = "USE [rbi] " +
-                            " GO" +
                             " INSERT INTO[dbo].[FACILITY]" +
                             "([SiteID]" +
                             ",[FacilityName]" +
                             ",[ManagementFactor])" +
-                            
-                            "VALUE" +
+                            "VALUES" +
                             "('" + SiteID + "'" +
                             ",'" + FacilityName + "'" +
-                            ",'" + ManagementFactor + "')" +
-                            
-                            "GO";
+                            ",'" + ManagementFactor + "')";
             try
             {
                 SqlCommand cmd = new SqlCommand();
@@ -53,15 +49,12 @@ namespace RBI.DAL.MSSQL
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             String sql = "USE [rbi]" +
-                            "GO" +
                             "UPDATE [dbo].[FACILITY]" +
                             "   SET [FacilityID] = '" + FacilityID + "'" +
                             "      ,[SiteID] = '" + SiteID + "'" +
                             "      ,[FacilityName] = '" + FacilityName + "'" +
                             "      ,[ManagementFactor] = '" + ManagementFactor + "'" +
-                                 
-                            " WHERE [FacilityID] = '" + FacilityID + "'" +
-                            "GO";
+                            " WHERE [FacilityID] = '" + FacilityID + "'";
             try
             {
                 SqlCommand cmd = new SqlCommand();
@@ -129,7 +122,7 @@ namespace RBI.DAL.MSSQL
                             obj.FacilityID = reader.GetInt32(0);
                             if (!reader.IsDBNull(1)) { obj.SiteID = reader.GetInt32(1); }
                             obj.FacilityName = reader.GetString(2);
-                            obj.ManagementFactor = reader.GetDouble(3);
+                            obj.ManagementFactor = (float)reader.GetDouble(3);
                             list.Add(obj);
                         }
                     }
@@ -171,7 +164,7 @@ namespace RBI.DAL.MSSQL
                             obj.FacilityID = reader.GetInt32(0);
                             if (!reader.IsDBNull(1)) { obj.SiteID = reader.GetInt32(1); }
                             obj.FacilityName = reader.GetString(2);
-                            obj.ManagementFactor = reader.GetDouble(3);
+                            obj.ManagementFactor = (float)reader.GetDouble(3);
                         }
                     }
                 }

@@ -24,7 +24,6 @@ namespace RBI.DAL.MSSQL
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             String sql = "USE [rbi] " +
-                            " GO" +
                             " INSERT INTO[dbo].[EQUIPMENT_EXTRA_FIELDS]" +
                             "([EquipmentID]" +
                             ",[ObjectField001]" +
@@ -76,8 +75,7 @@ namespace RBI.DAL.MSSQL
                             ",[ObjectField048]" +
                             ",[ObjectField049]" +
                             ",[ObjectField050])" +
-                            
-                            "VALUE" +
+                            "VALUES" +
                              "('" + EquipmentID + "'" +
                             ",'" + ObjectField001 + "'" +
                             ",'" + ObjectField002 + "'" +
@@ -128,9 +126,7 @@ namespace RBI.DAL.MSSQL
                             ",'" + ObjectField047 + "'" +
                             ",'" + ObjectField048 + "'" +
                             ",'" + ObjectField049 + "'" +
-                            ",'" + ObjectField050 + "')" +
-                           
-                            " GO";
+                            ",'" + ObjectField050 + "')";
             try
             {
                 SqlCommand cmd = new SqlCommand();
@@ -161,7 +157,6 @@ namespace RBI.DAL.MSSQL
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             String sql = "USE [rbi]" +
-                           " GO" +
                            " UPDATE[dbo].[EQUIPMENT_EXTRA_FIELDS]" +
                                   "SET[EquipmentID] ='"+EquipmentID+"'" +
                                   ",[ObjectField001] = '"+ObjectField001+"'" +
@@ -212,9 +207,7 @@ namespace RBI.DAL.MSSQL
                                   ",[ObjectField048] = '"+ObjectField048+"'" +
                                   ",[ObjectField049] = '"+ObjectField049+"'" +
                                   ",[ObjectField050] = '"+ObjectField050+"'" +
-                                  
-                                  "WHERE [EquipmentID] ='" + EquipmentID + "'" +
-                                  "GO";
+                                  "WHERE [EquipmentID] ='" + EquipmentID + "'";
             try
             {
                 SqlCommand cmd = new SqlCommand();

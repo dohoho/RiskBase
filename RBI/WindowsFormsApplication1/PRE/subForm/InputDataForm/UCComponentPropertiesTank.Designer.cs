@@ -68,6 +68,9 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.imgColEffect = new DevExpress.Utils.ImageCollection(this.components);
+            this.label11 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.txtShellCourseHeight = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cbMaxBrillnessHardness.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgColMaxBrinnHardness)).BeginInit();
@@ -88,6 +91,7 @@
             this.groupBox1.Controls.Add(this.chkPresenceCracks);
             this.groupBox1.Controls.Add(this.chkConcreteAsphalt);
             this.groupBox1.Controls.Add(this.chkDamageFoundDuringInspection);
+            this.groupBox1.Controls.Add(this.txtShellCourseHeight);
             this.groupBox1.Controls.Add(this.txtCurrentCorrosionRate);
             this.groupBox1.Controls.Add(this.txtCurrentThickness);
             this.groupBox1.Controls.Add(this.txtMinRequiredThickness);
@@ -102,8 +106,10 @@
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.label19);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.label14);
             this.groupBox1.Controls.Add(this.label13);
@@ -228,7 +234,7 @@
             // chkDamageFoundDuringInspection
             // 
             this.chkDamageFoundDuringInspection.AutoSize = true;
-            this.chkDamageFoundDuringInspection.Location = new System.Drawing.Point(223, 114);
+            this.chkDamageFoundDuringInspection.Location = new System.Drawing.Point(223, 132);
             this.chkDamageFoundDuringInspection.Name = "chkDamageFoundDuringInspection";
             this.chkDamageFoundDuringInspection.Size = new System.Drawing.Size(15, 14);
             this.chkDamageFoundDuringInspection.TabIndex = 2;
@@ -356,7 +362,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(16, 114);
+            this.label4.Location = new System.Drawing.Point(16, 132);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(166, 13);
             this.label4.TabIndex = 0;
@@ -481,12 +487,40 @@
             this.imgColEffect.Images.SetKeyName(3, "green.png");
             this.imgColEffect.Images.SetKeyName(4, "green3.png");
             // 
-            // UCComponentPropertiesTankBottom
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(354, 103);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(15, 13);
+            this.label11.TabIndex = 0;
+            this.label11.Text = "m";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.Location = new System.Drawing.Point(16, 106);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(100, 13);
+            this.label19.TabIndex = 0;
+            this.label19.Text = "Shell Course Height";
+            // 
+            // txtShellCourseHeight
+            // 
+            this.txtShellCourseHeight.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtShellCourseHeight.Location = new System.Drawing.Point(223, 99);
+            this.txtShellCourseHeight.Name = "txtShellCourseHeight";
+            this.txtShellCourseHeight.Size = new System.Drawing.Size(125, 21);
+            this.txtShellCourseHeight.TabIndex = 1;
+            // 
+            // UCComponentPropertiesTank
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.groupBox1);
-            this.Name = "UCComponentPropertiesTankBottom";
+            this.Name = "UCComponentPropertiesTank";
             this.Size = new System.Drawing.Size(738, 339);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -541,5 +575,8 @@
         private DevExpress.XtraEditors.ImageComboBoxEdit cbComplexityProtrusion;
         private DevExpress.Utils.ImageCollection imgColComplexity;
         private DevExpress.Utils.ImageCollection imgColEffect;
+        private System.Windows.Forms.TextBox txtShellCourseHeight;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label11;
     }
 }

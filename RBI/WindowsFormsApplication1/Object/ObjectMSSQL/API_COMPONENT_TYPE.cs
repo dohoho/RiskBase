@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RBI.Object.ObjectMSSQL
 {
-    class API_COMPONENT_TYPE
+    public class API_COMPONENT_TYPE
     {
         public int APIComponentTypeID { set; get; }
         public String APIComponentTypeName{set; get;}

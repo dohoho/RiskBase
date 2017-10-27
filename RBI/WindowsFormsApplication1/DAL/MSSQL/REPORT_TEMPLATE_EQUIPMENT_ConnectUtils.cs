@@ -1,4 +1,4 @@
-﻿using RBI.Object.ObjectMSSQL;
+﻿using RBI.Object;
 using System;
 using System.Collections.Generic;
 using System.Data.Common;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using RBI.Object.ObjectMSSQL;
 namespace RBI.DAL.MSSQL
 {
     class REPORT_TEMPLATE_EQUIPMENT_ConnectUtils
@@ -17,14 +17,14 @@ namespace RBI.DAL.MSSQL
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             String sql = "USE [rbi]" +
-                        "GO" +
+                        " " +
                         "INSERT INTO [dbo].[REPORT_TEMPLATE_EQUIPMENT]" +
                         "([EquipmentID]" +
                         ",[TemplateID])" +
                         "VALUES" +
                         "('" + EquipmentID + "'" +
                         ",'" + TemplateID + "')" +
-                        "GO";
+                        " ";
             try
             {
                 SqlCommand cmd = new SqlCommand();
@@ -47,13 +47,13 @@ namespace RBI.DAL.MSSQL
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             String sql = "USE [rbi]" +
-                        "GO" +
+                        " " +
                         "UPDATE [dbo].[REPORT_TEMPLATE_EQUIPMENT]" +
                         "SET [EquipmentID] = '" + EquipmentID + "'" +
                         ",[TemplateID] = '" + TemplateID + "'" +
                         
                         "WHERE [EquipmentID] = '" + EquipmentID + "'" +
-                        "GO";
+                        " ";
             try
             {
                 SqlCommand cmd = new SqlCommand();
@@ -76,10 +76,10 @@ namespace RBI.DAL.MSSQL
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             String sql = "USE [rbi]" +
-                        "GO" +
+                        " " +
                         "DELETE FROM [dbo].[REPORT_TEMPLATE_EQUIPMENT]" +
                         "WHERE [EquipmentID]  = '" + EquipmentID + "' " +
-                        "GO";
+                        " ";
             try
             {
                 SqlCommand cmd = new SqlCommand();
@@ -107,7 +107,7 @@ namespace RBI.DAL.MSSQL
                           ",[TemplateID]" +
 
 
-                          "From [dbo].[REPORT_TEMPLATE_EQUIPMENT] go";
+                          "From [dbo].[REPORT_TEMPLATE_EQUIPMENT]  ";
             try
             {
                 SqlCommand cmd = new SqlCommand();

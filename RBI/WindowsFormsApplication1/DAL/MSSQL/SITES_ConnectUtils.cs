@@ -1,5 +1,4 @@
-﻿using RBI.Object.ObjectMSSQL;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data.Common;
 using System.Data.SqlClient;
@@ -8,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using RBI.Object.ObjectMSSQL;
 namespace RBI.DAL.MSSQL
 {
     class SITES_ConnectUtils
@@ -19,7 +19,6 @@ namespace RBI.DAL.MSSQL
             String sql = "USE [rbi]" +
                            "INSERT INTO [dbo].[SITES]" +
                            "([SiteName])" +
-                           
                            " VALUES" +
                            "(  '" + SiteName + "')";
             try
@@ -48,8 +47,6 @@ namespace RBI.DAL.MSSQL
                               "UPDATE [dbo].[SITES] " +
                               "SET[SiteID] = '" + SiteID + "'" +
                               ",[SiteName] = '" + SiteName + "'" +
-                             
-                              
                               " WHERE [SiteID] = '" + SiteID + "'";
                 try
                 {
@@ -101,11 +98,10 @@ namespace RBI.DAL.MSSQL
             conn.Open();
             List<SITES> list = new List<SITES>();
             SITES obj = null;
-            String sql = "Use [rbi] GO" +
+            String sql = "Use [rbi]" +
                         "SELECT [SiteID]" +
                         ",[SiteName]" +
-                        "  FROM [rbi].[dbo].[SITES]" +
-                        " GO";
+                        "  FROM [rbi].[dbo].[SITES]";
             try
             {
                 SqlCommand cmd = new SqlCommand();

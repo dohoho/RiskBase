@@ -17,7 +17,7 @@ namespace RBI.DAL.MSSQL
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             String sql = "USE [rbi]" +
-                           "INSERT INTO [dbo].[ UNIT_DESCRIPTOR]" +
+                           "INSERT INTO [dbo].[UNIT_DESCRIPTOR]" +
                            "([UnitDescriptorID]" +
                            ",[UnitCode]" +
                            ",[UnitDescriptor])" +
@@ -103,12 +103,12 @@ namespace RBI.DAL.MSSQL
             conn.Open();
             List<UNIT_DESCRIPTOR> list = new List<UNIT_DESCRIPTOR>();
             UNIT_DESCRIPTOR obj = null;
-            String sql = "Use [rbi] GO" +
+            String sql = "Use [rbi] " +
                         "SELECT [UnitDescriptorID]" +
                         ",[UnitCode]" +
                         ",[UnitDescriptor]" +
                         "  FROM [rbi].[dbo].[UNIT_DESCRIPTOR]" +
-                        " GO";
+                        " ";
             try
             {
                 SqlCommand cmd = new SqlCommand();

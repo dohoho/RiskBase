@@ -1,4 +1,4 @@
-﻿using RBI.Object.ObjectMSSQL;
+﻿using RBI.Object;
 using System;
 using System.Collections.Generic;
 using System.Data.Common;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using RBI.Object.ObjectMSSQL;
 namespace RBI.DAL.MSSQL
 {
     class RW_COMPONENT_ConnectUtils
@@ -17,7 +17,7 @@ namespace RBI.DAL.MSSQL
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             String sql = "USE [rbi]" +
-                        "GO" +
+                        " " +
                         "INSERT INTO [dbo].[RW_COMPONENT]" +
                         "([ID]" +
                         ",[NominalDiameter]" +
@@ -76,7 +76,7 @@ namespace RBI.DAL.MSSQL
                         ",'" + ReleasePreventionBarrier + "'" +
                         ",'" + ConcreteFoundation + "'" +
                         ",'" + SeverityOfVibration + "')" +
-                        "GO";
+                        " ";
             try
             {
                 SqlCommand cmd = new SqlCommand();
@@ -99,7 +99,7 @@ namespace RBI.DAL.MSSQL
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             String sql = "USE [rbi]" +
-                        "GO" +
+                        " " +
                         "UPDATE [dbo].[RW_COMPONENT]" +
                         "SET [ID] = '" + ID + "'" +
                         "[NominalDiameter] = '" + NominalDiameter + "'" +
@@ -131,7 +131,7 @@ namespace RBI.DAL.MSSQL
                         "[SeverityOfVibration] = '" + SeverityOfVibration + "'" +
                         
                         " WHERE [ID] = '" + ID + "'" +
-                        "GO";
+                        " ";
             try
             {
                 SqlCommand cmd = new SqlCommand();
@@ -154,10 +154,10 @@ namespace RBI.DAL.MSSQL
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             String sql = "USE [rbi]" +
-                        "GO" +
+                        " " +
                         "DELETE FROM [dbo].[RW_COMPONENT]" +
                         "WHERE [ID]  = '" + ID + "' " +
-                        "GO";
+                        " ";
             try
             {
                 SqlCommand cmd = new SqlCommand();
@@ -209,7 +209,7 @@ namespace RBI.DAL.MSSQL
                           ",[ReleasePreventionBarrier]" +
                           ",[ConcreteFoundation]" +
                           ",[SeverityOfVibration]" +
-                          "From [dbo].[RW_COMPONENT] go";
+                          "From [dbo].[RW_COMPONENT]  ";
             try
             {
                 SqlCommand cmd = new SqlCommand();

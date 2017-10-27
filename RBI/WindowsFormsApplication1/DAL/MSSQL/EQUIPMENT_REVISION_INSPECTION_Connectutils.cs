@@ -19,7 +19,6 @@ namespace RBI.DAL.MSSQL
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             String sql = "USE [rbi] " +
-                            " GO" +
                             " INSERT INTO[dbo].[EQUIPMENT_REVISION_INSPECTION]" +
                             "([RevisionID]" +
                             ",[CoverageDetailID]" +
@@ -31,7 +30,7 @@ namespace RBI.DAL.MSSQL
                             ",[EffectivenessCode]" +
                             ",[CarriedOut]" +
                             ",[CarriedOutDate])" +
-                            "VALUE" +
+                            "VALUES" +
                             "('" + RevisionID + "'" +
                             ",'" + CoverageDetailID + "'" +
                             ",'" + ComponentNumber + "'" +
@@ -41,9 +40,7 @@ namespace RBI.DAL.MSSQL
                             ",'" + InspectionDate + "'" +
                             ",'" + EffectivenessCode + "'" +
                             ",'" + CarriedOut + "'" +
-                            ",'" + CarriedOutDate + "')" +
-                           
-                            "GO";
+                            ",'" + CarriedOutDate + "')";
             try
             {
                 SqlCommand cmd = new SqlCommand();
@@ -68,7 +65,6 @@ namespace RBI.DAL.MSSQL
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             String sql = "USE [rbi]" +
-                           " GO" +
                            " UPDATE[dbo].[EQUIPMENT_REVISION_INSPECTION]" +
                                   "SET[RevisionID] ='"+RevisionID+"'" +
                                   ",[CoverageDetailID] ='"+CoverageDetailID+"'" +
@@ -81,8 +77,7 @@ namespace RBI.DAL.MSSQL
                                   ",[CarriedOut] = '"+CarriedOut+"'" +
                                   ",[CarriedOutDate] = '"+CarriedOutDate+"'" +
                                   "WHERE [RevisionID] ='" + RevisionID + "'" +
-                                  "AND [CoverageDetailID] ='" + CoverageDetailID + "'" +
-                                  "GO";
+                                  "AND [CoverageDetailID] ='" + CoverageDetailID + "'";
             try
             {
                 SqlCommand cmd = new SqlCommand();

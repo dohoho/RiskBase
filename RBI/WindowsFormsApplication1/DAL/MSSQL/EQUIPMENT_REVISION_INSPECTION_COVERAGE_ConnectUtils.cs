@@ -18,7 +18,6 @@ namespace RBI.DAL.MSSQL
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             String sql = "USE [rbi] " +
-                            " GO" +
                             " INSERT INTO[dbo].[EQUIPMENT_REVISION_INSPECTION_COVERAGE]" +
                             "([RevisionID]" +
                             ",[CoverageID]" +
@@ -29,8 +28,7 @@ namespace RBI.DAL.MSSQL
                             ",[Remarks]" +
                             ",[Findings]" +
                             ",[FindingRTF])" +
-                            
-                            "VALUE" +
+                            "VALUES" +
                             "('" + RevisionID + "'" +
                             ",'" + CoverageID + "'" +
                             ",'" + InspPlanName + "'" +
@@ -39,9 +37,7 @@ namespace RBI.DAL.MSSQL
                             ",'" + CoverageDate + "'" +
                             ",'" + Remarks + "'" +
                             ",'" + Findings + "'" +
-                            ",'" + FindingRTF + "')" +
-                           
-                            "GO ";
+                            ",'" + FindingRTF + "')";
             try
             {
                 SqlCommand cmd = new SqlCommand();
@@ -65,7 +61,6 @@ namespace RBI.DAL.MSSQL
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             String sql = "USE [rbi]" +
-                           " GO" +
                            " UPDATE[dbo].[EQUIPMENT_REVISION_INSPECTION_COVERAGE]" +
                                   "SET[RevisionID] ='"+RevisionID+"'" +
                                   ",[CoverageID] = '"+CoverageID+"'" +
@@ -76,10 +71,8 @@ namespace RBI.DAL.MSSQL
                                   ",[Remarks] = '"+Remarks+"'" +
                                   ",[Findings] = '"+Findings+"'" +
                                   ",[FindingRTF] = '"+FindingRTF+"'" +
-                                 
                                   "WHERE [RevisionID] ='" + RevisionID + "'" +
-                                  "AND [CoverageID] ='" + CoverageID + "'" +
-                                  "GO";
+                                  "AND [CoverageID] ='" + CoverageID + "'";
             
             try
             {

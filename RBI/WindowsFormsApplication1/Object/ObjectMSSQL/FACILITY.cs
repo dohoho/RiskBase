@@ -11,6 +11,6 @@ namespace RBI.Object.ObjectMSSQL
         public int FacilityID { set; get; }
         public int SiteID { set; get; }
         public String FacilityName { set; get; }
-        public double ManagementFactor { set; get; }
+        public float ManagementFactor { set; get; }
     }
 }

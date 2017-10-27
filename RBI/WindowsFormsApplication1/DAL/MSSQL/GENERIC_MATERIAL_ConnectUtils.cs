@@ -1,4 +1,4 @@
-﻿using RBI.Object.ObjectMSSQL;
+﻿using RBI.Object;
 using System;
 using System.Collections.Generic;
 using System.Data.Common;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using RBI.Object.ObjectMSSQL;
 namespace RBI.DAL.MSSQL
 {
     class GENERIC_MATERIAL_ConnectUtils
@@ -21,7 +21,6 @@ namespace RBI.DAL.MSSQL
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             String sql = "USE [rbi]" +
-                            "GO" +
                             "INSERT INTO [dbo].[GENERIC_FLUID]" +
                             "([MaterialName]" +
                             ",[DesignPressure]" +
@@ -41,10 +40,8 @@ namespace RBI.DAL.MSSQL
                             ",[CarbonLowAlloy]" +
                             ",[NickelBased]" +
                             ",[ChromeMoreEqual12]" +
-                            ",[CostFactor])" +
-                            
-                            "VALUE" +
-
+                            ",[CostFactor])" +                          
+                            "VALUES" +
                             "('" + MaterialName + "'" +
                             ",'" + DesignPressure + "'" +
                             ",'" + DesignTemperature + "'" +
@@ -63,9 +60,7 @@ namespace RBI.DAL.MSSQL
                             ",'" + CarbonLowAlloy + "'" +
                             ",'" + NickelBased + "'" +
                             ",'" + ChromeMoreEqual12 + "'" +
-                            ",'" + CostFactor + "')" +
-                           
-                             "GO";
+                            ",'" + CostFactor + "')";
             try
             {
                 SqlCommand cmd = new SqlCommand();
@@ -92,7 +87,6 @@ namespace RBI.DAL.MSSQL
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             String sql = "USE [rbi]" +
-                            "GO" +
                             "UPDATE [dbo].[GENERIC_MATERIAL]" +
                             "   SET [ID] = '" + ID + "'" +
                             "      ,[MaterialName] = '" + MaterialName + "'" +
@@ -114,9 +108,7 @@ namespace RBI.DAL.MSSQL
                             "      ,[NickelBased] = '" + NickelBased + "'" +
                             "      ,[ChromeMoreEqual12] = '" + ChromeMoreEqual12 + "'" +
                             "      ,[CostFactor] = '" + CostFactor + "'" +
-                            
-                             " WHERE [ID] = '" + ID + "'" +
-                            "GO";
+                             " WHERE [ID] = '" + ID + "'";
             try
             {
                 SqlCommand cmd = new SqlCommand();
@@ -183,9 +175,7 @@ namespace RBI.DAL.MSSQL
                             ",[NickelBased]"+
                             ",[ChromeMoreEqual12]" +
                             " ,[CostFactor]" +
-
-
-                          "From [dbo].[GENERIC_MATERIAL] go";
+                          "From [dbo].[GENERIC_MATERIAL]";
             try
             {
                 SqlCommand cmd = new SqlCommand();

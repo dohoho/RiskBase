@@ -40,5 +40,12 @@ namespace RBI.PRE.subForm.InputDataForm
             //if(tankbottom) -> hide Operating Hydrogen Partial Pressure
             return str;
         }
+        public RW_CA getDataforCA()
+        {
+            RW_CA ca = new RW_CA();
+            ca.StoredPressure = txtMinOperatingPressure.Text != "" ? float.Parse(txtMinOperatingPressure.Text) * 6.895f : 0;
+            ca.StoredTemp = txtMinimumOperatingTemp.Text != "" ? float.Parse(txtMinimumOperatingTemp.Text) + 273 : 0;
+            return ca;
+        }
     }
 }

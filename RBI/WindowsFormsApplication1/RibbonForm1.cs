@@ -75,9 +75,6 @@ namespace RBI
 
                 && tree.State == TreeListState.Regular)
             {
-
-
-
                 System.Drawing.Point pt = tree.PointToClient(MousePosition);
 
                 TreeListHitInfo info = tree.CalcHitInfo(pt);
@@ -161,9 +158,10 @@ namespace RBI
             addNewRecodeNode();
         }
         #region Button Event
-        RBI.PRE.subForm.InputDataForm.NewSite site;
+        RBI.PRE.subForm.InputDataForm.frmNewSite site;
         private void addNewSiteNode()
         {
+            if (siteName == null || siteName == "") return;
             treeListProject.BeginUpdate();
             TreeListColumn col1 = treeListProject.Columns.Add();
             col1.Caption = "List";
@@ -180,7 +178,7 @@ namespace RBI
             //// Creating more nodes
             //// ...
             //treeListProject.EndUnboundLoad();
-             site = new PRE.subForm.InputDataForm.NewSite();
+             site = new PRE.subForm.InputDataForm.frmNewSite();
             site.ShowDialog();
             treeListProject.BeginUnboundLoad();
             siteNode = treeListProject.AppendNode(
@@ -191,10 +189,10 @@ namespace RBI
         {
             addNewSiteNode();
         }
-        FacilityInput faci;
+        frmFacilityInput faci;
         private void addNewFacilityNode()
         {
-             faci = new FacilityInput();
+             faci = new frmFacilityInput();
             faci.ShowDialog();
             treeListProject.BeginUnboundLoad();
             facilityNode = treeListProject.AppendNode(
@@ -203,12 +201,14 @@ namespace RBI
         }
         private void btnFacility_ItemClick(object sender, ItemClickEventArgs e)
         {
-            addNewFacilityNode();
+            //addNewFacilityNode();
+            frmFacility fa = new frmFacility();
+            fa.ShowDialog();
         }
-        RBI.PRE.subForm.InputDataForm.Equipment eq1;
+        RBI.PRE.subForm.InputDataForm.frmEquipment eq1;
         private void addNewEquipmentNode()
         {
-             eq1 = new PRE.subForm.InputDataForm.Equipment();
+             eq1 = new PRE.subForm.InputDataForm.frmEquipment();
             eq1.ShowDialog();
             treeListProject.BeginUnboundLoad();
             equipmentNode = treeListProject.AppendNode(
@@ -217,12 +217,14 @@ namespace RBI
         }
         private void btnEquipment_ItemClick(object sender, ItemClickEventArgs e)
         {
-            addNewEquipmentNode();
+            //addNewEquipmentNode();
+            frmEquipment eq = new frmEquipment();
+            eq.ShowDialog();
         }
-        RBI.PRE.subForm.InputDataForm.NewComponent comp1;
+        RBI.PRE.subForm.InputDataForm.frmNewComponent comp1;
         private void addNewComponentNode()
         {
-             comp1 = new PRE.subForm.InputDataForm.NewComponent();
+             comp1 = new PRE.subForm.InputDataForm.frmNewComponent();
             comp1.ShowDialog();
             treeListProject.BeginUnboundLoad();
             componentNode = treeListProject.AppendNode(
@@ -292,11 +294,13 @@ namespace RBI
             try
             {
                 //Calculation();
-                Calculation_Excel();
+                //Calculation_Excel();
+                //Calculation_CA();
+                Calculation_CA_TANK();
             }
-            catch
+            catch(Exception ex)
             {
-                MessageBox.Show("Chưa tính được", "Cortek RBI");
+                MessageBox.Show("Chưa tính được" + ex.ToString(), "Cortek RBI");
             }
         }
         UCCoatLiningIsulationCladding coat = new UCCoatLiningIsulationCladding();
@@ -308,6 +312,13 @@ namespace RBI
         UCStream st = new UCStream();
         UCNoInspection No = new UCNoInspection();
         UCRiskFactor risk = new UCRiskFactor();
+        UCCA ca = new UCCA();
+        //tank
+        UCEquipmentPropertiesTank eqTank = new UCEquipmentPropertiesTank();
+        UCComponentPropertiesTank compTank = new UCComponentPropertiesTank();
+        UCStreamTank stTank = new UCStreamTank();
+        UCCAforTank caTank = new UCCAforTank();
+        UCMaterialTank maTank = new UCMaterialTank();
         private void navAssessmentInfo_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
             if (xtraTabData.SelectedTabPageIndex == 0) return;
@@ -319,18 +330,28 @@ namespace RBI
 
         private void navEquipment_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
+            //if (xtraTabData.SelectedTabPageIndex == 0) return;
+            //if (xtraTabData.TabPages.TabControl.SelectedTabPage.Controls.Contains(eq)) return;
+            //xtraTabData.TabPages.TabControl.SelectedTabPage.Controls.Clear();
+            //xtraTabData.TabPages.TabControl.SelectedTabPage.Controls.Add(eq);
+
             if (xtraTabData.SelectedTabPageIndex == 0) return;
-            if (xtraTabData.TabPages.TabControl.SelectedTabPage.Controls.Contains(eq)) return;
+            if (xtraTabData.TabPages.TabControl.SelectedTabPage.Controls.Contains(eqTank)) return;
             xtraTabData.TabPages.TabControl.SelectedTabPage.Controls.Clear();
-            xtraTabData.TabPages.TabControl.SelectedTabPage.Controls.Add(eq);
+            xtraTabData.TabPages.TabControl.SelectedTabPage.Controls.Add(eqTank);
         }
 
         private void navComponent_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
+            //if (xtraTabData.SelectedTabPageIndex == 0) return;
+            //if (xtraTabData.TabPages.TabControl.SelectedTabPage.Controls.Contains(comp)) return;
+            //xtraTabData.TabPages.TabControl.SelectedTabPage.Controls.Clear();
+            //xtraTabData.TabPages.TabControl.SelectedTabPage.Controls.Add(comp);
+
             if (xtraTabData.SelectedTabPageIndex == 0) return;
-            if (xtraTabData.TabPages.TabControl.SelectedTabPage.Controls.Contains(comp)) return;
+            if (xtraTabData.TabPages.TabControl.SelectedTabPage.Controls.Contains(compTank)) return;
             xtraTabData.TabPages.TabControl.SelectedTabPage.Controls.Clear();
-            xtraTabData.TabPages.TabControl.SelectedTabPage.Controls.Add(comp);
+            xtraTabData.TabPages.TabControl.SelectedTabPage.Controls.Add(compTank);
         }
 
         private void navOperating_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
@@ -343,10 +364,15 @@ namespace RBI
 
         private void navMaterial_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
+            //if (xtraTabData.SelectedTabPageIndex == 0) return;
+            //if (xtraTabData.TabPages.TabControl.SelectedTabPage.Controls.Contains(ma)) return;
+            //xtraTabData.TabPages.TabControl.SelectedTabPage.Controls.Clear();
+            //xtraTabData.TabPages.TabControl.SelectedTabPage.Controls.Add(ma);
+
             if (xtraTabData.SelectedTabPageIndex == 0) return;
-            if (xtraTabData.TabPages.TabControl.SelectedTabPage.Controls.Contains(ma)) return;
+            if (xtraTabData.TabPages.TabControl.SelectedTabPage.Controls.Contains(maTank)) return;
             xtraTabData.TabPages.TabControl.SelectedTabPage.Controls.Clear();
-            xtraTabData.TabPages.TabControl.SelectedTabPage.Controls.Add(ma);
+            xtraTabData.TabPages.TabControl.SelectedTabPage.Controls.Add(maTank);
         }
 
         private void navCoating_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
@@ -367,10 +393,15 @@ namespace RBI
 
         private void navStream_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
+            //if (xtraTabData.SelectedTabPageIndex == 0) return;
+            //if (xtraTabData.TabPages.TabControl.SelectedTabPage.Controls.Contains(st)) return;
+            //xtraTabData.TabPages.TabControl.SelectedTabPage.Controls.Clear();
+            //xtraTabData.TabPages.TabControl.SelectedTabPage.Controls.Add(st);
+
             if (xtraTabData.SelectedTabPageIndex == 0) return;
-            if (xtraTabData.TabPages.TabControl.SelectedTabPage.Controls.Contains(st)) return;
+            if (xtraTabData.TabPages.TabControl.SelectedTabPage.Controls.Contains(stTank)) return;
             xtraTabData.TabPages.TabControl.SelectedTabPage.Controls.Clear();
-            xtraTabData.TabPages.TabControl.SelectedTabPage.Controls.Add(st);
+            xtraTabData.TabPages.TabControl.SelectedTabPage.Controls.Add(stTank);
         }
         private void navRiskFactor_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
@@ -378,8 +409,19 @@ namespace RBI
             if (xtraTabData.TabPages.TabControl.SelectedTabPage.Controls.Contains(risk)) return;
             xtraTabData.TabPages.TabControl.SelectedTabPage.Controls.Clear();
             xtraTabData.TabPages.TabControl.SelectedTabPage.Controls.Add(risk);
-            risk.riskFactor();
         }
+        private void navCA_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            //if (xtraTabData.SelectedTabPageIndex == 0) return;
+            //if (xtraTabData.TabPages.TabControl.SelectedTabPage.Controls.Contains(ca)) return;
+            //xtraTabData.TabPages.TabControl.SelectedTabPage.Controls.Clear();
+            //xtraTabData.TabPages.TabControl.SelectedTabPage.Controls.Add(ca);
+
+            if (xtraTabData.SelectedTabPageIndex == 0) return;
+            if (xtraTabData.TabPages.TabControl.SelectedTabPage.Controls.Contains(caTank)) return;
+            xtraTabData.TabPages.TabControl.SelectedTabPage.Controls.Clear();
+            xtraTabData.TabPages.TabControl.SelectedTabPage.Controls.Add(caTank);
+        }  
         #endregion
         private void xtraTabData_CloseButtonClick(object sender, EventArgs e)
         {
@@ -410,6 +452,8 @@ namespace RBI
             xtraTabData.TabPages.Add(tabPage);
             tabPage.Show();
         }
+
+        //<Calculation>
         //private void Calculation()
         //{
         //    RW_EQUIPMENT rweq = eq.getData();
@@ -858,7 +902,183 @@ namespace RBI
               //risk summary
                 riskExcel.InitThinningCategory = cal.DF_THIN(10).ToString();
         }
-        //<Calculation>
+        
+        private void Calculation_CA()
+        {
+            MSSQL_CA_CAL CA_CAL = new MSSQL_CA_CAL();
+            RW_CA caInput = ca.getData();
+            RW_CA caInput1 = op.getDataforCA();
+            RW_COMPONENT com1 = comp.getData();
+            CA_CAL.TANK_DIAMETER = 1000;
+            CA_CAL.API_COMPONENT_TYPE_NAME = "DRUM";
+            CA_CAL.FLUID = caInput.Fluid;
+            CA_CAL.FLUID_PHASE = caInput.FluidPhase;
+
+            try
+            {
+                CA_CAL.MATERIAL_COST = caInput.MaterialCost;
+            }
+            catch
+            {
+                CA_CAL.MATERIAL_COST = 0;
+            }
+            try
+            {
+                CA_CAL.EQUIPMENT_COST = caInput.EquipmentCost;
+            }
+            catch
+            {
+                CA_CAL.EQUIPMENT_COST = 0;
+            }
+            try
+            {
+                CA_CAL.PRODUCTION_COST = caInput.ProductionCost;
+            }
+            catch
+            {
+                CA_CAL.PRODUCTION_COST = 0;
+            }
+            try
+            {
+                CA_CAL.INJURE_COST = caInput.InjureCost;
+            }
+            catch
+            {
+                CA_CAL.INJURE_COST = 0;
+            }
+            try
+            {
+                CA_CAL.ENVIRON_COST = caInput.EnvironmentCost;
+            }
+            catch
+            {
+                CA_CAL.ENVIRON_COST = 0;
+            }
+            CA_CAL.DETECTION_TYPE = caInput.DetectionType;
+            CA_CAL.ISULATION_TYPE = caInput.IsulationType;
+            try
+            {
+                CA_CAL.MASS_INVERT = caInput.MassInvert;
+            }
+            catch
+            {
+                CA_CAL.MASS_INVERT = 0;
+            }
+            try
+            {
+                CA_CAL.MASS_COMPONENT = caInput.MassComponent;
+            }
+            catch
+            {
+                CA_CAL.MASS_COMPONENT = 0;
+            }
+            CA_CAL.MITIGATION_SYSTEM = caInput.MittigationSystem;
+            CA_CAL.RELEASE_DURATION = caInput.ReleaseDuration;
+            try
+            {
+                CA_CAL.TOXIC_PERCENT = caInput.ToxicPercent;
+            }
+            catch
+            {
+                CA_CAL.TOXIC_PERCENT = 0;
+            }
+            try
+            {
+                CA_CAL.PERSON_DENSITY = caInput.PersonDensity;
+            }
+            catch
+            {
+                CA_CAL.PERSON_DENSITY = 0;
+            }
+            try
+            {
+                CA_CAL.STORED_PRESSURE = caInput1.StoredPressure;
+            }
+            catch
+            {
+                CA_CAL.STORED_PRESSURE = 0;
+            }
+            try
+            {
+                CA_CAL.ATMOSPHERIC_PRESSURE = 101;//caInput.AtmosphericPressure;
+            }
+            catch
+            {
+                CA_CAL.ATMOSPHERIC_PRESSURE = 0;
+            }
+            try
+            {
+                CA_CAL.STORED_TEMP = caInput1.StoredTemp;
+            }
+            catch
+            {
+                CA_CAL.STORED_TEMP = 0;
+            }
+            //MessageBox.Show("Consequence Level 1!" +
+            //                "\nCA Toxic(m2):" + CA_CAL.ca_inj_tox() +
+            //                "\nCA cmd (m2) :" + CA_CAL.ca_cmd() +
+            //                "\nCA injure (m2):" + CA_CAL.ca_inj() +
+            //                "\nFC cmd ($):" + CA_CAL.fc_cmd() +
+            //                "\nFC affa($):" + CA_CAL.fc_affa() +
+            //                "\nFC prod ($):" + CA_CAL.fc_prod() +
+            //                "\nFC inj ($):" + CA_CAL.fc_inj() +
+            //                "\nFC environ ($):" + CA_CAL.fc_environ() +
+            //                "\nFC total ($):" + CA_CAL.fc(), "TEST CA");
+            MessageBox.Show("Consequence Tank!" +
+                           "\nCA Toxic(m2):" + CA_CAL.ca_inj_tox() +
+                           "\nCA cmd (m2) :" + CA_CAL.ca_cmd() +
+                           "\nCA injure (m2):" + CA_CAL.ca_inj() +
+                           "\nFC cmd ($):" + CA_CAL.fc_cmd() +
+                           "\nFC affa($):" + CA_CAL.fc_affa() +
+                           "\nFC prod ($):" + CA_CAL.fc_prod() +
+                           "\nFC inj ($):" + CA_CAL.fc_inj() +
+                           "\nFC environ ($):" + CA_CAL.fc_environ() +
+                           "\nFC total ($):" + CA_CAL.fc(), "TEST CA");
+
+        }
+        private void Calculation_CA_TANK()
+        {
+            MSSQL_CA_CAL CA = new MSSQL_CA_CAL();
+            RW_CA caTankInput = caTank.getData();
+            RW_CA caInput1 = op.getDataforCA();
+            RW_COMPONENT com1 = comp.getData();
+            RW_MATERIAL materialTank = maTank.getData();
+            RW_CA_TANK inputCAfromStream = stTank.getDataforTank();
+            RW_CA_TANK inputCAfromEquipment = eqTank.getDataforTank();
+            CA.FLUID_HEIGHT = 12;
+            CA.SHELL_COURSE_HEIGHT = 10;
+            CA.TANK_DIAMETER = 12;
+            CA.PREVENTION_BARRIER = true;
+            CA.EnvironSensitivity =  "Medium";//inputCAfromEquipment.EnvironSensitivity;
+            CA.P_lvdike = 3;//inputCAfromStream.P_lvdike;
+            CA.P_offsite = 4;//inputCAfromStream.P_offsite;
+            CA.P_onsite = 3;//inputCAfromStream.P_onsite;
+            CA.Swg = 5;//inputCAfromEquipment.Swg;
+            CA.Soil_type = "Clay";//inputCAfromEquipment.Soil_type;
+            CA.TANK_FLUID = "Light Diesel Oil";
+            CA.FLUID = "C9-C12";
+            CA.FLUID_PHASE = caTankInput.FluidPhase;
+            CA.MATERIAL_COST = materialTank.CostFactor;
+            CA.PRODUCTION_COST = caTankInput.ProductionCost;
+            //CA.DETECTION_TYPE = cbDetectionType.Text;
+            //CA.ISULATION_TYPE = cbIsulationType.Text;
+            //CA.MASS_INVERT = float.Parse(txtMassInvert.Text);
+            //CA.MASS_COMPONENT = float.Parse(txtMassComponent.Text);
+            //CA.MITIGATION_SYSTEM = cbMitigation.Text;
+            CA.STORED_PRESSURE = caTankInput.StoredPressure;
+            CA.STORED_TEMP = caTankInput.StoredTemp;
+            CA.ATMOSPHERIC_PRESSURE = 101;
+            CA.API_COMPONENT_TYPE_NAME = "TANKBOTTOM";
+            MessageBox.Show("CA TANK!" +
+                            "\nFC Environment Tank bottom: " + CA.FC_environ_bottom() +
+                            "\nFC cmd tank bottom: " + CA.FC_cmd_bottom() +
+                            "\nFC Prod tank bottom: " + CA.fc_prod()
+                            //"\nFC Rupture environment tank shell: " + CA.FC_rupture_environ() +
+                            //"\nFC Environment Shell: " + CA.FC_environ_shell() +
+                            //"\nFC Total Shell: " + CA.FC_total_shell() 
+                            );
+        }
+        //</Calculation>
         private String checkCatalog(String a)
         {
             if (a == "Highly Effective")
@@ -1093,33 +1313,52 @@ namespace RBI
                 range3.SetInsideBorders(Color.Gray, BorderLineStyle.Thin);
                 range3.Borders.SetOutsideBorders(Color.Black, BorderLineStyle.Medium);
                 //Write Data to Cells
+
+                //worksheet.Range["G3:Y3"].NumberFormat = "#.0000000";
                 worksheet.Cells["A3"].Value = "COMPC";
                 worksheet.Cells["B3"].Value = "abc";
                 worksheet.Cells["C3"].Value = "Atmospheric Storage Tank";
                 worksheet.Cells["D3"].Value = "Boot";
-                worksheet.Cells["E3"].Value = "N/A";
+                worksheet.Cells["E3"].Value = "0";
                 worksheet.Cells["F3"].Value = "Vapor";
-                worksheet.Cells["G3"].Value = "N/A";
+                worksheet.Cells["G3"].Value = "0";
                 worksheet.Cells["H3"].Value = "5.99685679168514";
+                worksheet.Cells["H3"].NumberFormat = "#.000";
                 worksheet.Cells["I3"].Value = "151756.778709058";
+                worksheet.Cells["I3"].NumberFormat = "#.000";
                 worksheet.Cells["J3"].Value = "38384.4614594938";
+                worksheet.Cells["J3"].NumberFormat = "#.000";
                 worksheet.Cells["K3"].Value = "0";
-                worksheet.Cells["L3"].Value = "N/A";
+                worksheet.Cells["K3"].NumberFormat = "#.000";
+                worksheet.Cells["L3"].Value = "0";
+                worksheet.Cells["L3"].NumberFormat = "#.000";
                 worksheet.Cells["M3"].Value = "225181.193816338";
-                worksheet.Cells["N3"].Value = "N/A";
+                worksheet.Cells["M3"].NumberFormat = "#.000";
+                worksheet.Cells["N3"].Value = "0";
+                worksheet.Cells["N3"].NumberFormat = "#.000";
                 worksheet.Cells["O3"].Value = "0.054";
+                worksheet.Cells["O3"].NumberFormat = "#.000";
                 worksheet.Cells["P3"].Value = "0.000880964207316014";
+                worksheet.Cells["P3"].NumberFormat = "#.000";
                 worksheet.Cells["Q3"].Value = "0";
+                worksheet.Cells["Q3"].NumberFormat = "#.000";
                 worksheet.Cells["R3"].Value = "0.054880964207316";
-                worksheet.Cells["S3"].Value = "N/A";
-                worksheet.Cells["T3"].Value = "N/A";
-                worksheet.Cells["U3"].Value = "N/A";
+                worksheet.Cells["R3"].NumberFormat = "#.000";
+                worksheet.Cells["S3"].Value = "0";
+                worksheet.Cells["S3"].NumberFormat = "#.000";
+                worksheet.Cells["T3"].Value = "0";
+                worksheet.Cells["T3"].NumberFormat = "#.000";
+                worksheet.Cells["U3"].Value = "0";
+                worksheet.Cells["U3"].NumberFormat = "#.000";
                 worksheet.Cells["V3"].Value = "0";
+                worksheet.Cells["V3"].NumberFormat = "#.000";
                 worksheet.Cells["W3"].Value = "0.0607882250993909";
+                worksheet.Cells["W3"].NumberFormat = "#.000";
                 worksheet.Cells["X3"].Value = "13688.3650978571";
+                worksheet.Cells["X3"].NumberFormat = "#.000";
                 worksheet.Cells["Y3"].Value = "13740.9914000939";
+                worksheet.Cells["Y3"].NumberFormat = "#.000";
                 //worksheet.Cells["O3"].Value = riskExcel.InitThinningCategory;
-
                 using (FileStream stream = new FileStream(@"C:\Users\hoang\Desktop\excel\testExcel.xls", FileMode.Create, FileAccess.ReadWrite))
                 {
                     exportData.SaveDocument(stream, DocumentFormat.Xls);
@@ -1135,20 +1374,8 @@ namespace RBI
         
         private void barButtonItem17_ItemClick(object sender, ItemClickEventArgs e)
         {
-            //SaveFileDialog save = new SaveFileDialog();
-            //save.Filter = "Excel Document 2003 (*.xls)|*.xls|Excel Workbook (*.xlsx)|*.xlsx";
-            //if(save.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-            //{
-            //    if (save.FileName == "")
-            //    {
-            //        MessageBox.Show("Enter name Please!", "Cortek RBI", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            //    }
-            //    else
-            //    {
-                        
-            //    }
-            //}
             createReportExcel();
-        }    
+        }
+          
     }
 }

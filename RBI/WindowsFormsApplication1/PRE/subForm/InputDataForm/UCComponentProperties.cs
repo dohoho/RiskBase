@@ -147,6 +147,6 @@ namespace RBI.PRE.subForm.InputDataForm
             comp.ComplexityProtrusion = cbComplexityProtrusion.Text;
             return comp;
         }
-
+        
     }
 }

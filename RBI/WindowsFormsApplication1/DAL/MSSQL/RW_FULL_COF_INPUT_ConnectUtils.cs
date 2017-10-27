@@ -17,7 +17,7 @@ namespace RBI.DAL.MSSQL
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             String sql = "USE [rbi]" +
-                        "GO" +
+                        " " +
                         "INSERT INTO [dbo].[RW_FULL_COF_INPUT]" +
                         "([ID]" +
                         ",[Mitigation]" +
@@ -32,7 +32,7 @@ namespace RBI.DAL.MSSQL
                         ",'" + IsolationType + "'" +
                         ",'" + mass_comp + "'" +
                         ",'" + mass_inv + "')" +
-                        "GO";
+                        " ";
             try
             {
                 SqlCommand cmd = new SqlCommand();
@@ -55,7 +55,7 @@ namespace RBI.DAL.MSSQL
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             String sql = "USE [rbi]" +
-                        "GO" +
+                        " " +
                         "UPDATE [dbo].[RW_FULL_COF_INPUT]" +
                         "SET [ID] = '" + ID + "'" +
                         ",[Mitigation] = '" + Mitigation + "'" +
@@ -65,7 +65,7 @@ namespace RBI.DAL.MSSQL
                         ",[mass_inv] = '" + mass_inv + "'" +
                        
                         " WHERE [ID] = '" + ID + "'" +
-                        "GO";
+                        " ";
             try
             {
                 SqlCommand cmd = new SqlCommand();
@@ -88,10 +88,10 @@ namespace RBI.DAL.MSSQL
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             String sql = "USE [rbi]" +
-                        "GO" +
+                        " " +
                         "DELETE FROM [dbo].[RW_FULL_COF_INPUT]" +
                         " WHERE [ID] ='" + ID + "'" +
-                        "GO";
+                        " ";
             try
             {
                 SqlCommand cmd = new SqlCommand();
@@ -123,7 +123,7 @@ namespace RBI.DAL.MSSQL
                         ",[IsolationType]" +
                         ",[mass_comp]" +
                         ",[mass_inv]" +
-                          "From [dbo].[RW_FULL_COF_INPUT] go";
+                          "From [dbo].[RW_FULL_COF_INPUT]  ";
             try
             {
                 SqlCommand cmd = new SqlCommand();

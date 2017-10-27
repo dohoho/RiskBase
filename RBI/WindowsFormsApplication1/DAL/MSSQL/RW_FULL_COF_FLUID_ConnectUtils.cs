@@ -1,4 +1,4 @@
-﻿using RBI.Object.ObjectMSSQL;
+﻿using RBI.Object;
 using System;
 using System.Collections.Generic;
 using System.Data.Common;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using RBI.Object.ObjectMSSQL;
 namespace RBI.DAL.MSSQL
 {
     class RW_FULL_COF_FLUID_ConnectUtils
@@ -17,7 +17,7 @@ namespace RBI.DAL.MSSQL
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             String sql = "USE [rbi]" +
-                        "GO" +
+                        " " +
                         "INSERT INTO [dbo].[RW_FULL_COF_FLUID]" +
                         "([ID]" +
                         ",[Cp]" +
@@ -60,7 +60,7 @@ namespace RBI.DAL.MSSQL
                         ",'" + fact_AIT + "'" +
                         ",'" + g + "'" +
                         ",'" + h + "')" +
-                        "GO";
+                        " ";
             try
             {
                 SqlCommand cmd = new SqlCommand();
@@ -83,7 +83,7 @@ namespace RBI.DAL.MSSQL
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             String sql = "USE [rbi]" +
-                        "GO" +
+                        " " +
                         "UPDATE [dbo].[RW_FULL_COF_FLUID]" +
                         "SET [ID] ='" + ID + "'" +
                         ",[Cp] ='" + Cp + "'" +
@@ -107,7 +107,7 @@ namespace RBI.DAL.MSSQL
                         ",[h] ='" + h + "'" +
                         
                         " WHERE [ID] = '" + ID + "'" +
-                        "GO";
+                        " ";
             try
             {
                 SqlCommand cmd = new SqlCommand();
@@ -130,10 +130,10 @@ namespace RBI.DAL.MSSQL
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             String sql = "USE [rbi]" +
-                        "GO" +
+                        " " +
                         "DELETE FROM [dbo].[RW_FULL_COF_FLUID]" +
                         " WHERE [ID] ='" + ID + "'" +
-                        "GO";
+                        " ";
             try
             {
                 SqlCommand cmd = new SqlCommand();
@@ -178,7 +178,7 @@ namespace RBI.DAL.MSSQL
                         ",[fact_AIT]" +
                         ",[g]" +
                         ",[h]" +
-                        "From [dbo].[RW_FULL_COF_FLUID] go";
+                        "From [dbo].[RW_FULL_COF_FLUID]  ";
             try
             {
                 SqlCommand cmd = new SqlCommand();

@@ -18,7 +18,6 @@ namespace RBI.DAL.MSSQL
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             String sql = "USE [rbi]" +
-                            "GO" +
                             "INSERT INTO [dbo].[FILE_COMPONENT]" +
                             "([ComponentID]" +
                             ",[FileDocName]" +
@@ -29,8 +28,7 @@ namespace RBI.DAL.MSSQL
                             ",[FileSize]" +
                             ",[FileExt]" +
                             ",[DateUploaded])" +
-                            
-                            "VALUE" +
+                            "VALUES" +
                             "('" + ComponentID + "'" +
                             ",'" + FileDocName + "'" +
                             ",'" + FileType + "'" +
@@ -39,9 +37,7 @@ namespace RBI.DAL.MSSQL
                             ",'" + FileBinary + "'" +
                             ",'" + FileSize + "'" +
                             ",'" + FileExt + "'" +
-                            ",'" + DateUploaded + "')" +
-                            
-                            "GO";
+                            ",'" + DateUploaded + "')";
             try
             {
                 SqlCommand cmd = new SqlCommand();
@@ -66,7 +62,6 @@ namespace RBI.DAL.MSSQL
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             String sql = "USE [rbi]" +
-                            "GO" +
                             "UPDATE [dbo].[FILE_COMPONENT]" +
                             "   SET [FileID] = '" + FileID + "'" +
                             "      ,[ComponentID] = '" + ComponentID + "'" +
@@ -78,9 +73,7 @@ namespace RBI.DAL.MSSQL
                             "      ,[FileSize] = '" + FileSize + "'" +
                             "      ,[FileExt] = '" + FileExt+ "'" +
                             "      ,[DateUploaded] = '" + DateUploaded + "'" +
-                            
-                            " WHERE [FileID] = '" + FileID + "'" +
-                            "GO";
+                            " WHERE [FileID] = '" + FileID + "'";
             try
             {
                 SqlCommand cmd = new SqlCommand();

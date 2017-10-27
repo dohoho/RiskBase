@@ -28,7 +28,6 @@ namespace RBI.DAL.MSSQL
                            ",[HealthDegree]" +
                            ",[Flammability]" +
                            ",[Reactivity])" +
-                           
                            " VALUES" +
                            "(  '" + ID + "'" +
                             ", '" + FluidName + "'" +
@@ -66,15 +65,13 @@ namespace RBI.DAL.MSSQL
                               "UPDATE [dbo].[RW_SECONDARY_FLUID] " +
                               "SET[ID] = '" + ID + "'" +
                               ",[FluidName] = '" + FluidName + "'" +
-                              ",[ NBP] = '" + NBP + "'" +
+                              ",[NBP] = '" + NBP + "'" +
                               ",[MW] = '" + MW + "'" +
-                              ",[ Density] = '" + Density + "'" +
-                             ",[ ChemicalFactor] = '" + ChemicalFactor + "'" +
-                             ",[ HealthDegree] = '" + HealthDegree + "'" +
+                              ",[Density] = '" + Density + "'" +
+                             ",[ChemicalFactor] = '" + ChemicalFactor + "'" +
+                             ",[HealthDegree] = '" + HealthDegree + "'" +
                               ",[Flammability] = '" + Flammability + "'" +
                               ",[Reactivity] = '" + Reactivity + "'" +
-                             
-
                               " WHERE [ID] = '" + ID + "'";
                 try
                 {
@@ -126,9 +123,9 @@ namespace RBI.DAL.MSSQL
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             List<RW_SECONDARY_FLUID> list = new List<RW_SECONDARY_FLUID>();
-            //RW_SECONDARY_FLUID obj = null;
+            RW_SECONDARY_FLUID obj = null;
             String sql = "USE [rbi]" +
-                        "GO" +
+                        "" +
                         "SELECT [ID]" +
                         ",[FluidName]" +
                         ",[NBP]" +
@@ -139,7 +136,7 @@ namespace RBI.DAL.MSSQL
                         ",[Flammability]" +
                         ",[Reactivity]" +
                         "  FROM [rbi].[dbo].[RW_SECONDARY_FLUID] WHERE [ID] = '" + ID + "'" +
-                        " GO";
+                        " ";
             try
             {
                 SqlCommand cmd = new SqlCommand();
@@ -172,7 +169,7 @@ namespace RBI.DAL.MSSQL
             List<RW_SECONDARY_FLUID> list = new List<RW_SECONDARY_FLUID>();
             RW_SECONDARY_FLUID obj = null;
             String sql = "USE [rbi]" +
-                        "GO" +
+                        "" +
                         "SELECT [ID]" +
                         ",[FluidName]"+
                         ",[NBP]" +
@@ -183,7 +180,7 @@ namespace RBI.DAL.MSSQL
                         ",[Flammability]" +
                         ",[Reactivity]" +
                         "  FROM [rbi].[dbo].[RW_SECONDARY_FLUID]" +
-                        " GO";
+                        " ";
             try
             {
                 SqlCommand cmd = new SqlCommand();

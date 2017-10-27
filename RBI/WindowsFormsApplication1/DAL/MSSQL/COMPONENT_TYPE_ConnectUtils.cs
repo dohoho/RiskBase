@@ -17,7 +17,6 @@ namespace RBI.DAL.MSSQL
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             String sql = "USE [rbi]" +
-                            "GO" +
                             "INSERT INTO [dbo].[COMPONENT_TYPE]" +
                             "([ComponentTypeID]" +
                             ",[ComponentTypeName]" +
@@ -25,8 +24,7 @@ namespace RBI.DAL.MSSQL
                             "VALUES" +
                             "('"+ComponentTypeID+"'" +
                             ",'"+ComponentTypeName+"'" +
-                            ",'"+ComponentTypeCode+"')" +
-                            "GO";
+                            ",'"+ComponentTypeCode+"')";
             try
             {
                 SqlCommand cmd = new SqlCommand();
@@ -49,14 +47,12 @@ namespace RBI.DAL.MSSQL
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             String sql = "USE [rbi]" +
-                            "GO" +
                             "UPDATE [dbo].[COMPONENT_TYPE]" +
                             "SET [ComponentTypeID] = '" + ComponentTypeID + "'" +
                             ",[ComponentTypeName] = '" + ComponentTypeName + "'" +
                             ",[ComponentTypeCode] = '" + ComponentTypeCode + "'" +
                             ",[Modified] = '" + DateTime.Now + "'" +
-                            " WHERE [ComponentTypeID] = '" + ComponentTypeID + "'" +
-                            "GO";
+                            " WHERE [ComponentTypeID] = '" + ComponentTypeID + "'";
             try
             {
                 SqlCommand cmd = new SqlCommand();
@@ -79,10 +75,8 @@ namespace RBI.DAL.MSSQL
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             String sql = "USE [rbi]" +
-                        "GO" +
                         "DELETE FROM[dbo].[COMPONENT_TYPE]" +
-                        "WHERE [ComponentTypeID] = '" + ComponentTypeID + "'" +
-                        "GO";
+                        "WHERE [ComponentTypeID] = '" + ComponentTypeID + "'";
             try
             {
                 SqlCommand cmd = new SqlCommand();
@@ -109,7 +103,7 @@ namespace RBI.DAL.MSSQL
             String sql = " Use [rbi] Select [ComponentTypeID]"+
                           ",[ComponentTypeName]"+
                           ",[ComponentTypeCode]"+
-                          "From [rbi].[dbo].[COMPONENT_TYPE] go";
+                          "From [rbi].[dbo].[COMPONENT_TYPE]";
             try
             {
                 SqlCommand cmd = new SqlCommand();

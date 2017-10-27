@@ -1,4 +1,4 @@
-﻿using RBI.Object.ObjectMSSQL;
+﻿using RBI.Object;
 using System;
 using System.Collections.Generic;
 using System.Data.Common;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using RBI.Object.ObjectMSSQL;
 namespace RBI.DAL.MSSQL
 {
     class IMAGE_EQUIPMENT_ConnectUtilscs
@@ -17,7 +17,6 @@ namespace RBI.DAL.MSSQL
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             String sql = "USE [rbi]" +
-                        "GO" +
                         "INSERT INTO [dbo].[IMAGE_EQUIPMENT]" +
                         "([EquipmentID]" +
                         ",[ImageName]" +
@@ -29,8 +28,7 @@ namespace RBI.DAL.MSSQL
                         ",'" + ImageName + "'" +
                         ",'" + ImageDescription + "'" +
                         ",'" + ImageBinary + "'" +
-                        ",'" + ImageBinarySmall + "')" +
-                        "GO";
+                        ",'" + ImageBinarySmall + "')";
             try
             {
                 SqlCommand cmd = new SqlCommand();
@@ -53,16 +51,13 @@ namespace RBI.DAL.MSSQL
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             String sql = "USE [rbi]" +
-                        "GO" +
                         "UPDATE [dbo].[IMAGE_EQUIPMENT]" +
                         "SET [EquipmentID] = '" + EquipmentID + "'" +
                         ",[ImageName] = '" + ImageName + "'" +
                         ",[ImageDescription] = '" + ImageDescription + "'" +
                         ",[ImageBinary] = '" + ImageBinary + "'" +
-                        ",[ImageBinarySmall] = '" + ImageBinarySmall + "'" +
-                        
-                        "WHERE [ImageID] = '" + ImageID + "'" +
-                        "GO";
+                        ",[ImageBinarySmall] = '" + ImageBinarySmall + "'" +                        
+                        "WHERE [ImageID] = '" + ImageID + "'";
 
             try
             {
@@ -86,10 +81,8 @@ namespace RBI.DAL.MSSQL
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             String sql = "USE [rbi]" +
-                        "GO" +
                         "DELETE FROM [dbo].[IMAGE_EQUIPMENT]" +
-                        "WHERE [ImageID] = '" + ImageID + "'" +
-                        "GO";
+                        "WHERE [ImageID] = '" + ImageID + "'";
             try
             {
                 SqlCommand cmd = new SqlCommand();
@@ -119,9 +112,7 @@ namespace RBI.DAL.MSSQL
                           ",[ImageDescription]" +
                           ",[ImageBinary]" +
                           ",[ImageBinarySmall]" +
-
-
-                          "From [dbo].[IMAGE_EQUIPMENT] go";
+                          "From [dbo].[IMAGE_EQUIPMENT]";
             try
             {
                 SqlCommand cmd = new SqlCommand();
