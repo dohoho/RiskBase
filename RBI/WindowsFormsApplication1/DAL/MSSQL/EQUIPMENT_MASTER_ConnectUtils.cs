@@ -132,7 +132,7 @@ namespace RBI.DAL.MSSQL
             EQUIPMENT_MASTER obj = null;
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
-            String sql = " Use [rbi] go Select [EquipmentID]"+
+            String sql = " Use [rbi] Select [EquipmentID]"+
                           ",[EquipmentNumber]" +
                           ",[EquipmentTypeID]" +
                           ",[EquipmentName]" +
@@ -147,7 +147,7 @@ namespace RBI.DAL.MSSQL
                           ",[IsArchived]" +
                           ",[Archived]" +
                           ",[ArchivedBy]" +
-                          "From [rbi].[dbo].[COMPONENT_TYPE]";
+                          "From [rbi].[dbo].[EQUIPMENT_MASTER]";
             try
             {
                 SqlCommand cmd = new SqlCommand();
@@ -181,7 +181,7 @@ namespace RBI.DAL.MSSQL
                             {
                                 obj.EquipmentDesc = reader.GetString(11);
                             }
-                            obj.IsArchived = reader.GetInt32(12);
+                            obj.IsArchived = reader.GetOrdinal("IsArchived");
                             if (!reader.IsDBNull(13))
                             {
                                 obj.Archived = reader.GetDateTime(13);

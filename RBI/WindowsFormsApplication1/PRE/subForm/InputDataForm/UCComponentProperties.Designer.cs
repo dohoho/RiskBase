@@ -186,6 +186,7 @@
             this.cbPreviousFailures.Name = "cbPreviousFailures";
             this.cbPreviousFailures.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cbPreviousFailures.Properties.SmallImages = this.imgColPreFail;
             this.cbPreviousFailures.Size = new System.Drawing.Size(368, 20);
             this.cbPreviousFailures.TabIndex = 15;
             // 
@@ -195,6 +196,7 @@
             this.cbJointTypeBranch.Name = "cbJointTypeBranch";
             this.cbJointTypeBranch.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cbJointTypeBranch.Properties.SmallImages = this.imgColJoinType;
             this.cbJointTypeBranch.Size = new System.Drawing.Size(368, 20);
             this.cbJointTypeBranch.TabIndex = 9;
             // 
@@ -204,6 +206,7 @@
             this.cbCyclicLoading.Name = "cbCyclicLoading";
             this.cbCyclicLoading.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cbCyclicLoading.Properties.SmallImages = this.imgColCyclicLoad;
             this.cbCyclicLoading.Size = new System.Drawing.Size(368, 20);
             this.cbCyclicLoading.TabIndex = 16;
             // 
@@ -213,6 +216,7 @@
             this.cbMaxBrillnessHardness.Name = "cbMaxBrillnessHardness";
             this.cbMaxBrillnessHardness.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cbMaxBrillnessHardness.Properties.SmallImages = this.imgColMaxBrinHard;
             this.cbMaxBrillnessHardness.Size = new System.Drawing.Size(368, 20);
             this.cbMaxBrillnessHardness.TabIndex = 10;
             // 
@@ -222,6 +226,7 @@
             this.cbPipeCondition.Name = "cbPipeCondition";
             this.cbPipeCondition.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cbPipeCondition.Properties.SmallImages = this.imgColPipeCondi;
             this.cbPipeCondition.Size = new System.Drawing.Size(368, 20);
             this.cbPipeCondition.TabIndex = 11;
             // 
@@ -231,6 +236,7 @@
             this.cbNumberFittingPipe.Name = "cbNumberFittingPipe";
             this.cbNumberFittingPipe.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cbNumberFittingPipe.Properties.SmallImages = this.imgColFitting;
             this.cbNumberFittingPipe.Size = new System.Drawing.Size(368, 20);
             this.cbNumberFittingPipe.TabIndex = 12;
             // 
@@ -240,6 +246,7 @@
             this.cbBranchDiameter.Name = "cbBranchDiameter";
             this.cbBranchDiameter.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cbBranchDiameter.Properties.SmallImages = this.imgColBranchDiameter;
             this.cbBranchDiameter.Size = new System.Drawing.Size(368, 20);
             this.cbBranchDiameter.TabIndex = 13;
             // 
@@ -249,6 +256,7 @@
             this.cbComplexityProtrusion.Name = "cbComplexityProtrusion";
             this.cbComplexityProtrusion.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cbComplexityProtrusion.Properties.SmallImages = this.imgColComplexity;
             this.cbComplexityProtrusion.Size = new System.Drawing.Size(368, 20);
             this.cbComplexityProtrusion.TabIndex = 14;
             // 
@@ -258,6 +266,7 @@
             this.cbAmountShakingPipe.Name = "cbAmountShakingPipe";
             this.cbAmountShakingPipe.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cbAmountShakingPipe.Properties.SmallImages = this.imgColAmount;
             this.cbAmountShakingPipe.Size = new System.Drawing.Size(368, 20);
             this.cbAmountShakingPipe.TabIndex = 5;
             // 
@@ -267,6 +276,7 @@
             this.cbCorrectiveAction.Name = "cbCorrectiveAction";
             this.cbCorrectiveAction.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cbCorrectiveAction.Properties.SmallImages = this.imColCorrAct;
             this.cbCorrectiveAction.Size = new System.Drawing.Size(368, 20);
             this.cbCorrectiveAction.TabIndex = 5;
             // 
@@ -276,6 +286,7 @@
             this.cbAccumalatedTimeShakingPipe.Name = "cbAccumalatedTimeShakingPipe";
             this.cbAccumalatedTimeShakingPipe.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cbAccumalatedTimeShakingPipe.Properties.SmallImages = this.imgColAccu;
             this.cbAccumalatedTimeShakingPipe.Size = new System.Drawing.Size(368, 20);
             this.cbAccumalatedTimeShakingPipe.TabIndex = 5;
             // 
@@ -402,6 +413,7 @@
             this.txtCurrentCorrosionRate.Name = "txtCurrentCorrosionRate";
             this.txtCurrentCorrosionRate.Size = new System.Drawing.Size(125, 21);
             this.txtCurrentCorrosionRate.TabIndex = 1;
+            this.txtCurrentCorrosionRate.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCurrentCorrosionRate_KeyPress);
             // 
             // label22
             // 
@@ -420,6 +432,7 @@
             this.txtCurrentThickness.Name = "txtCurrentThickness";
             this.txtCurrentThickness.Size = new System.Drawing.Size(125, 21);
             this.txtCurrentThickness.TabIndex = 1;
+            this.txtCurrentThickness.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCurrentThickness_KeyPress);
             // 
             // label21
             // 
@@ -438,6 +451,7 @@
             this.txtMinRequiredThickness.Name = "txtMinRequiredThickness";
             this.txtMinRequiredThickness.Size = new System.Drawing.Size(125, 21);
             this.txtMinRequiredThickness.TabIndex = 1;
+            this.txtMinRequiredThickness.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMinRequiredThickness_KeyPress);
             // 
             // label20
             // 
@@ -456,6 +470,7 @@
             this.txtDeltaFATT.Name = "txtDeltaFATT";
             this.txtDeltaFATT.Size = new System.Drawing.Size(125, 21);
             this.txtDeltaFATT.TabIndex = 1;
+            this.txtDeltaFATT.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDeltaFATT_KeyPress);
             // 
             // label19
             // 
@@ -475,6 +490,7 @@
             this.txtNominalThickness.Name = "txtNominalThickness";
             this.txtNominalThickness.Size = new System.Drawing.Size(125, 21);
             this.txtNominalThickness.TabIndex = 1;
+            this.txtNominalThickness.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNominalThickness_KeyPress);
             // 
             // label18
             // 
@@ -493,6 +509,7 @@
             this.txtNominalDiameter.Name = "txtNominalDiameter";
             this.txtNominalDiameter.Size = new System.Drawing.Size(125, 21);
             this.txtNominalDiameter.TabIndex = 1;
+            this.txtNominalDiameter.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNominalDiameter_KeyPress);
             // 
             // label17
             // 

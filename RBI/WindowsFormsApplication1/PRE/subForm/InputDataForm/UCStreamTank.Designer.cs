@@ -68,6 +68,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnEditFluid = new DevExpress.XtraEditors.ButtonEdit();
             this.txtPercentageFluidGoingOffsite = new System.Windows.Forms.TextBox();
             this.txtPercentageLeavingDike = new System.Windows.Forms.TextBox();
             this.txtPercentageLeavingRemainsOnSite = new System.Windows.Forms.TextBox();
@@ -78,7 +79,6 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnEditFluid = new DevExpress.XtraEditors.ButtonEdit();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cbAmineSolutionComposition.Properties)).BeginInit();
@@ -276,6 +276,7 @@
             this.txtpHWater.Name = "txtpHWater";
             this.txtpHWater.Size = new System.Drawing.Size(170, 21);
             this.txtpHWater.TabIndex = 1;
+            this.txtpHWater.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtpHWater_KeyPress);
             // 
             // label12
             // 
@@ -383,6 +384,7 @@
             this.txtCO3ConcentrationWater.Name = "txtCO3ConcentrationWater";
             this.txtCO3ConcentrationWater.Size = new System.Drawing.Size(170, 21);
             this.txtCO3ConcentrationWater.TabIndex = 1;
+            this.txtCO3ConcentrationWater.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCO3ConcentrationWater_KeyPress);
             // 
             // label14
             // 
@@ -424,6 +426,7 @@
             this.txtReleaseFluidPercent.Name = "txtReleaseFluidPercent";
             this.txtReleaseFluidPercent.Size = new System.Drawing.Size(170, 21);
             this.txtReleaseFluidPercent.TabIndex = 1;
+            this.txtReleaseFluidPercent.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtReleaseFluidPercent_KeyPress);
             // 
             // label
             // 
@@ -442,6 +445,7 @@
             this.txtH2SContent.Name = "txtH2SContent";
             this.txtH2SContent.Size = new System.Drawing.Size(170, 21);
             this.txtH2SContent.TabIndex = 1;
+            this.txtH2SContent.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtH2SContent_KeyPress);
             // 
             // label7
             // 
@@ -460,6 +464,7 @@
             this.txtChlorideIon.Name = "txtChlorideIon";
             this.txtChlorideIon.Size = new System.Drawing.Size(170, 21);
             this.txtChlorideIon.TabIndex = 1;
+            this.txtChlorideIon.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtChlorideIon_KeyPress);
             // 
             // label6
             // 
@@ -478,6 +483,7 @@
             this.txtNaOHConcentration.Name = "txtNaOHConcentration";
             this.txtNaOHConcentration.Size = new System.Drawing.Size(170, 21);
             this.txtNaOHConcentration.TabIndex = 1;
+            this.txtNaOHConcentration.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNaOHConcentration_KeyPress);
             // 
             // label5
             // 
@@ -528,6 +534,15 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Fluid";
             // 
+            // btnEditFluid
+            // 
+            this.btnEditFluid.Location = new System.Drawing.Point(232, 19);
+            this.btnEditFluid.Name = "btnEditFluid";
+            this.btnEditFluid.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.btnEditFluid.Size = new System.Drawing.Size(471, 20);
+            this.btnEditFluid.TabIndex = 4;
+            // 
             // txtPercentageFluidGoingOffsite
             // 
             this.txtPercentageFluidGoingOffsite.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -535,6 +550,7 @@
             this.txtPercentageFluidGoingOffsite.Name = "txtPercentageFluidGoingOffsite";
             this.txtPercentageFluidGoingOffsite.Size = new System.Drawing.Size(100, 21);
             this.txtPercentageFluidGoingOffsite.TabIndex = 3;
+            this.txtPercentageFluidGoingOffsite.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPercentageFluidGoingOffsite_KeyPress);
             // 
             // txtPercentageLeavingDike
             // 
@@ -543,6 +559,7 @@
             this.txtPercentageLeavingDike.Name = "txtPercentageLeavingDike";
             this.txtPercentageLeavingDike.Size = new System.Drawing.Size(100, 21);
             this.txtPercentageLeavingDike.TabIndex = 3;
+            this.txtPercentageLeavingDike.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPercentageLeavingDike_KeyPress);
             // 
             // txtPercentageLeavingRemainsOnSite
             // 
@@ -551,6 +568,7 @@
             this.txtPercentageLeavingRemainsOnSite.Name = "txtPercentageLeavingRemainsOnSite";
             this.txtPercentageLeavingRemainsOnSite.Size = new System.Drawing.Size(100, 21);
             this.txtPercentageLeavingRemainsOnSite.TabIndex = 3;
+            this.txtPercentageLeavingRemainsOnSite.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPercentageLeavingRemainsOnSite_KeyPress);
             // 
             // label24
             // 
@@ -569,6 +587,7 @@
             this.txtFluidHeight.Name = "txtFluidHeight";
             this.txtFluidHeight.Size = new System.Drawing.Size(100, 21);
             this.txtFluidHeight.TabIndex = 3;
+            this.txtFluidHeight.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFluidHeight_KeyPress);
             // 
             // label23
             // 
@@ -619,15 +638,6 @@
             this.label1.Size = new System.Drawing.Size(34, 15);
             this.label1.TabIndex = 0;
             this.label1.Text = "Fluid";
-            // 
-            // btnEditFluid
-            // 
-            this.btnEditFluid.Location = new System.Drawing.Point(232, 19);
-            this.btnEditFluid.Name = "btnEditFluid";
-            this.btnEditFluid.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.btnEditFluid.Size = new System.Drawing.Size(471, 20);
-            this.btnEditFluid.TabIndex = 4;
             // 
             // UCStreamTank
             // 

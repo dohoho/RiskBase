@@ -12,7 +12,7 @@ namespace RBI.DAL.MSSQL
 {
     class RW_ASSESSMENT_ConnectUtils
     {
-        public void add(int EquipmentID, int ComponentID,DateTime AssessmentDate, int AssessmentMethod, int RiskAnalysisPeriod,int IsEquipmentLinked,String RecordType,int ProposalNo,int RevisionNo,int IsRecommend,String ProposalOrRevision,String AdoptedBy,DateTime AdoptedDate, String RecommendedBy,DateTime RecommendedDate)
+        public void add(int EquipmentID, int ComponentID,DateTime AssessmentDate, int AssessmentMethod, int RiskAnalysisPeriod,int IsEquipmentLinked,String RecordType,int ProposalNo,int RevisionNo,int IsRecommend,String ProposalOrRevision,String AdoptedBy,DateTime AdoptedDate, String RecommendedBy,DateTime RecommendedDate, String ProposalName)
         {
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
@@ -33,7 +33,8 @@ namespace RBI.DAL.MSSQL
                         ",[AdoptedBy]" +
                         ",[AdoptedDate]" +
                         ",[RecommendedBy]" +
-                        ",[RecommendedDate])" +
+                        ",[RecommendedDate]" +
+                        ",[ProposalName])"+
                         "VALUES" +
                         "('" + EquipmentID + "'" +
                         ",'" + ComponentID + "'" +
@@ -49,7 +50,8 @@ namespace RBI.DAL.MSSQL
                         ",'" + AdoptedBy + "'" +
                         ",'" + AdoptedDate + "'" +
                         ",'" + RecommendedBy + "'" +
-                        ",'" + RecommendedDate + "')" +
+                        ",'" + RecommendedDate + "'" +
+                        ",'" + ProposalName + "')" +
                         " ";
 
             try
@@ -69,7 +71,7 @@ namespace RBI.DAL.MSSQL
                 conn.Dispose();
             }
         }
-        public void edit(int ID,int EquipmentID, int ComponentID, DateTime AssessmentDate, int AssessmentMethod, int RiskAnalysisPeriod, int IsEquipmentLinked, String RecordType, int ProposalNo, int RevisionNo, int IsRecommend, String ProposalOrRevision, String AdoptedBy, DateTime AdoptedDate, String RecommendedBy, DateTime RecommendedDate)
+        public void edit(int ID,int EquipmentID, int ComponentID, DateTime AssessmentDate, int AssessmentMethod, int RiskAnalysisPeriod, int IsEquipmentLinked, String RecordType, int ProposalNo, int RevisionNo, int IsRecommend, String ProposalOrRevision, String AdoptedBy, DateTime AdoptedDate, String RecommendedBy, DateTime RecommendedDate, String ProposalName)
         {
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
@@ -91,7 +93,7 @@ namespace RBI.DAL.MSSQL
                         ",[AdoptedDate] = '" + AdoptedDate + "'" +
                         ",[RecommendedBy] = '" + RecommendedBy + "'" +
                         ",[RecommendedDate] = '" + RecommendedDate + "'" +
-                        
+                        ",[ProposalName] = '"+ProposalName+"'"+
                         " WHERE [ID] = '" + ID + "'" +
                         " ";
             try

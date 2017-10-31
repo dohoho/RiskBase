@@ -20,6 +20,7 @@ namespace RBI.PRE.subForm.InputDataForm
         RW_STREAM str = new RW_STREAM();
         public RW_STREAM getData()
         {
+            
             str.FlowRate = txtFlowRate.Text != "" ? float.Parse(txtFlowRate.Text) : 0;
             str.MaxOperatingPressure = txtMaxOperatingPressure.Text != "" ? float.Parse(txtMaxOperatingPressure.Text) : 0;
             str.MinOperatingPressure = txtMinOperatingPressure.Text != "" ? float.Parse(txtMinOperatingPressure.Text) : 0;
@@ -37,7 +38,6 @@ namespace RBI.PRE.subForm.InputDataForm
             str.CUI_PERCENT_8 = txtOp135.Text != "" ? float.Parse(txtOp135.Text) : 0;
             str.CUI_PERCENT_9 = txtOp162.Text != "" ? float.Parse(txtOp162.Text) : 0;
             str.CUI_PERCENT_10 = txtOp176.Text != "" ? float.Parse(txtOp176.Text) : 0;
-            //if(tankbottom) -> hide Operating Hydrogen Partial Pressure
             return str;
         }
         public RW_CA getDataforCA()
@@ -47,5 +47,106 @@ namespace RBI.PRE.subForm.InputDataForm
             ca.StoredTemp = txtMinimumOperatingTemp.Text != "" ? float.Parse(txtMinimumOperatingTemp.Text) + 273 : 0;
             return ca;
         }
+
+        #region KeyPress Event Handle
+        private void keyPressEvent(TextBox textbox, KeyPressEventArgs ev, bool percent)
+        {
+            string a = textbox.Text;
+            if (!char.IsControl(ev.KeyChar) && !char.IsDigit(ev.KeyChar) && (ev.KeyChar != '.')&&(ev.KeyChar!='-'))
+            {
+                ev.Handled = true;
+            }
+            if(a.StartsWith("-") && ev.KeyChar == '-' && !percent)
+            {
+                ev.Handled = true;
+            }
+            if (a.Contains('.') && ev.KeyChar == '.')
+            {
+                ev.Handled = true;
+            }
+        }
+        private void txtMaximumOperatingTemp_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            keyPressEvent(txtMaximumOperatingTemp, e, false);
+        }
+
+        private void txtMinimumOperatingTemp_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            keyPressEvent(txtMinimumOperatingTemp, e, false);
+        }
+
+        private void txtOperatingHydrogen_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            keyPressEvent(txtOperatingHydrogen, e, false);
+        }
+
+        private void txtCriticalExposure_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            keyPressEvent(txtCriticalExposure, e, false);
+        }
+
+        private void txtMaxOperatingPressure_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            keyPressEvent(txtMaximumOperatingTemp, e, false);
+        }
+        private void txtMinOperatingPressure_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            keyPressEvent(txtMinimumOperatingTemp, e, false);
+        }
+
+        private void txtFlowRate_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            keyPressEvent(txtFlowRate, e, true);
+        }
+
+        private void txtOp12_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            keyPressEvent(txtOp12, e, true);
+        }
+
+        private void txtOp8_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            keyPressEvent(txtOp8, e, true);
+        }
+
+        private void txtOp6_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            keyPressEvent(txtOp6, e, true);
+        }
+
+        private void txtOp32_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            keyPressEvent(txtOp32, e, true);
+        }
+        private void txtOp71_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            keyPressEvent(txtOp71, e, true);
+        }
+
+        private void txtOp107_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            keyPressEvent(txtOp107, e, true);
+        }
+
+        private void txtOp121_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            keyPressEvent(txtOp121, e, true);
+        }
+
+        private void txtOp135_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            keyPressEvent(txtOp135, e, true);
+        }
+
+        private void txtOp162_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            keyPressEvent(txtOp162, e, true);
+        }
+
+        private void txtOp176_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            keyPressEvent(txtOp176, e, true);
+        }
+        #endregion
     }
 }

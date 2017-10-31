@@ -96,7 +96,7 @@ namespace RBI.DAL.MSSQL
                 conn.Dispose();
             }
         }
-        public void edit(int ID, DateTime CommissionDate, int AdminUpsetManagement, int ContainsDeadlegs, int CyclicOperation, int HighlyDeadlegInsp, int DowntimeProtectionUsed, String ExternalEnvironment, int HeatTraced, int InterfaceSoilWater, int LinerOnlineMonitoring, int MaterialExposedToClExt, double MinReqTemperaturePressurisation, String OnlineMonitoring, int PresenceSulphidesO2, int PresenceSulphidesO2Shutdown, int PressurisationControlled, int PWHT, int SteamOutWaterFlush, double ManagementFactor, String ThermalHistory, int YearLowestExpTemp, double Volume, String TypeOfSoil, String EnvironmentSensitivity, double DistanceToGroundWater, String AdjustmentSettle, int ComponentIsWelded, int TankIsMaintained)
+        public void edit(int ID, int AdminUpsetManagement, int ContainsDeadlegs, int CyclicOperation, int HighlyDeadlegInsp, int DowntimeProtectionUsed, String ExternalEnvironment, int HeatTraced, int InterfaceSoilWater, int LinerOnlineMonitoring, int MaterialExposedToClExt, double MinReqTemperaturePressurisation, String OnlineMonitoring, int PresenceSulphidesO2, int PresenceSulphidesO2Shutdown, int PressurisationControlled, int PWHT, int SteamOutWaterFlush, double ManagementFactor, String ThermalHistory, int YearLowestExpTemp, double Volume, String TypeOfSoil, String EnvironmentSensitivity, double DistanceToGroundWater, String AdjustmentSettle, int ComponentIsWelded, int TankIsMaintained)
         {
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
@@ -104,7 +104,6 @@ namespace RBI.DAL.MSSQL
                         " " +
                         "UPDATE [dbo].[RW_EQUIPMENT]" +
                         "SET [ID] = '" + ID + "'" +
-                        ",[CommissionDate] = '" + CommissionDate + "'" +
                         ",[AdminUpsetManagement] = '" + AdminUpsetManagement + "'" +
                         ",[ContainsDeadlegs] = '" + ContainsDeadlegs + "'" +
                         ",[CyclicOperation] = '" + CyclicOperation + "'" +

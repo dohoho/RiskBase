@@ -88,6 +88,7 @@ namespace RBI.PRE.subForm.InputDataForm
         public RW_EQUIPMENT getData()
         {
             RW_EQUIPMENT eq = new RW_EQUIPMENT();
+            eq.ID = 1;
             eq.AdminUpsetManagement = chkAministrativeControl.Checked ? 1 : 0;
             eq.ContainsDeadlegs = chkContainsDeadlegs.Checked ? 1 : 0;
             eq.CyclicOperation = chkCylicOperation.Checked ? 1 : 0;
@@ -108,7 +109,7 @@ namespace RBI.PRE.subForm.InputDataForm
             eq.ManagementFactor = (float)numSystemManagementFactor.Value;
             eq.ThermalHistory = cbThermalHistory.Text;
             eq.YearLowestExpTemp = chkEquipmentOperatingManyYear.Checked ? 1 : 0;
-            eq.Volume = txtEquipmentVolume.Text!=""?float.Parse(txtEquipmentVolume.Text):0;
+            eq.Volume = txtEquipmentVolume.Text != "" ? float.Parse(txtEquipmentVolume.Text) : 0;
             return eq;
         }
 
@@ -120,6 +121,19 @@ namespace RBI.PRE.subForm.InputDataForm
         private void txtMinRequiredTemperature_KeyPress(object sender, KeyPressEventArgs e)
         {
             if(!Char.IsDigit(e.KeyChar)&&!Char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtEquipmentVolume_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            string a = txtEquipmentVolume.Text;
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+            if (a.Contains('.') && e.KeyChar == '.')
             {
                 e.Handled = true;
             }

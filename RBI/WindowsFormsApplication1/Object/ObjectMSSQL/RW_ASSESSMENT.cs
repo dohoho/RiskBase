@@ -16,7 +16,8 @@ namespace RBI.Object.ObjectMSSQL
         public int RiskAnalysisPeriod { get; set; }
         public int IsEquipmentLinked { get; set; }
         public String RecordType { get; set; }
-        public int ProposalNo { get; set; }
+        public int ProposalNo { get; set; } //sua Number thanh String Name
+        public String ProposalName {set; get;}
         public int RevisionNo { get; set; }
         public int IsRecommend { get; set; }
         public String ProposalOrRevision { get; set; }

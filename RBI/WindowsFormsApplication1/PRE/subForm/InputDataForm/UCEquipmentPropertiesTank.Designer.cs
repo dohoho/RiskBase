@@ -337,6 +337,7 @@
             this.txtEquipmentVolume.Name = "txtEquipmentVolume";
             this.txtEquipmentVolume.Size = new System.Drawing.Size(120, 20);
             this.txtEquipmentVolume.TabIndex = 2;
+            this.txtEquipmentVolume.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtEquipmentVolume_KeyPress);
             // 
             // txtDistanceGroundWater
             // 
@@ -345,6 +346,7 @@
             this.txtDistanceGroundWater.Name = "txtDistanceGroundWater";
             this.txtDistanceGroundWater.Size = new System.Drawing.Size(139, 21);
             this.txtDistanceGroundWater.TabIndex = 2;
+            this.txtDistanceGroundWater.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDistanceGroundWater_KeyPress);
             // 
             // txtMinRequiredTemperature
             // 
@@ -353,6 +355,7 @@
             this.txtMinRequiredTemperature.Name = "txtMinRequiredTemperature";
             this.txtMinRequiredTemperature.Size = new System.Drawing.Size(139, 21);
             this.txtMinRequiredTemperature.TabIndex = 2;
+            this.txtMinRequiredTemperature.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMinRequiredTemperature_KeyPress);
             // 
             // chkComponentWelded
             // 
@@ -786,12 +789,12 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Administrative Control for Upset Management";
             // 
-            // UCEquipmentPropertiesTankBottom
+            // UCEquipmentPropertiesTank
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.groupBox1);
-            this.Name = "UCEquipmentPropertiesTankBottom";
+            this.Name = "UCEquipmentPropertiesTank";
             this.Size = new System.Drawing.Size(707, 555);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

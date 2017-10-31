@@ -38,14 +38,8 @@
             this.txtDescription = new System.Windows.Forms.TextBox();
             this.chkLinks = new System.Windows.Forms.CheckBox();
             this.txtComponentName = new System.Windows.Forms.TextBox();
-            this.cbAPIComponentType = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.cbComponentType = new DevExpress.XtraEditors.ComboBoxEdit();
             this.txtComponentNumber = new System.Windows.Forms.TextBox();
-            this.txtFacility = new System.Windows.Forms.TextBox();
-            this.txtPlant = new System.Windows.Forms.TextBox();
-            this.txtDesignCode = new System.Windows.Forms.TextBox();
             this.txtEquipmentType = new System.Windows.Forms.TextBox();
-            this.cbEquipmentNumber = new DevExpress.XtraEditors.ComboBoxEdit();
             this.comboBoxEdit1 = new DevExpress.XtraEditors.ComboBoxEdit();
             this.lblDescription = new System.Windows.Forms.Label();
             this.lblCheck = new System.Windows.Forms.Label();
@@ -63,21 +57,36 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.cbEquipmentNumber = new DevExpress.XtraEditors.ImageComboBoxEdit();
+            this.cbDesignCode = new DevExpress.XtraEditors.ImageComboBoxEdit();
+            this.cbAPIComponentType = new DevExpress.XtraEditors.ImageComboBoxEdit();
+            this.cbComponentType = new DevExpress.XtraEditors.ImageComboBoxEdit();
+            this.cbSites = new DevExpress.XtraEditors.ImageComboBoxEdit();
+            this.cbFacility = new DevExpress.XtraEditors.ImageComboBoxEdit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picAPIComponent)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picComponentType)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picComponentNumber)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbAPIComponentType.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbComponentType.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbEquipmentNumber.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit1.Properties)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbEquipmentNumber.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbDesignCode.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbAPIComponentType.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbComponentType.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbSites.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbFacility.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.Control;
+            this.panel1.Controls.Add(this.cbAPIComponentType);
+            this.panel1.Controls.Add(this.cbComponentType);
+            this.panel1.Controls.Add(this.cbFacility);
+            this.panel1.Controls.Add(this.cbSites);
+            this.panel1.Controls.Add(this.cbDesignCode);
+            this.panel1.Controls.Add(this.cbEquipmentNumber);
             this.panel1.Controls.Add(this.picAPIComponent);
             this.panel1.Controls.Add(this.picComponentType);
             this.panel1.Controls.Add(this.picComponentNumber);
@@ -86,14 +95,8 @@
             this.panel1.Controls.Add(this.txtDescription);
             this.panel1.Controls.Add(this.chkLinks);
             this.panel1.Controls.Add(this.txtComponentName);
-            this.panel1.Controls.Add(this.cbAPIComponentType);
-            this.panel1.Controls.Add(this.cbComponentType);
             this.panel1.Controls.Add(this.txtComponentNumber);
-            this.panel1.Controls.Add(this.txtFacility);
-            this.panel1.Controls.Add(this.txtPlant);
-            this.panel1.Controls.Add(this.txtDesignCode);
             this.panel1.Controls.Add(this.txtEquipmentType);
-            this.panel1.Controls.Add(this.cbEquipmentNumber);
             this.panel1.Controls.Add(this.comboBoxEdit1);
             this.panel1.Controls.Add(this.lblDescription);
             this.panel1.Controls.Add(this.lblCheck);
@@ -110,7 +113,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(0, 79);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(653, 451);
+            this.panel1.Size = new System.Drawing.Size(620, 451);
             this.panel1.TabIndex = 1;
             // 
             // picAPIComponent
@@ -183,24 +186,6 @@
             this.txtComponentName.Size = new System.Drawing.Size(314, 20);
             this.txtComponentName.TabIndex = 53;
             // 
-            // cbAPIComponentType
-            // 
-            this.cbAPIComponentType.Location = new System.Drawing.Point(272, 230);
-            this.cbAPIComponentType.Name = "cbAPIComponentType";
-            this.cbAPIComponentType.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cbAPIComponentType.Size = new System.Drawing.Size(314, 20);
-            this.cbAPIComponentType.TabIndex = 52;
-            // 
-            // cbComponentType
-            // 
-            this.cbComponentType.Location = new System.Drawing.Point(272, 204);
-            this.cbComponentType.Name = "cbComponentType";
-            this.cbComponentType.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cbComponentType.Size = new System.Drawing.Size(314, 20);
-            this.cbComponentType.TabIndex = 51;
-            // 
             // txtComponentNumber
             // 
             this.txtComponentNumber.Location = new System.Drawing.Point(272, 177);
@@ -208,42 +193,12 @@
             this.txtComponentNumber.Size = new System.Drawing.Size(314, 20);
             this.txtComponentNumber.TabIndex = 50;
             // 
-            // txtFacility
-            // 
-            this.txtFacility.Location = new System.Drawing.Point(272, 150);
-            this.txtFacility.Name = "txtFacility";
-            this.txtFacility.Size = new System.Drawing.Size(314, 20);
-            this.txtFacility.TabIndex = 49;
-            // 
-            // txtPlant
-            // 
-            this.txtPlant.Location = new System.Drawing.Point(272, 123);
-            this.txtPlant.Name = "txtPlant";
-            this.txtPlant.Size = new System.Drawing.Size(314, 20);
-            this.txtPlant.TabIndex = 48;
-            // 
-            // txtDesignCode
-            // 
-            this.txtDesignCode.Location = new System.Drawing.Point(272, 96);
-            this.txtDesignCode.Name = "txtDesignCode";
-            this.txtDesignCode.Size = new System.Drawing.Size(314, 20);
-            this.txtDesignCode.TabIndex = 47;
-            // 
             // txtEquipmentType
             // 
             this.txtEquipmentType.Location = new System.Drawing.Point(272, 69);
             this.txtEquipmentType.Name = "txtEquipmentType";
             this.txtEquipmentType.Size = new System.Drawing.Size(314, 20);
             this.txtEquipmentType.TabIndex = 46;
-            // 
-            // cbEquipmentNumber
-            // 
-            this.cbEquipmentNumber.Location = new System.Drawing.Point(272, 42);
-            this.cbEquipmentNumber.Name = "cbEquipmentNumber";
-            this.cbEquipmentNumber.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cbEquipmentNumber.Size = new System.Drawing.Size(314, 20);
-            this.cbEquipmentNumber.TabIndex = 45;
             // 
             // comboBoxEdit1
             // 
@@ -330,9 +285,9 @@
             this.lblSite.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.lblSite.Location = new System.Drawing.Point(12, 124);
             this.lblSite.Name = "lblSite";
-            this.lblSite.Size = new System.Drawing.Size(38, 16);
+            this.lblSite.Size = new System.Drawing.Size(31, 16);
             this.lblSite.TabIndex = 36;
-            this.lblSite.Text = "Plant";
+            this.lblSite.Text = "Site";
             // 
             // lblCode
             // 
@@ -383,7 +338,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(653, 73);
+            this.panel2.Size = new System.Drawing.Size(620, 73);
             this.panel2.TabIndex = 2;
             // 
             // pictureBox1
@@ -414,27 +369,84 @@
             this.label4.TabIndex = 0;
             this.label4.Text = "Component";
             // 
-            // NewComponent
+            // cbEquipmentNumber
+            // 
+            this.cbEquipmentNumber.Location = new System.Drawing.Point(272, 42);
+            this.cbEquipmentNumber.Name = "cbEquipmentNumber";
+            this.cbEquipmentNumber.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cbEquipmentNumber.Size = new System.Drawing.Size(314, 20);
+            this.cbEquipmentNumber.TabIndex = 57;
+            // 
+            // cbDesignCode
+            // 
+            this.cbDesignCode.Location = new System.Drawing.Point(272, 96);
+            this.cbDesignCode.Name = "cbDesignCode";
+            this.cbDesignCode.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cbDesignCode.Size = new System.Drawing.Size(314, 20);
+            this.cbDesignCode.TabIndex = 58;
+            // 
+            // cbAPIComponentType
+            // 
+            this.cbAPIComponentType.Location = new System.Drawing.Point(272, 230);
+            this.cbAPIComponentType.Name = "cbAPIComponentType";
+            this.cbAPIComponentType.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cbAPIComponentType.Size = new System.Drawing.Size(314, 20);
+            this.cbAPIComponentType.TabIndex = 59;
+            // 
+            // cbComponentType
+            // 
+            this.cbComponentType.Location = new System.Drawing.Point(272, 204);
+            this.cbComponentType.Name = "cbComponentType";
+            this.cbComponentType.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cbComponentType.Size = new System.Drawing.Size(314, 20);
+            this.cbComponentType.TabIndex = 58;
+            // 
+            // cbSites
+            // 
+            this.cbSites.Location = new System.Drawing.Point(272, 120);
+            this.cbSites.Name = "cbSites";
+            this.cbSites.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cbSites.Size = new System.Drawing.Size(314, 20);
+            this.cbSites.TabIndex = 58;
+            // 
+            // cbFacility
+            // 
+            this.cbFacility.Location = new System.Drawing.Point(272, 146);
+            this.cbFacility.Name = "cbFacility";
+            this.cbFacility.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cbFacility.Size = new System.Drawing.Size(314, 20);
+            this.cbFacility.TabIndex = 58;
+            // 
+            // frmNewComponent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(653, 530);
+            this.ClientSize = new System.Drawing.Size(620, 530);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Name = "NewComponent";
+            this.Name = "frmNewComponent";
             this.Text = "Cortek";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picAPIComponent)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picComponentType)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picComponentNumber)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbAPIComponentType.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbComponentType.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbEquipmentNumber.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit1.Properties)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbEquipmentNumber.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbDesignCode.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbAPIComponentType.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbComponentType.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbSites.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbFacility.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -445,14 +457,8 @@
         private System.Windows.Forms.TextBox txtDescription;
         private System.Windows.Forms.CheckBox chkLinks;
         private System.Windows.Forms.TextBox txtComponentName;
-        private DevExpress.XtraEditors.ComboBoxEdit cbAPIComponentType;
-        private DevExpress.XtraEditors.ComboBoxEdit cbComponentType;
         private System.Windows.Forms.TextBox txtComponentNumber;
-        private System.Windows.Forms.TextBox txtFacility;
-        private System.Windows.Forms.TextBox txtPlant;
-        private System.Windows.Forms.TextBox txtDesignCode;
         private System.Windows.Forms.TextBox txtEquipmentType;
-        private DevExpress.XtraEditors.ComboBoxEdit cbEquipmentNumber;
         private DevExpress.XtraEditors.ComboBoxEdit comboBoxEdit1;
         private System.Windows.Forms.Label lblDescription;
         private System.Windows.Forms.Label lblCheck;
@@ -475,5 +481,11 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
+        private DevExpress.XtraEditors.ImageComboBoxEdit cbEquipmentNumber;
+        private DevExpress.XtraEditors.ImageComboBoxEdit cbDesignCode;
+        private DevExpress.XtraEditors.ImageComboBoxEdit cbAPIComponentType;
+        private DevExpress.XtraEditors.ImageComboBoxEdit cbComponentType;
+        private DevExpress.XtraEditors.ImageComboBoxEdit cbFacility;
+        private DevExpress.XtraEditors.ImageComboBoxEdit cbSites;
     }
 }

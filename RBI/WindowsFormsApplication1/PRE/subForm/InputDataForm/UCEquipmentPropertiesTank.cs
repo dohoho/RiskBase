@@ -141,5 +141,44 @@ namespace RBI.PRE.subForm.InputDataForm
             tank.Soil_type = cbTypeSoild.Text;
             return tank;
         }
+
+        private void txtDistanceGroundWater_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            string a = txtDistanceGroundWater.Text;
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+            if (a.Contains('.') && e.KeyChar == '.')
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtMinRequiredTemperature_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            string a = txtMinRequiredTemperature.Text;
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+            if (a.Contains('.') && e.KeyChar == '.')
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtEquipmentVolume_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            string a = txtEquipmentVolume.Text;
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+            if (a.Contains('.') && e.KeyChar == '.')
+            {
+                e.Handled = true;
+            }
+        }
     }
 }

@@ -211,7 +211,7 @@ namespace RBI.DAL.MSSQL
                           ",[GFFMedium]" +
                           ",[GFFLarge]" +
                           ",[GFFRupture]" +
-                          ",[GFFTotal" +
+                          ",[GFFTotal]" +
                           ",[HoleCostSmall]" +
                           ",[HoleCostMedium]" +
                           ",[HoleCostLarge]" +

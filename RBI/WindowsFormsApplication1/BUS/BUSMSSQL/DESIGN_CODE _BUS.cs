@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace RBI.BUS.BUSMSSQL
 {
-    class DESIGN_CODE__BUS
+    class DESIGN_CODE_BUS
     {
         DESIGN_CODE_ConnectUtils DAL = new DESIGN_CODE_ConnectUtils();
         public void add(DESIGN_CODE obj)

@@ -69,13 +69,13 @@ namespace RBI.PRE.subForm.InputDataForm
         public RW_MATERIAL getData()
         {
             RW_MATERIAL ma = new RW_MATERIAL();
+            ma.ID = 1;
             ma.MaterialName = cbPTAMaterial.Text;
             ma.DesignPressure = txtDesignPressure.Text != "" ? float.Parse(txtDesignPressure.Text) : 0;
             ma.DesignTemperature = txtMaxDesignTemperature.Text != "" ? float.Parse(txtMaxDesignTemperature.Text) : 0;
             ma.MinDesignTemperature = txtMinDesignTemperature.Text != "" ? float.Parse(txtMinDesignTemperature.Text) : 0;
             ma.BrittleFractureThickness = txtBrittleFracture.Text != "" ? float.Parse(txtBrittleFracture.Text) : 0;
             ma.CorrosionAllowance = txtCorrosionAllowance.Text != "" ? float.Parse(txtCorrosionAllowance.Text) : 0;
-            //if(tankBottom) -> hide txtSigmaPhase
             ma.SigmaPhase = txtSigmaPhase.Text != "" ? float.Parse(txtSigmaPhase.Text) : 0;
             ma.SulfurContent = cbSulfurContent.Text;
             ma.HeatTreatment = cbHeatTreatment.Text;
@@ -102,6 +102,72 @@ namespace RBI.PRE.subForm.InputDataForm
         private void chkIsPTASeverity_CheckedChanged(object sender, EventArgs e)
         {
             cbPTAMaterialGrade.Enabled = chkIsPTASeverity.Checked ? true : false;
+        }
+        private void keyPressEvent(TextBox textbox, KeyPressEventArgs ev)
+        {
+            string a = textbox.Text;
+            if (!char.IsControl(ev.KeyChar) && !char.IsDigit(ev.KeyChar) && (ev.KeyChar != '.'))
+            {
+                ev.Handled = true;
+            }
+            if (a.Contains('.') && ev.KeyChar == '.')
+            {
+                ev.Handled = true;
+            }
+        }
+        private void txtMaxDesignTemperature_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            keyPressEvent(txtMaxDesignTemperature, e);
+        }
+
+        private void txtDesignPressure_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            keyPressEvent(txtDesignPressure, e);
+        }
+
+        private void txtAllowableStress_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            keyPressEvent(txtAllowableStress, e);
+        }
+
+        private void txtCorrosionAllowance_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            keyPressEvent(txtCorrosionAllowance, e);
+        }
+
+        private void txtMinDesignTemperature_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            keyPressEvent(txtMinDesignTemperature, e);
+        }
+
+        private void txtReferenceTemperature_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            keyPressEvent(txtReferenceTemperature, e);
+        }
+
+        private void txtBrittleFracture_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            keyPressEvent(txtBrittleFracture, e);
+        }
+
+        private void txtSigmaPhase_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            keyPressEvent(txtSigmaPhase, e);
+        }
+
+        private void txtMaterialCostFactor_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            keyPressEvent(txtMaterialCostFactor, e);
+        }
+
+        private void txtSigmaPhase_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void txtSigmaPhase_Validated(object sender, EventArgs e)
+        {
+            
         }
 
     }

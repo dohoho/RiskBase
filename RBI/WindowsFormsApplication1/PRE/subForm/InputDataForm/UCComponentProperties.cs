@@ -135,6 +135,7 @@ namespace RBI.PRE.subForm.InputDataForm
         public RW_COMPONENT getData()
         {
             RW_COMPONENT comp = new RW_COMPONENT();
+            comp.ID = 1;
             comp.NominalDiameter = txtNominalDiameter.Text != "" ? float.Parse(txtNominalDiameter.Text) : 0;
             comp.NominalThickness = txtNominalThickness.Text != "" ? float.Parse(txtNominalThickness.Text) : 0;
             comp.CurrentThickness = txtCurrentThickness.Text != "" ? float.Parse(txtCurrentThickness.Text) : 0;
@@ -145,7 +146,65 @@ namespace RBI.PRE.subForm.InputDataForm
             comp.BrinnelHardness = cbMaxBrillnessHardness.Text;
             comp.CracksPresent = chkPresenceCracks.Checked ? 1 : 0;
             comp.ComplexityProtrusion = cbComplexityProtrusion.Text;
+            comp.ChemicalInjection = chkPresenceInjectionMixPoint.Checked ? 1 : 0;
+            comp.HighlyInjectionInsp = chkHighlyEffectiveMixPoint.Checked ? 1 : 0;
+            comp.CorrectiveAction = cbCorrectiveAction.Text;
+            comp.CyclicLoadingWitin15_25m = cbCyclicLoading.Text;
+            comp.DamageFoundInspection = chkDamageFoundDuringInspection.Checked ? 1 : 0;
+            comp.DeltaFATT = txtDeltaFATT.Text != "" ? float.Parse(txtDeltaFATT.Text) : 0;
+            comp.NumberPipeFittings = cbNumberFittingPipe.Text;
+            comp.PipeCondition = cbPipeCondition.Text;
+            comp.PreviousFailures = cbPreviousFailures.Text;
+            comp.ShakingAmount = cbAmountShakingPipe.Text;
+            comp.ShakingDetected = chkVisibleAudible.Checked ? 1 : 0;
+            comp.ShakingTime = cbAccumalatedTimeShakingPipe.Text;
+            comp.TrampElements = chkTrampElements.Checked ? 1 : 0;
+            //comp.ShellHeight cua shell
+            //comp.ReleasePreventionBarrier =  cua tank
+            //comp.ConcreteFoundation = cua tank bottom
+            //comp.SeverityOfVibration cua tank
             return comp;
+        }
+        private void keyPressEvent(TextBox textbox, KeyPressEventArgs ev)
+        {
+            string a = textbox.Text;
+            if (!char.IsControl(ev.KeyChar) && !char.IsDigit(ev.KeyChar) && (ev.KeyChar != '.'))
+            {
+                ev.Handled = true;
+            }
+            if (a.Contains('.') && ev.KeyChar == '.')
+            {
+                ev.Handled = true;
+            }
+        }
+        private void txtNominalDiameter_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            keyPressEvent(txtNominalDiameter, e);
+        }
+
+        private void txtCurrentThickness_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            keyPressEvent(txtCurrentThickness, e);
+        }
+
+        private void txtCurrentCorrosionRate_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            keyPressEvent(txtCurrentCorrosionRate, e);
+        }
+
+        private void txtNominalThickness_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            keyPressEvent(txtNominalThickness, e);
+        }
+
+        private void txtMinRequiredThickness_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            keyPressEvent(txtMinRequiredThickness, e);
+        }
+
+        private void txtDeltaFATT_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            keyPressEvent(txtDeltaFATT, e);
         }
         
     }

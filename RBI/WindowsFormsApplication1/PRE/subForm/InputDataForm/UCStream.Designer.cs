@@ -30,8 +30,6 @@
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.cbAmineSolutionComposition = new DevExpress.XtraEditors.ImageComboBoxEdit();
-            this.cbExposureAmine = new DevExpress.XtraEditors.ImageComboBoxEdit();
             this.chkToxicConstituents = new System.Windows.Forms.CheckBox();
             this.chkProcessContainsHydrogen = new System.Windows.Forms.CheckBox();
             this.chkExposedSulphurBearing = new System.Windows.Forms.CheckBox();
@@ -74,13 +72,15 @@
             this.label2 = new System.Windows.Forms.Label();
             this.btnEditPrimaryFuid = new DevExpress.XtraEditors.ButtonEdit();
             this.label1 = new System.Windows.Forms.Label();
+            this.cbExposureAmine = new DevExpress.XtraEditors.ImageComboBoxEdit();
+            this.cbAmineSolutionComposition = new DevExpress.XtraEditors.ImageComboBoxEdit();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cbAmineSolutionComposition.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbExposureAmine.Properties)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnEditMostVolatileFluid.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnEditPrimaryFuid.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbExposureAmine.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbAmineSolutionComposition.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -143,28 +143,6 @@
             this.groupBox3.TabIndex = 1;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Environment Condition";
-            // 
-            // cbAmineSolutionComposition
-            // 
-            this.cbAmineSolutionComposition.Location = new System.Drawing.Point(251, 161);
-            this.cbAmineSolutionComposition.Name = "cbAmineSolutionComposition";
-            this.cbAmineSolutionComposition.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbAmineSolutionComposition.Properties.Appearance.Options.UseFont = true;
-            this.cbAmineSolutionComposition.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cbAmineSolutionComposition.Size = new System.Drawing.Size(436, 20);
-            this.cbAmineSolutionComposition.TabIndex = 5;
-            // 
-            // cbExposureAmine
-            // 
-            this.cbExposureAmine.Location = new System.Drawing.Point(251, 135);
-            this.cbExposureAmine.Name = "cbExposureAmine";
-            this.cbExposureAmine.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbExposureAmine.Properties.Appearance.Options.UseFont = true;
-            this.cbExposureAmine.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cbExposureAmine.Size = new System.Drawing.Size(436, 20);
-            this.cbExposureAmine.TabIndex = 6;
             // 
             // chkToxicConstituents
             // 
@@ -283,6 +261,7 @@
             this.txtpHWater.Name = "txtpHWater";
             this.txtpHWater.Size = new System.Drawing.Size(170, 21);
             this.txtpHWater.TabIndex = 1;
+            this.txtpHWater.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtpHWater_KeyPress);
             // 
             // label12
             // 
@@ -401,6 +380,7 @@
             this.txtCO3ConcentrationWater.Name = "txtCO3ConcentrationWater";
             this.txtCO3ConcentrationWater.Size = new System.Drawing.Size(170, 21);
             this.txtCO3ConcentrationWater.TabIndex = 1;
+            this.txtCO3ConcentrationWater.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCO3ConcentrationWater_KeyPress);
             // 
             // label14
             // 
@@ -442,6 +422,7 @@
             this.txtReleaseFluidPercent.Name = "txtReleaseFluidPercent";
             this.txtReleaseFluidPercent.Size = new System.Drawing.Size(170, 21);
             this.txtReleaseFluidPercent.TabIndex = 1;
+            this.txtReleaseFluidPercent.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtReleaseFluidPercent_KeyPress);
             // 
             // label
             // 
@@ -460,6 +441,7 @@
             this.txtH2SContentInWater.Name = "txtH2SContentInWater";
             this.txtH2SContentInWater.Size = new System.Drawing.Size(170, 21);
             this.txtH2SContentInWater.TabIndex = 1;
+            this.txtH2SContentInWater.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtH2SContentInWater_KeyPress);
             // 
             // label7
             // 
@@ -478,6 +460,7 @@
             this.txtChlorideIon.Name = "txtChlorideIon";
             this.txtChlorideIon.Size = new System.Drawing.Size(170, 21);
             this.txtChlorideIon.TabIndex = 1;
+            this.txtChlorideIon.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtChlorideIon_KeyPress);
             // 
             // label6
             // 
@@ -496,6 +479,7 @@
             this.txtNaOHConcentration.Name = "txtNaOHConcentration";
             this.txtNaOHConcentration.Size = new System.Drawing.Size(170, 21);
             this.txtNaOHConcentration.TabIndex = 1;
+            this.txtNaOHConcentration.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNaOHConcentration_KeyPress);
             // 
             // label5
             // 
@@ -581,6 +565,24 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Primary Fluid";
             // 
+            // cbExposureAmine
+            // 
+            this.cbExposureAmine.Location = new System.Drawing.Point(251, 159);
+            this.cbExposureAmine.Name = "cbExposureAmine";
+            this.cbExposureAmine.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cbExposureAmine.Size = new System.Drawing.Size(437, 20);
+            this.cbExposureAmine.TabIndex = 3;
+            // 
+            // cbAmineSolutionComposition
+            // 
+            this.cbAmineSolutionComposition.Location = new System.Drawing.Point(250, 128);
+            this.cbAmineSolutionComposition.Name = "cbAmineSolutionComposition";
+            this.cbAmineSolutionComposition.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cbAmineSolutionComposition.Size = new System.Drawing.Size(437, 20);
+            this.cbAmineSolutionComposition.TabIndex = 3;
+            // 
             // UCStream
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -591,12 +593,12 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cbAmineSolutionComposition.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbExposureAmine.Properties)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnEditMostVolatileFluid.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnEditPrimaryFuid.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbExposureAmine.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbAmineSolutionComposition.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -645,9 +647,9 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.CheckBox chkToxicConstituents;
         private System.Windows.Forms.Label label11;
-        private DevExpress.XtraEditors.ImageComboBoxEdit cbAmineSolutionComposition;
-        private DevExpress.XtraEditors.ImageComboBoxEdit cbExposureAmine;
         private DevExpress.XtraEditors.ButtonEdit btnEditMostVolatileFluid;
         private DevExpress.XtraEditors.ButtonEdit btnEditPrimaryFuid;
+        private DevExpress.XtraEditors.ImageComboBoxEdit cbAmineSolutionComposition;
+        private DevExpress.XtraEditors.ImageComboBoxEdit cbExposureAmine;
     }
 }

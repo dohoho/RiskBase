@@ -30,7 +30,7 @@ using RBI.Object.ObjectMSSQL;
 using RBI.PRE.subForm.InputDataForm;
 using RBI.BUS.BUSMSSQL_CAL;
 using RBI.PRE.subForm.OutputDataForm;
-
+using RBI.BUS.BUSMSSQL;
 using DevExpress.Spreadsheet;
 using DevExpress.XtraSpreadsheet;
 namespace RBI
@@ -161,7 +161,7 @@ namespace RBI
         RBI.PRE.subForm.InputDataForm.frmNewSite site;
         private void addNewSiteNode()
         {
-            if (siteName == null || siteName == "") return;
+           // if (siteName == null || siteName == "") return;
             treeListProject.BeginUpdate();
             TreeListColumn col1 = treeListProject.Columns.Add();
             col1.Caption = "List";
@@ -296,13 +296,100 @@ namespace RBI
                 //Calculation();
                 //Calculation_Excel();
                 //Calculation_CA();
-                Calculation_CA_TANK();
+                //Calculation_CA_TANK();
+                EditDataEquipment();
+                AddDataAssessment();
+                EditDataComponent();
+                //EditDataMaterial();
+                //EditDataStream();
+                //EditDataCoating();
+                MessageBox.Show("Edit success", "Cortek RBI");
             }
             catch(Exception ex)
             {
                 MessageBox.Show("Chưa tính được" + ex.ToString(), "Cortek RBI");
             }
         }
+        #region Add Data to Database
+        private void AddDataAssessment()
+        {
+            RW_ASSESSMENT_BUS assBus = new RW_ASSESSMENT_BUS();
+            RW_ASSESSMENT assAddData = new RW_ASSESSMENT();
+            assAddData = ass.getData();
+            assBus.add(assAddData);
+        }
+        private void EditDataEquipment()
+        {
+            RW_EQUIPMENT_BUS eqBus = new RW_EQUIPMENT_BUS();
+            eqBus.edit(eq.getData());
+        }
+        private void EditDataComponent()
+        {
+            RW_COMPONENT_BUS compBus = new RW_COMPONENT_BUS();
+            compBus.edit(comp.getData());
+        }
+        private void EditDataMaterial()
+        {
+            RW_MATERIAL_BUS mateBus = new RW_MATERIAL_BUS();
+            mateBus.edit(ma.getData());
+        }
+        private void EditDataStream()
+        {
+            RW_STREAM_BUS stDataBus = new RW_STREAM_BUS();
+            RW_STREAM stData = new RW_STREAM();
+
+            RW_STREAM _stData1 = new RW_STREAM();
+            RW_STREAM _stData2 = new RW_STREAM();
+
+            _stData1 = st.getData();
+            _stData2 = op.getData();
+            stData.ID = _stData1.ID;
+            stData.AmineSolution = _stData1.AmineSolution;
+            stData.AqueousOperation = _stData1.AqueousOperation;
+            stData.AqueousShutdown = _stData1.AqueousShutdown;
+            stData.ToxicConstituent = _stData1.ToxicConstituent;
+            stData.Caustic = _stData1.Caustic;
+            stData.Chloride = _stData1.Chloride;
+            stData.CO3Concentration = _stData1.CO3Concentration;
+            stData.Cyanide = _stData1.Cyanide;
+            stData.ExposedToGasAmine = _stData1.ExposedToGasAmine;
+            stData.ExposedToSulphur = _stData1.ExposedToSulphur;
+            stData.ExposureToAmine = _stData1.ExposureToAmine;
+            stData.H2S = _stData1.H2S;
+            stData.H2SInWater = _stData1.H2SInWater;
+            stData.Hydrogen = _stData1.Hydrogen;
+            stData.Hydrofluoric = _stData1.Hydrofluoric;
+            stData.MaterialExposedToClInt = _stData1.MaterialExposedToClInt;
+            stData.NaOHConcentration = _stData1.NaOHConcentration;
+            stData.ReleaseFluidPercentToxic = _stData1.ReleaseFluidPercentToxic;
+            stData.WaterpH = _stData1.WaterpH;
+            stData.FlowRate = _stData2.FlowRate;
+            stData.MaxOperatingPressure = _stData2.MaxOperatingPressure;
+            stData.MinOperatingPressure = _stData2.MinOperatingPressure ; 
+            stData.MaxOperatingTemperature =_stData2.MaxOperatingTemperature;
+            stData.MinOperatingTemperature = _stData2.MinOperatingTemperature;
+            stData.CriticalExposureTemperature = _stData2.CriticalExposureTemperature;
+            stData.H2SPartialPressure = _stData2.H2SPartialPressure;
+            stData.CUI_PERCENT_1 = _stData2.CUI_PERCENT_1;
+            stData.CUI_PERCENT_2 = _stData2.CUI_PERCENT_2;
+            stData.CUI_PERCENT_3 = _stData2.CUI_PERCENT_3;
+            stData.CUI_PERCENT_4 = _stData2.CUI_PERCENT_4;
+            stData.CUI_PERCENT_5 = _stData2.CUI_PERCENT_5;
+            stData.CUI_PERCENT_6 = _stData2.CUI_PERCENT_6;
+            stData.CUI_PERCENT_7 = _stData2.CUI_PERCENT_7;
+            stData.CUI_PERCENT_8 = _stData2.CUI_PERCENT_8;
+            stData.CUI_PERCENT_9 = _stData2.CUI_PERCENT_9;
+            stData.CUI_PERCENT_10 = _stData2.CUI_PERCENT_10;
+            stDataBus.edit(stData);
+
+        }
+        private void EditDataCoating()
+        {
+            RW_COATING_BUS coatingBus = new RW_COATING_BUS();
+            coatingBus.edit(coat.getData());
+        }
+        #endregion
+
         UCCoatLiningIsulationCladding coat = new UCCoatLiningIsulationCladding();
         UCAssessmentInfo ass = new UCAssessmentInfo();
         UCComponentProperties comp = new UCComponentProperties();
@@ -330,28 +417,28 @@ namespace RBI
 
         private void navEquipment_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
-            //if (xtraTabData.SelectedTabPageIndex == 0) return;
-            //if (xtraTabData.TabPages.TabControl.SelectedTabPage.Controls.Contains(eq)) return;
-            //xtraTabData.TabPages.TabControl.SelectedTabPage.Controls.Clear();
-            //xtraTabData.TabPages.TabControl.SelectedTabPage.Controls.Add(eq);
-
             if (xtraTabData.SelectedTabPageIndex == 0) return;
-            if (xtraTabData.TabPages.TabControl.SelectedTabPage.Controls.Contains(eqTank)) return;
+            if (xtraTabData.TabPages.TabControl.SelectedTabPage.Controls.Contains(eq)) return;
             xtraTabData.TabPages.TabControl.SelectedTabPage.Controls.Clear();
-            xtraTabData.TabPages.TabControl.SelectedTabPage.Controls.Add(eqTank);
+            xtraTabData.TabPages.TabControl.SelectedTabPage.Controls.Add(eq);
+
+            //if (xtraTabData.SelectedTabPageIndex == 0) return;
+            //if (xtraTabData.TabPages.TabControl.SelectedTabPage.Controls.Contains(eqTank)) return;
+            //xtraTabData.TabPages.TabControl.SelectedTabPage.Controls.Clear();
+            //xtraTabData.TabPages.TabControl.SelectedTabPage.Controls.Add(eqTank);
         }
 
         private void navComponent_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
-            //if (xtraTabData.SelectedTabPageIndex == 0) return;
-            //if (xtraTabData.TabPages.TabControl.SelectedTabPage.Controls.Contains(comp)) return;
-            //xtraTabData.TabPages.TabControl.SelectedTabPage.Controls.Clear();
-            //xtraTabData.TabPages.TabControl.SelectedTabPage.Controls.Add(comp);
-
             if (xtraTabData.SelectedTabPageIndex == 0) return;
-            if (xtraTabData.TabPages.TabControl.SelectedTabPage.Controls.Contains(compTank)) return;
+            if (xtraTabData.TabPages.TabControl.SelectedTabPage.Controls.Contains(comp)) return;
             xtraTabData.TabPages.TabControl.SelectedTabPage.Controls.Clear();
-            xtraTabData.TabPages.TabControl.SelectedTabPage.Controls.Add(compTank);
+            xtraTabData.TabPages.TabControl.SelectedTabPage.Controls.Add(comp);
+
+            //if (xtraTabData.SelectedTabPageIndex == 0) return;
+            //if (xtraTabData.TabPages.TabControl.SelectedTabPage.Controls.Contains(compTank)) return;
+            //xtraTabData.TabPages.TabControl.SelectedTabPage.Controls.Clear();
+            //xtraTabData.TabPages.TabControl.SelectedTabPage.Controls.Add(compTank);
         }
 
         private void navOperating_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
@@ -364,15 +451,15 @@ namespace RBI
 
         private void navMaterial_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
-            //if (xtraTabData.SelectedTabPageIndex == 0) return;
-            //if (xtraTabData.TabPages.TabControl.SelectedTabPage.Controls.Contains(ma)) return;
-            //xtraTabData.TabPages.TabControl.SelectedTabPage.Controls.Clear();
-            //xtraTabData.TabPages.TabControl.SelectedTabPage.Controls.Add(ma);
-
             if (xtraTabData.SelectedTabPageIndex == 0) return;
-            if (xtraTabData.TabPages.TabControl.SelectedTabPage.Controls.Contains(maTank)) return;
+            if (xtraTabData.TabPages.TabControl.SelectedTabPage.Controls.Contains(ma)) return;
             xtraTabData.TabPages.TabControl.SelectedTabPage.Controls.Clear();
-            xtraTabData.TabPages.TabControl.SelectedTabPage.Controls.Add(maTank);
+            xtraTabData.TabPages.TabControl.SelectedTabPage.Controls.Add(ma);
+
+            //if (xtraTabData.SelectedTabPageIndex == 0) return;
+            //if (xtraTabData.TabPages.TabControl.SelectedTabPage.Controls.Contains(maTank)) return;
+            //xtraTabData.TabPages.TabControl.SelectedTabPage.Controls.Clear();
+            //xtraTabData.TabPages.TabControl.SelectedTabPage.Controls.Add(maTank);
         }
 
         private void navCoating_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
@@ -393,15 +480,15 @@ namespace RBI
 
         private void navStream_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
-            //if (xtraTabData.SelectedTabPageIndex == 0) return;
-            //if (xtraTabData.TabPages.TabControl.SelectedTabPage.Controls.Contains(st)) return;
-            //xtraTabData.TabPages.TabControl.SelectedTabPage.Controls.Clear();
-            //xtraTabData.TabPages.TabControl.SelectedTabPage.Controls.Add(st);
-
             if (xtraTabData.SelectedTabPageIndex == 0) return;
-            if (xtraTabData.TabPages.TabControl.SelectedTabPage.Controls.Contains(stTank)) return;
+            if (xtraTabData.TabPages.TabControl.SelectedTabPage.Controls.Contains(st)) return;
             xtraTabData.TabPages.TabControl.SelectedTabPage.Controls.Clear();
-            xtraTabData.TabPages.TabControl.SelectedTabPage.Controls.Add(stTank);
+            xtraTabData.TabPages.TabControl.SelectedTabPage.Controls.Add(st);
+
+            //if (xtraTabData.SelectedTabPageIndex == 0) return;
+            //if (xtraTabData.TabPages.TabControl.SelectedTabPage.Controls.Contains(stTank)) return;
+            //xtraTabData.TabPages.TabControl.SelectedTabPage.Controls.Clear();
+            //xtraTabData.TabPages.TabControl.SelectedTabPage.Controls.Add(stTank);
         }
         private void navRiskFactor_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
@@ -441,13 +528,17 @@ namespace RBI
             }
             string _tabname = "tab" + tabname.Split(' ');
             DevExpress.XtraTab.XtraTabPage tabPage = new DevExpress.XtraTab.XtraTabPage();
+            tabPage.AutoScroll = true;
+            tabPage.AutoScrollMargin = new Size(20, 20);
+            tabPage.AutoScrollMinSize = new Size(tabPage.Width, tabPage.Height);
+
             if (tabPage.Name.Equals(_tabname))
                 tabPage.Show();
             else
                 tabPage.Name = _tabname;
             tabPage.Text = tabname;
             tabPage.Controls.Add(uc);
-            uc.Dock = DockStyle.Fill;
+            uc.AutoSize = true;
             if (xtraTabData.TabPages.Contains(tabPage)) return;
             xtraTabData.TabPages.Add(tabPage);
             tabPage.Show();
@@ -1078,6 +1169,7 @@ namespace RBI
                             //"\nFC Total Shell: " + CA.FC_total_shell() 
                             );
         }
+        
         //</Calculation>
         private String checkCatalog(String a)
         {
@@ -1376,6 +1468,7 @@ namespace RBI
         {
             createReportExcel();
         }
+        
           
     }
 }

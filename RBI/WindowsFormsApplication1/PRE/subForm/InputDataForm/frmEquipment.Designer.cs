@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmEquipment));
             this.panel1 = new System.Windows.Forms.Panel();
             this.cbEquipmentType = new DevExpress.XtraEditors.ImageComboBoxEdit();
             this.cbFacility = new DevExpress.XtraEditors.ImageComboBoxEdit();
             this.cbSite = new DevExpress.XtraEditors.ImageComboBoxEdit();
-            this.buttonEdit1 = new DevExpress.XtraEditors.ButtonEdit();
+            this.btneditDesignCode = new DevExpress.XtraEditors.ButtonEdit();
             this.picCommissionDate = new System.Windows.Forms.PictureBox();
             this.picManufacturer = new System.Windows.Forms.PictureBox();
             this.picDesignCode = new System.Windows.Forms.PictureBox();
@@ -73,7 +73,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.cbEquipmentType.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbFacility.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbSite.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.buttonEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btneditDesignCode.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picCommissionDate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picManufacturer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picDesignCode)).BeginInit();
@@ -94,7 +94,7 @@
             this.panel1.Controls.Add(this.cbEquipmentType);
             this.panel1.Controls.Add(this.cbFacility);
             this.panel1.Controls.Add(this.cbSite);
-            this.panel1.Controls.Add(this.buttonEdit1);
+            this.panel1.Controls.Add(this.btneditDesignCode);
             this.panel1.Controls.Add(this.picCommissionDate);
             this.panel1.Controls.Add(this.picManufacturer);
             this.panel1.Controls.Add(this.picDesignCode);
@@ -137,6 +137,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cbEquipmentType.Size = new System.Drawing.Size(307, 20);
             this.cbEquipmentType.TabIndex = 80;
+            this.cbEquipmentType.TextChanged += new System.EventHandler(this.cbEquipmentType_TextChanged);
             // 
             // cbFacility
             // 
@@ -156,17 +157,17 @@
             this.cbSite.Size = new System.Drawing.Size(307, 20);
             this.cbSite.TabIndex = 79;
             // 
-            // buttonEdit1
+            // btneditDesignCode
             // 
-            this.buttonEdit1.Location = new System.Drawing.Point(212, 112);
-            this.buttonEdit1.Name = "buttonEdit1";
-            editorButtonImageOptions2.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions2.Image")));
-            editorButtonImageOptions2.ImageIndex = 0;
-            editorButtonImageOptions2.ImageToTextIndent = 0;
-            this.buttonEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), "Click to add new Design code")});
-            this.buttonEdit1.Size = new System.Drawing.Size(307, 20);
-            this.buttonEdit1.TabIndex = 78;
+            this.btneditDesignCode.Location = new System.Drawing.Point(212, 112);
+            this.btneditDesignCode.Name = "btneditDesignCode";
+            editorButtonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions1.Image")));
+            editorButtonImageOptions1.ImageIndex = 0;
+            editorButtonImageOptions1.ImageToTextIndent = 0;
+            this.btneditDesignCode.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), "Click to add new Design code")});
+            this.btneditDesignCode.Size = new System.Drawing.Size(307, 20);
+            this.btneditDesignCode.TabIndex = 78;
             // 
             // picCommissionDate
             // 
@@ -246,6 +247,7 @@
             this.dateCommission.Properties.CalendarTimeProperties.Mask.EditMask = "g";
             this.dateCommission.Size = new System.Drawing.Size(309, 20);
             this.dateCommission.TabIndex = 75;
+            this.dateCommission.TextChanged += new System.EventHandler(this.dateCommission_TextChanged);
             // 
             // label3
             // 
@@ -279,6 +281,7 @@
             this.txtEquipmentNumber.Size = new System.Drawing.Size(307, 20);
             this.txtEquipmentNumber.TabIndex = 60;
             this.txtEquipmentNumber.TextChanged += new System.EventHandler(this.txtEquipmentNumber_TextChanged);
+            this.txtEquipmentNumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtEquipmentNumber_KeyPress);
             // 
             // txtEquipmentName
             // 
@@ -302,6 +305,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cbManufacturer.Size = new System.Drawing.Size(307, 20);
             this.cbManufacturer.TabIndex = 56;
+            this.cbManufacturer.TextChanged += new System.EventHandler(this.cbManufacturer_TextChanged);
             // 
             // comboBoxEdit1
             // 
@@ -486,7 +490,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.cbEquipmentType.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbFacility.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbSite.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.buttonEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btneditDesignCode.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picCommissionDate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picManufacturer)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picDesignCode)).EndInit();
@@ -539,7 +543,7 @@
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnOK;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private DevExpress.XtraEditors.ButtonEdit buttonEdit1;
+        private DevExpress.XtraEditors.ButtonEdit btneditDesignCode;
         private DevExpress.Utils.Behaviors.BehaviorManager behaviorManager1;
         private DevExpress.XtraEditors.ImageComboBoxEdit cbFacility;
         private DevExpress.XtraEditors.ImageComboBoxEdit cbSite;

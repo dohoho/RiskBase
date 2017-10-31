@@ -258,6 +258,7 @@
             this.txtOp176.Name = "txtOp176";
             this.txtOp176.Size = new System.Drawing.Size(117, 21);
             this.txtOp176.TabIndex = 8;
+            this.txtOp176.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtOp176_KeyPress);
             // 
             // txtOp162
             // 
@@ -266,6 +267,7 @@
             this.txtOp162.Name = "txtOp162";
             this.txtOp162.Size = new System.Drawing.Size(117, 21);
             this.txtOp162.TabIndex = 9;
+            this.txtOp162.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtOp162_KeyPress);
             // 
             // txtOp135
             // 
@@ -274,6 +276,7 @@
             this.txtOp135.Name = "txtOp135";
             this.txtOp135.Size = new System.Drawing.Size(117, 21);
             this.txtOp135.TabIndex = 10;
+            this.txtOp135.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtOp135_KeyPress);
             // 
             // label34
             // 
@@ -293,6 +296,7 @@
             this.txtOp121.Name = "txtOp121";
             this.txtOp121.Size = new System.Drawing.Size(117, 21);
             this.txtOp121.TabIndex = 11;
+            this.txtOp121.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtOp121_KeyPress);
             // 
             // txtOp107
             // 
@@ -301,6 +305,7 @@
             this.txtOp107.Name = "txtOp107";
             this.txtOp107.Size = new System.Drawing.Size(117, 21);
             this.txtOp107.TabIndex = 12;
+            this.txtOp107.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtOp107_KeyPress);
             // 
             // label22
             // 
@@ -403,6 +408,7 @@
             this.txtOp71.Name = "txtOp71";
             this.txtOp71.Size = new System.Drawing.Size(117, 21);
             this.txtOp71.TabIndex = 1;
+            this.txtOp71.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtOp71_KeyPress);
             // 
             // txtOp32
             // 
@@ -411,6 +417,7 @@
             this.txtOp32.Name = "txtOp32";
             this.txtOp32.Size = new System.Drawing.Size(117, 21);
             this.txtOp32.TabIndex = 1;
+            this.txtOp32.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtOp32_KeyPress);
             // 
             // txtOp6
             // 
@@ -419,6 +426,7 @@
             this.txtOp6.Name = "txtOp6";
             this.txtOp6.Size = new System.Drawing.Size(117, 21);
             this.txtOp6.TabIndex = 1;
+            this.txtOp6.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtOp6_KeyPress);
             // 
             // label15
             // 
@@ -438,6 +446,7 @@
             this.txtOp8.Name = "txtOp8";
             this.txtOp8.Size = new System.Drawing.Size(117, 21);
             this.txtOp8.TabIndex = 1;
+            this.txtOp8.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtOp8_KeyPress);
             // 
             // txtOp12
             // 
@@ -446,6 +455,7 @@
             this.txtOp12.Name = "txtOp12";
             this.txtOp12.Size = new System.Drawing.Size(117, 21);
             this.txtOp12.TabIndex = 1;
+            this.txtOp12.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtOp12_KeyPress);
             // 
             // label7
             // 
@@ -530,6 +540,7 @@
             this.txtCriticalExposure.Name = "txtCriticalExposure";
             this.txtCriticalExposure.Size = new System.Drawing.Size(117, 21);
             this.txtCriticalExposure.TabIndex = 1;
+            this.txtCriticalExposure.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCriticalExposure_KeyPress);
             // 
             // label4
             // 
@@ -549,6 +560,7 @@
             this.txtOperatingHydrogen.Name = "txtOperatingHydrogen";
             this.txtOperatingHydrogen.Size = new System.Drawing.Size(117, 21);
             this.txtOperatingHydrogen.TabIndex = 1;
+            this.txtOperatingHydrogen.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtOperatingHydrogen_KeyPress);
             // 
             // label3
             // 
@@ -568,6 +580,7 @@
             this.txtMinimumOperatingTemp.Name = "txtMinimumOperatingTemp";
             this.txtMinimumOperatingTemp.Size = new System.Drawing.Size(117, 21);
             this.txtMinimumOperatingTemp.TabIndex = 1;
+            this.txtMinimumOperatingTemp.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMinimumOperatingTemp_KeyPress);
             // 
             // label2
             // 
@@ -587,6 +600,7 @@
             this.txtFlowRate.Name = "txtFlowRate";
             this.txtFlowRate.Size = new System.Drawing.Size(117, 21);
             this.txtFlowRate.TabIndex = 1;
+            this.txtFlowRate.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFlowRate_KeyPress);
             // 
             // label13
             // 
@@ -606,6 +620,7 @@
             this.txtMinOperatingPressure.Name = "txtMinOperatingPressure";
             this.txtMinOperatingPressure.Size = new System.Drawing.Size(117, 21);
             this.txtMinOperatingPressure.TabIndex = 1;
+            this.txtMinOperatingPressure.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMinOperatingPressure_KeyPress);
             // 
             // label11
             // 
@@ -625,6 +640,7 @@
             this.txtMaxOperatingPressure.Name = "txtMaxOperatingPressure";
             this.txtMaxOperatingPressure.Size = new System.Drawing.Size(117, 21);
             this.txtMaxOperatingPressure.TabIndex = 1;
+            this.txtMaxOperatingPressure.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMaxOperatingPressure_KeyPress);
             // 
             // label8
             // 
@@ -644,6 +660,7 @@
             this.txtMaximumOperatingTemp.Name = "txtMaximumOperatingTemp";
             this.txtMaximumOperatingTemp.Size = new System.Drawing.Size(117, 21);
             this.txtMaximumOperatingTemp.TabIndex = 1;
+            this.txtMaximumOperatingTemp.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMaximumOperatingTemp_KeyPress);
             // 
             // label1
             // 

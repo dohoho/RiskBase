@@ -139,7 +139,7 @@
     <Compile Include="BUS\BUSMSSQL\REPORT_TEMPLATE_BUS.cs" />
     <Compile Include="BUS\BUSMSSQL\REPORT_TEMPLATE_COMPONENT_DEFAULT_BUS.cs" />
     <Compile Include="BUS\BUSMSSQL\REPORT_TEMPLATE_EQUIPMENT_BUS.cs" />
-    <Compile Include="BUS\BUSMSSQL\RW_ASSESSMEN_BUS.cs" />
+    <Compile Include="BUS\BUSMSSQL\RW_ASSESSMENT_BUS.cs" />
     <Compile Include="BUS\BUSMSSQL\RW_CF_MASTER_BUS.cs" />
     <Compile Include="BUS\BUSMSSQL\RW_COATING_BUS.cs" />
     <Compile Include="BUS\BUSMSSQL\RW_COMPONENT_BUS.cs" />

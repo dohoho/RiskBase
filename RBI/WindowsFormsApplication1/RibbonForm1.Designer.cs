@@ -549,10 +549,10 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.xtraTabData.ClosePageButtonShowMode = DevExpress.XtraTab.ClosePageButtonShowMode.InActiveTabPageAndTabControlHeader;
-            this.xtraTabData.Location = new System.Drawing.Point(375, 152);
+            this.xtraTabData.Location = new System.Drawing.Point(362, 152);
             this.xtraTabData.Name = "xtraTabData";
             this.xtraTabData.SelectedTabPage = this.xTabHome;
-            this.xtraTabData.Size = new System.Drawing.Size(721, 511);
+            this.xtraTabData.Size = new System.Drawing.Size(734, 511);
             this.xtraTabData.TabIndex = 2;
             this.xtraTabData.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.xTabHome});
@@ -569,7 +569,7 @@
             this.xTabHome.Controls.Add(this.simpleButton5);
             this.xTabHome.Name = "xTabHome";
             this.xTabHome.ShowCloseButton = DevExpress.Utils.DefaultBoolean.False;
-            this.xTabHome.Size = new System.Drawing.Size(719, 486);
+            this.xTabHome.Size = new System.Drawing.Size(732, 486);
             this.xTabHome.Text = "Home";
             // 
             // simpleButton7

@@ -9,14 +9,16 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using RBI.DAL.MSSQL_CAL;
+using System.Diagnostics;
 namespace RBI
 {
     public partial class test : Form
     {
+        public DateTime date { set; get; }
         public test()
         {
             InitializeComponent();
-           
+            Debug.WriteLine("date time " + date);
         }
 
         private void button1_Click(object sender, EventArgs e)

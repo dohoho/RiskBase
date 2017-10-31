@@ -39,5 +39,53 @@ namespace RBI.PRE.subForm.InputDataForm
             tank.SHELL_COURSE_HEIGHT = txtShellCourseHeight.Text != "" ? float.Parse(txtShellCourseHeight.Text) : 0;
             return tank;
         }
+        private void keyPressEvent(TextBox textbox, KeyPressEventArgs ev)
+        {
+            string a = textbox.Text;
+            if (!char.IsControl(ev.KeyChar) && !char.IsDigit(ev.KeyChar) && (ev.KeyChar != '.'))
+            {
+                ev.Handled = true;
+            }
+            if (a.Contains('.') && ev.KeyChar == '.')
+            {
+                ev.Handled = true;
+            }
+        }
+
+        private void txtTankDiameter_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            keyPressEvent(txtTankDiameter, e);
+        }
+
+        private void txtCurrentThickness_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            keyPressEvent(txtCurrentThickness, e);
+        }
+
+        private void txtCurrentCorrosionRate_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            keyPressEvent(txtCurrentCorrosionRate, e);
+        }
+
+        private void txtShellCourseHeight_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            keyPressEvent(txtShellCourseHeight, e);
+        }
+
+        private void txtNominalThickness_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            keyPressEvent(txtNominalThickness, e);
+        }
+
+        private void txtMinRequiredThickness_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            keyPressEvent(txtMinRequiredThickness, e);
+        }
+
+        private void txtNumberInsp_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            keyPressEvent(txtNumberInsp, e);
+        }
+
     }
 }

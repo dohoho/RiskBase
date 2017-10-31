@@ -346,6 +346,9 @@
             this.txtSigmaPhase.Name = "txtSigmaPhase";
             this.txtSigmaPhase.Size = new System.Drawing.Size(138, 21);
             this.txtSigmaPhase.TabIndex = 1;
+            this.txtSigmaPhase.TextChanged += new System.EventHandler(this.txtSigmaPhase_TextChanged);
+            this.txtSigmaPhase.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSigmaPhase_KeyPress);
+            this.txtSigmaPhase.Validated += new System.EventHandler(this.txtSigmaPhase_Validated);
             // 
             // txtBrittleFracture
             // 
@@ -354,6 +357,7 @@
             this.txtBrittleFracture.Name = "txtBrittleFracture";
             this.txtBrittleFracture.Size = new System.Drawing.Size(138, 21);
             this.txtBrittleFracture.TabIndex = 1;
+            this.txtBrittleFracture.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBrittleFracture_KeyPress);
             // 
             // txtAllowableStress
             // 
@@ -362,6 +366,7 @@
             this.txtAllowableStress.Name = "txtAllowableStress";
             this.txtAllowableStress.Size = new System.Drawing.Size(138, 21);
             this.txtAllowableStress.TabIndex = 1;
+            this.txtAllowableStress.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAllowableStress_KeyPress);
             // 
             // label16
             // 
@@ -380,6 +385,7 @@
             this.txtReferenceTemperature.Name = "txtReferenceTemperature";
             this.txtReferenceTemperature.Size = new System.Drawing.Size(138, 21);
             this.txtReferenceTemperature.TabIndex = 1;
+            this.txtReferenceTemperature.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtReferenceTemperature_KeyPress);
             // 
             // label9
             // 
@@ -393,10 +399,12 @@
             // 
             // txtMaterialCostFactor
             // 
+            this.txtMaterialCostFactor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMaterialCostFactor.Location = new System.Drawing.Point(172, 425);
             this.txtMaterialCostFactor.Name = "txtMaterialCostFactor";
-            this.txtMaterialCostFactor.Size = new System.Drawing.Size(138, 20);
+            this.txtMaterialCostFactor.Size = new System.Drawing.Size(138, 21);
             this.txtMaterialCostFactor.TabIndex = 1;
+            this.txtMaterialCostFactor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMaterialCostFactor_KeyPress);
             // 
             // txtCorrosionAllowance
             // 
@@ -405,6 +413,7 @@
             this.txtCorrosionAllowance.Name = "txtCorrosionAllowance";
             this.txtCorrosionAllowance.Size = new System.Drawing.Size(138, 21);
             this.txtCorrosionAllowance.TabIndex = 1;
+            this.txtCorrosionAllowance.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCorrosionAllowance_KeyPress);
             // 
             // txtDesignPressure
             // 
@@ -413,6 +422,7 @@
             this.txtDesignPressure.Name = "txtDesignPressure";
             this.txtDesignPressure.Size = new System.Drawing.Size(138, 21);
             this.txtDesignPressure.TabIndex = 1;
+            this.txtDesignPressure.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDesignPressure_KeyPress);
             // 
             // txtMinDesignTemperature
             // 
@@ -421,6 +431,7 @@
             this.txtMinDesignTemperature.Name = "txtMinDesignTemperature";
             this.txtMinDesignTemperature.Size = new System.Drawing.Size(138, 21);
             this.txtMinDesignTemperature.TabIndex = 1;
+            this.txtMinDesignTemperature.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMinDesignTemperature_KeyPress);
             // 
             // label5
             // 
@@ -493,6 +504,7 @@
             this.txtMaxDesignTemperature.Name = "txtMaxDesignTemperature";
             this.txtMaxDesignTemperature.Size = new System.Drawing.Size(138, 21);
             this.txtMaxDesignTemperature.TabIndex = 1;
+            this.txtMaxDesignTemperature.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMaxDesignTemperature_KeyPress);
             // 
             // label27
             // 

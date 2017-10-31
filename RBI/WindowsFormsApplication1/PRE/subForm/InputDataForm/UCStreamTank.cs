@@ -13,10 +13,15 @@ namespace RBI.PRE.subForm.InputDataForm
 {
     public partial class UCStreamTank : UserControl
     {
+        string[] itemsExposureAmine = { "High Rich Amine", "Low Lean Amine", "None" };
+        string[] itemsAmineSolutionComposition = { "Diethanolamine DEA", "Diglycolamine DGA", "Disopropanolamine DIPA", "Methyldiethanolamine MDEA", "Monoethanolamine MEA", "Sulfinol" };
         public UCStreamTank()
         {
             InitializeComponent();
+            addItemsExposureAmine();
+            addItemsAmineSolutionComposition();
         }
+
         RW_STREAM stream = new RW_STREAM();
         public RW_STREAM getData1()
         {
@@ -61,5 +66,82 @@ namespace RBI.PRE.subForm.InputDataForm
             tank.TANK_FLUID = btnEditFluid.Text;
             return tank;
         }
+        private void addItemsExposureAmine()
+        {
+            cbExposureAmine.Properties.Items.Add("", -1, -1);
+            for (int i = 0; i < itemsExposureAmine.Length; i++)
+            {
+                cbExposureAmine.Properties.Items.Add(itemsExposureAmine[i], i, i);
+            }
+        }
+        private void addItemsAmineSolutionComposition()
+        {
+            cbAmineSolutionComposition.Properties.Items.Add("", -1, -1);
+            for (int i = 0; i < itemsAmineSolutionComposition.Length; i++)
+            {
+                cbAmineSolutionComposition.Properties.Items.Add(itemsAmineSolutionComposition[i], i, i);
+            }
+        }
+
+        #region KeyPress Event Handle
+        private void keyPressEvent(TextBox textbox, KeyPressEventArgs ev)
+        {
+            string a = textbox.Text;
+            if (!char.IsControl(ev.KeyChar) && !char.IsDigit(ev.KeyChar) && (ev.KeyChar != '.') && (ev.KeyChar != '-'))
+            {
+                ev.Handled = true;
+            }
+            if (a.Contains('.') && ev.KeyChar == '.')
+            {
+                ev.Handled = true;
+            }
+        }
+
+        private void txtNaOHConcentration_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            keyPressEvent(txtNaOHConcentration, e);
+        }
+
+        private void txtChlorideIon_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            keyPressEvent(txtChlorideIon, e);
+        }
+
+        private void txtH2SContent_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            keyPressEvent(txtH2SContent, e);
+        }
+
+        private void txtReleaseFluidPercent_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            keyPressEvent(txtReleaseFluidPercent, e);
+        }
+
+        private void txtCO3ConcentrationWater_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            keyPressEvent(txtCO3ConcentrationWater, e);
+        }
+
+        private void txtpHWater_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            keyPressEvent(txtpHWater, e);
+        }
+        private void txtFluidHeight_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            keyPressEvent(txtFluidHeight, e);
+        }
+        private void txtPercentageLeavingRemainsOnSite_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            keyPressEvent(txtPercentageLeavingRemainsOnSite, e);
+        }
+        private void txtPercentageLeavingDike_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            keyPressEvent(txtPercentageLeavingDike, e);
+        }
+        private void txtPercentageFluidGoingOffsite_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            keyPressEvent(txtPercentageFluidGoingOffsite, e);
+        }
+        #endregion
     }
 }

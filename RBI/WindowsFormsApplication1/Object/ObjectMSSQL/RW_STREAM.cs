@@ -55,5 +55,6 @@ namespace RBI.Object.ObjectMSSQL
         public float CUI_PERCENT_8 { set; get; }// % Operating at 135 °C to 162 °C
         public float CUI_PERCENT_9 { set; get; }// % Operating at 162 °C to 176 °C
         public float CUI_PERCENT_10 { set; get; }// % Operating at 176 °C or above
+        
     }
 }

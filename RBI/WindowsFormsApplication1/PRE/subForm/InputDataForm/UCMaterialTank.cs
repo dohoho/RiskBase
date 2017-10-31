@@ -81,5 +81,57 @@ namespace RBI.PRE.subForm.InputDataForm
         {
             cbPTAMaterialGrade.Enabled = chkIsPTASeverity.Checked ? true : false;
         }
+        private void keyPressEvent(TextBox textbox, KeyPressEventArgs ev)
+        {
+            string a = textbox.Text;
+            if (!char.IsControl(ev.KeyChar) && !char.IsDigit(ev.KeyChar) && (ev.KeyChar != '.'))
+            {
+                ev.Handled = true;
+            }
+            if (a.Contains('.') && ev.KeyChar == '.')
+            {
+                ev.Handled = true;
+            }
+        }
+
+        private void txtMaxDesignTemperature_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            keyPressEvent(txtMaxDesignTemperature, e);
+        }
+
+        private void txtDesignPressure_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            keyPressEvent(txtDesignPressure, e);
+        }
+
+        private void txtAllowableStress_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            keyPressEvent(txtAllowableStress, e);
+        }
+
+        private void txtCorrosionAllowance_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            keyPressEvent(txtCorrosionAllowance, e);
+        }
+
+        private void txtMinDesignTemperature_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            keyPressEvent(txtMinDesignTemperature, e);
+        }
+
+        private void txtReferenceTemperature_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            keyPressEvent(txtReferenceTemperature, e);
+        }
+
+        private void txtBrittleFracture_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            keyPressEvent(txtBrittleFracture, e);
+        }
+        private void txtMaterialCostFactor_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            keyPressEvent(txtMaterialCostFactor, e);
+        }
+
     }
 }

@@ -244,6 +244,7 @@
             this.txtEquipmentVolume.Name = "txtEquipmentVolume";
             this.txtEquipmentVolume.Size = new System.Drawing.Size(120, 20);
             this.txtEquipmentVolume.TabIndex = 2;
+            this.txtEquipmentVolume.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtEquipmentVolume_KeyPress);
             // 
             // txtMinRequiredTemperature
             // 
