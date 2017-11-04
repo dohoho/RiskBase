@@ -38,7 +38,6 @@
             this.chkAusteniticSteel = new System.Windows.Forms.CheckBox();
             this.chkIsPTASeverity = new System.Windows.Forms.CheckBox();
             this.chkChromium = new System.Windows.Forms.CheckBox();
-            this.chkSusceptibleTemper = new System.Windows.Forms.CheckBox();
             this.chkCarbonLowAlloySteel = new System.Windows.Forms.CheckBox();
             this.label15 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
@@ -60,7 +59,6 @@
             this.label20 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
             this.txtMaxDesignTemperature = new System.Windows.Forms.TextBox();
             this.label27 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
@@ -90,7 +88,6 @@
             this.groupBox1.Controls.Add(this.chkAusteniticSteel);
             this.groupBox1.Controls.Add(this.chkIsPTASeverity);
             this.groupBox1.Controls.Add(this.chkChromium);
-            this.groupBox1.Controls.Add(this.chkSusceptibleTemper);
             this.groupBox1.Controls.Add(this.chkCarbonLowAlloySteel);
             this.groupBox1.Controls.Add(this.label15);
             this.groupBox1.Controls.Add(this.label13);
@@ -112,7 +109,6 @@
             this.groupBox1.Controls.Add(this.label20);
             this.groupBox1.Controls.Add(this.label21);
             this.groupBox1.Controls.Add(this.label18);
-            this.groupBox1.Controls.Add(this.label19);
             this.groupBox1.Controls.Add(this.txtMaxDesignTemperature);
             this.groupBox1.Controls.Add(this.label27);
             this.groupBox1.Controls.Add(this.label26);
@@ -126,7 +122,7 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(730, 443);
@@ -141,7 +137,7 @@
             this.cbPTAMaterialGrade.Name = "cbPTAMaterialGrade";
             this.cbPTAMaterialGrade.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cbPTAMaterialGrade.Size = new System.Drawing.Size(368, 20);
+            this.cbPTAMaterialGrade.Size = new System.Drawing.Size(490, 20);
             this.cbPTAMaterialGrade.TabIndex = 17;
             // 
             // cbHeatTreatment
@@ -150,7 +146,7 @@
             this.cbHeatTreatment.Name = "cbHeatTreatment";
             this.cbHeatTreatment.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cbHeatTreatment.Size = new System.Drawing.Size(368, 20);
+            this.cbHeatTreatment.Size = new System.Drawing.Size(490, 20);
             this.cbHeatTreatment.TabIndex = 17;
             // 
             // cbSulfurContent
@@ -159,7 +155,7 @@
             this.cbSulfurContent.Name = "cbSulfurContent";
             this.cbSulfurContent.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cbSulfurContent.Size = new System.Drawing.Size(368, 20);
+            this.cbSulfurContent.Size = new System.Drawing.Size(491, 20);
             this.cbSulfurContent.TabIndex = 17;
             // 
             // cbPTAMaterial
@@ -211,15 +207,6 @@
             this.chkChromium.Size = new System.Drawing.Size(15, 14);
             this.chkChromium.TabIndex = 4;
             this.chkChromium.UseVisualStyleBackColor = true;
-            // 
-            // chkSusceptibleTemper
-            // 
-            this.chkSusceptibleTemper.AutoSize = true;
-            this.chkSusceptibleTemper.Location = new System.Drawing.Point(172, 193);
-            this.chkSusceptibleTemper.Name = "chkSusceptibleTemper";
-            this.chkSusceptibleTemper.Size = new System.Drawing.Size(15, 14);
-            this.chkSusceptibleTemper.TabIndex = 4;
-            this.chkSusceptibleTemper.UseVisualStyleBackColor = true;
             // 
             // chkCarbonLowAlloySteel
             // 
@@ -348,7 +335,7 @@
             // 
             this.txtMaterialCostFactor.Location = new System.Drawing.Point(172, 365);
             this.txtMaterialCostFactor.Name = "txtMaterialCostFactor";
-            this.txtMaterialCostFactor.Size = new System.Drawing.Size(138, 20);
+            this.txtMaterialCostFactor.Size = new System.Drawing.Size(138, 22);
             this.txtMaterialCostFactor.TabIndex = 1;
             this.txtMaterialCostFactor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMaterialCostFactor_KeyPress);
             // 
@@ -431,17 +418,6 @@
             this.label18.Size = new System.Drawing.Size(90, 15);
             this.label18.TabIndex = 0;
             this.label18.Text = "Austenitic Steel";
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.ForeColor = System.Drawing.Color.Red;
-            this.label19.Location = new System.Drawing.Point(18, 191);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(130, 15);
-            this.label19.TabIndex = 0;
-            this.label19.Text = "Susceptible to Temper";
             // 
             // txtMaxDesignTemperature
             // 
@@ -593,7 +569,6 @@
         private System.Windows.Forms.CheckBox chkAusteniticSteel;
         private System.Windows.Forms.CheckBox chkIsPTASeverity;
         private System.Windows.Forms.CheckBox chkChromium;
-        private System.Windows.Forms.CheckBox chkSusceptibleTemper;
         private System.Windows.Forms.CheckBox chkCarbonLowAlloySteel;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label13;
@@ -615,7 +590,6 @@
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Label label19;
         private System.Windows.Forms.TextBox txtMaxDesignTemperature;
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Label label26;

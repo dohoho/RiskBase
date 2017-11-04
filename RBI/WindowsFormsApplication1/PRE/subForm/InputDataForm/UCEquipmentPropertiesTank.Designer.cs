@@ -163,17 +163,18 @@
             this.groupBox1.Controls.Add(this.label14);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(704, 531);
+            this.groupBox1.Size = new System.Drawing.Size(761, 534);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Equipment";
             // 
             // cbTypeSoild
             // 
-            this.cbTypeSoild.Location = new System.Drawing.Point(245, 113);
+            this.cbTypeSoild.Location = new System.Drawing.Point(274, 119);
             this.cbTypeSoild.Name = "cbTypeSoild";
             this.cbTypeSoild.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -203,7 +204,7 @@
             // 
             // cbOnlineMonitoring
             // 
-            this.cbOnlineMonitoring.Location = new System.Drawing.Point(245, 452);
+            this.cbOnlineMonitoring.Location = new System.Drawing.Point(274, 449);
             this.cbOnlineMonitoring.Name = "cbOnlineMonitoring";
             this.cbOnlineMonitoring.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -253,7 +254,7 @@
             // 
             // cbEnvironmentalSensitivity
             // 
-            this.cbEnvironmentalSensitivity.Location = new System.Drawing.Point(245, 405);
+            this.cbEnvironmentalSensitivity.Location = new System.Drawing.Point(274, 402);
             this.cbEnvironmentalSensitivity.Name = "cbEnvironmentalSensitivity";
             this.cbEnvironmentalSensitivity.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -270,7 +271,7 @@
             // 
             // cbExternalEnviroment
             // 
-            this.cbExternalEnviroment.Location = new System.Drawing.Point(245, 379);
+            this.cbExternalEnviroment.Location = new System.Drawing.Point(274, 376);
             this.cbExternalEnviroment.Name = "cbExternalEnviroment";
             this.cbExternalEnviroment.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -288,7 +289,7 @@
             // 
             // cbThermalHistory
             // 
-            this.cbThermalHistory.Location = new System.Drawing.Point(245, 428);
+            this.cbThermalHistory.Location = new System.Drawing.Point(274, 425);
             this.cbThermalHistory.Name = "cbThermalHistory";
             this.cbThermalHistory.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -306,7 +307,7 @@
             // 
             // cbAdjustmentSettlement
             // 
-            this.cbAdjustmentSettlement.Location = new System.Drawing.Point(245, 354);
+            this.cbAdjustmentSettlement.Location = new System.Drawing.Point(274, 351);
             this.cbAdjustmentSettlement.Name = "cbAdjustmentSettlement";
             this.cbAdjustmentSettlement.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -325,7 +326,7 @@
             // numSystemManagementFactor
             // 
             this.numSystemManagementFactor.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numSystemManagementFactor.Location = new System.Drawing.Point(245, 475);
+            this.numSystemManagementFactor.Location = new System.Drawing.Point(274, 472);
             this.numSystemManagementFactor.Name = "numSystemManagementFactor";
             this.numSystemManagementFactor.Size = new System.Drawing.Size(120, 20);
             this.numSystemManagementFactor.TabIndex = 4;
@@ -333,16 +334,16 @@
             // 
             // txtEquipmentVolume
             // 
-            this.txtEquipmentVolume.Location = new System.Drawing.Point(245, 500);
+            this.txtEquipmentVolume.Location = new System.Drawing.Point(274, 497);
             this.txtEquipmentVolume.Name = "txtEquipmentVolume";
-            this.txtEquipmentVolume.Size = new System.Drawing.Size(120, 20);
+            this.txtEquipmentVolume.Size = new System.Drawing.Size(120, 22);
             this.txtEquipmentVolume.TabIndex = 2;
             this.txtEquipmentVolume.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtEquipmentVolume_KeyPress);
             // 
             // txtDistanceGroundWater
             // 
             this.txtDistanceGroundWater.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDistanceGroundWater.Location = new System.Drawing.Point(511, 78);
+            this.txtDistanceGroundWater.Location = new System.Drawing.Point(571, 84);
             this.txtDistanceGroundWater.Name = "txtDistanceGroundWater";
             this.txtDistanceGroundWater.Size = new System.Drawing.Size(139, 21);
             this.txtDistanceGroundWater.TabIndex = 2;
@@ -351,7 +352,7 @@
             // txtMinRequiredTemperature
             // 
             this.txtMinRequiredTemperature.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMinRequiredTemperature.Location = new System.Drawing.Point(511, 162);
+            this.txtMinRequiredTemperature.Location = new System.Drawing.Point(571, 161);
             this.txtMinRequiredTemperature.Name = "txtMinRequiredTemperature";
             this.txtMinRequiredTemperature.Size = new System.Drawing.Size(139, 21);
             this.txtMinRequiredTemperature.TabIndex = 2;
@@ -360,7 +361,7 @@
             // chkComponentWelded
             // 
             this.chkComponentWelded.AutoSize = true;
-            this.chkComponentWelded.Location = new System.Drawing.Point(245, 317);
+            this.chkComponentWelded.Location = new System.Drawing.Point(274, 314);
             this.chkComponentWelded.Name = "chkComponentWelded";
             this.chkComponentWelded.Size = new System.Drawing.Size(15, 14);
             this.chkComponentWelded.TabIndex = 1;
@@ -369,7 +370,7 @@
             // chkPresenceSulphideOperation
             // 
             this.chkPresenceSulphideOperation.AutoSize = true;
-            this.chkPresenceSulphideOperation.Location = new System.Drawing.Point(245, 285);
+            this.chkPresenceSulphideOperation.Location = new System.Drawing.Point(274, 282);
             this.chkPresenceSulphideOperation.Name = "chkPresenceSulphideOperation";
             this.chkPresenceSulphideOperation.Size = new System.Drawing.Size(15, 14);
             this.chkPresenceSulphideOperation.TabIndex = 1;
@@ -378,7 +379,7 @@
             // chkTankMaintainedAccordance
             // 
             this.chkTankMaintainedAccordance.AutoSize = true;
-            this.chkTankMaintainedAccordance.Location = new System.Drawing.Point(511, 317);
+            this.chkTankMaintainedAccordance.Location = new System.Drawing.Point(540, 314);
             this.chkTankMaintainedAccordance.Name = "chkTankMaintainedAccordance";
             this.chkTankMaintainedAccordance.Size = new System.Drawing.Size(15, 14);
             this.chkTankMaintainedAccordance.TabIndex = 1;
@@ -387,7 +388,7 @@
             // chkPresenceSulphideShutdown
             // 
             this.chkPresenceSulphideShutdown.AutoSize = true;
-            this.chkPresenceSulphideShutdown.Location = new System.Drawing.Point(511, 282);
+            this.chkPresenceSulphideShutdown.Location = new System.Drawing.Point(540, 279);
             this.chkPresenceSulphideShutdown.Name = "chkPresenceSulphideShutdown";
             this.chkPresenceSulphideShutdown.Size = new System.Drawing.Size(15, 14);
             this.chkPresenceSulphideShutdown.TabIndex = 1;
@@ -396,7 +397,7 @@
             // chkLinerOnlineMonitoring
             // 
             this.chkLinerOnlineMonitoring.AutoSize = true;
-            this.chkLinerOnlineMonitoring.Location = new System.Drawing.Point(511, 247);
+            this.chkLinerOnlineMonitoring.Location = new System.Drawing.Point(540, 244);
             this.chkLinerOnlineMonitoring.Name = "chkLinerOnlineMonitoring";
             this.chkLinerOnlineMonitoring.Size = new System.Drawing.Size(15, 14);
             this.chkLinerOnlineMonitoring.TabIndex = 1;
@@ -405,7 +406,7 @@
             // chkMaterialExposedFluid
             // 
             this.chkMaterialExposedFluid.AutoSize = true;
-            this.chkMaterialExposedFluid.Location = new System.Drawing.Point(245, 256);
+            this.chkMaterialExposedFluid.Location = new System.Drawing.Point(274, 253);
             this.chkMaterialExposedFluid.Name = "chkMaterialExposedFluid";
             this.chkMaterialExposedFluid.Size = new System.Drawing.Size(15, 14);
             this.chkMaterialExposedFluid.TabIndex = 1;
@@ -414,7 +415,7 @@
             // chkEquipmentOperatingManyYear
             // 
             this.chkEquipmentOperatingManyYear.AutoSize = true;
-            this.chkEquipmentOperatingManyYear.Location = new System.Drawing.Point(245, 221);
+            this.chkEquipmentOperatingManyYear.Location = new System.Drawing.Point(274, 218);
             this.chkEquipmentOperatingManyYear.Name = "chkEquipmentOperatingManyYear";
             this.chkEquipmentOperatingManyYear.Size = new System.Drawing.Size(15, 14);
             this.chkEquipmentOperatingManyYear.TabIndex = 1;
@@ -423,7 +424,7 @@
             // chkPressurisationControlled
             // 
             this.chkPressurisationControlled.AutoSize = true;
-            this.chkPressurisationControlled.Location = new System.Drawing.Point(245, 162);
+            this.chkPressurisationControlled.Location = new System.Drawing.Point(274, 165);
             this.chkPressurisationControlled.Name = "chkPressurisationControlled";
             this.chkPressurisationControlled.Size = new System.Drawing.Size(15, 14);
             this.chkPressurisationControlled.TabIndex = 1;
@@ -432,7 +433,7 @@
             // chkInterfaceSoilWater
             // 
             this.chkInterfaceSoilWater.AutoSize = true;
-            this.chkInterfaceSoilWater.Location = new System.Drawing.Point(245, 91);
+            this.chkInterfaceSoilWater.Location = new System.Drawing.Point(274, 97);
             this.chkInterfaceSoilWater.Name = "chkInterfaceSoilWater";
             this.chkInterfaceSoilWater.Size = new System.Drawing.Size(15, 14);
             this.chkInterfaceSoilWater.TabIndex = 1;
@@ -441,7 +442,7 @@
             // chkHeatTraced
             // 
             this.chkHeatTraced.AutoSize = true;
-            this.chkHeatTraced.Location = new System.Drawing.Point(245, 76);
+            this.chkHeatTraced.Location = new System.Drawing.Point(274, 78);
             this.chkHeatTraced.Name = "chkHeatTraced";
             this.chkHeatTraced.Size = new System.Drawing.Size(15, 14);
             this.chkHeatTraced.TabIndex = 1;
@@ -450,7 +451,7 @@
             // chkDowntimeProtection
             // 
             this.chkDowntimeProtection.AutoSize = true;
-            this.chkDowntimeProtection.Location = new System.Drawing.Point(245, 60);
+            this.chkDowntimeProtection.Location = new System.Drawing.Point(274, 61);
             this.chkDowntimeProtection.Name = "chkDowntimeProtection";
             this.chkDowntimeProtection.Size = new System.Drawing.Size(15, 14);
             this.chkDowntimeProtection.TabIndex = 1;
@@ -459,7 +460,7 @@
             // chkHighlyEffectiveInspection
             // 
             this.chkHighlyEffectiveInspection.AutoSize = true;
-            this.chkHighlyEffectiveInspection.Location = new System.Drawing.Point(245, 42);
+            this.chkHighlyEffectiveInspection.Location = new System.Drawing.Point(274, 44);
             this.chkHighlyEffectiveInspection.Name = "chkHighlyEffectiveInspection";
             this.chkHighlyEffectiveInspection.Size = new System.Drawing.Size(15, 14);
             this.chkHighlyEffectiveInspection.TabIndex = 1;
@@ -468,7 +469,7 @@
             // chkPWHT
             // 
             this.chkPWHT.AutoSize = true;
-            this.chkPWHT.Location = new System.Drawing.Point(511, 58);
+            this.chkPWHT.Location = new System.Drawing.Point(571, 63);
             this.chkPWHT.Name = "chkPWHT";
             this.chkPWHT.Size = new System.Drawing.Size(15, 14);
             this.chkPWHT.TabIndex = 1;
@@ -477,7 +478,7 @@
             // chkSteamedOutPriorWaterFlushing
             // 
             this.chkSteamedOutPriorWaterFlushing.AutoSize = true;
-            this.chkSteamedOutPriorWaterFlushing.Location = new System.Drawing.Point(511, 41);
+            this.chkSteamedOutPriorWaterFlushing.Location = new System.Drawing.Point(571, 43);
             this.chkSteamedOutPriorWaterFlushing.Name = "chkSteamedOutPriorWaterFlushing";
             this.chkSteamedOutPriorWaterFlushing.Size = new System.Drawing.Size(15, 14);
             this.chkSteamedOutPriorWaterFlushing.TabIndex = 1;
@@ -486,7 +487,7 @@
             // chkCylicOperation
             // 
             this.chkCylicOperation.AutoSize = true;
-            this.chkCylicOperation.Location = new System.Drawing.Point(511, 21);
+            this.chkCylicOperation.Location = new System.Drawing.Point(571, 23);
             this.chkCylicOperation.Name = "chkCylicOperation";
             this.chkCylicOperation.Size = new System.Drawing.Size(15, 14);
             this.chkCylicOperation.TabIndex = 1;
@@ -495,7 +496,7 @@
             // chkAministrativeControl
             // 
             this.chkAministrativeControl.AutoSize = true;
-            this.chkAministrativeControl.Location = new System.Drawing.Point(245, 24);
+            this.chkAministrativeControl.Location = new System.Drawing.Point(274, 27);
             this.chkAministrativeControl.Name = "chkAministrativeControl";
             this.chkAministrativeControl.Size = new System.Drawing.Size(15, 14);
             this.chkAministrativeControl.TabIndex = 1;
@@ -504,211 +505,211 @@
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.Location = new System.Drawing.Point(371, 502);
+            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.Location = new System.Drawing.Point(400, 499);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(21, 13);
+            this.label23.Size = new System.Drawing.Size(25, 15);
             this.label23.TabIndex = 0;
             this.label23.Text = "m3";
             // 
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label22.Location = new System.Drawing.Point(20, 501);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(95, 13);
+            this.label22.Size = new System.Drawing.Size(112, 15);
             this.label22.TabIndex = 0;
             this.label22.Text = "Equipment Volume";
             // 
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label21.Location = new System.Drawing.Point(20, 478);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(139, 13);
+            this.label21.Size = new System.Drawing.Size(161, 15);
             this.label21.TabIndex = 0;
             this.label21.Text = "System Management Factor";
             // 
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label20.Location = new System.Drawing.Point(20, 455);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(89, 13);
+            this.label20.Size = new System.Drawing.Size(105, 15);
             this.label20.TabIndex = 0;
             this.label20.Text = "Online Monitoring";
             // 
             // label27
             // 
             this.label27.AutoSize = true;
-            this.label27.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label27.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label27.Location = new System.Drawing.Point(20, 408);
             this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(124, 13);
+            this.label27.Size = new System.Drawing.Size(142, 15);
             this.label27.TabIndex = 0;
             this.label27.Text = "Environmental Sensitivity";
             // 
             // label25
             // 
             this.label25.AutoSize = true;
-            this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label25.Location = new System.Drawing.Point(314, 311);
+            this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label25.Location = new System.Drawing.Point(343, 308);
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(169, 26);
+            this.label25.Size = new System.Drawing.Size(191, 30);
             this.label25.TabIndex = 0;
             this.label25.Text = "Tank is Maintained in Accordance\r\nwith API 653";
             // 
             // label26
             // 
             this.label26.AutoSize = true;
-            this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label26.Location = new System.Drawing.Point(20, 382);
             this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(101, 13);
+            this.label26.Size = new System.Drawing.Size(117, 15);
             this.label26.TabIndex = 0;
             this.label26.Text = "External Enviroment";
             // 
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(314, 277);
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(343, 274);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(159, 26);
+            this.label17.Size = new System.Drawing.Size(184, 30);
             this.label17.TabIndex = 0;
             this.label17.Text = "Presence of Sulphides, Moisture\r\nand Oxygen During Shutdown";
             // 
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label19.Location = new System.Drawing.Point(20, 431);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(80, 13);
+            this.label19.Size = new System.Drawing.Size(93, 15);
             this.label19.TabIndex = 0;
             this.label19.Text = "Thermal History";
             // 
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(314, 248);
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(343, 245);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(115, 13);
+            this.label15.Size = new System.Drawing.Size(136, 15);
             this.label15.TabIndex = 0;
             this.label15.Text = "Liner Online Monitoring";
             // 
             // label28
             // 
             this.label28.AutoSize = true;
-            this.label28.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label28.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label28.Location = new System.Drawing.Point(20, 317);
             this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(111, 13);
+            this.label28.Size = new System.Drawing.Size(128, 15);
             this.label28.TabIndex = 0;
             this.label28.Text = "Component is Welded";
             // 
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label18.Location = new System.Drawing.Point(20, 358);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(127, 13);
+            this.label18.Size = new System.Drawing.Size(147, 15);
             this.label18.TabIndex = 0;
             this.label18.Text = "Adjustment for Settlement";
             // 
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.Location = new System.Drawing.Point(20, 279);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(159, 26);
+            this.label16.Size = new System.Drawing.Size(184, 30);
             this.label16.TabIndex = 0;
             this.label16.Text = "Presence of Sulphides, Moisture\r\nand Oxygen During Operation";
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.Location = new System.Drawing.Point(20, 221);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(202, 26);
+            this.label12.Size = new System.Drawing.Size(233, 30);
             this.label12.TabIndex = 0;
             this.label12.Text = "Equipment is Operating for Many Years at\r\nLowest Expected Temperature";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(20, 163);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(168, 13);
+            this.label6.Size = new System.Drawing.Size(197, 15);
             this.label6.TabIndex = 0;
             this.label6.Text = "Pressurisation Controlled by Admin";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(20, 116);
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(20, 120);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(69, 13);
+            this.label7.Size = new System.Drawing.Size(77, 15);
             this.label7.TabIndex = 0;
             this.label7.Text = "Type of Soild";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(20, 92);
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(20, 97);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(125, 13);
+            this.label5.Size = new System.Drawing.Size(140, 15);
             this.label5.TabIndex = 0;
             this.label5.Text = "Interface at Soil or Water";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(20, 77);
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(20, 78);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(67, 13);
+            this.label4.Size = new System.Drawing.Size(74, 15);
             this.label4.TabIndex = 0;
             this.label4.Text = "Heat Traced";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(20, 61);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(133, 13);
+            this.label3.Size = new System.Drawing.Size(153, 15);
             this.label3.TabIndex = 0;
             this.label3.Text = "Downtime Protection Used";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(20, 43);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(196, 13);
+            this.label2.Size = new System.Drawing.Size(221, 15);
             this.label2.TabIndex = 0;
             this.label2.Text = "Highly Effective Inspection for Deadlegs";
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.Black;
-            this.label11.Location = new System.Drawing.Point(314, 146);
+            this.label11.Location = new System.Drawing.Point(343, 143);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(191, 52);
+            this.label11.Size = new System.Drawing.Size(222, 60);
             this.label11.TabIndex = 0;
             this.label11.Text = "Min. Required Temperature Before\r\nPressurisation Allowed by Admin\r\n(incl. Upset M" +
     "anagement Temperature,\r\nShutdown Temperature)";
@@ -716,22 +717,22 @@
             // label24
             // 
             this.label24.AutoSize = true;
-            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label24.ForeColor = System.Drawing.Color.Black;
-            this.label24.Location = new System.Drawing.Point(314, 81);
+            this.label24.Location = new System.Drawing.Point(343, 89);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(131, 13);
+            this.label24.Size = new System.Drawing.Size(147, 15);
             this.label24.TabIndex = 0;
             this.label24.Text = "Distance to Ground Water";
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.Black;
-            this.label13.Location = new System.Drawing.Point(314, 59);
+            this.label13.Location = new System.Drawing.Point(343, 62);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(40, 13);
+            this.label13.Size = new System.Drawing.Size(42, 15);
             this.label13.TabIndex = 0;
             this.label13.Text = "PWHT";
             // 
@@ -740,7 +741,7 @@
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.Black;
-            this.label10.Location = new System.Drawing.Point(656, 165);
+            this.label10.Location = new System.Drawing.Point(687, 163);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(18, 13);
             this.label10.TabIndex = 0;
@@ -749,43 +750,43 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.Black;
-            this.label9.Location = new System.Drawing.Point(314, 42);
+            this.label9.Location = new System.Drawing.Point(343, 39);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(179, 13);
+            this.label9.Size = new System.Drawing.Size(206, 15);
             this.label9.TabIndex = 0;
             this.label9.Text = "Steamed Out Prior to Water Flushing";
             // 
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.ForeColor = System.Drawing.Color.Red;
             this.label14.Location = new System.Drawing.Point(20, 250);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(213, 26);
+            this.label14.Size = new System.Drawing.Size(250, 30);
             this.label14.TabIndex = 0;
             this.label14.Text = "Material is Exposed to Fluids, Mists or Solids\r\nContaining Chlorine Externally";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.Red;
-            this.label8.Location = new System.Drawing.Point(314, 24);
+            this.label8.Location = new System.Drawing.Point(343, 21);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(78, 13);
+            this.label8.Size = new System.Drawing.Size(89, 15);
             this.label8.TabIndex = 0;
             this.label8.Text = "Cylic Operation";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(20, 25);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(219, 13);
+            this.label1.Size = new System.Drawing.Size(254, 15);
             this.label1.TabIndex = 0;
             this.label1.Text = "Administrative Control for Upset Management";
             // 
@@ -795,7 +796,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.groupBox1);
             this.Name = "UCEquipmentPropertiesTank";
-            this.Size = new System.Drawing.Size(707, 555);
+            this.Size = new System.Drawing.Size(761, 534);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cbTypeSoild.Properties)).EndInit();

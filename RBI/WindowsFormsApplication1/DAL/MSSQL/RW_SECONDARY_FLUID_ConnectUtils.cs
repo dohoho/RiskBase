@@ -123,7 +123,7 @@ namespace RBI.DAL.MSSQL
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             List<RW_SECONDARY_FLUID> list = new List<RW_SECONDARY_FLUID>();
-            RW_SECONDARY_FLUID obj = null;
+            //RW_SECONDARY_FLUID obj = null;
             String sql = "USE [rbi]" +
                         "" +
                         "SELECT [ID]" +

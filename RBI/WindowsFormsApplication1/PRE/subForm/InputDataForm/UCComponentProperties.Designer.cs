@@ -32,16 +32,27 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UCComponentProperties));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cbPreviousFailures = new DevExpress.XtraEditors.ImageComboBoxEdit();
+            this.imgColPreFail = new DevExpress.Utils.ImageCollection(this.components);
             this.cbJointTypeBranch = new DevExpress.XtraEditors.ImageComboBoxEdit();
+            this.imgColJoinType = new DevExpress.Utils.ImageCollection(this.components);
             this.cbCyclicLoading = new DevExpress.XtraEditors.ImageComboBoxEdit();
+            this.imgColCyclicLoad = new DevExpress.Utils.ImageCollection(this.components);
             this.cbMaxBrillnessHardness = new DevExpress.XtraEditors.ImageComboBoxEdit();
+            this.imgColMaxBrinHard = new DevExpress.Utils.ImageCollection(this.components);
             this.cbPipeCondition = new DevExpress.XtraEditors.ImageComboBoxEdit();
+            this.imgColPipeCondi = new DevExpress.Utils.ImageCollection(this.components);
             this.cbNumberFittingPipe = new DevExpress.XtraEditors.ImageComboBoxEdit();
+            this.imgColFitting = new DevExpress.Utils.ImageCollection(this.components);
             this.cbBranchDiameter = new DevExpress.XtraEditors.ImageComboBoxEdit();
+            this.imgColBranchDiameter = new DevExpress.Utils.ImageCollection(this.components);
             this.cbComplexityProtrusion = new DevExpress.XtraEditors.ImageComboBoxEdit();
+            this.imgColComplexity = new DevExpress.Utils.ImageCollection(this.components);
             this.cbAmountShakingPipe = new DevExpress.XtraEditors.ImageComboBoxEdit();
+            this.imgColAmount = new DevExpress.Utils.ImageCollection(this.components);
             this.cbCorrectiveAction = new DevExpress.XtraEditors.ImageComboBoxEdit();
+            this.imColCorrAct = new DevExpress.Utils.ImageCollection(this.components);
             this.cbAccumalatedTimeShakingPipe = new DevExpress.XtraEditors.ImageComboBoxEdit();
+            this.imgColAccu = new DevExpress.Utils.ImageCollection(this.components);
             this.chkVisibleAudible = new System.Windows.Forms.CheckBox();
             this.chkHighlyEffectiveMixPoint = new System.Windows.Forms.CheckBox();
             this.chkPresenceInjectionMixPoint = new System.Windows.Forms.CheckBox();
@@ -82,40 +93,29 @@
             this.lb7 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.imColCorrAct = new DevExpress.Utils.ImageCollection(this.components);
-            this.imgColMaxBrinHard = new DevExpress.Utils.ImageCollection(this.components);
-            this.imgColCyclicLoad = new DevExpress.Utils.ImageCollection(this.components);
-            this.imgColJoinType = new DevExpress.Utils.ImageCollection(this.components);
-            this.imgColAmount = new DevExpress.Utils.ImageCollection(this.components);
-            this.imgColPreFail = new DevExpress.Utils.ImageCollection(this.components);
-            this.imgColPipeCondi = new DevExpress.Utils.ImageCollection(this.components);
-            this.imgColAccu = new DevExpress.Utils.ImageCollection(this.components);
-            this.imgColFitting = new DevExpress.Utils.ImageCollection(this.components);
-            this.imgColBranchDiameter = new DevExpress.Utils.ImageCollection(this.components);
-            this.imgColComplexity = new DevExpress.Utils.ImageCollection(this.components);
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cbPreviousFailures.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbJointTypeBranch.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbCyclicLoading.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbMaxBrillnessHardness.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbPipeCondition.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbNumberFittingPipe.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbBranchDiameter.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbComplexityProtrusion.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbAmountShakingPipe.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbCorrectiveAction.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbAccumalatedTimeShakingPipe.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.imColCorrAct)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.imgColMaxBrinHard)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.imgColCyclicLoad)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.imgColJoinType)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.imgColAmount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgColPreFail)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbJointTypeBranch.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgColJoinType)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbCyclicLoading.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgColCyclicLoad)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbMaxBrillnessHardness.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgColMaxBrinHard)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbPipeCondition.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgColPipeCondi)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.imgColAccu)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbNumberFittingPipe.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgColFitting)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbBranchDiameter.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgColBranchDiameter)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbComplexityProtrusion.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgColComplexity)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbAmountShakingPipe.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgColAmount)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbCorrectiveAction.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imColCorrAct)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbAccumalatedTimeShakingPipe.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgColAccu)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -172,7 +172,7 @@
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(779, 516);
@@ -190,6 +190,13 @@
             this.cbPreviousFailures.Size = new System.Drawing.Size(368, 20);
             this.cbPreviousFailures.TabIndex = 15;
             // 
+            // imgColPreFail
+            // 
+            this.imgColPreFail.ImageStream = ((DevExpress.Utils.ImageCollectionStreamer)(resources.GetObject("imgColPreFail.ImageStream")));
+            this.imgColPreFail.Images.SetKeyName(0, "green.png");
+            this.imgColPreFail.Images.SetKeyName(1, "yellow.png");
+            this.imgColPreFail.Images.SetKeyName(2, "red.png");
+            // 
             // cbJointTypeBranch
             // 
             this.cbJointTypeBranch.Location = new System.Drawing.Point(246, 299);
@@ -199,6 +206,15 @@
             this.cbJointTypeBranch.Properties.SmallImages = this.imgColJoinType;
             this.cbJointTypeBranch.Size = new System.Drawing.Size(368, 20);
             this.cbJointTypeBranch.TabIndex = 9;
+            // 
+            // imgColJoinType
+            // 
+            this.imgColJoinType.ImageStream = ((DevExpress.Utils.ImageCollectionStreamer)(resources.GetObject("imgColJoinType.ImageStream")));
+            this.imgColJoinType.Images.SetKeyName(0, "green.png");
+            this.imgColJoinType.Images.SetKeyName(1, "yellow.png");
+            this.imgColJoinType.Images.SetKeyName(2, "red.png");
+            this.imgColJoinType.Images.SetKeyName(3, "green.png");
+            this.imgColJoinType.Images.SetKeyName(4, "green2.png");
             // 
             // cbCyclicLoading
             // 
@@ -210,6 +226,14 @@
             this.cbCyclicLoading.Size = new System.Drawing.Size(368, 20);
             this.cbCyclicLoading.TabIndex = 16;
             // 
+            // imgColCyclicLoad
+            // 
+            this.imgColCyclicLoad.ImageStream = ((DevExpress.Utils.ImageCollectionStreamer)(resources.GetObject("imgColCyclicLoad.ImageStream")));
+            this.imgColCyclicLoad.Images.SetKeyName(0, "red.png");
+            this.imgColCyclicLoad.Images.SetKeyName(1, "orange.png");
+            this.imgColCyclicLoad.Images.SetKeyName(2, "yellow.png");
+            this.imgColCyclicLoad.Images.SetKeyName(3, "yellow.png");
+            // 
             // cbMaxBrillnessHardness
             // 
             this.cbMaxBrillnessHardness.Location = new System.Drawing.Point(246, 196);
@@ -219,6 +243,13 @@
             this.cbMaxBrillnessHardness.Properties.SmallImages = this.imgColMaxBrinHard;
             this.cbMaxBrillnessHardness.Size = new System.Drawing.Size(368, 20);
             this.cbMaxBrillnessHardness.TabIndex = 10;
+            // 
+            // imgColMaxBrinHard
+            // 
+            this.imgColMaxBrinHard.ImageStream = ((DevExpress.Utils.ImageCollectionStreamer)(resources.GetObject("imgColMaxBrinHard.ImageStream")));
+            this.imgColMaxBrinHard.Images.SetKeyName(0, "green.png");
+            this.imgColMaxBrinHard.Images.SetKeyName(1, "yellow.png");
+            this.imgColMaxBrinHard.Images.SetKeyName(2, "red.png");
             // 
             // cbPipeCondition
             // 
@@ -230,6 +261,13 @@
             this.cbPipeCondition.Size = new System.Drawing.Size(368, 20);
             this.cbPipeCondition.TabIndex = 11;
             // 
+            // imgColPipeCondi
+            // 
+            this.imgColPipeCondi.ImageStream = ((DevExpress.Utils.ImageCollectionStreamer)(resources.GetObject("imgColPipeCondi.ImageStream")));
+            this.imgColPipeCondi.Images.SetKeyName(0, "orange.png");
+            this.imgColPipeCondi.Images.SetKeyName(1, "orange.png");
+            this.imgColPipeCondi.Images.SetKeyName(2, "green.png");
+            // 
             // cbNumberFittingPipe
             // 
             this.cbNumberFittingPipe.Location = new System.Drawing.Point(246, 325);
@@ -239,6 +277,13 @@
             this.cbNumberFittingPipe.Properties.SmallImages = this.imgColFitting;
             this.cbNumberFittingPipe.Size = new System.Drawing.Size(368, 20);
             this.cbNumberFittingPipe.TabIndex = 12;
+            // 
+            // imgColFitting
+            // 
+            this.imgColFitting.ImageStream = ((DevExpress.Utils.ImageCollectionStreamer)(resources.GetObject("imgColFitting.ImageStream")));
+            this.imgColFitting.Images.SetKeyName(0, "green.png");
+            this.imgColFitting.Images.SetKeyName(1, "yellow.png");
+            this.imgColFitting.Images.SetKeyName(2, "red.png");
             // 
             // cbBranchDiameter
             // 
@@ -250,6 +295,12 @@
             this.cbBranchDiameter.Size = new System.Drawing.Size(368, 20);
             this.cbBranchDiameter.TabIndex = 13;
             // 
+            // imgColBranchDiameter
+            // 
+            this.imgColBranchDiameter.ImageStream = ((DevExpress.Utils.ImageCollectionStreamer)(resources.GetObject("imgColBranchDiameter.ImageStream")));
+            this.imgColBranchDiameter.Images.SetKeyName(0, "red.png");
+            this.imgColBranchDiameter.Images.SetKeyName(1, "green.png");
+            // 
             // cbComplexityProtrusion
             // 
             this.cbComplexityProtrusion.Location = new System.Drawing.Point(246, 222);
@@ -259,6 +310,13 @@
             this.cbComplexityProtrusion.Properties.SmallImages = this.imgColComplexity;
             this.cbComplexityProtrusion.Size = new System.Drawing.Size(368, 20);
             this.cbComplexityProtrusion.TabIndex = 14;
+            // 
+            // imgColComplexity
+            // 
+            this.imgColComplexity.ImageStream = ((DevExpress.Utils.ImageCollectionStreamer)(resources.GetObject("imgColComplexity.ImageStream")));
+            this.imgColComplexity.Images.SetKeyName(0, "red.png");
+            this.imgColComplexity.Images.SetKeyName(1, "yellow.png");
+            this.imgColComplexity.Images.SetKeyName(2, "green.png");
             // 
             // cbAmountShakingPipe
             // 
@@ -270,6 +328,13 @@
             this.cbAmountShakingPipe.Size = new System.Drawing.Size(368, 20);
             this.cbAmountShakingPipe.TabIndex = 5;
             // 
+            // imgColAmount
+            // 
+            this.imgColAmount.ImageStream = ((DevExpress.Utils.ImageCollectionStreamer)(resources.GetObject("imgColAmount.ImageStream")));
+            this.imgColAmount.Images.SetKeyName(0, "green.png");
+            this.imgColAmount.Images.SetKeyName(1, "yellow.png");
+            this.imgColAmount.Images.SetKeyName(2, "red.png");
+            // 
             // cbCorrectiveAction
             // 
             this.cbCorrectiveAction.Location = new System.Drawing.Point(248, 478);
@@ -280,6 +345,13 @@
             this.cbCorrectiveAction.Size = new System.Drawing.Size(368, 20);
             this.cbCorrectiveAction.TabIndex = 5;
             // 
+            // imColCorrAct
+            // 
+            this.imColCorrAct.ImageStream = ((DevExpress.Utils.ImageCollectionStreamer)(resources.GetObject("imColCorrAct.ImageStream")));
+            this.imColCorrAct.Images.SetKeyName(0, "red.png");
+            this.imColCorrAct.Images.SetKeyName(1, "yellow.png");
+            this.imColCorrAct.Images.SetKeyName(2, "green2.png");
+            // 
             // cbAccumalatedTimeShakingPipe
             // 
             this.cbAccumalatedTimeShakingPipe.Location = new System.Drawing.Point(248, 452);
@@ -289,6 +361,13 @@
             this.cbAccumalatedTimeShakingPipe.Properties.SmallImages = this.imgColAccu;
             this.cbAccumalatedTimeShakingPipe.Size = new System.Drawing.Size(368, 20);
             this.cbAccumalatedTimeShakingPipe.TabIndex = 5;
+            // 
+            // imgColAccu
+            // 
+            this.imgColAccu.ImageStream = ((DevExpress.Utils.ImageCollectionStreamer)(resources.GetObject("imgColAccu.ImageStream")));
+            this.imgColAccu.Images.SetKeyName(0, "orange.png");
+            this.imgColAccu.Images.SetKeyName(1, "yellow.png");
+            this.imgColAccu.Images.SetKeyName(2, "green.png");
             // 
             // chkVisibleAudible
             // 
@@ -681,85 +760,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Nominal Diameter";
             // 
-            // imColCorrAct
-            // 
-            this.imColCorrAct.ImageStream = ((DevExpress.Utils.ImageCollectionStreamer)(resources.GetObject("imColCorrAct.ImageStream")));
-            this.imColCorrAct.Images.SetKeyName(0, "red.png");
-            this.imColCorrAct.Images.SetKeyName(1, "yellow.png");
-            this.imColCorrAct.Images.SetKeyName(2, "green2.png");
-            // 
-            // imgColMaxBrinHard
-            // 
-            this.imgColMaxBrinHard.ImageStream = ((DevExpress.Utils.ImageCollectionStreamer)(resources.GetObject("imgColMaxBrinHard.ImageStream")));
-            this.imgColMaxBrinHard.Images.SetKeyName(0, "green.png");
-            this.imgColMaxBrinHard.Images.SetKeyName(1, "yellow.png");
-            this.imgColMaxBrinHard.Images.SetKeyName(2, "red.png");
-            // 
-            // imgColCyclicLoad
-            // 
-            this.imgColCyclicLoad.ImageStream = ((DevExpress.Utils.ImageCollectionStreamer)(resources.GetObject("imgColCyclicLoad.ImageStream")));
-            this.imgColCyclicLoad.Images.SetKeyName(0, "red.png");
-            this.imgColCyclicLoad.Images.SetKeyName(1, "orange.png");
-            this.imgColCyclicLoad.Images.SetKeyName(2, "yellow.png");
-            this.imgColCyclicLoad.Images.SetKeyName(3, "yellow.png");
-            // 
-            // imgColJoinType
-            // 
-            this.imgColJoinType.ImageStream = ((DevExpress.Utils.ImageCollectionStreamer)(resources.GetObject("imgColJoinType.ImageStream")));
-            this.imgColJoinType.Images.SetKeyName(0, "green.png");
-            this.imgColJoinType.Images.SetKeyName(1, "yellow.png");
-            this.imgColJoinType.Images.SetKeyName(2, "red.png");
-            this.imgColJoinType.Images.SetKeyName(3, "green.png");
-            this.imgColJoinType.Images.SetKeyName(4, "green2.png");
-            // 
-            // imgColAmount
-            // 
-            this.imgColAmount.ImageStream = ((DevExpress.Utils.ImageCollectionStreamer)(resources.GetObject("imgColAmount.ImageStream")));
-            this.imgColAmount.Images.SetKeyName(0, "green.png");
-            this.imgColAmount.Images.SetKeyName(1, "yellow.png");
-            this.imgColAmount.Images.SetKeyName(2, "red.png");
-            // 
-            // imgColPreFail
-            // 
-            this.imgColPreFail.ImageStream = ((DevExpress.Utils.ImageCollectionStreamer)(resources.GetObject("imgColPreFail.ImageStream")));
-            this.imgColPreFail.Images.SetKeyName(0, "green.png");
-            this.imgColPreFail.Images.SetKeyName(1, "yellow.png");
-            this.imgColPreFail.Images.SetKeyName(2, "red.png");
-            // 
-            // imgColPipeCondi
-            // 
-            this.imgColPipeCondi.ImageStream = ((DevExpress.Utils.ImageCollectionStreamer)(resources.GetObject("imgColPipeCondi.ImageStream")));
-            this.imgColPipeCondi.Images.SetKeyName(0, "orange.png");
-            this.imgColPipeCondi.Images.SetKeyName(1, "orange.png");
-            this.imgColPipeCondi.Images.SetKeyName(2, "green.png");
-            // 
-            // imgColAccu
-            // 
-            this.imgColAccu.ImageStream = ((DevExpress.Utils.ImageCollectionStreamer)(resources.GetObject("imgColAccu.ImageStream")));
-            this.imgColAccu.Images.SetKeyName(0, "orange.png");
-            this.imgColAccu.Images.SetKeyName(1, "yellow.png");
-            this.imgColAccu.Images.SetKeyName(2, "green.png");
-            // 
-            // imgColFitting
-            // 
-            this.imgColFitting.ImageStream = ((DevExpress.Utils.ImageCollectionStreamer)(resources.GetObject("imgColFitting.ImageStream")));
-            this.imgColFitting.Images.SetKeyName(0, "green.png");
-            this.imgColFitting.Images.SetKeyName(1, "yellow.png");
-            this.imgColFitting.Images.SetKeyName(2, "red.png");
-            // 
-            // imgColBranchDiameter
-            // 
-            this.imgColBranchDiameter.ImageStream = ((DevExpress.Utils.ImageCollectionStreamer)(resources.GetObject("imgColBranchDiameter.ImageStream")));
-            this.imgColBranchDiameter.Images.SetKeyName(0, "red.png");
-            this.imgColBranchDiameter.Images.SetKeyName(1, "green.png");
-            // 
-            // imgColComplexity
-            // 
-            this.imgColComplexity.ImageStream = ((DevExpress.Utils.ImageCollectionStreamer)(resources.GetObject("imgColComplexity.ImageStream")));
-            this.imgColComplexity.Images.SetKeyName(0, "red.png");
-            this.imgColComplexity.Images.SetKeyName(1, "yellow.png");
-            this.imgColComplexity.Images.SetKeyName(2, "green.png");
-            // 
             // UCComponentProperties
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -770,27 +770,27 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cbPreviousFailures.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbJointTypeBranch.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbCyclicLoading.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbMaxBrillnessHardness.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbPipeCondition.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbNumberFittingPipe.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbBranchDiameter.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbComplexityProtrusion.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbAmountShakingPipe.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbCorrectiveAction.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbAccumalatedTimeShakingPipe.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.imColCorrAct)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.imgColMaxBrinHard)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.imgColCyclicLoad)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.imgColJoinType)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.imgColAmount)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgColPreFail)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbJointTypeBranch.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgColJoinType)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbCyclicLoading.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgColCyclicLoad)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbMaxBrillnessHardness.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgColMaxBrinHard)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbPipeCondition.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgColPipeCondi)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.imgColAccu)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbNumberFittingPipe.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgColFitting)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbBranchDiameter.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgColBranchDiameter)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbComplexityProtrusion.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgColComplexity)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbAmountShakingPipe.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgColAmount)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbCorrectiveAction.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imColCorrAct)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbAccumalatedTimeShakingPipe.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgColAccu)).EndInit();
             this.ResumeLayout(false);
 
         }

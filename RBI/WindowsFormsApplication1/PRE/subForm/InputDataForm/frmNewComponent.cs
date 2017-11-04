@@ -116,8 +116,27 @@ namespace RBI.PRE.subForm.InputDataForm
         private void btnOK_Click(object sender, EventArgs e)
         {
             componentMaster_Bus.add(getDataComponentMaster());
+            RibbonForm1.API_Component_Type = cbAPIComponentType.Text;
             RibbonForm1.componentName = txtComponentName.Text;
             this.Close();
+        }
+
+        private void txtComponentNumber_TextChanged(object sender, EventArgs e)
+        {
+            if (txtComponentNumber.Text == "") picComponentNumber.Show();
+            else picComponentNumber.Hide();
+        }
+
+        private void cbComponentType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbAPIComponentType.Text == "") picComponentType.Show();
+            else picComponentType.Hide();
+        }
+
+        private void cbAPIComponentType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbAPIComponentType.Text == "") picAPIComponent.Show();
+            else picAPIComponent.Hide();
         }
     }
 }

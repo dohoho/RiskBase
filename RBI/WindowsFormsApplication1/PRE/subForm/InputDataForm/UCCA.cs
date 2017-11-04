@@ -26,29 +26,6 @@ namespace RBI.PRE.subForm.InputDataForm
         string[] itemsIsulationType = { "A", "B", "C" };
         List<String> timeDuration;
         string ReleasePhase;
-        public RW_CA getData()
-        {
-            RW_CA ca = new RW_CA();
-            ca.Fluid = cbFluid.Text;
-            ca.FluidPhase = cbFluidPhase.Text;
-            ca.EquipmentCost = txtEquipmentCost.Text != "" ? float.Parse(txtEquipmentCost.Text) : 0;
-            ca.ProductionCost = txtProductionCost.Text != "" ? float.Parse(txtProductionCost.Text) : 0;
-            ca.InjureCost = txtInjureCost.Text != "" ? float.Parse(txtInjureCost.Text) : 0;
-            ca.EnvironmentCost = txtEnvironmentCost.Text != "" ? float.Parse(txtEnvironmentCost.Text) : 0;
-            ca.DetectionType = cbDetectionType.Text;
-            ca.IsulationType = cbIsulationType.Text;
-            ca.MassInvert = txtMassInvert.Text != "" ? float.Parse(txtMassInvert.Text) : 0;
-            ca.MassComponent = txtMassComponent.Text != "" ? float.Parse(txtMassComponent.Text) : 0;
-            ca.MittigationSystem = cbMittigationSystem.Text;
-            ca.ToxicPercent = txtToxicPercent.Text != "" ? float.Parse(txtToxicPercent.Text) : 0;
-            ca.ReleaseDuration = cbReleaseDuration.Text;
-            ca.PersonDensity = txtPersonDensity.Text != "" ? float.Parse(txtPersonDensity.Text) : 0;
-            //ca.StoredPressure = txtStoredPressure.Text != "" ? float.Parse(txtStoredPressure.Text) : 0;
-            ca.AtmosphericPressure = 101;//txtAtmosphericPressure.Text != "" ? float.Parse(txtAtmosphericPressure.Text) : 0;
-            //ca.StoredTemp = txtStoredTemp.Text != "" ? float.Parse(txtStoredTemp.Text) : 0;
-            //ca.AtmosphereTemperature = 27;//txtAtmosphereTemp.Text != "" ? float.Parse(txtAtmosphereTemp.Text) : 0;
-            return ca;
-        }
         public UCCA()
         {
             InitializeComponent();
@@ -58,6 +35,33 @@ namespace RBI.PRE.subForm.InputDataForm
             additemsMittigationSystem();
             additemsIsulationType();
         }
+        public RW_INPUT_CA_LEVEL_1 getData()
+        {
+            RW_INPUT_CA_LEVEL_1 ca = new RW_INPUT_CA_LEVEL_1();
+            ca.ID = 1;
+            ca.API_FLUID = cbFluid.Text;
+            ca.SYSTEM = cbFluidPhase.Text;
+            ca.Equipment_Cost = txtEquipmentCost.Text != "" ? float.Parse(txtEquipmentCost.Text) : 0;
+            ca.Production_Cost = txtProductionCost.Text != "" ? float.Parse(txtProductionCost.Text) : 0;
+            ca.Injure_Cost = txtInjureCost.Text != "" ? float.Parse(txtInjureCost.Text) : 0;
+            ca.Environment_Cost = txtEnvironmentCost.Text != "" ? float.Parse(txtEnvironmentCost.Text) : 0;
+            ca.Detection_Type = cbDetectionType.Text;
+            ca.Isulation_Type = cbIsulationType.Text;
+            ca.Mass_Inventory = txtMassInvert.Text != "" ? float.Parse(txtMassInvert.Text) : 0;
+            ca.Mass_Component = txtMassComponent.Text != "" ? float.Parse(txtMassComponent.Text) : 0;
+            ca.Mitigation_System = cbMittigationSystem.Text;
+            ca.Toxic_Percent = txtToxicPercent.Text != "" ? float.Parse(txtToxicPercent.Text) : 0;
+            ca.Release_Duration = cbReleaseDuration.Text;
+            ca.Personal_Density = txtPersonDensity.Text != "" ? float.Parse(txtPersonDensity.Text) : 0;
+            return ca;
+        }
+        public RW_INPUT_CA_TANK getDataCATank()
+        {
+            RW_INPUT_CA_TANK ca = new RW_INPUT_CA_TANK();
+            ca.API_FLUID = cbFluid.Text;
+            return ca;
+        }
+        
         private void additemsIsulationType()
         {
             cbIsulationType.Properties.Items.Add("", -1, -1);
@@ -206,128 +210,6 @@ namespace RBI.PRE.subForm.InputDataForm
                 cbReleaseDuration.Properties.Items.Add(timeDuration[i], i, i);
             }
         }
-        private void btnCAL_Click(object sender, EventArgs e)
-        {
-            MSSQL_CA_CAL CA_CAL = new MSSQL_CA_CAL();
-            CA_CAL.TANK_DIAMETER = 1000;
-            CA_CAL.API_COMPONENT_TYPE_NAME = "DRUM";
-            CA_CAL.FLUID = cbFluid.Text;
-            CA_CAL.FLUID_PHASE = cbFluidPhase.Text;
-
-            try
-            {
-                //CA_CAL.MATERIAL_COST = float.Parse(txtMaterialCost.Text);
-            }
-            catch
-            {
-                CA_CAL.MATERIAL_COST = 0;
-            }
-            try
-            {
-                CA_CAL.EQUIPMENT_COST = float.Parse(txtEquipmentCost.Text);
-            }
-            catch
-            {
-                CA_CAL.EQUIPMENT_COST = 0;
-            }
-            try
-            {
-                CA_CAL.PRODUCTION_COST = float.Parse(txtProductionCost.Text);
-            }
-            catch
-            {
-                CA_CAL.PRODUCTION_COST = 0;
-            }
-            try
-            {
-                CA_CAL.INJURE_COST = float.Parse(txtInjureCost.Text);
-            }
-            catch
-            {
-                CA_CAL.INJURE_COST = 0;
-            }
-            try
-            {
-                CA_CAL.ENVIRON_COST = float.Parse(txtEnvironmentCost.Text);
-            }
-            catch
-            {
-                CA_CAL.ENVIRON_COST = 0;
-            }
-            CA_CAL.DETECTION_TYPE = cbDetectionType.Text;
-            CA_CAL.ISULATION_TYPE = cbIsulationType.Text;
-            try
-            {
-                CA_CAL.MASS_INVERT = float.Parse(txtMassInvert.Text);
-            }
-            catch
-            {
-                CA_CAL.MASS_INVERT = 0;
-            }
-            try
-            {
-                CA_CAL.MASS_COMPONENT = float.Parse(txtMassComponent.Text);
-            }
-            catch
-            {
-                CA_CAL.MASS_COMPONENT = 0;
-            }
-            CA_CAL.MITIGATION_SYSTEM = cbMittigationSystem.Text;
-            CA_CAL.RELEASE_DURATION = cbReleaseDuration.Text;
-            try
-            {
-                CA_CAL.TOXIC_PERCENT = float.Parse(txtToxicPercent.Text) / 100;
-            }
-            catch
-            {
-                CA_CAL.TOXIC_PERCENT = 0;
-            }
-            try
-            {
-                CA_CAL.PERSON_DENSITY = float.Parse(txtPersonDensity.Text);
-            }
-            catch
-            {
-                CA_CAL.PERSON_DENSITY = 0;
-            }
-            //try
-            //{
-            //    CA_CAL.STORED_PRESSURE = float.Parse(txtStoredPressure.Text);
-            //}
-            //catch
-            //{
-            //    CA_CAL.STORED_PRESSURE = 0;
-            //}
-            //try
-            //{
-            //    CA_CAL.ATMOSPHERIC_PRESSURE = float.Parse(txtAtmosphericPressure.Text);
-            //}
-            //catch
-            //{
-            //    CA_CAL.ATMOSPHERIC_PRESSURE = 0;
-            //}
-            //try
-            //{
-            //    CA_CAL.STORED_TEMP = float.Parse(txtStoredTemp.Text);
-            //}
-            //catch
-            //{
-            //    CA_CAL.STORED_TEMP = 0;
-            //}
-            MessageBox.Show("Consequence Level 1!" +
-                            "\nCA Toxic(m2):" + CA_CAL.ca_inj_tox() +
-                            "\nCA cmd (m2) :" + CA_CAL.ca_cmd() +
-                            "\nCA injure (m2):" + CA_CAL.ca_inj() +
-                            "\nFC cmd ($):" + CA_CAL.fc_cmd() +
-                            "\nFC affa($):" + CA_CAL.fc_affa() +
-                            "\nFC prod ($):" + CA_CAL.fc_prod() +
-                            "\nFC inj ($):" + CA_CAL.fc_inj() +
-                            "\nFC environ ($):" + CA_CAL.fc_environ() +
-                            "\nFC total ($):" + CA_CAL.fc(), "TEST CA");
-        }
-
-
-       
         //du lieu cho Release Duration anh Vu viet
         /*
          * Khi nhap du lieu chu y cac diem sau:

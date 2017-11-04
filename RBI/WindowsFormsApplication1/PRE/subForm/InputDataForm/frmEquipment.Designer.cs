@@ -28,14 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmEquipment));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.cbManufacturer = new DevExpress.XtraEditors.ImageComboBoxEdit();
+            this.btnAddManufacture = new DevExpress.XtraEditors.SimpleButton();
+            this.btnAddFacility = new DevExpress.XtraEditors.SimpleButton();
+            this.btnAddSite = new DevExpress.XtraEditors.SimpleButton();
+            this.btnAddNewDesignCode = new DevExpress.XtraEditors.SimpleButton();
+            this.cbDesignCode = new DevExpress.XtraEditors.ImageComboBoxEdit();
             this.cbEquipmentType = new DevExpress.XtraEditors.ImageComboBoxEdit();
             this.cbFacility = new DevExpress.XtraEditors.ImageComboBoxEdit();
             this.cbSite = new DevExpress.XtraEditors.ImageComboBoxEdit();
-            this.btneditDesignCode = new DevExpress.XtraEditors.ButtonEdit();
             this.picCommissionDate = new System.Windows.Forms.PictureBox();
             this.picManufacturer = new System.Windows.Forms.PictureBox();
             this.picDesignCode = new System.Windows.Forms.PictureBox();
@@ -50,7 +53,6 @@
             this.txtEquipmentNumber = new System.Windows.Forms.TextBox();
             this.txtEquipmentName = new System.Windows.Forms.TextBox();
             this.txtPDFNo = new System.Windows.Forms.TextBox();
-            this.cbManufacturer = new DevExpress.XtraEditors.ComboBoxEdit();
             this.comboBoxEdit1 = new DevExpress.XtraEditors.ComboBoxEdit();
             this.lblDescription = new System.Windows.Forms.Label();
             this.lblProcessDescription = new System.Windows.Forms.Label();
@@ -68,12 +70,12 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.behaviorManager1 = new DevExpress.Utils.Behaviors.BehaviorManager(this.components);
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cbManufacturer.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbDesignCode.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbEquipmentType.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbFacility.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbSite.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btneditDesignCode.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picCommissionDate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picManufacturer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picDesignCode)).BeginInit();
@@ -81,20 +83,23 @@
             ((System.ComponentModel.ISupportInitialize)(this.picEquipNumber)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateCommission.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateCommission.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbManufacturer.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit1.Properties)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Gainsboro;
+            this.panel1.Controls.Add(this.cbManufacturer);
+            this.panel1.Controls.Add(this.btnAddManufacture);
+            this.panel1.Controls.Add(this.btnAddFacility);
+            this.panel1.Controls.Add(this.btnAddSite);
+            this.panel1.Controls.Add(this.btnAddNewDesignCode);
+            this.panel1.Controls.Add(this.cbDesignCode);
             this.panel1.Controls.Add(this.cbEquipmentType);
             this.panel1.Controls.Add(this.cbFacility);
             this.panel1.Controls.Add(this.cbSite);
-            this.panel1.Controls.Add(this.btneditDesignCode);
             this.panel1.Controls.Add(this.picCommissionDate);
             this.panel1.Controls.Add(this.picManufacturer);
             this.panel1.Controls.Add(this.picDesignCode);
@@ -109,7 +114,6 @@
             this.panel1.Controls.Add(this.txtEquipmentNumber);
             this.panel1.Controls.Add(this.txtEquipmentName);
             this.panel1.Controls.Add(this.txtPDFNo);
-            this.panel1.Controls.Add(this.cbManufacturer);
             this.panel1.Controls.Add(this.comboBoxEdit1);
             this.panel1.Controls.Add(this.lblDescription);
             this.panel1.Controls.Add(this.lblProcessDescription);
@@ -129,6 +133,66 @@
             this.panel1.Size = new System.Drawing.Size(563, 441);
             this.panel1.TabIndex = 0;
             // 
+            // cbManufacturer
+            // 
+            this.cbManufacturer.Location = new System.Drawing.Point(211, 190);
+            this.cbManufacturer.Name = "cbManufacturer";
+            this.cbManufacturer.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cbManufacturer.Size = new System.Drawing.Size(287, 20);
+            this.cbManufacturer.TabIndex = 83;
+            this.cbManufacturer.SelectedIndexChanged += new System.EventHandler(this.cbManufacturer_SelectedIndexChanged);
+            // 
+            // btnAddManufacture
+            // 
+            this.btnAddManufacture.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnAddManufacture.ImageOptions.Image")));
+            this.btnAddManufacture.Location = new System.Drawing.Point(498, 189);
+            this.btnAddManufacture.Name = "btnAddManufacture";
+            this.btnAddManufacture.Size = new System.Drawing.Size(21, 21);
+            this.btnAddManufacture.TabIndex = 82;
+            this.btnAddManufacture.Text = "simpleButton1";
+            this.btnAddManufacture.Click += new System.EventHandler(this.btnManufacturer_Click);
+            // 
+            // btnAddFacility
+            // 
+            this.btnAddFacility.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnAddFacility.ImageOptions.Image")));
+            this.btnAddFacility.Location = new System.Drawing.Point(498, 163);
+            this.btnAddFacility.Name = "btnAddFacility";
+            this.btnAddFacility.Size = new System.Drawing.Size(21, 21);
+            this.btnAddFacility.TabIndex = 82;
+            this.btnAddFacility.Text = "simpleButton1";
+            this.btnAddFacility.Click += new System.EventHandler(this.btnAddFacility_Click);
+            // 
+            // btnAddSite
+            // 
+            this.btnAddSite.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnAddSite.ImageOptions.Image")));
+            this.btnAddSite.Location = new System.Drawing.Point(498, 137);
+            this.btnAddSite.Name = "btnAddSite";
+            this.btnAddSite.Size = new System.Drawing.Size(21, 21);
+            this.btnAddSite.TabIndex = 82;
+            this.btnAddSite.Text = "simpleButton1";
+            this.btnAddSite.Click += new System.EventHandler(this.btnAddSite_Click);
+            // 
+            // btnAddNewDesignCode
+            // 
+            this.btnAddNewDesignCode.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnAddNewDesignCode.ImageOptions.Image")));
+            this.btnAddNewDesignCode.Location = new System.Drawing.Point(498, 112);
+            this.btnAddNewDesignCode.Name = "btnAddNewDesignCode";
+            this.btnAddNewDesignCode.Size = new System.Drawing.Size(21, 21);
+            this.btnAddNewDesignCode.TabIndex = 82;
+            this.btnAddNewDesignCode.Text = "simpleButton1";
+            this.btnAddNewDesignCode.Click += new System.EventHandler(this.btnAddNewDesignCode_Click);
+            // 
+            // cbDesignCode
+            // 
+            this.cbDesignCode.Location = new System.Drawing.Point(212, 112);
+            this.cbDesignCode.Name = "cbDesignCode";
+            this.cbDesignCode.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cbDesignCode.Size = new System.Drawing.Size(286, 20);
+            this.cbDesignCode.TabIndex = 81;
+            this.cbDesignCode.SelectedIndexChanged += new System.EventHandler(this.cbDesignCode_SelectedIndexChanged);
+            // 
             // cbEquipmentType
             // 
             this.cbEquipmentType.Location = new System.Drawing.Point(212, 59);
@@ -145,7 +209,7 @@
             this.cbFacility.Name = "cbFacility";
             this.cbFacility.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cbFacility.Size = new System.Drawing.Size(307, 20);
+            this.cbFacility.Size = new System.Drawing.Size(287, 20);
             this.cbFacility.TabIndex = 79;
             // 
             // cbSite
@@ -154,20 +218,8 @@
             this.cbSite.Name = "cbSite";
             this.cbSite.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cbSite.Size = new System.Drawing.Size(307, 20);
+            this.cbSite.Size = new System.Drawing.Size(286, 20);
             this.cbSite.TabIndex = 79;
-            // 
-            // btneditDesignCode
-            // 
-            this.btneditDesignCode.Location = new System.Drawing.Point(212, 112);
-            this.btneditDesignCode.Name = "btneditDesignCode";
-            editorButtonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions1.Image")));
-            editorButtonImageOptions1.ImageIndex = 0;
-            editorButtonImageOptions1.ImageToTextIndent = 0;
-            this.btneditDesignCode.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), "Click to add new Design code")});
-            this.btneditDesignCode.Size = new System.Drawing.Size(307, 20);
-            this.btneditDesignCode.TabIndex = 78;
             // 
             // picCommissionDate
             // 
@@ -296,16 +348,6 @@
             this.txtPDFNo.Name = "txtPDFNo";
             this.txtPDFNo.Size = new System.Drawing.Size(309, 20);
             this.txtPDFNo.TabIndex = 58;
-            // 
-            // cbManufacturer
-            // 
-            this.cbManufacturer.Location = new System.Drawing.Point(212, 190);
-            this.cbManufacturer.Name = "cbManufacturer";
-            this.cbManufacturer.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cbManufacturer.Size = new System.Drawing.Size(307, 20);
-            this.cbManufacturer.TabIndex = 56;
-            this.cbManufacturer.TextChanged += new System.EventHandler(this.cbManufacturer_TextChanged);
             // 
             // comboBoxEdit1
             // 
@@ -481,16 +523,20 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(563, 519);
+            this.ControlBox = false;
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "frmEquipment";
             this.Text = "Equipment";
+            this.Load += new System.EventHandler(this.frmEquipment_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cbManufacturer.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbDesignCode.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbEquipmentType.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbFacility.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbSite.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btneditDesignCode.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picCommissionDate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picManufacturer)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picDesignCode)).EndInit();
@@ -498,12 +544,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.picEquipNumber)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateCommission.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateCommission.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbManufacturer.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit1.Properties)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -517,7 +561,6 @@
         private System.Windows.Forms.TextBox txtEquipmentNumber;
         private System.Windows.Forms.TextBox txtEquipmentName;
         private System.Windows.Forms.TextBox txtPDFNo;
-        private DevExpress.XtraEditors.ComboBoxEdit cbManufacturer;
         private DevExpress.XtraEditors.ComboBoxEdit comboBoxEdit1;
         private System.Windows.Forms.Label lblDescription;
         private System.Windows.Forms.Label lblProcessDescription;
@@ -543,10 +586,14 @@
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnOK;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private DevExpress.XtraEditors.ButtonEdit btneditDesignCode;
-        private DevExpress.Utils.Behaviors.BehaviorManager behaviorManager1;
         private DevExpress.XtraEditors.ImageComboBoxEdit cbFacility;
         private DevExpress.XtraEditors.ImageComboBoxEdit cbSite;
         private DevExpress.XtraEditors.ImageComboBoxEdit cbEquipmentType;
+        private DevExpress.XtraEditors.SimpleButton btnAddNewDesignCode;
+        private DevExpress.XtraEditors.ImageComboBoxEdit cbDesignCode;
+        private DevExpress.XtraEditors.SimpleButton btnAddManufacture;
+        private DevExpress.XtraEditors.SimpleButton btnAddFacility;
+        private DevExpress.XtraEditors.SimpleButton btnAddSite;
+        private DevExpress.XtraEditors.ImageComboBoxEdit cbManufacturer;
     }
 }

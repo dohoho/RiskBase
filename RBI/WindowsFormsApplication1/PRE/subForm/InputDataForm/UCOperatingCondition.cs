@@ -40,11 +40,11 @@ namespace RBI.PRE.subForm.InputDataForm
             str.CUI_PERCENT_10 = txtOp176.Text != "" ? float.Parse(txtOp176.Text) : 0;
             return str;
         }
-        public RW_CA getDataforCA()
+        public RW_INPUT_CA_LEVEL_1 getDataforCA()
         {
-            RW_CA ca = new RW_CA();
-            ca.StoredPressure = txtMinOperatingPressure.Text != "" ? float.Parse(txtMinOperatingPressure.Text) * 6.895f : 0;
-            ca.StoredTemp = txtMinimumOperatingTemp.Text != "" ? float.Parse(txtMinimumOperatingTemp.Text) + 273 : 0;
+            RW_INPUT_CA_LEVEL_1 ca = new RW_INPUT_CA_LEVEL_1();
+            ca.Stored_Pressure = txtMinOperatingPressure.Text != "" ? float.Parse(txtMinOperatingPressure.Text) * 6.895f : 0;
+            ca.Stored_Temp = txtMinimumOperatingTemp.Text != "" ? float.Parse(txtMinimumOperatingTemp.Text) + 273 : 0;
             return ca;
         }
 

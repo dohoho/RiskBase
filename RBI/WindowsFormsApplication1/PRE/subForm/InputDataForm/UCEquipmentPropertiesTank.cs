@@ -105,16 +105,16 @@ namespace RBI.PRE.subForm.InputDataForm
         public RW_EQUIPMENT getData()
         {
             RW_EQUIPMENT eq = new RW_EQUIPMENT();
+            eq.ID = 2;
             eq.AdminUpsetManagement = chkAministrativeControl.Checked ? 1 : 0;
             eq.CyclicOperation = chkCylicOperation.Checked ? 1 : 0;
-            eq.HighlyDeadlegInsp = chkHighlyEffectiveInspection.Checked ? 1 : 0;
             eq.DowntimeProtectionUsed = chkDowntimeProtection.Checked ? 1 : 0;
             eq.ExternalEnvironment = cbAdjustmentSettlement.Text;
             eq.HeatTraced = chkHeatTraced.Checked ? 1 : 0;
             eq.InterfaceSoilWater = chkInterfaceSoilWater.Checked ? 1 : 0;
             eq.LinerOnlineMonitoring = chkLinerOnlineMonitoring.Checked ? 1 : 0;
             eq.MaterialExposedToClExt = chkMaterialExposedFluid.Checked ? 1 : 0;
-            eq.MinReqTemperaturePressurisation = float.Parse(txtMinRequiredTemperature.Text);
+            eq.MinReqTemperaturePressurisation = txtMinRequiredTemperature.Text != "" ? float.Parse(txtMinRequiredTemperature.Text) : 0;
             eq.OnlineMonitoring = cbOnlineMonitoring.Text;
             eq.PresenceSulphidesO2 = chkPresenceSulphideOperation.Checked ? 1 : 0;
             eq.PresenceSulphidesO2Shutdown = chkPresenceSulphideShutdown.Checked ? 1 : 0;
@@ -124,21 +124,23 @@ namespace RBI.PRE.subForm.InputDataForm
             eq.ManagementFactor = (float)numSystemManagementFactor.Value;
             eq.ThermalHistory = cbThermalHistory.Text;
             eq.YearLowestExpTemp = chkEquipmentOperatingManyYear.Checked ? 1 : 0;
-            eq.Volume = float.Parse(txtEquipmentVolume.Text);
+            eq.Volume = txtEquipmentVolume.Text != "" ? float.Parse(txtEquipmentVolume.Text) : 0;
             eq.TypeOfSoil = cbTypeSoild.Text;
             eq.EnvironmentSensitivity = cbEnvironmentalSensitivity.Text;
-            eq.DistanceToGroundWater = float.Parse(txtDistanceGroundWater.Text); 
             eq.AdjustmentSettle = cbAdjustmentSettlement.Text;
             eq.ComponentIsWelded = chkComponentWelded.Checked ? 1 : 0;
             eq.TankIsMaintained = chkTankMaintainedAccordance.Checked ? 1 : 0;
+            //tank shell
+            //tank bottom
+            eq.DistanceToGroundWater = txtDistanceGroundWater.Text != "" ? float.Parse(txtDistanceGroundWater.Text) : 0;
             return eq;
         }
-        public RW_CA_TANK getDataforTank()
+        public RW_INPUT_CA_TANK getDataforTank()
         {
-            RW_CA_TANK tank = new RW_CA_TANK();
-            tank.EnvironSensitivity = cbEnvironmentalSensitivity.Text;
-            tank.Swg = txtDistanceGroundWater.Text != "" ? float.Parse(txtDistanceGroundWater.Text) : 0;
-            tank.Soil_type = cbTypeSoild.Text;
+            RW_INPUT_CA_TANK tank = new RW_INPUT_CA_TANK();
+            tank.Environ_Sensitivity = cbEnvironmentalSensitivity.Text;
+            tank.SW = txtDistanceGroundWater.Text != "" ? float.Parse(txtDistanceGroundWater.Text) : 0;
+            tank.Soil_Type = cbTypeSoild.Text;
             return tank;
         }
 

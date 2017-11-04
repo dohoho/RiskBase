@@ -92,7 +92,7 @@
             this.groupBox1.Controls.Add(this.groupBox3);
             this.groupBox1.Controls.Add(this.groupBox2);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(875, 550);
@@ -139,9 +139,10 @@
             this.groupBox3.Controls.Add(this.label5);
             this.groupBox3.Controls.Add(this.label3);
             this.groupBox3.Controls.Add(this.label4);
+            this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.Location = new System.Drawing.Point(6, 169);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(858, 366);
+            this.groupBox3.Size = new System.Drawing.Size(858, 375);
             this.groupBox3.TabIndex = 1;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Environment Condition";
@@ -171,7 +172,7 @@
             // chkProcessContainsHydrogen
             // 
             this.chkProcessContainsHydrogen.AutoSize = true;
-            this.chkProcessContainsHydrogen.Location = new System.Drawing.Point(672, 236);
+            this.chkProcessContainsHydrogen.Location = new System.Drawing.Point(672, 239);
             this.chkProcessContainsHydrogen.Name = "chkProcessContainsHydrogen";
             this.chkProcessContainsHydrogen.Size = new System.Drawing.Size(15, 14);
             this.chkProcessContainsHydrogen.TabIndex = 2;
@@ -189,7 +190,7 @@
             // chkPresenceHydrofluoricAcid
             // 
             this.chkPresenceHydrofluoricAcid.AutoSize = true;
-            this.chkPresenceHydrofluoricAcid.Location = new System.Drawing.Point(672, 214);
+            this.chkPresenceHydrofluoricAcid.Location = new System.Drawing.Point(672, 219);
             this.chkPresenceHydrofluoricAcid.Name = "chkPresenceHydrofluoricAcid";
             this.chkPresenceHydrofluoricAcid.Size = new System.Drawing.Size(15, 14);
             this.chkPresenceHydrofluoricAcid.TabIndex = 2;
@@ -198,7 +199,7 @@
             // chkChlorine
             // 
             this.chkChlorine.AutoSize = true;
-            this.chkChlorine.Location = new System.Drawing.Point(251, 316);
+            this.chkChlorine.Location = new System.Drawing.Point(251, 321);
             this.chkChlorine.Name = "chkChlorine";
             this.chkChlorine.Size = new System.Drawing.Size(15, 14);
             this.chkChlorine.TabIndex = 2;
@@ -207,7 +208,7 @@
             // chkEnvironmentContainsCaustic
             // 
             this.chkEnvironmentContainsCaustic.AutoSize = true;
-            this.chkEnvironmentContainsCaustic.Location = new System.Drawing.Point(251, 276);
+            this.chkEnvironmentContainsCaustic.Location = new System.Drawing.Point(251, 280);
             this.chkEnvironmentContainsCaustic.Name = "chkEnvironmentContainsCaustic";
             this.chkEnvironmentContainsCaustic.Size = new System.Drawing.Size(15, 14);
             this.chkEnvironmentContainsCaustic.TabIndex = 2;
@@ -216,7 +217,7 @@
             // chkPresenceCyanides
             // 
             this.chkPresenceCyanides.AutoSize = true;
-            this.chkPresenceCyanides.Location = new System.Drawing.Point(251, 236);
+            this.chkPresenceCyanides.Location = new System.Drawing.Point(251, 239);
             this.chkPresenceCyanides.Name = "chkPresenceCyanides";
             this.chkPresenceCyanides.Size = new System.Drawing.Size(15, 14);
             this.chkPresenceCyanides.TabIndex = 2;
@@ -225,7 +226,7 @@
             // chkEnviromentContainsH2S
             // 
             this.chkEnviromentContainsH2S.AutoSize = true;
-            this.chkEnviromentContainsH2S.Location = new System.Drawing.Point(251, 216);
+            this.chkEnviromentContainsH2S.Location = new System.Drawing.Point(251, 217);
             this.chkEnviromentContainsH2S.Name = "chkEnviromentContainsH2S";
             this.chkEnviromentContainsH2S.Size = new System.Drawing.Size(15, 14);
             this.chkEnviromentContainsH2S.TabIndex = 2;
@@ -234,7 +235,7 @@
             // chkAqueousPhaseShutdown
             // 
             this.chkAqueousPhaseShutdown.AutoSize = true;
-            this.chkAqueousPhaseShutdown.Location = new System.Drawing.Point(672, 191);
+            this.chkAqueousPhaseShutdown.Location = new System.Drawing.Point(672, 196);
             this.chkAqueousPhaseShutdown.Name = "chkAqueousPhaseShutdown";
             this.chkAqueousPhaseShutdown.Size = new System.Drawing.Size(15, 14);
             this.chkAqueousPhaseShutdown.TabIndex = 2;
@@ -243,7 +244,7 @@
             // chkAqueousPhaseDuringOperation
             // 
             this.chkAqueousPhaseDuringOperation.AutoSize = true;
-            this.chkAqueousPhaseDuringOperation.Location = new System.Drawing.Point(251, 193);
+            this.chkAqueousPhaseDuringOperation.Location = new System.Drawing.Point(251, 196);
             this.chkAqueousPhaseDuringOperation.Name = "chkAqueousPhaseDuringOperation";
             this.chkAqueousPhaseDuringOperation.Size = new System.Drawing.Size(15, 14);
             this.chkAqueousPhaseDuringOperation.TabIndex = 2;
@@ -527,6 +528,7 @@
             this.groupBox2.Controls.Add(this.label9);
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.label1);
+            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(6, 19);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(858, 144);

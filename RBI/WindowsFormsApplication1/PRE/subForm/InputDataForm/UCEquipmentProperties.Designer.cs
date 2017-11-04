@@ -135,7 +135,7 @@
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(745, 416);
@@ -242,7 +242,7 @@
             // 
             this.txtEquipmentVolume.Location = new System.Drawing.Point(291, 367);
             this.txtEquipmentVolume.Name = "txtEquipmentVolume";
-            this.txtEquipmentVolume.Size = new System.Drawing.Size(120, 20);
+            this.txtEquipmentVolume.Size = new System.Drawing.Size(120, 22);
             this.txtEquipmentVolume.TabIndex = 2;
             this.txtEquipmentVolume.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtEquipmentVolume_KeyPress);
             // 
@@ -394,10 +394,10 @@
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label23.Location = new System.Drawing.Point(417, 369);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(21, 13);
+            this.label23.Size = new System.Drawing.Size(25, 15);
             this.label23.TabIndex = 0;
             this.label23.Text = "m3";
             // 

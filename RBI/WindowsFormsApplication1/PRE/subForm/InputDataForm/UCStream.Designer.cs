@@ -30,6 +30,8 @@
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.cbAmineSolutionComposition = new DevExpress.XtraEditors.ImageComboBoxEdit();
+            this.cbExposureAmine = new DevExpress.XtraEditors.ImageComboBoxEdit();
             this.chkToxicConstituents = new System.Windows.Forms.CheckBox();
             this.chkProcessContainsHydrogen = new System.Windows.Forms.CheckBox();
             this.chkExposedSulphurBearing = new System.Windows.Forms.CheckBox();
@@ -72,15 +74,13 @@
             this.label2 = new System.Windows.Forms.Label();
             this.btnEditPrimaryFuid = new DevExpress.XtraEditors.ButtonEdit();
             this.label1 = new System.Windows.Forms.Label();
-            this.cbExposureAmine = new DevExpress.XtraEditors.ImageComboBoxEdit();
-            this.cbAmineSolutionComposition = new DevExpress.XtraEditors.ImageComboBoxEdit();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cbAmineSolutionComposition.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbExposureAmine.Properties)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnEditMostVolatileFluid.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnEditPrimaryFuid.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbExposureAmine.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbAmineSolutionComposition.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -88,7 +88,7 @@
             this.groupBox1.Controls.Add(this.groupBox3);
             this.groupBox1.Controls.Add(this.groupBox2);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(875, 493);
@@ -137,17 +137,36 @@
             this.groupBox3.Controls.Add(this.label5);
             this.groupBox3.Controls.Add(this.label3);
             this.groupBox3.Controls.Add(this.label4);
+            this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.Location = new System.Drawing.Point(6, 104);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(858, 366);
+            this.groupBox3.Size = new System.Drawing.Size(858, 383);
             this.groupBox3.TabIndex = 1;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Environment Condition";
             // 
+            // cbAmineSolutionComposition
+            // 
+            this.cbAmineSolutionComposition.Location = new System.Drawing.Point(250, 146);
+            this.cbAmineSolutionComposition.Name = "cbAmineSolutionComposition";
+            this.cbAmineSolutionComposition.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cbAmineSolutionComposition.Size = new System.Drawing.Size(437, 20);
+            this.cbAmineSolutionComposition.TabIndex = 3;
+            // 
+            // cbExposureAmine
+            // 
+            this.cbExposureAmine.Location = new System.Drawing.Point(251, 177);
+            this.cbExposureAmine.Name = "cbExposureAmine";
+            this.cbExposureAmine.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cbExposureAmine.Size = new System.Drawing.Size(437, 20);
+            this.cbExposureAmine.TabIndex = 3;
+            // 
             // chkToxicConstituents
             // 
             this.chkToxicConstituents.AutoSize = true;
-            this.chkToxicConstituents.Location = new System.Drawing.Point(672, 105);
+            this.chkToxicConstituents.Location = new System.Drawing.Point(672, 123);
             this.chkToxicConstituents.Name = "chkToxicConstituents";
             this.chkToxicConstituents.Size = new System.Drawing.Size(15, 14);
             this.chkToxicConstituents.TabIndex = 2;
@@ -156,7 +175,7 @@
             // chkProcessContainsHydrogen
             // 
             this.chkProcessContainsHydrogen.AutoSize = true;
-            this.chkProcessContainsHydrogen.Location = new System.Drawing.Point(672, 236);
+            this.chkProcessContainsHydrogen.Location = new System.Drawing.Point(672, 254);
             this.chkProcessContainsHydrogen.Name = "chkProcessContainsHydrogen";
             this.chkProcessContainsHydrogen.Size = new System.Drawing.Size(15, 14);
             this.chkProcessContainsHydrogen.TabIndex = 2;
@@ -165,7 +184,7 @@
             // chkExposedSulphurBearing
             // 
             this.chkExposedSulphurBearing.AutoSize = true;
-            this.chkExposedSulphurBearing.Location = new System.Drawing.Point(672, 276);
+            this.chkExposedSulphurBearing.Location = new System.Drawing.Point(672, 294);
             this.chkExposedSulphurBearing.Name = "chkExposedSulphurBearing";
             this.chkExposedSulphurBearing.Size = new System.Drawing.Size(15, 14);
             this.chkExposedSulphurBearing.TabIndex = 2;
@@ -174,7 +193,7 @@
             // chkPresenceHydrofluoricAcid
             // 
             this.chkPresenceHydrofluoricAcid.AutoSize = true;
-            this.chkPresenceHydrofluoricAcid.Location = new System.Drawing.Point(672, 214);
+            this.chkPresenceHydrofluoricAcid.Location = new System.Drawing.Point(672, 232);
             this.chkPresenceHydrofluoricAcid.Name = "chkPresenceHydrofluoricAcid";
             this.chkPresenceHydrofluoricAcid.Size = new System.Drawing.Size(15, 14);
             this.chkPresenceHydrofluoricAcid.TabIndex = 2;
@@ -183,7 +202,7 @@
             // chkChlorine
             // 
             this.chkChlorine.AutoSize = true;
-            this.chkChlorine.Location = new System.Drawing.Point(251, 316);
+            this.chkChlorine.Location = new System.Drawing.Point(251, 334);
             this.chkChlorine.Name = "chkChlorine";
             this.chkChlorine.Size = new System.Drawing.Size(15, 14);
             this.chkChlorine.TabIndex = 2;
@@ -192,7 +211,7 @@
             // chkEnvironmentContainsCaustic
             // 
             this.chkEnvironmentContainsCaustic.AutoSize = true;
-            this.chkEnvironmentContainsCaustic.Location = new System.Drawing.Point(251, 276);
+            this.chkEnvironmentContainsCaustic.Location = new System.Drawing.Point(251, 294);
             this.chkEnvironmentContainsCaustic.Name = "chkEnvironmentContainsCaustic";
             this.chkEnvironmentContainsCaustic.Size = new System.Drawing.Size(15, 14);
             this.chkEnvironmentContainsCaustic.TabIndex = 2;
@@ -201,7 +220,7 @@
             // chkPresenceCyanides
             // 
             this.chkPresenceCyanides.AutoSize = true;
-            this.chkPresenceCyanides.Location = new System.Drawing.Point(251, 236);
+            this.chkPresenceCyanides.Location = new System.Drawing.Point(251, 254);
             this.chkPresenceCyanides.Name = "chkPresenceCyanides";
             this.chkPresenceCyanides.Size = new System.Drawing.Size(15, 14);
             this.chkPresenceCyanides.TabIndex = 2;
@@ -210,7 +229,7 @@
             // chkEnviromentContainsH2S
             // 
             this.chkEnviromentContainsH2S.AutoSize = true;
-            this.chkEnviromentContainsH2S.Location = new System.Drawing.Point(251, 216);
+            this.chkEnviromentContainsH2S.Location = new System.Drawing.Point(251, 234);
             this.chkEnviromentContainsH2S.Name = "chkEnviromentContainsH2S";
             this.chkEnviromentContainsH2S.Size = new System.Drawing.Size(15, 14);
             this.chkEnviromentContainsH2S.TabIndex = 2;
@@ -219,7 +238,7 @@
             // chkAqueousPhaseShutdown
             // 
             this.chkAqueousPhaseShutdown.AutoSize = true;
-            this.chkAqueousPhaseShutdown.Location = new System.Drawing.Point(672, 191);
+            this.chkAqueousPhaseShutdown.Location = new System.Drawing.Point(672, 209);
             this.chkAqueousPhaseShutdown.Name = "chkAqueousPhaseShutdown";
             this.chkAqueousPhaseShutdown.Size = new System.Drawing.Size(15, 14);
             this.chkAqueousPhaseShutdown.TabIndex = 2;
@@ -228,7 +247,7 @@
             // chkAqueousPhaseDuringOperation
             // 
             this.chkAqueousPhaseDuringOperation.AutoSize = true;
-            this.chkAqueousPhaseDuringOperation.Location = new System.Drawing.Point(251, 193);
+            this.chkAqueousPhaseDuringOperation.Location = new System.Drawing.Point(251, 211);
             this.chkAqueousPhaseDuringOperation.Name = "chkAqueousPhaseDuringOperation";
             this.chkAqueousPhaseDuringOperation.Size = new System.Drawing.Size(15, 14);
             this.chkAqueousPhaseDuringOperation.TabIndex = 2;
@@ -237,7 +256,7 @@
             // chkExposedAcidGas
             // 
             this.chkExposedAcidGas.AutoSize = true;
-            this.chkExposedAcidGas.Location = new System.Drawing.Point(250, 108);
+            this.chkExposedAcidGas.Location = new System.Drawing.Point(250, 126);
             this.chkExposedAcidGas.Name = "chkExposedAcidGas";
             this.chkExposedAcidGas.Size = new System.Drawing.Size(15, 14);
             this.chkExposedAcidGas.TabIndex = 2;
@@ -248,7 +267,7 @@
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.Black;
-            this.label13.Location = new System.Drawing.Point(28, 162);
+            this.label13.Location = new System.Drawing.Point(28, 180);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(162, 15);
             this.label13.TabIndex = 0;
@@ -257,7 +276,7 @@
             // txtpHWater
             // 
             this.txtpHWater.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtpHWater.Location = new System.Drawing.Point(672, 70);
+            this.txtpHWater.Location = new System.Drawing.Point(672, 88);
             this.txtpHWater.Name = "txtpHWater";
             this.txtpHWater.Size = new System.Drawing.Size(170, 21);
             this.txtpHWater.TabIndex = 1;
@@ -268,7 +287,7 @@
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.Color.Black;
-            this.label12.Location = new System.Drawing.Point(28, 136);
+            this.label12.Location = new System.Drawing.Point(28, 154);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(110, 15);
             this.label12.TabIndex = 0;
@@ -279,7 +298,7 @@
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.Black;
-            this.label11.Location = new System.Drawing.Point(443, 104);
+            this.label11.Location = new System.Drawing.Point(443, 122);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(106, 15);
             this.label11.TabIndex = 0;
@@ -290,7 +309,7 @@
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label19.ForeColor = System.Drawing.Color.Red;
-            this.label19.Location = new System.Drawing.Point(449, 237);
+            this.label19.Location = new System.Drawing.Point(449, 255);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(158, 15);
             this.label19.TabIndex = 0;
@@ -301,7 +320,7 @@
             this.label21.AutoSize = true;
             this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label21.ForeColor = System.Drawing.Color.Red;
-            this.label21.Location = new System.Drawing.Point(449, 268);
+            this.label21.Location = new System.Drawing.Point(449, 286);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(161, 30);
             this.label21.TabIndex = 0;
@@ -312,7 +331,7 @@
             this.label22.AutoSize = true;
             this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label22.ForeColor = System.Drawing.Color.Red;
-            this.label22.Location = new System.Drawing.Point(28, 310);
+            this.label22.Location = new System.Drawing.Point(28, 328);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(216, 30);
             this.label22.TabIndex = 0;
@@ -323,7 +342,7 @@
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label18.ForeColor = System.Drawing.Color.Black;
-            this.label18.Location = new System.Drawing.Point(28, 237);
+            this.label18.Location = new System.Drawing.Point(28, 255);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(125, 15);
             this.label18.TabIndex = 0;
@@ -334,7 +353,7 @@
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label20.ForeColor = System.Drawing.Color.Red;
-            this.label20.Location = new System.Drawing.Point(28, 270);
+            this.label20.Location = new System.Drawing.Point(28, 288);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(176, 30);
             this.label20.TabIndex = 0;
@@ -345,7 +364,7 @@
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label17.ForeColor = System.Drawing.Color.Red;
-            this.label17.Location = new System.Drawing.Point(449, 215);
+            this.label17.Location = new System.Drawing.Point(449, 233);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(166, 15);
             this.label17.TabIndex = 0;
@@ -356,7 +375,7 @@
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.ForeColor = System.Drawing.Color.Red;
-            this.label15.Location = new System.Drawing.Point(28, 217);
+            this.label15.Location = new System.Drawing.Point(28, 235);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(147, 15);
             this.label15.TabIndex = 0;
@@ -367,7 +386,7 @@
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.ForeColor = System.Drawing.Color.Red;
-            this.label16.Location = new System.Drawing.Point(449, 192);
+            this.label16.Location = new System.Drawing.Point(449, 210);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(196, 15);
             this.label16.TabIndex = 0;
@@ -376,7 +395,7 @@
             // txtCO3ConcentrationWater
             // 
             this.txtCO3ConcentrationWater.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCO3ConcentrationWater.Location = new System.Drawing.Point(672, 44);
+            this.txtCO3ConcentrationWater.Location = new System.Drawing.Point(672, 62);
             this.txtCO3ConcentrationWater.Name = "txtCO3ConcentrationWater";
             this.txtCO3ConcentrationWater.Size = new System.Drawing.Size(170, 21);
             this.txtCO3ConcentrationWater.TabIndex = 1;
@@ -387,7 +406,7 @@
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.ForeColor = System.Drawing.Color.Red;
-            this.label14.Location = new System.Drawing.Point(28, 194);
+            this.label14.Location = new System.Drawing.Point(28, 212);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(190, 15);
             this.label14.TabIndex = 0;
@@ -398,7 +417,7 @@
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.Red;
-            this.label10.Location = new System.Drawing.Point(28, 104);
+            this.label10.Location = new System.Drawing.Point(28, 122);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(205, 15);
             this.label10.TabIndex = 0;
@@ -409,7 +428,7 @@
             this.labelph.AutoSize = true;
             this.labelph.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelph.ForeColor = System.Drawing.Color.Red;
-            this.labelph.Location = new System.Drawing.Point(441, 73);
+            this.labelph.Location = new System.Drawing.Point(441, 91);
             this.labelph.Name = "labelph";
             this.labelph.Size = new System.Drawing.Size(71, 15);
             this.labelph.TabIndex = 0;
@@ -418,7 +437,7 @@
             // txtReleaseFluidPercent
             // 
             this.txtReleaseFluidPercent.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtReleaseFluidPercent.Location = new System.Drawing.Point(672, 18);
+            this.txtReleaseFluidPercent.Location = new System.Drawing.Point(672, 36);
             this.txtReleaseFluidPercent.Name = "txtReleaseFluidPercent";
             this.txtReleaseFluidPercent.Size = new System.Drawing.Size(170, 21);
             this.txtReleaseFluidPercent.TabIndex = 1;
@@ -428,7 +447,7 @@
             // 
             this.label.AutoSize = true;
             this.label.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label.Location = new System.Drawing.Point(441, 47);
+            this.label.Location = new System.Drawing.Point(441, 65);
             this.label.Name = "label";
             this.label.Size = new System.Drawing.Size(194, 15);
             this.label.TabIndex = 0;
@@ -437,7 +456,7 @@
             // txtH2SContentInWater
             // 
             this.txtH2SContentInWater.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtH2SContentInWater.Location = new System.Drawing.Point(250, 73);
+            this.txtH2SContentInWater.Location = new System.Drawing.Point(250, 91);
             this.txtH2SContentInWater.Name = "txtH2SContentInWater";
             this.txtH2SContentInWater.Size = new System.Drawing.Size(170, 21);
             this.txtH2SContentInWater.TabIndex = 1;
@@ -447,7 +466,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(441, 21);
+            this.label7.Location = new System.Drawing.Point(441, 39);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(182, 15);
             this.label7.TabIndex = 0;
@@ -456,7 +475,7 @@
             // txtChlorideIon
             // 
             this.txtChlorideIon.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtChlorideIon.Location = new System.Drawing.Point(250, 47);
+            this.txtChlorideIon.Location = new System.Drawing.Point(250, 65);
             this.txtChlorideIon.Name = "txtChlorideIon";
             this.txtChlorideIon.Size = new System.Drawing.Size(170, 21);
             this.txtChlorideIon.TabIndex = 1;
@@ -466,7 +485,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(28, 71);
+            this.label6.Location = new System.Drawing.Point(28, 89);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(160, 15);
             this.label6.TabIndex = 0;
@@ -475,7 +494,7 @@
             // txtNaOHConcentration
             // 
             this.txtNaOHConcentration.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNaOHConcentration.Location = new System.Drawing.Point(250, 21);
+            this.txtNaOHConcentration.Location = new System.Drawing.Point(250, 39);
             this.txtNaOHConcentration.Name = "txtNaOHConcentration";
             this.txtNaOHConcentration.Size = new System.Drawing.Size(170, 21);
             this.txtNaOHConcentration.TabIndex = 1;
@@ -485,7 +504,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(28, 45);
+            this.label5.Location = new System.Drawing.Point(28, 63);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(109, 15);
             this.label5.TabIndex = 0;
@@ -494,17 +513,17 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(28, 47);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(28, 65);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(0, 13);
+            this.label3.Size = new System.Drawing.Size(0, 15);
             this.label3.TabIndex = 0;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(28, 19);
+            this.label4.Location = new System.Drawing.Point(28, 37);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(142, 15);
             this.label4.TabIndex = 0;
@@ -516,6 +535,7 @@
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.btnEditPrimaryFuid);
             this.groupBox2.Controls.Add(this.label1);
+            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(6, 19);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(858, 79);
@@ -565,24 +585,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Primary Fluid";
             // 
-            // cbExposureAmine
-            // 
-            this.cbExposureAmine.Location = new System.Drawing.Point(251, 159);
-            this.cbExposureAmine.Name = "cbExposureAmine";
-            this.cbExposureAmine.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cbExposureAmine.Size = new System.Drawing.Size(437, 20);
-            this.cbExposureAmine.TabIndex = 3;
-            // 
-            // cbAmineSolutionComposition
-            // 
-            this.cbAmineSolutionComposition.Location = new System.Drawing.Point(250, 128);
-            this.cbAmineSolutionComposition.Name = "cbAmineSolutionComposition";
-            this.cbAmineSolutionComposition.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cbAmineSolutionComposition.Size = new System.Drawing.Size(437, 20);
-            this.cbAmineSolutionComposition.TabIndex = 3;
-            // 
             // UCStream
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -593,12 +595,12 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cbAmineSolutionComposition.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbExposureAmine.Properties)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnEditMostVolatileFluid.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnEditPrimaryFuid.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbExposureAmine.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbAmineSolutionComposition.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }

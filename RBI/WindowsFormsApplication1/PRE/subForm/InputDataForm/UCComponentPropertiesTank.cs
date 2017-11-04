@@ -19,23 +19,31 @@ namespace RBI.PRE.subForm.InputDataForm
         public RW_COMPONENT getData()
         {
             RW_COMPONENT comp = new RW_COMPONENT();
+            comp.ID = 2;
             comp.NominalDiameter = float.Parse(txtTankDiameter.Text);  //check lai xem co bien Tank Diameter ko
             comp.NominalThickness = float.Parse(txtNominalThickness.Text);
             comp.CurrentThickness = float.Parse(txtCurrentThickness.Text);
             comp.MinReqThickness = float.Parse(txtMinRequiredThickness.Text);
             comp.CurrentCorrosionRate = float.Parse(txtCurrentCorrosionRate.Text);
             comp.BrinnelHardness = cbMaxBrillnessHardness.Text;
-
-            comp.ReleasePreventionBarrier = chkPreventionBarrier.Checked ? 1 : 0;
             comp.SeverityOfVibration = cbSeverityVibration.Text;
+            comp.ComplexityProtrusion = cbComplexityProtrusion.Text;
+            comp.DamageFoundInspection = chkDamageFoundDuringInspection.Checked ? 1 : 0;
+            comp.CracksPresent = chkPresenceCracks.Checked ? 1 : 0;
+            comp.TrampElements = chkTrampElements.Checked ? 1 : 0;
+            //kiem tra dieu kien API Component Type -> Disable control cua shell hoac cua bottom
+            //tank Shell Course
+            comp.ShellHeight = txtShellCourseHeight.Text != "" ? float.Parse(txtShellCourseHeight.Text) : 0;
+            //tank bottom
             comp.ConcreteFoundation = chkConcreteAsphalt.Checked ? 1 : 0;
+            comp.ReleasePreventionBarrier = chkPreventionBarrier.Checked ? 1 : 0;
             return comp;
         }
-        public RW_CA_TANK getDataforTank()
+        public RW_INPUT_CA_TANK getDataforTank()
         {
-            RW_CA_TANK tank = new RW_CA_TANK();
-            tank.TANK_DIAMETER = txtTankDiameter.Text != "" ? float.Parse(txtTankDiameter.Text) : 0;
-            tank.PREVENTION_BARRIER = chkPreventionBarrier.Checked == true ? 1 : 0;
+            RW_INPUT_CA_TANK tank = new RW_INPUT_CA_TANK();
+            tank.TANK_DIAMETTER = txtTankDiameter.Text != "" ? float.Parse(txtTankDiameter.Text) : 0;
+            tank.Prevention_Barrier = chkPreventionBarrier.Checked ? 1 : 0;
             tank.SHELL_COURSE_HEIGHT = txtShellCourseHeight.Text != "" ? float.Parse(txtShellCourseHeight.Text) : 0;
             return tank;
         }
@@ -80,11 +88,6 @@ namespace RBI.PRE.subForm.InputDataForm
         private void txtMinRequiredThickness_KeyPress(object sender, KeyPressEventArgs e)
         {
             keyPressEvent(txtMinRequiredThickness, e);
-        }
-
-        private void txtNumberInsp_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            keyPressEvent(txtNumberInsp, e);
         }
 
     }

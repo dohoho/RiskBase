@@ -39,7 +39,7 @@ namespace RBI.PRE.subForm.InputDataForm
                     return;
                 }
             }
-            //siteBus.add(getData());
+            siteBus.add(getData());
             RibbonForm1.siteName = txtSiteName.Text;
             this.Close();
         }

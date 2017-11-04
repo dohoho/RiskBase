@@ -19,9 +19,8 @@ namespace RBI
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new Form1());
-           Application.Run(new RibbonForm1());
-          
-            //Application.Run(new test());
+           //Application.Run(new RibbonForm1());
+            Application.Run(new test());
             //Application.Run(new frmImportInspection());
             //Application.Run(new NewFluid());
             //Application.Run(new newComponent());

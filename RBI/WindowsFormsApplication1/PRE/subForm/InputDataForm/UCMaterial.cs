@@ -93,7 +93,12 @@ namespace RBI.PRE.subForm.InputDataForm
             ma.CostFactor = txtMaterialCostFactor.Text != "" ? float.Parse(txtMaterialCostFactor.Text) : 0;
             return ma;
         }
-
+        public RW_INPUT_CA_LEVEL_1 getDataForCA()
+        {
+            RW_INPUT_CA_LEVEL_1 ca = new RW_INPUT_CA_LEVEL_1();
+            ca.Material_Cost = txtMaterialCostFactor.Text != "" ? float.Parse(txtMaterialCostFactor.Text) : 0;
+            return ca;
+        }
         private void chkIsHTHASeverity_CheckedChanged(object sender, EventArgs e)
         {
             cbHTHAMaterial.Enabled = chkIsHTHASeverity.Checked ? true : false;

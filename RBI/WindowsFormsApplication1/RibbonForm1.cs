@@ -54,6 +54,8 @@ namespace RBI
         public static string facilityName = null;
         public static string equipmentName = null;
         public static string componentName = null;
+        public static string API_Component_Type = null;
+        public static int EquipmentID = 0;
         private void treeListProject_DoubleClick(object sender, EventArgs e)
         {
             TreeList tree = sender as TreeList;
@@ -300,9 +302,15 @@ namespace RBI
                 EditDataEquipment();
                 AddDataAssessment();
                 EditDataComponent();
-                //EditDataMaterial();
-                //EditDataStream();
-                //EditDataCoating();
+                EditDataMaterial();
+                EditDataStream();
+                EditDataCoating();
+                //EditDataComponentTank();
+                //EditDataEquipmentTank();
+                //EditDataMaterialTank();
+                //EditDataStreamTank();
+                EditDataCALevel1();
+                //EditDataCATank();
                 MessageBox.Show("Edit success", "Cortek RBI");
             }
             catch(Exception ex)
@@ -388,6 +396,74 @@ namespace RBI
             RW_COATING_BUS coatingBus = new RW_COATING_BUS();
             coatingBus.edit(coat.getData());
         }
+        private void EditDataComponentTank()
+        {
+            RW_COMPONENT_BUS componentTankBus = new RW_COMPONENT_BUS();
+            componentTankBus.edit(compTank.getData());
+        }
+        private void EditDataEquipmentTank()
+        {
+            RW_EQUIPMENT_BUS eqTankBus = new RW_EQUIPMENT_BUS();
+            eqTankBus.edit(eqTank.getData());
+        }
+        private void EditDataStreamTank()
+        {
+            RW_STREAM_BUS stTankBus = new RW_STREAM_BUS();
+            RW_STREAM _st1 = new RW_STREAM();
+            RW_STREAM _st2 = new RW_STREAM();
+            RW_STREAM _stTotal = new RW_STREAM();
+            _st1 = stTank.getData();
+            _stTotal = _st1;
+            _stTotal.FlowRate = _st2.FlowRate;
+            _stTotal.MaxOperatingPressure = _st2.MaxOperatingPressure;
+            _stTotal.MinOperatingPressure = _st2.MinOperatingPressure;
+            _stTotal.MaxOperatingTemperature = _st2.MaxOperatingTemperature;
+            _stTotal.MinOperatingTemperature = _st2.MinOperatingTemperature;
+            _stTotal.CriticalExposureTemperature = _st2.CriticalExposureTemperature;
+            _stTotal.H2SPartialPressure = _st2.H2SPartialPressure;
+            stTankBus.edit(_stTotal);
+        }
+        private void EditDataMaterialTank()
+        {
+            RW_MATERIAL_BUS materialTankBus = new RW_MATERIAL_BUS();
+            materialTankBus.edit(maTank.getData());
+        }
+        private void EditDataCALevel1()
+        {
+            RW_INPUT_CA_LEVEL_1_BUS InputCABus = new RW_INPUT_CA_LEVEL_1_BUS();
+            RW_INPUT_CA_LEVEL_1 _CA1 = new RW_INPUT_CA_LEVEL_1();
+            RW_INPUT_CA_LEVEL_1 _CA2 = new RW_INPUT_CA_LEVEL_1();
+            RW_INPUT_CA_LEVEL_1 _CA3 = new RW_INPUT_CA_LEVEL_1();
+            RW_INPUT_CA_LEVEL_1 _CA = new RW_INPUT_CA_LEVEL_1();
+            _CA1 = ca.getData();
+            _CA2 = op.getDataforCA();
+            _CA3 = maTank.getDataForCA();
+            _CA = _CA1;
+            _CA.Stored_Pressure = _CA2.Stored_Pressure;
+            _CA.Stored_Temp = _CA2.Stored_Temp;
+            _CA.Material_Cost = _CA3.Material_Cost;
+            InputCABus.edit(_CA);
+        }
+        private void EditDataCATank()
+        {
+            RW_INPUT_CA_TANK_BUS inputCATankBus = new RW_INPUT_CA_TANK_BUS();
+            RW_INPUT_CA_TANK inputCAtank = new RW_INPUT_CA_TANK();
+            RW_INPUT_CA_TANK eqCA = eqTank.getDataforTank();
+            RW_INPUT_CA_TANK stCA = stTank.getDataCATank();
+            RW_INPUT_CA_TANK ucCA = ca.getDataCATank();
+            RW_INPUT_CA_TANK compCA = compTank.getDataforTank();
+
+            inputCAtank = stCA;
+            inputCAtank.Environ_Sensitivity = eqCA.Environ_Sensitivity;
+            inputCAtank.SW = eqCA.SW;
+            inputCAtank.Soil_Type = eqCA.Soil_Type;
+            inputCAtank.API_FLUID = ucCA.API_FLUID;
+            inputCAtank.TANK_DIAMETTER = compCA.TANK_DIAMETTER;
+            inputCAtank.Prevention_Barrier = compCA.Prevention_Barrier;
+            inputCAtank.SHELL_COURSE_HEIGHT = compCA.SHELL_COURSE_HEIGHT;
+
+            inputCATankBus.edit(inputCAtank);
+        }
         #endregion
 
         UCCoatLiningIsulationCladding coat = new UCCoatLiningIsulationCladding();
@@ -404,8 +480,8 @@ namespace RBI
         UCEquipmentPropertiesTank eqTank = new UCEquipmentPropertiesTank();
         UCComponentPropertiesTank compTank = new UCComponentPropertiesTank();
         UCStreamTank stTank = new UCStreamTank();
-        UCCAforTank caTank = new UCCAforTank();
         UCMaterialTank maTank = new UCMaterialTank();
+        
         private void navAssessmentInfo_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
             if (xtraTabData.SelectedTabPageIndex == 0) return;
@@ -417,6 +493,7 @@ namespace RBI
 
         private void navEquipment_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
+            //if (API_Component_Type == TANKBOTTOM)
             if (xtraTabData.SelectedTabPageIndex == 0) return;
             if (xtraTabData.TabPages.TabControl.SelectedTabPage.Controls.Contains(eq)) return;
             xtraTabData.TabPages.TabControl.SelectedTabPage.Controls.Clear();
@@ -499,15 +576,10 @@ namespace RBI
         }
         private void navCA_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
-            //if (xtraTabData.SelectedTabPageIndex == 0) return;
-            //if (xtraTabData.TabPages.TabControl.SelectedTabPage.Controls.Contains(ca)) return;
-            //xtraTabData.TabPages.TabControl.SelectedTabPage.Controls.Clear();
-            //xtraTabData.TabPages.TabControl.SelectedTabPage.Controls.Add(ca);
-
             if (xtraTabData.SelectedTabPageIndex == 0) return;
-            if (xtraTabData.TabPages.TabControl.SelectedTabPage.Controls.Contains(caTank)) return;
+            if (xtraTabData.TabPages.TabControl.SelectedTabPage.Controls.Contains(ca)) return;
             xtraTabData.TabPages.TabControl.SelectedTabPage.Controls.Clear();
-            xtraTabData.TabPages.TabControl.SelectedTabPage.Controls.Add(caTank);
+            xtraTabData.TabPages.TabControl.SelectedTabPage.Controls.Add(ca);
         }  
         #endregion
         private void xtraTabData_CloseButtonClick(object sender, EventArgs e)
@@ -997,114 +1069,114 @@ namespace RBI
         private void Calculation_CA()
         {
             MSSQL_CA_CAL CA_CAL = new MSSQL_CA_CAL();
-            RW_CA caInput = ca.getData();
-            RW_CA caInput1 = op.getDataforCA();
+            RW_INPUT_CA_LEVEL_1 caInput = ca.getData();
+            RW_INPUT_CA_LEVEL_1 caInput1 = op.getDataforCA();
             RW_COMPONENT com1 = comp.getData();
             CA_CAL.TANK_DIAMETER = 1000;
             CA_CAL.API_COMPONENT_TYPE_NAME = "DRUM";
-            CA_CAL.FLUID = caInput.Fluid;
-            CA_CAL.FLUID_PHASE = caInput.FluidPhase;
+            //CA_CAL.FLUID = caInput.Fluid;
+            //CA_CAL.FLUID_PHASE = caInput.FluidPhase;
 
-            try
-            {
-                CA_CAL.MATERIAL_COST = caInput.MaterialCost;
-            }
-            catch
-            {
-                CA_CAL.MATERIAL_COST = 0;
-            }
-            try
-            {
-                CA_CAL.EQUIPMENT_COST = caInput.EquipmentCost;
-            }
-            catch
-            {
-                CA_CAL.EQUIPMENT_COST = 0;
-            }
-            try
-            {
-                CA_CAL.PRODUCTION_COST = caInput.ProductionCost;
-            }
-            catch
-            {
-                CA_CAL.PRODUCTION_COST = 0;
-            }
-            try
-            {
-                CA_CAL.INJURE_COST = caInput.InjureCost;
-            }
-            catch
-            {
-                CA_CAL.INJURE_COST = 0;
-            }
-            try
-            {
-                CA_CAL.ENVIRON_COST = caInput.EnvironmentCost;
-            }
-            catch
-            {
-                CA_CAL.ENVIRON_COST = 0;
-            }
-            CA_CAL.DETECTION_TYPE = caInput.DetectionType;
-            CA_CAL.ISULATION_TYPE = caInput.IsulationType;
-            try
-            {
-                CA_CAL.MASS_INVERT = caInput.MassInvert;
-            }
-            catch
-            {
-                CA_CAL.MASS_INVERT = 0;
-            }
-            try
-            {
-                CA_CAL.MASS_COMPONENT = caInput.MassComponent;
-            }
-            catch
-            {
-                CA_CAL.MASS_COMPONENT = 0;
-            }
-            CA_CAL.MITIGATION_SYSTEM = caInput.MittigationSystem;
-            CA_CAL.RELEASE_DURATION = caInput.ReleaseDuration;
-            try
-            {
-                CA_CAL.TOXIC_PERCENT = caInput.ToxicPercent;
-            }
-            catch
-            {
-                CA_CAL.TOXIC_PERCENT = 0;
-            }
-            try
-            {
-                CA_CAL.PERSON_DENSITY = caInput.PersonDensity;
-            }
-            catch
-            {
-                CA_CAL.PERSON_DENSITY = 0;
-            }
-            try
-            {
-                CA_CAL.STORED_PRESSURE = caInput1.StoredPressure;
-            }
-            catch
-            {
-                CA_CAL.STORED_PRESSURE = 0;
-            }
-            try
-            {
-                CA_CAL.ATMOSPHERIC_PRESSURE = 101;//caInput.AtmosphericPressure;
-            }
-            catch
-            {
-                CA_CAL.ATMOSPHERIC_PRESSURE = 0;
-            }
-            try
-            {
-                CA_CAL.STORED_TEMP = caInput1.StoredTemp;
-            }
-            catch
-            {
-                CA_CAL.STORED_TEMP = 0;
-            }
+            //try
+            //{
+            //    CA_CAL.MATERIAL_COST = caInput.MaterialCost;
+            //}
+            //catch
+            //{
+            //    CA_CAL.MATERIAL_COST = 0;
+            //}
+            //try
+            //{
+            //    CA_CAL.EQUIPMENT_COST = caInput.EquipmentCost;
+            //}
+            //catch
+            //{
+            //    CA_CAL.EQUIPMENT_COST = 0;
+            //}
+            //try
+            //{
+            //    CA_CAL.PRODUCTION_COST = caInput.ProductionCost;
+            //}
+            //catch
+            //{
+            //    CA_CAL.PRODUCTION_COST = 0;
+            //}
+            //try
+            //{
+            //    CA_CAL.INJURE_COST = caInput.InjureCost;
+            //}
+            //catch
+            //{
+            //    CA_CAL.INJURE_COST = 0;
+            //}
+            //try
+            //{
+            //    CA_CAL.ENVIRON_COST = caInput.EnvironmentCost;
+            //}
+            //catch
+            //{
+            //    CA_CAL.ENVIRON_COST = 0;
+            //}
+            //CA_CAL.DETECTION_TYPE = caInput.DetectionType;
+            //CA_CAL.ISULATION_TYPE = caInput.IsulationType;
+            //try
+            //{
+            //    CA_CAL.MASS_INVERT = caInput.MassInvert;
+            //}
+            //catch
+            //{
+            //    CA_CAL.MASS_INVERT = 0;
+            //}
+            //try
+            //{
+            //    CA_CAL.MASS_COMPONENT = caInput.MassComponent;
+            //}
+            //catch
+            //{
+            //    CA_CAL.MASS_COMPONENT = 0;
+            //}
+            //CA_CAL.MITIGATION_SYSTEM = caInput.MittigationSystem;
+            //CA_CAL.RELEASE_DURATION = caInput.ReleaseDuration;
+            //try
+            //{
+            //    CA_CAL.TOXIC_PERCENT = caInput.ToxicPercent;
+            //}
+            //catch
+            //{
+            //    CA_CAL.TOXIC_PERCENT = 0;
+            //}
+            //try
+            //{
+            //    CA_CAL.PERSON_DENSITY = caInput.PersonDensity;
+            //}
+            //catch
+            //{
+            //    CA_CAL.PERSON_DENSITY = 0;
+            //}
+            //try
+            //{
+            //    CA_CAL.STORED_PRESSURE = caInput1.StoredPressure;
+            //}
+            //catch
+            //{
+            //    CA_CAL.STORED_PRESSURE = 0;
+            //}
+            //try
+            //{
+            //    CA_CAL.ATMOSPHERIC_PRESSURE = 101;//caInput.AtmosphericPressure;
+            //}
+            //catch
+            //{
+            //    CA_CAL.ATMOSPHERIC_PRESSURE = 0;
+            //}
+            //try
+            //{
+            //    CA_CAL.STORED_TEMP = caInput1.StoredTemp;
+            //}
+            //catch
+            //{
+            //    CA_CAL.STORED_TEMP = 0;
+            //}
             //MessageBox.Show("Consequence Level 1!" +
             //                "\nCA Toxic(m2):" + CA_CAL.ca_inj_tox() +
             //                "\nCA cmd (m2) :" + CA_CAL.ca_cmd() +
@@ -1130,12 +1202,11 @@ namespace RBI
         private void Calculation_CA_TANK()
         {
             MSSQL_CA_CAL CA = new MSSQL_CA_CAL();
-            RW_CA caTankInput = caTank.getData();
-            RW_CA caInput1 = op.getDataforCA();
+            RW_INPUT_CA_LEVEL_1 caInput1 = op.getDataforCA();
             RW_COMPONENT com1 = comp.getData();
             RW_MATERIAL materialTank = maTank.getData();
-            RW_CA_TANK inputCAfromStream = stTank.getDataforTank();
-            RW_CA_TANK inputCAfromEquipment = eqTank.getDataforTank();
+            RW_INPUT_CA_TANK inputCAfromStream = stTank.getDataforTank();
+            RW_INPUT_CA_TANK inputCAfromEquipment = eqTank.getDataforTank();
             CA.FLUID_HEIGHT = 12;
             CA.SHELL_COURSE_HEIGHT = 10;
             CA.TANK_DIAMETER = 12;
@@ -1148,16 +1219,16 @@ namespace RBI
             CA.Soil_type = "Clay";//inputCAfromEquipment.Soil_type;
             CA.TANK_FLUID = "Light Diesel Oil";
             CA.FLUID = "C9-C12";
-            CA.FLUID_PHASE = caTankInput.FluidPhase;
-            CA.MATERIAL_COST = materialTank.CostFactor;
-            CA.PRODUCTION_COST = caTankInput.ProductionCost;
+            //CA.FLUID_PHASE = caTankInput.FluidPhase;
+            //CA.MATERIAL_COST = materialTank.CostFactor;
+            //CA.PRODUCTION_COST = caTankInput.ProductionCost;
             //CA.DETECTION_TYPE = cbDetectionType.Text;
             //CA.ISULATION_TYPE = cbIsulationType.Text;
             //CA.MASS_INVERT = float.Parse(txtMassInvert.Text);
             //CA.MASS_COMPONENT = float.Parse(txtMassComponent.Text);
             //CA.MITIGATION_SYSTEM = cbMitigation.Text;
-            CA.STORED_PRESSURE = caTankInput.StoredPressure;
-            CA.STORED_TEMP = caTankInput.StoredTemp;
+            //CA.STORED_PRESSURE = caTankInput.StoredPressure;
+            //CA.STORED_TEMP = caTankInput.StoredTemp;
             CA.ATMOSPHERIC_PRESSURE = 101;
             CA.API_COMPONENT_TYPE_NAME = "TANKBOTTOM";
             MessageBox.Show("CA TANK!" +
@@ -1467,8 +1538,5 @@ namespace RBI
         private void barButtonItem17_ItemClick(object sender, ItemClickEventArgs e)
         {
             createReportExcel();
-        }
-        
-          
-    }
+        }    }
 }

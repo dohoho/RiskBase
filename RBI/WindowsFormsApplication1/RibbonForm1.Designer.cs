@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RibbonForm1));
             this.ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.barBtnNewEquipment = new DevExpress.XtraBars.BarButtonItem();
@@ -46,7 +45,9 @@
             this.btnRecord = new DevExpress.XtraBars.BarButtonItem();
             this.btnSave = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem6 = new DevExpress.XtraBars.BarButtonItem();
-            this.popupNew = new DevExpress.XtraBars.PopupMenu(this.components);
+            this.popupNew = new DevExpress.XtraBars.PopupMenu();
+            this.btnNewEquipment = new DevExpress.XtraBars.BarButtonItem();
+            this.btnNewComponent = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem7 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem8 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem13 = new DevExpress.XtraBars.BarButtonItem();
@@ -78,13 +79,13 @@
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup6 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribStatusbar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
-            this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
+            this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel();
             this.xtraTabData = new DevExpress.XtraTab.XtraTabControl();
             this.xTabHome = new DevExpress.XtraTab.XtraTabPage();
             this.simpleButton7 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton6 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton5 = new DevExpress.XtraEditors.SimpleButton();
-            this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager(this.components);
+            this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager();
             this.dockPanel2 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel2_Container = new DevExpress.XtraBars.Docking.ControlContainer();
             this.treeListProject = new DevExpress.XtraTreeList.TreeList();
@@ -103,7 +104,7 @@
             this.navStream = new DevExpress.XtraNavBar.NavBarItem();
             this.navRiskFactor = new DevExpress.XtraNavBar.NavBarItem();
             this.navCA = new DevExpress.XtraNavBar.NavBarItem();
-            this.imageCollection1 = new DevExpress.Utils.ImageCollection(this.components);
+            this.imageCollection1 = new DevExpress.Utils.ImageCollection();
             this.navGrRecord = new DevExpress.XtraNavBar.NavBarGroup();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupNew)).BeginInit();
@@ -154,9 +155,11 @@
             this.barButtonItem2,
             this.barButtonItem3,
             this.btnFacility,
-            this.btnImportInspection});
+            this.btnImportInspection,
+            this.btnNewEquipment,
+            this.btnNewComponent});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 31;
+            this.ribbon.MaxItemId = 33;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1,
@@ -240,7 +243,7 @@
             // 
             // barBtnNew
             // 
-            this.barBtnNew.Caption = "About";
+            this.barBtnNew.Caption = "Component";
             this.barBtnNew.Id = 9;
             this.barBtnNew.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barBtnNew.ImageOptions.Image")));
             this.barBtnNew.Name = "barBtnNew";
@@ -301,8 +304,24 @@
             // 
             // popupNew
             // 
+            this.popupNew.ItemLinks.Add(this.btnNewEquipment);
+            this.popupNew.ItemLinks.Add(this.btnNewComponent);
             this.popupNew.Name = "popupNew";
             this.popupNew.Ribbon = this.ribbon;
+            // 
+            // btnNewEquipment
+            // 
+            this.btnNewEquipment.Caption = "Equipment";
+            this.btnNewEquipment.Id = 31;
+            this.btnNewEquipment.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnNewEquipment.ImageOptions.Image")));
+            this.btnNewEquipment.Name = "btnNewEquipment";
+            // 
+            // btnNewComponent
+            // 
+            this.btnNewComponent.Caption = "Component";
+            this.btnNewComponent.Id = 32;
+            this.btnNewComponent.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnNewComponent.ImageOptions.Image")));
+            this.btnNewComponent.Name = "btnNewComponent";
             // 
             // barButtonItem7
             // 
@@ -780,7 +799,9 @@
             // navCA
             // 
             this.navCA.Caption = "Consequen Analysis";
+            this.navCA.LargeImage = ((System.Drawing.Image)(resources.GetObject("navCA.LargeImage")));
             this.navCA.Name = "navCA";
+            this.navCA.SmallImage = ((System.Drawing.Image)(resources.GetObject("navCA.SmallImage")));
             this.navCA.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navCA_LinkClicked);
             // 
             // imageCollection1
@@ -910,5 +931,7 @@
         private DevExpress.XtraNavBar.NavBarItem navRiskFactor;
         private DevExpress.XtraBars.PopupMenu popupNew;
         private DevExpress.XtraNavBar.NavBarItem navCA;
+        private DevExpress.XtraBars.BarButtonItem btnNewEquipment;
+        private DevExpress.XtraBars.BarButtonItem btnNewComponent;
     }
 }

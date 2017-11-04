@@ -16,9 +16,8 @@ namespace RBI.PRE.subForm.InputDataForm
     {
         List<COMPONENT_TYPE> listComponentType = new List<COMPONENT_TYPE>();
         COMPONENT_TYPE__BUS componentTypeBus = new COMPONENT_TYPE__BUS();
-        List<EQUIPMENT_MASTER> listEquipment = new List<EQUIPMENT_MASTER>();
-        EQUIPMENT_MASTER_BUS equipmentBus = new EQUIPMENT_MASTER_BUS();
-
+        
+        
         public UCAssessmentInfo()
         {
             InitializeComponent();
@@ -44,6 +43,40 @@ namespace RBI.PRE.subForm.InputDataForm
             RW_EQUIPMENT eq = new RW_EQUIPMENT();
             eq.CommissionDate = dateComissionDate.DateTime;
             return eq;
+        }
+        private void showDatatoControl()
+        {
+            EQUIPMENT_TYPE_BUS eqTypeBus = new EQUIPMENT_TYPE_BUS();
+            List<EQUIPMENT_TYPE> listEquipmentType = eqTypeBus.getDataSource();
+            EQUIPMENT_MASTER_BUS equipmentMasterBus = new EQUIPMENT_MASTER_BUS();
+            List<EQUIPMENT_MASTER> listEquipmentMaster = equipmentMasterBus.getDataSource();
+            DESIGN_CODE_BUS designCodeBus = new DESIGN_CODE_BUS();
+            List<DESIGN_CODE> listDesignCode = designCodeBus.getDataSource();
+            SITES_BUS siteBus = new SITES_BUS();
+            List<SITES> listSite = siteBus.getData();
+            foreach(EQUIPMENT_MASTER e in listEquipmentMaster)
+            {
+                if (e.EquipmentID == RibbonForm1.EquipmentID)
+                {
+                    txtEquipmentNumber.Text = e.EquipmentNumber;
+                    txtEquipmentName.Text = e.EquipmentName;
+                    txtProcessDesciption.Text = e.ProcessDescription;
+                    txtSites.Text = RibbonForm1.siteName;
+                    txtFacility.Text = RibbonForm1.facilityName;
+                    foreach(DESIGN_CODE d in listDesignCode)
+                    {
+                        if (d.DesignCodeID == e.DesignCodeID)
+                            txtDesignCode.Text = d.DesignCode;
+                    }
+                    foreach(EQUIPMENT_TYPE t in listEquipmentType)
+                    {
+                        if (t.EquipmentTypeID == e.EquipmentTypeID)
+                            txtEquipmentType.Text = t.EquipmentTypeName;
+                    }
+                    
+                    
+                }
+            }
         }
     }
 }

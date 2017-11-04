@@ -75,7 +75,6 @@ E:\Project\hoang\RBI\WindowsFormsApplication1\obj\Debug\RBI.PRE.subForm.ImportEx
 E:\Project\hoang\RBI\WindowsFormsApplication1\obj\Debug\RBI.PRE.subForm.InputDataForm.frmGenericFluids.resources
 E:\Project\hoang\RBI\WindowsFormsApplication1\obj\Debug\RBI.PRE.subForm.InputDataForm.frmImportInspection.resources
 E:\Project\hoang\RBI\WindowsFormsApplication1\obj\Debug\RBI.PRE.subForm.InputDataForm.UCAssessmentInfo.resources
-E:\Project\hoang\RBI\WindowsFormsApplication1\obj\Debug\RBI.PRE.subForm.InputDataForm.UCCAforTank.resources
 E:\Project\hoang\RBI\WindowsFormsApplication1\obj\Debug\RBI.PRE.subForm.InputDataForm.UCCA.resources
 E:\Project\hoang\RBI\WindowsFormsApplication1\obj\Debug\RBI.PRE.subForm.InputDataForm.UCCoatLiningIsulationCladding.resources
 E:\Project\hoang\RBI\WindowsFormsApplication1\obj\Debug\RBI.PRE.subForm.InputDataForm.UCComponentPropertiesTank.resources
@@ -111,3 +110,4 @@ E:\Project\hoang\RBI\WindowsFormsApplication1\obj\Debug\RBI.PRE.subForm.InputDat
 E:\Project\hoang\RBI\WindowsFormsApplication1\obj\Debug\RBI.PRE.subForm.InputDataForm.frmNewManufacturer.resources
 E:\Project\hoang\RBI\WindowsFormsApplication1\obj\Debug\RBI.PRE.subForm.InputDataForm.frmNewMaterial.resources
 E:\Project\hoang\RBI\WindowsFormsApplication1\obj\Debug\RBI.PRE.subForm.InputDataForm.frmNewSite.resources
+E:\Project\hoang\RBI\WindowsFormsApplication1\obj\Debug\RBI.PRE.subForm.InputDataForm.frmDesignCode.resources

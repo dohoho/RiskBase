@@ -46,7 +46,6 @@
             this.txtCurrentCorrosionRate = new System.Windows.Forms.TextBox();
             this.txtCurrentThickness = new System.Windows.Forms.TextBox();
             this.txtMinRequiredThickness = new System.Windows.Forms.TextBox();
-            this.txtNumberInsp = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.txtNominalThickness = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
@@ -65,7 +64,6 @@
             this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.label29 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.lb7 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -95,7 +93,6 @@
             this.groupBox1.Controls.Add(this.txtCurrentCorrosionRate);
             this.groupBox1.Controls.Add(this.txtCurrentThickness);
             this.groupBox1.Controls.Add(this.txtMinRequiredThickness);
-            this.groupBox1.Controls.Add(this.txtNumberInsp);
             this.groupBox1.Controls.Add(this.label12);
             this.groupBox1.Controls.Add(this.txtNominalThickness);
             this.groupBox1.Controls.Add(this.label18);
@@ -114,23 +111,22 @@
             this.groupBox1.Controls.Add(this.label14);
             this.groupBox1.Controls.Add(this.label13);
             this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.label29);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.lb7);
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(738, 339);
+            this.groupBox1.Size = new System.Drawing.Size(803, 326);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Component";
             // 
             // cbMaxBrillnessHardness
             // 
-            this.cbMaxBrillnessHardness.Location = new System.Drawing.Point(223, 221);
+            this.cbMaxBrillnessHardness.Location = new System.Drawing.Point(231, 221);
             this.cbMaxBrillnessHardness.Name = "cbMaxBrillnessHardness";
             this.cbMaxBrillnessHardness.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -152,7 +148,7 @@
             // 
             // cbSeverityVibration
             // 
-            this.cbSeverityVibration.Location = new System.Drawing.Point(223, 273);
+            this.cbSeverityVibration.Location = new System.Drawing.Point(231, 273);
             this.cbSeverityVibration.Name = "cbSeverityVibration";
             this.cbSeverityVibration.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -175,7 +171,7 @@
             // 
             // cbComplexityProtrusion
             // 
-            this.cbComplexityProtrusion.Location = new System.Drawing.Point(223, 247);
+            this.cbComplexityProtrusion.Location = new System.Drawing.Point(231, 247);
             this.cbComplexityProtrusion.Name = "cbComplexityProtrusion";
             this.cbComplexityProtrusion.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -198,7 +194,7 @@
             // chkPreventionBarrier
             // 
             this.chkPreventionBarrier.AutoSize = true;
-            this.chkPreventionBarrier.Location = new System.Drawing.Point(559, 156);
+            this.chkPreventionBarrier.Location = new System.Drawing.Point(611, 185);
             this.chkPreventionBarrier.Name = "chkPreventionBarrier";
             this.chkPreventionBarrier.Size = new System.Drawing.Size(15, 14);
             this.chkPreventionBarrier.TabIndex = 2;
@@ -207,7 +203,7 @@
             // chkTrampElements
             // 
             this.chkTrampElements.AutoSize = true;
-            this.chkTrampElements.Location = new System.Drawing.Point(559, 132);
+            this.chkTrampElements.Location = new System.Drawing.Point(611, 161);
             this.chkTrampElements.Name = "chkTrampElements";
             this.chkTrampElements.Size = new System.Drawing.Size(15, 14);
             this.chkTrampElements.TabIndex = 2;
@@ -216,7 +212,7 @@
             // chkPresenceCracks
             // 
             this.chkPresenceCracks.AutoSize = true;
-            this.chkPresenceCracks.Location = new System.Drawing.Point(559, 109);
+            this.chkPresenceCracks.Location = new System.Drawing.Point(611, 138);
             this.chkPresenceCracks.Name = "chkPresenceCracks";
             this.chkPresenceCracks.Size = new System.Drawing.Size(15, 14);
             this.chkPresenceCracks.TabIndex = 2;
@@ -225,7 +221,7 @@
             // chkConcreteAsphalt
             // 
             this.chkConcreteAsphalt.AutoSize = true;
-            this.chkConcreteAsphalt.Location = new System.Drawing.Point(223, 185);
+            this.chkConcreteAsphalt.Location = new System.Drawing.Point(231, 185);
             this.chkConcreteAsphalt.Name = "chkConcreteAsphalt";
             this.chkConcreteAsphalt.Size = new System.Drawing.Size(15, 14);
             this.chkConcreteAsphalt.TabIndex = 2;
@@ -234,7 +230,7 @@
             // chkDamageFoundDuringInspection
             // 
             this.chkDamageFoundDuringInspection.AutoSize = true;
-            this.chkDamageFoundDuringInspection.Location = new System.Drawing.Point(223, 132);
+            this.chkDamageFoundDuringInspection.Location = new System.Drawing.Point(231, 132);
             this.chkDamageFoundDuringInspection.Name = "chkDamageFoundDuringInspection";
             this.chkDamageFoundDuringInspection.Size = new System.Drawing.Size(15, 14);
             this.chkDamageFoundDuringInspection.TabIndex = 2;
@@ -243,7 +239,7 @@
             // txtShellCourseHeight
             // 
             this.txtShellCourseHeight.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtShellCourseHeight.Location = new System.Drawing.Point(223, 99);
+            this.txtShellCourseHeight.Location = new System.Drawing.Point(231, 99);
             this.txtShellCourseHeight.Name = "txtShellCourseHeight";
             this.txtShellCourseHeight.Size = new System.Drawing.Size(125, 21);
             this.txtShellCourseHeight.TabIndex = 1;
@@ -252,7 +248,7 @@
             // txtCurrentCorrosionRate
             // 
             this.txtCurrentCorrosionRate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCurrentCorrosionRate.Location = new System.Drawing.Point(223, 72);
+            this.txtCurrentCorrosionRate.Location = new System.Drawing.Point(231, 72);
             this.txtCurrentCorrosionRate.Name = "txtCurrentCorrosionRate";
             this.txtCurrentCorrosionRate.Size = new System.Drawing.Size(125, 21);
             this.txtCurrentCorrosionRate.TabIndex = 1;
@@ -261,7 +257,7 @@
             // txtCurrentThickness
             // 
             this.txtCurrentThickness.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCurrentThickness.Location = new System.Drawing.Point(223, 46);
+            this.txtCurrentThickness.Location = new System.Drawing.Point(231, 46);
             this.txtCurrentThickness.Name = "txtCurrentThickness";
             this.txtCurrentThickness.Size = new System.Drawing.Size(125, 21);
             this.txtCurrentThickness.TabIndex = 1;
@@ -270,35 +266,26 @@
             // txtMinRequiredThickness
             // 
             this.txtMinRequiredThickness.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMinRequiredThickness.Location = new System.Drawing.Point(559, 46);
+            this.txtMinRequiredThickness.Location = new System.Drawing.Point(611, 44);
             this.txtMinRequiredThickness.Name = "txtMinRequiredThickness";
             this.txtMinRequiredThickness.Size = new System.Drawing.Size(125, 21);
             this.txtMinRequiredThickness.TabIndex = 1;
             this.txtMinRequiredThickness.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMinRequiredThickness_KeyPress);
             // 
-            // txtNumberInsp
-            // 
-            this.txtNumberInsp.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNumberInsp.Location = new System.Drawing.Point(559, 72);
-            this.txtNumberInsp.Name = "txtNumberInsp";
-            this.txtNumberInsp.Size = new System.Drawing.Size(125, 21);
-            this.txtNumberInsp.TabIndex = 1;
-            this.txtNumberInsp.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNumberInsp_KeyPress);
-            // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.Location = new System.Drawing.Point(17, 276);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(101, 13);
+            this.label12.Size = new System.Drawing.Size(113, 15);
             this.label12.TabIndex = 0;
             this.label12.Text = "Severity of Vibration";
             // 
             // txtNominalThickness
             // 
             this.txtNominalThickness.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNominalThickness.Location = new System.Drawing.Point(559, 22);
+            this.txtNominalThickness.Location = new System.Drawing.Point(611, 20);
             this.txtNominalThickness.Name = "txtNominalThickness";
             this.txtNominalThickness.Size = new System.Drawing.Size(125, 21);
             this.txtNominalThickness.TabIndex = 1;
@@ -307,17 +294,17 @@
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label18.Location = new System.Drawing.Point(17, 250);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(124, 13);
+            this.label18.Size = new System.Drawing.Size(145, 15);
             this.label18.TabIndex = 0;
             this.label18.Text = "Complexity of Protrusions";
             // 
             // txtTankDiameter
             // 
             this.txtTankDiameter.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTankDiameter.Location = new System.Drawing.Point(223, 21);
+            this.txtTankDiameter.Location = new System.Drawing.Point(231, 21);
             this.txtTankDiameter.Name = "txtTankDiameter";
             this.txtTankDiameter.Size = new System.Drawing.Size(125, 21);
             this.txtTankDiameter.TabIndex = 1;
@@ -326,190 +313,180 @@
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label17.Location = new System.Drawing.Point(17, 226);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(176, 13);
+            this.label17.Size = new System.Drawing.Size(208, 15);
             this.label17.TabIndex = 0;
             this.label17.Text = "Maximum Brinnell Hardness of Weld";
             // 
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(425, 133);
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(451, 160);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(83, 13);
+            this.label16.Size = new System.Drawing.Size(98, 15);
             this.label16.TabIndex = 0;
             this.label16.Text = "Tramp Elements";
             // 
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(425, 108);
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(451, 135);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(100, 13);
+            this.label15.Size = new System.Drawing.Size(112, 15);
             this.label15.TabIndex = 0;
             this.label15.Text = "Presence of Cracks";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(16, 185);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(156, 13);
+            this.label6.Size = new System.Drawing.Size(178, 15);
             this.label6.TabIndex = 0;
             this.label6.Text = "Concrete or Asphalt Foundation";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(425, 156);
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(451, 183);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(133, 13);
+            this.label5.Size = new System.Drawing.Size(154, 15);
             this.label5.TabIndex = 0;
             this.label5.Text = "Release Prevention Barrier";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(16, 132);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(166, 13);
+            this.label4.Size = new System.Drawing.Size(192, 15);
             this.label4.TabIndex = 0;
             this.label4.Text = "Damage Found During Inspection";
             // 
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label19.Location = new System.Drawing.Point(16, 106);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(100, 13);
+            this.label19.Size = new System.Drawing.Size(116, 15);
             this.label19.TabIndex = 0;
             this.label19.Text = "Shell Course Height";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(16, 79);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(114, 13);
+            this.label3.Size = new System.Drawing.Size(132, 15);
             this.label3.TabIndex = 0;
             this.label3.Text = "Current Corrosion Rate";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(16, 51);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(93, 13);
+            this.label2.Size = new System.Drawing.Size(105, 15);
             this.label2.TabIndex = 0;
             this.label2.Text = "Current Thickness";
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(354, 103);
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(362, 103);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(15, 13);
+            this.label11.Size = new System.Drawing.Size(18, 15);
             this.label11.TabIndex = 0;
             this.label11.Text = "m";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(354, 72);
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(362, 72);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(36, 13);
+            this.label9.Size = new System.Drawing.Size(41, 15);
             this.label9.TabIndex = 0;
             this.label9.Text = "mm/yr";
             // 
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(690, 49);
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(742, 47);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(23, 13);
+            this.label14.Size = new System.Drawing.Size(29, 15);
             this.label14.TabIndex = 0;
             this.label14.Text = "mm";
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(690, 25);
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(742, 23);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(23, 13);
+            this.label13.Size = new System.Drawing.Size(29, 15);
             this.label13.TabIndex = 0;
             this.label13.Text = "mm";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(354, 49);
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(362, 49);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(23, 13);
+            this.label8.Size = new System.Drawing.Size(29, 15);
             this.label8.TabIndex = 0;
             this.label8.Text = "mm";
-            // 
-            // label29
-            // 
-            this.label29.AutoSize = true;
-            this.label29.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label29.Location = new System.Drawing.Point(425, 76);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(96, 13);
-            this.label29.TabIndex = 0;
-            this.label29.Text = "Number Inspection";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(354, 24);
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(362, 24);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(15, 13);
+            this.label7.Size = new System.Drawing.Size(17, 15);
             this.label7.TabIndex = 0;
             this.label7.Text = "in";
             // 
             // lb7
             // 
             this.lb7.AutoSize = true;
-            this.lb7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb7.Location = new System.Drawing.Point(425, 49);
+            this.lb7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb7.Location = new System.Drawing.Point(451, 45);
             this.lb7.Name = "lb7";
-            this.lb7.Size = new System.Drawing.Size(125, 13);
+            this.lb7.Size = new System.Drawing.Size(143, 15);
             this.lb7.TabIndex = 0;
             this.lb7.Text = "Min. Required Thickness";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(425, 28);
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(451, 24);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(97, 13);
+            this.label10.Size = new System.Drawing.Size(112, 15);
             this.label10.TabIndex = 0;
             this.label10.Text = "Nominal Thickness";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(16, 28);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(77, 13);
+            this.label1.Size = new System.Drawing.Size(88, 15);
             this.label1.TabIndex = 0;
             this.label1.Text = "Tank Diameter";
             // 
@@ -528,7 +505,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.groupBox1);
             this.Name = "UCComponentPropertiesTank";
-            this.Size = new System.Drawing.Size(738, 339);
+            this.Size = new System.Drawing.Size(803, 326);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cbMaxBrillnessHardness.Properties)).EndInit();
@@ -570,8 +547,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label lb7;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox txtNumberInsp;
-        private System.Windows.Forms.Label label29;
         private System.Windows.Forms.CheckBox chkConcreteAsphalt;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label6;

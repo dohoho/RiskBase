@@ -140,6 +140,8 @@
     <Compile Include="BUS\BUSMSSQL\REPORT_TEMPLATE_COMPONENT_DEFAULT_BUS.cs" />
     <Compile Include="BUS\BUSMSSQL\REPORT_TEMPLATE_EQUIPMENT_BUS.cs" />
     <Compile Include="BUS\BUSMSSQL\RW_ASSESSMENT_BUS.cs" />
+    <Compile Include="BUS\BUSMSSQL\RW_CA_LEVEL_1_BUS.cs" />
+    <Compile Include="BUS\BUSMSSQL\RW_CA_TANK_BUS.cs" />
     <Compile Include="BUS\BUSMSSQL\RW_CF_MASTER_BUS.cs" />
     <Compile Include="BUS\BUSMSSQL\RW_COATING_BUS.cs" />
     <Compile Include="BUS\BUSMSSQL\RW_COMPONENT_BUS.cs" />
@@ -155,6 +157,8 @@
     <Compile Include="BUS\BUSMSSQL\RW_FULL_COF_TANK_BUS.cs" />
     <Compile Include="BUS\BUSMSSQL\RW_FULL_FCOF_BUS.cs" />
     <Compile Include="BUS\BUSMSSQL\RW_FULL_POF_BUS.cs" />
+    <Compile Include="BUS\BUSMSSQL\RW_INPUT_CA_LEVEL_1_BUS.cs" />
+    <Compile Include="BUS\BUSMSSQL\RW_INPUT_CA_TANK_BUS.cs" />
     <Compile Include="BUS\BUSMSSQL\RW_LF_DETAIL_BUS.cs" />
     <Compile Include="BUS\BUSMSSQL\RW_LF_MASTER_BUS.cs" />
     <Compile Include="BUS\BUSMSSQL\RW_MATERIAL_BUS.cs" />
@@ -243,6 +247,8 @@
     <Compile Include="DAL\MSSQL\REPORT_TEMPLATE_ConnectUtils.cs" />
     <Compile Include="DAL\MSSQL\REPORT_TEMPLATE_EQUIPMENT_ConnectUtils.cs" />
     <Compile Include="DAL\MSSQL\RW_ASSESSMENT_ConnectUtils.cs" />
+    <Compile Include="DAL\MSSQL\RW_CA_LEVEL_1_ConnUtils.cs" />
+    <Compile Include="DAL\MSSQL\RW_CA_TANK_ConnUtils.cs" />
     <Compile Include="DAL\MSSQL\RW_CF_MASTER_ConnectUtils.cs" />
     <Compile Include="DAL\MSSQL\RW_COATING_ConnectUtils.cs" />
     <Compile Include="DAL\MSSQL\RW_COMPONENT_ConnectUtils.cs" />
@@ -259,6 +265,8 @@
     <Compile Include="DAL\MSSQL\RW_FULL_COF_TANK_ConnectUtils.cs" />
     <Compile Include="DAL\MSSQL\RW_FULL_FCOF_ConnectUtils.cs" />
     <Compile Include="DAL\MSSQL\RW_FULL_POF_ConnectUtils.cs" />
+    <Compile Include="DAL\MSSQL\RW_INPUT_CA_LEVEL_1_ConnUtils.cs" />
+    <Compile Include="DAL\MSSQL\RW_INPUT_CA_TANK_ConnUtils.cs" />
     <Compile Include="DAL\MSSQL\RW_LF_DETAIL_ConnectUtils.cs" />
     <Compile Include="DAL\MSSQL\RW_LF_MASTER_ConnectUtils.cs" />
     <Compile Include="DAL\MSSQL\RW_MATERIAL_ConnectUtils.cs" />
@@ -289,7 +297,6 @@
     <Compile Include="DAL\RiskSummaryConnUtils1.cs" />
     <Compile Include="Object\Component.cs" />
     <Compile Include="Object\ObjectMSSQL\API_COMPONENT_TYPE.cs" />
-    <Compile Include="Object\ObjectMSSQL\RW_CA.cs" />
     <Compile Include="Object\ObjectMSSQL\COMPONENT_DETAIL.cs" />
     <Compile Include="Object\ObjectMSSQL\COMPONENT_MASTER.cs" />
     <Compile Include="Object\ObjectMSSQL\COMPONENT_MODELLING.cs" />
@@ -333,6 +340,7 @@
     <Compile Include="Object\ObjectMSSQL\REPORT_TEMPLATE_COMPONENT_DEFAULT.cs" />
     <Compile Include="Object\ObjectMSSQL\REPORT_TEMPLATE_EQUIPMENT.cs" />
     <Compile Include="Object\ObjectMSSQL\RW_ASSESSMENT.cs" />
+    <Compile Include="Object\ObjectMSSQL\RW_CA_LEVEL_1.cs" />
     <Compile Include="Object\ObjectMSSQL\RW_CA_TANK.cs" />
     <Compile Include="Object\ObjectMSSQL\RW_CF_MASTER.cs" />
     <Compile Include="Object\ObjectMSSQL\RW_COATING.cs" />
@@ -349,6 +357,8 @@
     <Compile Include="Object\ObjectMSSQL\RW_FULL_COF_TANK.cs" />
     <Compile Include="Object\ObjectMSSQL\RW_FULL_FCOF.cs" />
     <Compile Include="Object\ObjectMSSQL\RW_FULL_POF.cs" />
+    <Compile Include="Object\ObjectMSSQL\RW_INPUT_CA_LEVEL_1.cs" />
+    <Compile Include="Object\ObjectMSSQL\RW_INPUT_CA_TANK.cs" />
     <Compile Include="Object\ObjectMSSQL\RW_LF_DETAIL.cs" />
     <Compile Include="Object\ObjectMSSQL\RW_LF_MASTER.cs" />
     <Compile Include="Object\ObjectMSSQL\RW_MATERIAL.cs" />
@@ -385,6 +395,12 @@
     </Compile>
     <Compile Include="PRE\subForm\ImportExcel.Designer.cs">
       <DependentUpon>ImportExcel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PRE\subForm\InputDataForm\frmDesignCode.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PRE\subForm\InputDataForm\frmDesignCode.Designer.cs">
+      <DependentUpon>frmDesignCode.cs</DependentUpon>
     </Compile>
     <Compile Include="PRE\subForm\InputDataForm\frmEquipment.cs">
       <SubType>Form</SubType>
@@ -457,12 +473,6 @@
     </Compile>
     <Compile Include="PRE\subForm\InputDataForm\UCAssessmentInfo.Designer.cs">
       <DependentUpon>UCAssessmentInfo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="PRE\subForm\InputDataForm\UCCAforTank.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="PRE\subForm\InputDataForm\UCCAforTank.Designer.cs">
-      <DependentUpon>UCCAforTank.cs</DependentUpon>
     </Compile>
     <Compile Include="PRE\subForm\InputDataForm\UCCA.cs">
       <SubType>UserControl</SubType>
@@ -579,8 +589,16 @@
     <Compile Include="test.Designer.cs">
       <DependentUpon>test.cs</DependentUpon>
     </Compile>
+    <Compile Include="TestData.cs" />
+    <Compile Include="TEST_COMPONENT.cs" />
+    <Compile Include="TEST_EQUIPMENT.cs" />
+    <Compile Include="TEST_FACILITY.cs" />
+    <Compile Include="TEST_SITE.cs" />
     <EmbeddedResource Include="PRE\subForm\ImportExcel.resx">
       <DependentUpon>ImportExcel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PRE\subForm\InputDataForm\frmDesignCode.resx">
+      <DependentUpon>frmDesignCode.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PRE\subForm\InputDataForm\frmEquipment.resx">
       <DependentUpon>frmEquipment.cs</DependentUpon>
@@ -617,9 +635,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PRE\subForm\InputDataForm\UCAssessmentInfo.resx">
       <DependentUpon>UCAssessmentInfo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="PRE\subForm\InputDataForm\UCCAforTank.resx">
-      <DependentUpon>UCCAforTank.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PRE\subForm\InputDataForm\UCCA.resx">
       <DependentUpon>UCCA.cs</DependentUpon>
