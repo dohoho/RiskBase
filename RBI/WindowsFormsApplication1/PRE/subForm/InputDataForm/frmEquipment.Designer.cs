@@ -142,6 +142,7 @@
             this.cbManufacturer.Size = new System.Drawing.Size(287, 20);
             this.cbManufacturer.TabIndex = 83;
             this.cbManufacturer.SelectedIndexChanged += new System.EventHandler(this.cbManufacturer_SelectedIndexChanged);
+            this.cbManufacturer.Click += new System.EventHandler(this.cbManufacturer_Click);
             // 
             // btnAddManufacture
             // 
@@ -192,6 +193,7 @@
             this.cbDesignCode.Size = new System.Drawing.Size(286, 20);
             this.cbDesignCode.TabIndex = 81;
             this.cbDesignCode.SelectedIndexChanged += new System.EventHandler(this.cbDesignCode_SelectedIndexChanged);
+            this.cbDesignCode.Click += new System.EventHandler(this.cbDesignCode_Click);
             // 
             // cbEquipmentType
             // 
@@ -523,13 +525,14 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(563, 519);
-            this.ControlBox = false;
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmEquipment";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Equipment";
-            this.Load += new System.EventHandler(this.frmEquipment_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cbManufacturer.Properties)).EndInit();

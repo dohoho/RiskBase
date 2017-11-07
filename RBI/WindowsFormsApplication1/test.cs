@@ -21,6 +21,14 @@ namespace RBI
         public test()
         {
             InitializeComponent();
+            list = dataSource();
+            SetupTree(list);
+            //treeList1.OptionsView.ShowIndicator = false;
+            //treeList1.OptionsView.ShowColumns = false;
+            //treeList1.OptionsView.ShowHorzLines = false;
+            //treeList1.OptionsView.ShowVertLines = false;
+            //focusTree();
+            treeList1.ExpandAll();
         }
         private int selectedLevel = -1;
         private String selectedData;
@@ -149,8 +157,6 @@ namespace RBI
                 }
 
             }
-
-
         }
 
         private void treeList1_GetStateImage(object sender, DevExpress.XtraTreeList.GetStateImageEventArgs e)
@@ -158,10 +164,6 @@ namespace RBI
 
         }
 
-        private void treeList1_FocusedNodeChanged(object sender, DevExpress.XtraTreeList.FocusedNodeChangedEventArgs e)
-        {
-
-        }
 
         private void TreeListForm_Load(object sender, EventArgs e)
         {
@@ -175,7 +177,7 @@ namespace RBI
             treeList1.ExpandAll();
         }
 
-        private void treeList1_FocusedNodeChanged_1(object sender, FocusedNodeChangedEventArgs e)
+        private void treeList1_FocusedNodeChanged(object sender, FocusedNodeChangedEventArgs e)
         {
             TreeListNode node = treeList1.FocusedNode;
             foreach (TreeListNode item in node.Nodes)
@@ -197,10 +199,6 @@ namespace RBI
             }
             selectedLevel = e.Node.Level;
             selectedData = e.Node.GetValue(0).ToString();
-        }
-
-        private void treeList1_DataSourceChanged(object sender, EventArgs e)
-        {
         }
 
         private void treeList1_CustomDrawNodeImages(object sender, CustomDrawNodeImagesEventArgs e)
@@ -228,7 +226,6 @@ namespace RBI
                     e.Node.StateImageIndex = 3;
                     e.Node.SelectImageIndex = 3;
                 }
-
             }
         }
         private void treeList1_PopupMenuShowing(object sender, PopupMenuShowingEventArgs e)
@@ -355,16 +352,6 @@ namespace RBI
             //treeList1.DataSource = list;
             //Console.WriteLine(value);
             //treeList1.RefreshDataSource();
-        }
-
-        private void treeList1_MouseClick(object sender, MouseEventArgs e)
-        {
-
-        }
-
-        private void treeList1_SelectionChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

@@ -212,8 +212,8 @@ namespace RBI.DAL.MSSQL
                         ",[DistanceToGroundWater]" +
                         ",[AdjustmentSettle]" +
                         ",[ComponentIsWelded]" +
-                        ",[TankIsMaintained])" +
-                          "From [dbo].[RW_EQUIPMENT]  ";
+                        ",[TankIsMaintained]" +
+                          "From [dbo].[RW_EQUIPMENT]";
             try
             {
                 SqlCommand cmd = new SqlCommand();
@@ -228,44 +228,44 @@ namespace RBI.DAL.MSSQL
                             obj = new RW_EQUIPMENT();
                             obj.ID = reader.GetInt32(0);
                             obj.CommissionDate = reader.GetDateTime(1);
-                            obj.AdminUpsetManagement = reader.GetInt32(2);
-                            obj.ContainsDeadlegs = reader.GetInt32(3);
-                            obj.CyclicOperation = reader.GetInt32(4);
-                            obj.HighlyDeadlegInsp = reader.GetInt32(5);
-                            obj.DowntimeProtectionUsed = reader.GetInt32(6);
+                            obj.AdminUpsetManagement = Convert.ToInt32(reader.GetBoolean(2));
+                            obj.ContainsDeadlegs = Convert.ToInt32(reader.GetBoolean(3));
+                            obj.CyclicOperation = Convert.ToInt32(reader.GetBoolean(4));
+                            obj.HighlyDeadlegInsp = Convert.ToInt32(reader.GetBoolean(5));
+                            obj.DowntimeProtectionUsed = Convert.ToInt32(reader.GetBoolean(6));
                             if (!reader.IsDBNull(7))
                             {
                                 obj.ExternalEnvironment = reader.GetString(7);
                             }
-                            obj.HeatTraced = reader.GetInt32(8);
-                            obj.InterfaceSoilWater = reader.GetInt32(9);
-                            obj.LinerOnlineMonitoring = reader.GetInt32(10);
-                            obj.MaterialExposedToClExt = reader.GetInt32(11);
+                            obj.HeatTraced = Convert.ToInt32(reader.GetBoolean(8));
+                            obj.InterfaceSoilWater = Convert.ToInt32(reader.GetBoolean(9));
+                            obj.LinerOnlineMonitoring = Convert.ToInt32(reader.GetBoolean(10));
+                            obj.MaterialExposedToClExt = Convert.ToInt32(reader.GetBoolean(11));
                             if (!reader.IsDBNull(12))
                             {
-                                obj.MinReqTemperaturePressurisation = reader.GetFloat(12);
+                                obj.MinReqTemperaturePressurisation = (float)reader.GetDouble(12);
                             }
                             if (!reader.IsDBNull(13))
                             {
                                 obj.OnlineMonitoring = reader.GetString(13);
                             }
-                            obj.PresenceSulphidesO2 = reader.GetInt32(14);
-                            obj.PresenceSulphidesO2Shutdown = reader.GetInt32(15);
-                            obj.PressurisationControlled = reader.GetInt32(16);
-                            obj.PWHT = reader.GetInt32(17);
-                            obj.SteamOutWaterFlush = reader.GetInt32(18);
+                            obj.PresenceSulphidesO2 = Convert.ToInt32(reader.GetBoolean(14));
+                            obj.PresenceSulphidesO2Shutdown = Convert.ToInt32(reader.GetBoolean(15));
+                            obj.PressurisationControlled = Convert.ToInt32(reader.GetBoolean(16));
+                            obj.PWHT = Convert.ToInt32(reader.GetBoolean(17));
+                            obj.SteamOutWaterFlush = Convert.ToInt32(reader.GetBoolean(18));
                             if (!reader.IsDBNull(19))
                             {
-                                obj.ManagementFactor = reader.GetFloat(19);
+                                obj.ManagementFactor = (float)reader.GetDouble(19);
                             }
                             if (!reader.IsDBNull(20))
                             {
                                 obj.ThermalHistory = reader.GetString(20);
                             }
-                            obj.YearLowestExpTemp = reader.GetInt32(21);
+                            obj.YearLowestExpTemp = Convert.ToInt32(reader.GetBoolean(21));
                             if (!reader.IsDBNull(22))
                             {
-                                obj.Volume = reader.GetFloat(22);
+                                obj.Volume = (float)reader.GetDouble(22);
                             }
                             if (!reader.IsDBNull(23))
                             {
@@ -277,14 +277,14 @@ namespace RBI.DAL.MSSQL
                             }
                             if (!reader.IsDBNull(25))
                             {
-                                obj.DistanceToGroundWater = reader.GetFloat(25);
+                                obj.DistanceToGroundWater = (float)reader.GetDouble(25);
                             }
                             if (!reader.IsDBNull(26))
                             {
                                 obj.AdjustmentSettle=reader.GetString(26);
                             }
-                            obj.ComponentIsWelded = reader.GetInt32(27);
-                            obj.TankIsMaintained = reader.GetInt32(28);
+                            obj.ComponentIsWelded = Convert.ToInt32(reader.GetBoolean(27));
+                            obj.TankIsMaintained = Convert.ToInt32(reader.GetBoolean(28));
                             list.Add(obj);
                         }
                     }

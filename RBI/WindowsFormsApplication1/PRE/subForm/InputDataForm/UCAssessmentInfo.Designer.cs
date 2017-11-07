@@ -130,6 +130,8 @@
             this.cbReportTemplate.Name = "cbReportTemplate";
             this.cbReportTemplate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cbReportTemplate.Properties.Items.AddRange(new object[] {
+            "Standard Component"});
             this.cbReportTemplate.Size = new System.Drawing.Size(240, 20);
             this.cbReportTemplate.TabIndex = 2;
             // 
@@ -168,6 +170,7 @@
             // txtComponentName
             // 
             this.txtComponentName.Enabled = false;
+            this.txtComponentName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtComponentName.Location = new System.Drawing.Point(183, 85);
             this.txtComponentName.Name = "txtComponentName";
             this.txtComponentName.Size = new System.Drawing.Size(240, 22);
@@ -176,6 +179,7 @@
             // txtAPIComponentType
             // 
             this.txtAPIComponentType.Enabled = false;
+            this.txtAPIComponentType.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtAPIComponentType.Location = new System.Drawing.Point(183, 61);
             this.txtAPIComponentType.Name = "txtAPIComponentType";
             this.txtAPIComponentType.Size = new System.Drawing.Size(240, 22);
@@ -184,6 +188,7 @@
             // txtComponentType
             // 
             this.txtComponentType.Enabled = false;
+            this.txtComponentType.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtComponentType.Location = new System.Drawing.Point(183, 37);
             this.txtComponentType.Name = "txtComponentType";
             this.txtComponentType.Size = new System.Drawing.Size(240, 22);
@@ -192,6 +197,7 @@
             // txtComponentNumber
             // 
             this.txtComponentNumber.Enabled = false;
+            this.txtComponentNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtComponentNumber.Location = new System.Drawing.Point(183, 14);
             this.txtComponentNumber.Name = "txtComponentNumber";
             this.txtComponentNumber.Size = new System.Drawing.Size(240, 22);
@@ -280,18 +286,22 @@
             // dateComissionDate
             // 
             this.dateComissionDate.EditValue = null;
+            this.dateComissionDate.Enabled = false;
             this.dateComissionDate.Location = new System.Drawing.Point(183, 153);
             this.dateComissionDate.Name = "dateComissionDate";
+            this.dateComissionDate.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateComissionDate.Properties.Appearance.Options.UseFont = true;
             this.dateComissionDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dateComissionDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateComissionDate.Size = new System.Drawing.Size(240, 20);
+            this.dateComissionDate.Size = new System.Drawing.Size(240, 22);
             this.dateComissionDate.TabIndex = 2;
             // 
             // txtProcessDesciption
             // 
             this.txtProcessDesciption.Enabled = false;
+            this.txtProcessDesciption.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtProcessDesciption.Location = new System.Drawing.Point(183, 200);
             this.txtProcessDesciption.Name = "txtProcessDesciption";
             this.txtProcessDesciption.Size = new System.Drawing.Size(240, 22);
@@ -300,6 +310,7 @@
             // txtEquipmentName
             // 
             this.txtEquipmentName.Enabled = false;
+            this.txtEquipmentName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEquipmentName.Location = new System.Drawing.Point(183, 176);
             this.txtEquipmentName.Name = "txtEquipmentName";
             this.txtEquipmentName.Size = new System.Drawing.Size(240, 22);
@@ -308,6 +319,7 @@
             // txtManufacturer
             // 
             this.txtManufacturer.Enabled = false;
+            this.txtManufacturer.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtManufacturer.Location = new System.Drawing.Point(183, 130);
             this.txtManufacturer.Name = "txtManufacturer";
             this.txtManufacturer.Size = new System.Drawing.Size(240, 22);
@@ -316,6 +328,7 @@
             // txtFacility
             // 
             this.txtFacility.Enabled = false;
+            this.txtFacility.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtFacility.Location = new System.Drawing.Point(183, 106);
             this.txtFacility.Name = "txtFacility";
             this.txtFacility.Size = new System.Drawing.Size(240, 22);
@@ -324,6 +337,7 @@
             // txtSites
             // 
             this.txtSites.Enabled = false;
+            this.txtSites.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSites.Location = new System.Drawing.Point(183, 82);
             this.txtSites.Name = "txtSites";
             this.txtSites.Size = new System.Drawing.Size(240, 22);
@@ -332,6 +346,7 @@
             // txtDesignCode
             // 
             this.txtDesignCode.Enabled = false;
+            this.txtDesignCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDesignCode.Location = new System.Drawing.Point(183, 59);
             this.txtDesignCode.Name = "txtDesignCode";
             this.txtDesignCode.Size = new System.Drawing.Size(240, 22);
@@ -340,6 +355,7 @@
             // txtEquipmentType
             // 
             this.txtEquipmentType.Enabled = false;
+            this.txtEquipmentType.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEquipmentType.Location = new System.Drawing.Point(183, 35);
             this.txtEquipmentType.Name = "txtEquipmentType";
             this.txtEquipmentType.Size = new System.Drawing.Size(240, 22);
@@ -348,6 +364,7 @@
             // txtEquipmentNumber
             // 
             this.txtEquipmentNumber.Enabled = false;
+            this.txtEquipmentNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEquipmentNumber.Location = new System.Drawing.Point(183, 11);
             this.txtEquipmentNumber.Name = "txtEquipmentNumber";
             this.txtEquipmentNumber.Size = new System.Drawing.Size(240, 22);
@@ -482,11 +499,17 @@
             this.cbAsssessmentMethod.Name = "cbAsssessmentMethod";
             this.cbAsssessmentMethod.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cbAsssessmentMethod.Properties.Items.AddRange(new object[] {
+            "Semi-Quantitative PoF and Semi-Quantitative CoF",
+            "Semi-Quantitative PoF and Fully-Quantitative CoF",
+            "Fully-Quantitative PoF and Semi-Quantitative CoF",
+            "Fully-Quantitative PoF and Fully-Quantitative CoF"});
             this.cbAsssessmentMethod.Size = new System.Drawing.Size(240, 20);
             this.cbAsssessmentMethod.TabIndex = 2;
             // 
             // txtRiskAnalysisPeriod
             // 
+            this.txtRiskAnalysisPeriod.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtRiskAnalysisPeriod.Location = new System.Drawing.Point(183, 95);
             this.txtRiskAnalysisPeriod.Name = "txtRiskAnalysisPeriod";
             this.txtRiskAnalysisPeriod.Size = new System.Drawing.Size(120, 22);
@@ -494,6 +517,7 @@
             // 
             // txtAssessmentName
             // 
+            this.txtAssessmentName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtAssessmentName.Location = new System.Drawing.Point(183, 22);
             this.txtAssessmentName.Name = "txtAssessmentName";
             this.txtAssessmentName.Size = new System.Drawing.Size(240, 22);

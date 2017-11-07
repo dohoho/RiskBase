@@ -26,13 +26,18 @@ namespace RBI.PRE.subForm.InputDataForm
         List<FACILITY> listFacility = new List<FACILITY>();
         FACILITY_BUS facilityBus = new FACILITY_BUS();
         COMPONENT_MASTER_BUS componentMaster_Bus = new COMPONENT_MASTER_BUS();
+        public bool ButtonOKClicked { set; get; }
         public frmNewComponent()
         {
             InitializeComponent();
+            addDatatoControl();
+        }
+        private void addDatatoControl()
+        {
             //get data for equipment number
             listEquipment = equipmentBus.getDataSource();
             cbEquipmentNumber.Properties.Items.Add("", -1, -1);
-            for(int i = 0; i < listEquipment.Count; i++)
+            for (int i = 0; i < listEquipment.Count; i++)
             {
                 cbEquipmentNumber.Properties.Items.Add(listEquipment[i].EquipmentNumber, i, i);
             }
@@ -40,41 +45,40 @@ namespace RBI.PRE.subForm.InputDataForm
             //get data for API component
             listAPIComponent = API_BUS.getDataSource();
             cbAPIComponentType.Properties.Items.Add("", -1, -1);
-            for(int i = 0; i < listAPIComponent.Count; i ++)
+            for (int i = 0; i < listAPIComponent.Count; i++)
             {
                 cbAPIComponentType.Properties.Items.Add(listAPIComponent[i].APIComponentTypeName, i, i);
             }
             //get data for component type
             listComponent = componentBus.getDataSource();
             cbComponentType.Properties.Items.Add("", -1, -1);
-            for(int i = 0; i < listComponent.Count; i++)
+            for (int i = 0; i < listComponent.Count; i++)
             {
                 cbComponentType.Properties.Items.Add(listComponent[i].ComponentTypeName, i, i);
             }
             //get data for site
             listSite = siteBus.getData();
             cbSites.Properties.Items.Add("", -1, -1);
-            for(int i = 0; i < listSite.Count; i ++)
+            for (int i = 0; i < listSite.Count; i++)
             {
                 cbSites.Properties.Items.Add(listSite[i].SiteName, i, i);
             }
             //get data for Facility
             listFacility = facilityBus.getDataSource();
             cbFacility.Properties.Items.Add("", -1, -1);
-            for(int i = 0; i < listFacility.Count; i++)
+            for (int i = 0; i < listFacility.Count; i++)
             {
                 cbFacility.Properties.Items.Add(listFacility[i].FacilityName, i, i);
             }
 
-           //Design COde
+            //Design COde
             listDesignCode = designCodeBus.getDataSource();
             cbDesignCode.Properties.Items.Add("", -1, -1);
-            for(int i = 0; i < listDesignCode.Count; i++)
+            for (int i = 0; i < listDesignCode.Count; i++)
             {
                 cbDesignCode.Properties.Items.Add(listDesignCode[i].DesignCode, i, i);
             }
         }
-
         public COMPONENT_MASTER getDataComponentMaster()
         {
             //cac so ID chua gan
@@ -115,9 +119,10 @@ namespace RBI.PRE.subForm.InputDataForm
         }
         private void btnOK_Click(object sender, EventArgs e)
         {
+            if (txtComponentNumber.Text == "" || cbComponentType.Text == "" || cbAPIComponentType.Text == "")
+                return;
+            ButtonOKClicked = true;
             componentMaster_Bus.add(getDataComponentMaster());
-            RibbonForm1.API_Component_Type = cbAPIComponentType.Text;
-            RibbonForm1.componentName = txtComponentName.Text;
             this.Close();
         }
 
@@ -137,6 +142,11 @@ namespace RBI.PRE.subForm.InputDataForm
         {
             if (cbAPIComponentType.Text == "") picAPIComponent.Show();
             else picAPIComponent.Hide();
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

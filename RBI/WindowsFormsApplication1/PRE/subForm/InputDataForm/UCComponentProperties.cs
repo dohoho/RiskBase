@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using RBI.Object.ObjectMSSQL;
+using RBI.BUS.BUSMSSQL;
 namespace RBI.PRE.subForm.InputDataForm
 {
     public partial class UCComponentProperties : UserControl
@@ -41,96 +42,87 @@ namespace RBI.PRE.subForm.InputDataForm
             additemsAccumulatedTimeShaking();
             additemsCorrectiveAction();
         }
-        private void additemsBrinnellHardness()
+        public void ShowDatatoControl(int ID)
         {
-            cbMaxBrillnessHardness.Properties.Items.Add("", -1, -1);
-            for(int i = 0; i < itemsBrinnellHardness.Length; i++)
+            RW_COMPONENT_BUS comBus = new RW_COMPONENT_BUS();
+            List<RW_COMPONENT> listComponent = comBus.getDataSource();
+            foreach(RW_COMPONENT comp in listComponent)
             {
-                cbMaxBrillnessHardness.Properties.Items.Add(itemsBrinnellHardness[i], i, i);
-            }
-        }
-        private void additemsProtrusionComplexity()
-        {
-            cbComplexityProtrusion.Properties.Items.Add("", -1, -1);
-            for(int i = 0; i < itemsProtrusionComplexity.Length; i++)
-            {
-                cbComplexityProtrusion.Properties.Items.Add(itemsProtrusionComplexity[i], i, i);
-            }
-        }
-        private void additemsCyclicLoading()
-        {
-            cbCyclicLoading.Properties.Items.Add("", -1, -1);
-            for(int i = 0; i < itemsCyclicLoading.Length; i++)
-            {
-                cbCyclicLoading.Properties.Items.Add(itemsCyclicLoading[i], i, i);
-            }
-        }
-        private void additemsBranchDiameter()
-        {
-            cbBranchDiameter.Properties.Items.Add("", -1, -1);
-            for(int i = 0; i < itemsBranchDiameter.Length; i++)
-            {
-                cbBranchDiameter.Properties.Items.Add(itemsBranchDiameter[i], i, i);
-            }
-        }
+                if(comp.ID == ID)
+                {
+                    txtNominalDiameter.Text = comp.NominalDiameter.ToString();
+                    txtNominalThickness.Text = comp.NominalThickness.ToString();
+                    txtCurrentThickness.Text = comp.CurrentThickness.ToString();
+                    txtMinRequiredThickness.Text = comp.MinReqThickness.ToString();
+                    txtCurrentCorrosionRate.Text = comp.CurrentCorrosionRate.ToString();
+                    chkPresenceCracks.Checked = comp.CracksPresent == 1 ? true : false;
+                    
+                    chkPresenceInjectionMixPoint.Checked = comp.ChemicalInjection ==1?true:false;
+                    chkHighlyEffectiveMixPoint.Checked = comp.HighlyInjectionInsp == 1? true:false;
+                    chkDamageFoundDuringInspection.Checked = comp.DamageFoundInspection ==1?true:false;
+                    txtDeltaFATT.Text = comp.DeltaFATT.ToString();
+                    chkVisibleAudible.Checked = comp.ShakingDetected == 1?true:false;
+                    chkTrampElements.Checked = comp.TrampElements == 1 ? true : false;
 
-        private void additemsBranchJointType()
-        {
-            cbJointTypeBranch.Properties.Items.Add("", -1, -1);
-            for(int i = 0; i < itemsBranchJointType.Length; i++)
-            {
-                cbJointTypeBranch.Properties.Items.Add(itemsBranchJointType[i], i, i);
+                    for (int i = 0; i < itemsAccumulatedTimeShaking.Length; i++ )
+                    {
+                        if (comp.ShakingTime == itemsAccumulatedTimeShaking[i])
+                            cbAccumalatedTimeShakingPipe.SelectedIndex = i + 1;
+                    }
+                    for (int i = 0; i < itemsCorrectiveAction.Length; i++ )
+                    {
+                        if (comp.CorrectiveAction == itemsCorrectiveAction[i])
+                            cbCorrectiveAction.SelectedIndex = i + 1;
+                    }
+                    for (int i = 0; i < itemsCyclicLoading.Length; i++ )
+                    {
+                        if (comp.CyclicLoadingWitin15_25m == itemsCyclicLoading[i])
+                            cbCyclicLoading.SelectedIndex = i + 1;
+                    }
+                    for (int i = 0; i < itemsBranchDiameter.Length; i++ )
+                    {
+                        if (comp.BranchDiameter == itemsBranchDiameter[i])
+                            cbBranchDiameter.SelectedIndex = i + 1;
+                    }
+                    for (int i = 0; i < itemsBranchJointType.Length; i++ )
+                    {
+                        if (comp.BranchJointType == itemsBranchJointType[i])
+                            cbJointTypeBranch.SelectedIndex = i + 1;
+                    }
+                    for (int i = 0; i < itemsBrinnellHardness.Length; i++ )
+                    {
+                        if (comp.BrinnelHardness == itemsBrinnellHardness[i])
+                            cbMaxBrillnessHardness.SelectedIndex = i + 1;
+                    }
+                    for (int i = 0; i < itemsNumberPipeFittings.Length; i++ )
+                    {
+                        if (comp.NumberPipeFittings == itemsNumberPipeFittings[i])
+                            cbNumberFittingPipe.SelectedIndex = i + 1;
+                    }
+                    for (int i = 0; i < itemsPipeCondition.Length; i++ )
+                    {
+                        if (comp.PipeCondition == itemsPipeCondition[i])
+                            cbPipeCondition.SelectedIndex = i + 1;
+                    }
+                    for (int i = 0; i < itemsPreviousFailure.Length; i++ )
+                    {
+                        if (comp.PreviousFailures == itemsPreviousFailure[i])
+                            cbPreviousFailures.SelectedIndex = i + 1;
+                    }
+                    for (int i = 0; i < itemsAmountShaking.Length; i++ )
+                    {
+                        if(comp.ShakingAmount == itemsAmountShaking[i])
+                            cbAmountShakingPipe.SelectedIndex = i+1;
+                    }
+                    for (int i = 0; i < itemsProtrusionComplexity.Length; i++ )
+                    {
+                        if (comp.ComplexityProtrusion == itemsProtrusionComplexity[i])
+                            cbComplexityProtrusion.SelectedIndex = i + 1;
+                    }
+                }
             }
         }
-        private void additemsNumberPipeFittings()
-        {
-            cbNumberFittingPipe.Properties.Items.Add("", -1, -1);
-            for(int i = 0; i < itemsNumberPipeFittings.Length; i++)
-            {
-                cbNumberFittingPipe.Properties.Items.Add(itemsNumberPipeFittings[i], i, i);
-            }
-        }
-        private void additemsPipeCondition()
-        {
-            cbPipeCondition.Properties.Items.Add("", -1, -1);
-            for(int i = 0; i < itemsPipeCondition.Length; i++)
-            {
-                cbPipeCondition.Properties.Items.Add(itemsPipeCondition[i], i, i);
-            }
-        }
-        private void additemsPreviousFailure()
-        {
-            cbPreviousFailures.Properties.Items.Add("", -1, -1);
-            for(int i = 0; i < itemsPreviousFailure.Length; i++)
-            {
-                cbPreviousFailures.Properties.Items.Add(itemsPreviousFailure[i], i, i);
-            }
-        }
-        private void additemsAmountShaking()
-        {
-            cbAmountShakingPipe.Properties.Items.Add("", -1, -1);
-            for(int i = 0; i < itemsAmountShaking.Length; i++)
-            {
-                cbAmountShakingPipe.Properties.Items.Add(itemsAmountShaking[i], i, i);
-            }
-        }
-
-        private void additemsAccumulatedTimeShaking()
-        {
-            cbAccumalatedTimeShakingPipe.Properties.Items.Add("", -1, -1);
-            for(int i = 0; i < itemsAccumulatedTimeShaking.Length; i++)
-            {
-                cbAccumalatedTimeShakingPipe.Properties.Items.Add(itemsAccumulatedTimeShaking[i], i, i);
-            }
-        }
-        private void additemsCorrectiveAction()
-        {
-            cbCorrectiveAction.Properties.Items.Add("", -1, -1);
-            for(int i = 0; i < itemsCorrectiveAction.Length; i++)
-            {
-                cbCorrectiveAction.Properties.Items.Add(itemsCorrectiveAction[i], i, i);
-            }
-        }
+        
 
         public RW_COMPONENT getData()
         {
@@ -164,6 +156,96 @@ namespace RBI.PRE.subForm.InputDataForm
             //comp.ConcreteFoundation = cua tank bottom
             //comp.SeverityOfVibration cua tank
             return comp;
+        }
+        private void additemsBrinnellHardness()
+        {
+            cbMaxBrillnessHardness.Properties.Items.Add("", -1, -1);
+            for (int i = 0; i < itemsBrinnellHardness.Length; i++)
+            {
+                cbMaxBrillnessHardness.Properties.Items.Add(itemsBrinnellHardness[i], i, i);
+            }
+        }
+        private void additemsProtrusionComplexity()
+        {
+            cbComplexityProtrusion.Properties.Items.Add("", -1, -1);
+            for (int i = 0; i < itemsProtrusionComplexity.Length; i++)
+            {
+                cbComplexityProtrusion.Properties.Items.Add(itemsProtrusionComplexity[i], i, i);
+            }
+        }
+        private void additemsCyclicLoading()
+        {
+            cbCyclicLoading.Properties.Items.Add("", -1, -1);
+            for (int i = 0; i < itemsCyclicLoading.Length; i++)
+            {
+                cbCyclicLoading.Properties.Items.Add(itemsCyclicLoading[i], i, i);
+            }
+        }
+        private void additemsBranchDiameter()
+        {
+            cbBranchDiameter.Properties.Items.Add("", -1, -1);
+            for (int i = 0; i < itemsBranchDiameter.Length; i++)
+            {
+                cbBranchDiameter.Properties.Items.Add(itemsBranchDiameter[i], i, i);
+            }
+        }
+
+        private void additemsBranchJointType()
+        {
+            cbJointTypeBranch.Properties.Items.Add("", -1, -1);
+            for (int i = 0; i < itemsBranchJointType.Length; i++)
+            {
+                cbJointTypeBranch.Properties.Items.Add(itemsBranchJointType[i], i, i);
+            }
+        }
+        private void additemsNumberPipeFittings()
+        {
+            cbNumberFittingPipe.Properties.Items.Add("", -1, -1);
+            for (int i = 0; i < itemsNumberPipeFittings.Length; i++)
+            {
+                cbNumberFittingPipe.Properties.Items.Add(itemsNumberPipeFittings[i], i, i);
+            }
+        }
+        private void additemsPipeCondition()
+        {
+            cbPipeCondition.Properties.Items.Add("", -1, -1);
+            for (int i = 0; i < itemsPipeCondition.Length; i++)
+            {
+                cbPipeCondition.Properties.Items.Add(itemsPipeCondition[i], i, i);
+            }
+        }
+        private void additemsPreviousFailure()
+        {
+            cbPreviousFailures.Properties.Items.Add("", -1, -1);
+            for (int i = 0; i < itemsPreviousFailure.Length; i++)
+            {
+                cbPreviousFailures.Properties.Items.Add(itemsPreviousFailure[i], i, i);
+            }
+        }
+        private void additemsAmountShaking()
+        {
+            cbAmountShakingPipe.Properties.Items.Add("", -1, -1);
+            for (int i = 0; i < itemsAmountShaking.Length; i++)
+            {
+                cbAmountShakingPipe.Properties.Items.Add(itemsAmountShaking[i], i, i);
+            }
+        }
+
+        private void additemsAccumulatedTimeShaking()
+        {
+            cbAccumalatedTimeShakingPipe.Properties.Items.Add("", -1, -1);
+            for (int i = 0; i < itemsAccumulatedTimeShaking.Length; i++)
+            {
+                cbAccumalatedTimeShakingPipe.Properties.Items.Add(itemsAccumulatedTimeShaking[i], i, i);
+            }
+        }
+        private void additemsCorrectiveAction()
+        {
+            cbCorrectiveAction.Properties.Items.Add("", -1, -1);
+            for (int i = 0; i < itemsCorrectiveAction.Length; i++)
+            {
+                cbCorrectiveAction.Properties.Items.Add(itemsCorrectiveAction[i], i, i);
+            }
         }
         private void keyPressEvent(TextBox textbox, KeyPressEventArgs ev)
         {

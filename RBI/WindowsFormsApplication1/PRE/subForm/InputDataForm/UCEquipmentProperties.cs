@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using RBI.Object.ObjectMSSQL;
-
+using RBI.BUS.BUSMSSQL;
 namespace RBI.PRE.subForm.InputDataForm
 {
     public partial class UCEquipmentProperties : UserControl
@@ -60,31 +60,67 @@ namespace RBI.PRE.subForm.InputDataForm
             addItemsExternalEnvironment();
             addItemsThermalHistory();
         }
+        //public UCEquipmentProperties()
+        //{
+        //    InitializeComponent();
+        //}
+        public void ShowDatatoControl(int ID)
+        {
+            RW_EQUIPMENT_BUS eqBus = new RW_EQUIPMENT_BUS();
+            List<RW_EQUIPMENT> listEq = eqBus.getDataSource();
+            foreach(RW_EQUIPMENT e in listEq)
+            {
+                if(e.ID == ID)
+                {
+                    chkAministrativeControl.Checked = e.AdminUpsetManagement == 1 ? true : false;
+                    chkHighlyEffectiveInspection.Checked = e.HighlyDeadlegInsp == 1 ? true : false;
+                    chkDowntimeProtection.Checked = e.DowntimeProtectionUsed == 1 ? true : false;
+                    chkHeatTraced.Checked = e.HeatTraced == 1 ? true : false;
+                    chkInterfaceSoilWater.Checked = e.InterfaceSoilWater == 1 ? true : false;
+                    chkEquipmentOperatingManyYear.Checked = e.YearLowestExpTemp == 1 ? true : false;
+                    chkMaterialExposedFluid.Checked = e.MaterialExposedToClExt == 1 ? true : false;
+                    chkPresenceSulphideOperation.Checked = e.PresenceSulphidesO2 == 1 ? true : false;
+                    chkContainsDeadlegs.Checked = e.ContainsDeadlegs == 1 ? true : false;
+                    chkCylicOperation.Checked = e.CyclicOperation == 1 ? true : false;
+                    chkSteamedOutPriorWaterFlushing.Checked = e.SteamOutWaterFlush == 1 ? true : false;
+                    chkPWHT.Checked = e.PWHT == 1 ? true : false;
+                    chkLinerOnlineMonitoring.Checked = e.LinerOnlineMonitoring == 1 ? true : false;
+                    chkPresenceSulphideShutdown.Checked = e.PresenceSulphidesO2Shutdown == 1 ? true : false;
+                    txtMinRequiredTemperature.Text = e.MinReqTemperaturePressurisation.ToString();
+                    for(int i = 0; i < itemsExternalEnvironment.Length; i++)
+                    {
+
+                        if (itemsExternalEnvironment[i] == e.ExternalEnvironment)
+                        {
+                            cbExternalEnvironment.SelectedIndex = i+1;
+                            Console.WriteLine("Exter env " + i);
+                        }
+                    }
+                    for (int j = 0; j < itemsOnlineMonitoring.Length; j++ )
+                    {
+                        if (itemsOnlineMonitoring[j] == e.OnlineMonitoring)
+                        {
+                            cbOnlineMonitoring.SelectedIndex = j+1;
+                            Console.WriteLine("Online Monitoring " + j);
+                        }
+                    }
+                    for (int i = 0; i < itemsThermalHistory.Length; i++ )
+                    {
+                        if (itemsThermalHistory[i] == e.ThermalHistory)
+                        {
+                            cbThermalHistory.SelectedIndex = i + 1;
+                            Console.WriteLine("Therminal History " + i);
+                        }
+                    }
+                    
+                    
+                    
+                    //numSystemManagementFactor.Value = e.S
+                    txtEquipmentVolume.Text = e.Volume.ToString();
+                }
+            }
+        }
         
-        private void addItemsOnlineMonitoring()
-        {
-            cbOnlineMonitoring.Properties.Items.Add("", -1, -1);
-            for(int i = 0; i < itemsOnlineMonitoring.Length; i++)
-            {
-                cbOnlineMonitoring.Properties.Items.Add(itemsOnlineMonitoring[i], i, i);
-            }
-        }
-        private void addItemsExternalEnvironment()
-        {
-            cbExternalEnvironment.Properties.Items.Add("", -1, -1);
-            for(int i = 0; i < itemsExternalEnvironment.Length ; i++)
-            {
-                cbExternalEnvironment.Properties.Items.Add(itemsExternalEnvironment[i], i, i);
-            }
-        }
-        private void addItemsThermalHistory()
-        {
-            cbThermalHistory.Properties.Items.Add("", -1, -1);
-            for (int i = 0; i < itemsThermalHistory.Length; i++)
-            {
-                cbThermalHistory.Properties.Items.Add(itemsThermalHistory[i], i, i);
-            }
-        }
         public RW_EQUIPMENT getData()
         {
             RW_EQUIPMENT eq = new RW_EQUIPMENT();
@@ -112,7 +148,7 @@ namespace RBI.PRE.subForm.InputDataForm
             eq.Volume = txtEquipmentVolume.Text != "" ? float.Parse(txtEquipmentVolume.Text) : 0;
             return eq;
         }
-
+        
         private void txtMinRequiredTemperature_TextChanged(object sender, EventArgs e)
         {
             
@@ -136,6 +172,30 @@ namespace RBI.PRE.subForm.InputDataForm
             if (a.Contains('.') && e.KeyChar == '.')
             {
                 e.Handled = true;
+            }
+        }
+        private void addItemsOnlineMonitoring()
+        {
+            cbOnlineMonitoring.Properties.Items.Add("", -1, -1);
+            for (int i = 0; i < itemsOnlineMonitoring.Length; i++)
+            {
+                cbOnlineMonitoring.Properties.Items.Add(itemsOnlineMonitoring[i], i, i);
+            }
+        }
+        private void addItemsExternalEnvironment()
+        {
+            cbExternalEnvironment.Properties.Items.Add("", -1, -1);
+            for (int i = 0; i < itemsExternalEnvironment.Length; i++)
+            {
+                cbExternalEnvironment.Properties.Items.Add(itemsExternalEnvironment[i], i, i);
+            }
+        }
+        private void addItemsThermalHistory()
+        {
+            cbThermalHistory.Properties.Items.Add("", -1, -1);
+            for (int i = 0; i < itemsThermalHistory.Length; i++)
+            {
+                cbThermalHistory.Properties.Items.Add(itemsThermalHistory[i], i, i);
             }
         }
     }

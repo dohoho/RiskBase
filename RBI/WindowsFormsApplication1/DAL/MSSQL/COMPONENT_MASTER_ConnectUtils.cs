@@ -146,8 +146,8 @@ namespace RBI.DAL.MSSQL
                             obj.ComponentTypeID = reader.GetInt32(3);
                             obj.ComponentName = reader.GetString(4);
                             obj.ComponentDesc = reader.GetString(5);
-                            obj.IsEquipment = reader.GetInt32(6);
-                            obj.IsEquipmentLinked = reader.GetInt32(7);
+                            obj.IsEquipment = reader.GetOrdinal("IsEquipment");
+                            obj.IsEquipmentLinked = reader.GetOrdinal("IsEquipmentLinked");
                             obj.APIComponentTypeID = reader.GetInt32(8);
                             list.Add(obj);
                         }

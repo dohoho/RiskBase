@@ -38,13 +38,20 @@ namespace RBI.PRE.subForm.InputDataForm
             ass.EquipmentID = 1;
             return ass;
         }
+        public EQUIPMENT_MASTER getEquipmentMaster()
+        {
+            EQUIPMENT_MASTER eq = new EQUIPMENT_MASTER();
+            eq.EquipmentNumber = txtEquipmentNumber.Text;
+            //eq.EquipmentDesc = txt
+            return eq;
+        }
         public RW_EQUIPMENT getData1()
         {
             RW_EQUIPMENT eq = new RW_EQUIPMENT();
             eq.CommissionDate = dateComissionDate.DateTime;
             return eq;
         }
-        private void showDatatoControl()
+        public void showDatatoControl(int comID, int eqID, int assID)
         {
             EQUIPMENT_TYPE_BUS eqTypeBus = new EQUIPMENT_TYPE_BUS();
             List<EQUIPMENT_TYPE> listEquipmentType = eqTypeBus.getDataSource();
@@ -54,27 +61,82 @@ namespace RBI.PRE.subForm.InputDataForm
             List<DESIGN_CODE> listDesignCode = designCodeBus.getDataSource();
             SITES_BUS siteBus = new SITES_BUS();
             List<SITES> listSite = siteBus.getData();
-            foreach(EQUIPMENT_MASTER e in listEquipmentMaster)
+            FACILITY_BUS facilityBus = new FACILITY_BUS();
+            List<FACILITY> listFacility = facilityBus.getDataSource();
+            MANUFACTURER_BUS manuBus = new MANUFACTURER_BUS();
+            List<MANUFACTURER> listManu = manuBus.getDataSource();
+            RW_ASSESSMENT_BUS rwAssBus = new RW_ASSESSMENT_BUS();
+            List<RW_ASSESSMENT> listAssessment = rwAssBus.getDataSource();
+            foreach(RW_ASSESSMENT a in listAssessment)
             {
-                if (e.EquipmentID == RibbonForm1.EquipmentID)
+                if(a.ID == assID)
+                {
+                    txtAssessmentName.Text = a.ProposalName;
+                }
+            }
+            //đổ dữ liệu lên control cho Equipment
+            foreach (EQUIPMENT_MASTER e in listEquipmentMaster)
+            {
+                if(e.EquipmentID == eqID)
                 {
                     txtEquipmentNumber.Text = e.EquipmentNumber;
+                    dateComissionDate.DateTime = e.CommissionDate;
                     txtEquipmentName.Text = e.EquipmentName;
-                    txtProcessDesciption.Text = e.ProcessDescription;
-                    txtSites.Text = RibbonForm1.siteName;
-                    txtFacility.Text = RibbonForm1.facilityName;
-                    foreach(DESIGN_CODE d in listDesignCode)
-                    {
-                        if (d.DesignCodeID == e.DesignCodeID)
-                            txtDesignCode.Text = d.DesignCode;
-                    }
-                    foreach(EQUIPMENT_TYPE t in listEquipmentType)
+                    foreach (EQUIPMENT_TYPE t in listEquipmentType)
                     {
                         if (t.EquipmentTypeID == e.EquipmentTypeID)
                             txtEquipmentType.Text = t.EquipmentTypeName;
                     }
-                    
-                    
+                    foreach (DESIGN_CODE d in listDesignCode)
+                    {
+                        if (d.DesignCodeID == e.DesignCodeID)
+                            txtDesignCode.Text = d.DesignCode;
+                    }
+                    foreach (FACILITY f in listFacility)
+                    {
+                        if (e.FacilityID == f.FacilityID)
+                            txtFacility.Text = f.FacilityName;
+                    }
+                    foreach (SITES s in listSite)
+                    {
+                        if (s.SiteID == e.SiteID)
+                            txtSites.Text = s.SiteName;
+                    }
+                    foreach(MANUFACTURER m in listManu)
+                    {
+                        if (m.ManufacturerID == e.ManufacturerID)
+                            txtManufacturer.Text = m.ManufacturerName;
+                    }
+                }
+                
+            }
+            //đổ dữ liệu lên control cho Component
+            COMPONENT_MASTER_BUS comMaBus = new COMPONENT_MASTER_BUS();
+            List<COMPONENT_MASTER> listComMa = comMaBus.getDataSource();
+            COMPONENT_TYPE__BUS comTypeBus = new COMPONENT_TYPE__BUS();
+            List<COMPONENT_TYPE> listComponentType = comTypeBus.getDataSource();
+            API_COMPONENT_TYPE_BUS apiComponentBus = new API_COMPONENT_TYPE_BUS();
+            List<API_COMPONENT_TYPE> listAPICom = apiComponentBus.getDataSource();
+            foreach(COMPONENT_MASTER c in listComMa)
+            {
+                if(c.ComponentID == comID)
+                {
+                    txtComponentNumber.Text = c.ComponentNumber;
+                    foreach(COMPONENT_TYPE t in listComponentType)
+                    {
+                        if(c.ComponentTypeID == t.ComponentTypeID)
+                        {
+                            txtComponentType.Text = t.ComponentTypeName;
+                        }
+                    }
+                    txtComponentName.Text = c.ComponentName;
+                    foreach(API_COMPONENT_TYPE a in listAPICom)
+                    {
+                        if(a.APIComponentTypeID == c.APIComponentTypeID)
+                        {
+                            txtAPIComponentType.Text = a.APIComponentTypeName;
+                        }
+                    }
                 }
             }
         }

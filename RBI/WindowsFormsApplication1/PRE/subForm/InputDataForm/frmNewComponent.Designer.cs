@@ -207,6 +207,7 @@
             this.btnCancel.TabIndex = 56;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnOK
             // 
@@ -434,7 +435,10 @@
             this.ClientSize = new System.Drawing.Size(620, 530);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmNewComponent";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Component";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

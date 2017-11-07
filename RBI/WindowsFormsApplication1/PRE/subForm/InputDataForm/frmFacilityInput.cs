@@ -13,6 +13,7 @@ namespace RBI.PRE.subForm.InputDataForm
 {
     public partial class frmFacilityInput : Form
     {
+        public bool ButtonOKClicked { set; get; }
         FACILITY_RISK_TARGET_BUS facilityRisk = new FACILITY_RISK_TARGET_BUS();
         FACILITY_BUS facility = new FACILITY_BUS();
         SITES_BUS siteBus = new SITES_BUS();
@@ -45,7 +46,14 @@ namespace RBI.PRE.subForm.InputDataForm
         public FACILITY_RISK_TARGET getRiskTarget()
         {
             FACILITY_RISK_TARGET faciRisk = new FACILITY_RISK_TARGET();
-            faciRisk.FacilityID = 2;
+            List<FACILITY> fa = new List<FACILITY>();
+            foreach(FACILITY f in fa)
+            {
+                if(f.FacilityName == txtFacilityName.Text)
+                {
+                    faciRisk.FacilityID = f.FacilityID;
+                }
+            }
             faciRisk.RiskTarget_CA = float.Parse(txtArea.Text);
             faciRisk.RiskTarget_FC = float.Parse(txtFinancial.Text);
             faciRisk.RiskTarget_A = float.Parse(txtA.Text);
@@ -58,7 +66,7 @@ namespace RBI.PRE.subForm.InputDataForm
         
         private void btnOK_Click(object sender, EventArgs e)
         {
-            if (txtFacilityName.Text == "" || txtArea.Text == "" || txtFinancial.Text == "") return;
+            if (txtFacilityName.Text == "" || txtArea.Text == "" || txtFinancial.Text == "" || cbSites.Text == "") return;
             List<FACILITY> listFa = facility.getDataSource();
             foreach (FACILITY fa in listFa)
             {
@@ -70,7 +78,7 @@ namespace RBI.PRE.subForm.InputDataForm
             }
             facility.add(getFacilityName());
             facilityRisk.add(getRiskTarget());
-            RibbonForm1.facilityName = txtFacilityName.Text;
+            ButtonOKClicked = true;
             this.Close();
         }
 

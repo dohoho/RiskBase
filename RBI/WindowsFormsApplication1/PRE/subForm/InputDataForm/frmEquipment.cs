@@ -25,44 +25,50 @@ namespace RBI.PRE.subForm.InputDataForm
         DESIGN_CODE_BUS designCode = new DESIGN_CODE_BUS();
         List<MANUFACTURER> listManufacture = new List<MANUFACTURER>();
         MANUFACTURER_BUS manuBus = new MANUFACTURER_BUS();
+        public bool ButtonOKCliked { set; get; }
         public frmEquipment()
         {
             InitializeComponent();
+            addDatatoControl();
+        }
+        private void addDatatoControl()
+        {
             //add site name to combobox
             listSite = siteBus.getData();
             cbSite.Properties.Items.Add("", -1, -1);
-            for(int i = 0; i < listSite.Count; i++)
+            for (int i = 0; i < listSite.Count; i++)
             {
                 cbSite.Properties.Items.Add(listSite[i].SiteName, i, i);
             }
             //add facility name to combobox
             cbFacility.Properties.Items.Add("", -1, -1);
             listFacility = faciBus.getDataSource();
-            for(int i = 0; i < listFacility.Count; i++)
+            for (int i = 0; i < listFacility.Count; i++)
             {
                 cbFacility.Properties.Items.Add(listFacility[i].FacilityName, i, i);
             }
+            //add equipment type
             listEquipType = equipType.getDataSource();
             cbEquipmentType.Properties.Items.Add("", -1, -1);
             for (int i = 0; i < listEquipType.Count; i++)
             {
                 cbEquipmentType.Properties.Items.Add(listEquipType[i].EquipmentTypeName, i, i);
             }
-            //listDesignCode = designCode.getDataSource();
-            //cbDesignCode.Properties.Items.Add("", -1, -1);
-            //for (int i = 0; i < listDesignCode.Count; i++ )
-            //{
-            //    cbDesignCode.Properties.Items.Add(listDesignCode[i].DesignCode, i, i);
-            //}
-            
+            //add manufacturer
             listManufacture = manuBus.getDataSource();
             cbManufacturer.Properties.Items.Add("", -1, -1);
             for (int i = 0; i < listManufacture.Count; i++)
             {
                 cbManufacturer.Properties.Items.Add(listManufacture[i].ManufacturerName, i, i);
             }
+            //add design code
+            listDesignCode = designCode.getDataSource();
+            cbDesignCode.Properties.Items.Add("", -1, -1);
+            for (int i = 0; i < listDesignCode.Count; i++)
+            {
+                cbDesignCode.Properties.Items.Add(listDesignCode[i].DesignCode, i, i);
+            }
         }
-       
         public EQUIPMENT_MASTER getDataEquipmentMaster()
         {
             EQUIPMENT_MASTER eqMaster = new EQUIPMENT_MASTER();
@@ -120,17 +126,17 @@ namespace RBI.PRE.subForm.InputDataForm
 
         private void btnOK_Click(object sender, EventArgs e)
         {
-            if (txtEquipmentNumber.Text == "" || cbEquipmentType.Text == "" || dateCommission.DateTime == null) return;
+            if (txtEquipmentNumber.Text == "" || cbEquipmentType.Text == "" || dateCommission.DateTime == null || cbDesignCode.Text == "" || cbManufacturer.Text == "") 
+                return;
             equipMasterBus.add(getDataEquipmentMaster());
-            listEquipmentMaster = equipMasterBus.getDataSource();
-            foreach(EQUIPMENT_MASTER eq in listEquipmentMaster)
-            {
-                if(eq.EquipmentName == txtEquipmentName.Text)
-                {
-                    RibbonForm1.EquipmentID = eq.EquipmentID;
-                }
-            }
-            //RibbonForm1.equipmentName = txtEquipmentName.Text;
+            //listEquipmentMaster = equipMasterBus.getDataSource();
+            //foreach(EQUIPMENT_MASTER eq in listEquipmentMaster)
+            //{
+            //    if(eq.EquipmentName == txtEquipmentName.Text)
+            //    {
+            //    }
+            //}
+            ButtonOKCliked = true;
             this.Close();
         }
         private void btnCancel_Click(object sender, EventArgs e)
@@ -171,10 +177,9 @@ namespace RBI.PRE.subForm.InputDataForm
             }
         }
         #endregion
-
+        frmDesignCode design = new frmDesignCode();
         private void btnAddNewDesignCode_Click(object sender, EventArgs e)
         {
-            frmDesignCode design = new frmDesignCode();
             design.ShowDialog();
         }
         private void btnAddSite_Click(object sender, EventArgs e)
@@ -187,9 +192,9 @@ namespace RBI.PRE.subForm.InputDataForm
             frmFacility faci = new frmFacility();
             faci.ShowDialog();
         }
+        frmNewManufacturer manu = new frmNewManufacturer();
         private void btnManufacturer_Click(object sender, EventArgs e)
         {
-            frmNewManufacturer manu = new frmNewManufacturer();
             manu.ShowDialog();
         }
         private void cbManufacturer_SelectedIndexChanged(object sender, EventArgs e)
@@ -203,16 +208,32 @@ namespace RBI.PRE.subForm.InputDataForm
             if (cbDesignCode.Text == "") picDesignCode.Show();
             else picDesignCode.Hide();
         }
-
-        private void frmEquipment_Load(object sender, EventArgs e)
+        private void cbDesignCode_Click(object sender, EventArgs e)
         {
-            List<DESIGN_CODE> listDesignCode1 = new List<DESIGN_CODE>();
-            DESIGN_CODE_BUS designCode1 = new DESIGN_CODE_BUS();
-            listDesignCode1= designCode1.getDataSource();
-            cbDesignCode.Properties.Items.Add("", -1, -1);
-            for (int i = 0; i < listDesignCode.Count; i++)
+            if (design.ButtonOKClicked)
             {
-                cbDesignCode.Properties.Items.Add(listDesignCode1[i].DesignCode, i, i);
+                List<DESIGN_CODE> listDesignCode1 = new List<DESIGN_CODE>();
+                DESIGN_CODE_BUS designCode1 = new DESIGN_CODE_BUS();
+                listDesignCode1 = designCode1.getDataSource();
+                cbDesignCode.Properties.Items.Add("", -1, -1);
+                for (int i = 0; i < listDesignCode.Count; i++)
+                {
+                    cbDesignCode.Properties.Items.Add(listDesignCode1[i].DesignCode, i, i);
+                }
+            }
+        }
+
+        private void cbManufacturer_Click(object sender, EventArgs e)
+        {
+            if(manu.ButtonOKClicked)
+            {
+                MANUFACTURER_BUS manuBus = new MANUFACTURER_BUS();
+                List<MANUFACTURER> _manu = manuBus.getDataSource();
+                cbManufacturer.Properties.Items.Add("", -1, -1);
+                for(int i = 0; i < _manu.Count; i++)
+                {
+                    cbManufacturer.Properties.Items.Add(_manu[i].ManufacturerName, i, i);
+                }
             }
         }
 

@@ -13,6 +13,7 @@ namespace RBI.PRE.subForm.InputDataForm
 {
     public partial class frmDesignCode : Form
     {
+        public bool ButtonOKClicked { set; get; }
         public frmDesignCode()
         {
             InitializeComponent();
@@ -39,6 +40,7 @@ namespace RBI.PRE.subForm.InputDataForm
                         return;
                     }
                 }
+                ButtonOKClicked = true;
                 dBus.add(d);
                 this.Close();
             }

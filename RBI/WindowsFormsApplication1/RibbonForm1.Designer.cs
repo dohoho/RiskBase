@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RibbonForm1));
             this.ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.barBtnNewEquipment = new DevExpress.XtraBars.BarButtonItem();
@@ -42,10 +43,9 @@
             this.barButtonItem10 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem11 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem12 = new DevExpress.XtraBars.BarButtonItem();
-            this.btnRecord = new DevExpress.XtraBars.BarButtonItem();
             this.btnSave = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem6 = new DevExpress.XtraBars.BarButtonItem();
-            this.popupNew = new DevExpress.XtraBars.PopupMenu();
+            this.popupNew = new DevExpress.XtraBars.PopupMenu(this.components);
             this.btnNewEquipment = new DevExpress.XtraBars.BarButtonItem();
             this.btnNewComponent = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem7 = new DevExpress.XtraBars.BarButtonItem();
@@ -79,16 +79,17 @@
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup6 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribStatusbar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
-            this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel();
+            this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
             this.xtraTabData = new DevExpress.XtraTab.XtraTabControl();
             this.xTabHome = new DevExpress.XtraTab.XtraTabPage();
             this.simpleButton7 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton6 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton5 = new DevExpress.XtraEditors.SimpleButton();
-            this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager();
+            this.treeListProject = new DevExpress.XtraTreeList.TreeList();
+            this.imageTreeList = new DevExpress.Utils.ImageCollection(this.components);
+            this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager(this.components);
             this.dockPanel2 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel2_Container = new DevExpress.XtraBars.Docking.ControlContainer();
-            this.treeListProject = new DevExpress.XtraTreeList.TreeList();
             this.dockPanel1 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
             this.navBarControl2 = new DevExpress.XtraNavBar.NavBarControl();
@@ -104,17 +105,18 @@
             this.navStream = new DevExpress.XtraNavBar.NavBarItem();
             this.navRiskFactor = new DevExpress.XtraNavBar.NavBarItem();
             this.navCA = new DevExpress.XtraNavBar.NavBarItem();
-            this.imageCollection1 = new DevExpress.Utils.ImageCollection();
+            this.imageCollection1 = new DevExpress.Utils.ImageCollection(this.components);
             this.navGrRecord = new DevExpress.XtraNavBar.NavBarGroup();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupNew)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabData)).BeginInit();
             this.xtraTabData.SuspendLayout();
             this.xTabHome.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.treeListProject)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imageTreeList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             this.dockPanel2.SuspendLayout();
             this.dockPanel2_Container.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.treeListProject)).BeginInit();
             this.dockPanel1.SuspendLayout();
             this.dockPanel1_Container.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.navBarControl2)).BeginInit();
@@ -138,7 +140,6 @@
             this.barButtonItem10,
             this.barButtonItem11,
             this.barButtonItem12,
-            this.btnRecord,
             this.btnSave,
             this.barButtonItem6,
             this.barButtonItem7,
@@ -272,15 +273,6 @@
             this.barButtonItem12.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem12.ImageOptions.Image")));
             this.barButtonItem12.Name = "barButtonItem12";
             this.barButtonItem12.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
-            // 
-            // btnRecord
-            // 
-            this.btnRecord.Caption = "Record";
-            this.btnRecord.Id = 13;
-            this.btnRecord.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnRecord.ImageOptions.Image")));
-            this.btnRecord.Name = "btnRecord";
-            this.btnRecord.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
-            this.btnRecord.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnRecord_ItemClick);
             // 
             // btnSave
             // 
@@ -504,7 +496,6 @@
             this.ribbonPageGroup2.ItemLinks.Add(this.btnFacility);
             this.ribbonPageGroup2.ItemLinks.Add(this.btnEquipment);
             this.ribbonPageGroup2.ItemLinks.Add(this.btnComponent);
-            this.ribbonPageGroup2.ItemLinks.Add(this.btnRecord);
             this.ribbonPageGroup2.Name = "ribbonPageGroup2";
             this.ribbonPageGroup2.Text = "Equipment";
             // 
@@ -617,6 +608,30 @@
             this.simpleButton5.TabIndex = 0;
             this.simpleButton5.Text = "New Equipment";
             // 
+            // treeListProject
+            // 
+            this.treeListProject.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.treeListProject.Location = new System.Drawing.Point(3, 3);
+            this.treeListProject.Name = "treeListProject";
+            this.treeListProject.Size = new System.Drawing.Size(169, 475);
+            this.treeListProject.StateImageList = this.imageTreeList;
+            this.treeListProject.TabIndex = 1;
+            this.treeListProject.FocusedNodeChanged += new DevExpress.XtraTreeList.FocusedNodeChangedEventHandler(this.treeListProject_FocusedNodeChanged);
+            this.treeListProject.CustomDrawNodeImages += new DevExpress.XtraTreeList.CustomDrawNodeImagesEventHandler(this.treeListProject_CustomDrawNodeImages);
+            this.treeListProject.PopupMenuShowing += new DevExpress.XtraTreeList.PopupMenuShowingEventHandler(this.treeListProject_PopupMenuShowing);
+            this.treeListProject.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.treeListProject_MouseDoubleClick);
+            // 
+            // imageTreeList
+            // 
+            this.imageTreeList.ImageStream = ((DevExpress.Utils.ImageCollectionStreamer)(resources.GetObject("imageTreeList.ImageStream")));
+            this.imageTreeList.Images.SetKeyName(0, "factory48x48.png");
+            this.imageTreeList.Images.SetKeyName(1, "Factory-Yellow48x48.png");
+            this.imageTreeList.Images.SetKeyName(2, "Equipment32x32.png");
+            this.imageTreeList.Images.SetKeyName(3, "component32x32.png");
+            this.imageTreeList.Images.SetKeyName(4, "Assessment32x32.png");
+            // 
             // dockManager1
             // 
             this.dockManager1.Form = this;
@@ -654,17 +669,6 @@
             this.dockPanel2_Container.Name = "dockPanel2_Container";
             this.dockPanel2_Container.Size = new System.Drawing.Size(175, 481);
             this.dockPanel2_Container.TabIndex = 0;
-            // 
-            // treeListProject
-            // 
-            this.treeListProject.Location = new System.Drawing.Point(6, 3);
-            this.treeListProject.Name = "treeListProject";
-            this.treeListProject.OptionsLayout.AddNewColumns = false;
-            this.treeListProject.Size = new System.Drawing.Size(169, 475);
-            this.treeListProject.TabIndex = 1;
-            this.treeListProject.DoubleClick += new System.EventHandler(this.treeListProject_DoubleClick);
-            this.treeListProject.MouseDown += new System.Windows.Forms.MouseEventHandler(this.treeListProject_MouseDown);
-            this.treeListProject.MouseUp += new System.Windows.Forms.MouseEventHandler(this.treeListProject_MouseUp);
             // 
             // dockPanel1
             // 
@@ -834,6 +838,7 @@
             this.IsMdiContainer = true;
             this.Name = "RibbonForm1";
             this.Ribbon = this.ribbon;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.StatusBar = this.ribStatusbar;
             this.Text = "Cortek RBI";
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).EndInit();
@@ -841,10 +846,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabData)).EndInit();
             this.xtraTabData.ResumeLayout(false);
             this.xTabHome.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.treeListProject)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imageTreeList)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).EndInit();
             this.dockPanel2.ResumeLayout(false);
             this.dockPanel2_Container.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.treeListProject)).EndInit();
             this.dockPanel1.ResumeLayout(false);
             this.dockPanel1_Container.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.navBarControl2)).EndInit();
@@ -884,7 +890,6 @@
         private DevExpress.XtraBars.BarButtonItem barButtonItem11;
         private DevExpress.XtraBars.BarButtonItem barButtonItem12;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup6;
-        private DevExpress.XtraBars.BarButtonItem btnRecord;
         private DevExpress.XtraBars.BarButtonItem btnSave;
         private DevExpress.XtraBars.BarButtonItem barButtonItem6;
         private DevExpress.XtraBars.BarButtonItem barButtonItem7;
@@ -915,7 +920,6 @@
         private DevExpress.XtraBars.BarButtonItem btnImportInspection;
         private DevExpress.XtraBars.Docking.DockPanel dockPanel2;
         private DevExpress.XtraBars.Docking.ControlContainer dockPanel2_Container;
-        private DevExpress.XtraTreeList.TreeList treeListProject;
         private DevExpress.XtraNavBar.NavBarControl navBarControl2;
         private DevExpress.XtraNavBar.NavBarGroup navBarGroup1;
         private DevExpress.XtraNavBar.NavBarGroup navBarGroup2;
@@ -933,5 +937,7 @@
         private DevExpress.XtraNavBar.NavBarItem navCA;
         private DevExpress.XtraBars.BarButtonItem btnNewEquipment;
         private DevExpress.XtraBars.BarButtonItem btnNewComponent;
+        private DevExpress.Utils.ImageCollection imageTreeList;
+        private DevExpress.XtraTreeList.TreeList treeListProject;
     }
 }

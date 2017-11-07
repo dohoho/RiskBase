@@ -161,6 +161,7 @@ namespace RBI.DAL.MSSQL
                           ",[AdoptedDate]" +
                           ",[RecommendedBy]" +
                           ",[RecommendedDate]" +
+                          ",[ProposalName]" +
                           "From [dbo].[RW_ASSESSMENT]  ";
             try
             {
@@ -189,7 +190,7 @@ namespace RBI.DAL.MSSQL
                             {
                                 obj.RiskAnalysisPeriod = reader.GetInt32(5);
                             }
-                            obj.IsEquipmentLinked = reader.GetInt32(6);
+                            obj.IsEquipmentLinked = reader.GetOrdinal("IsEquipmentLinked");
                             if(!reader .IsDBNull (7))
                             {
                                 obj.RecordType = reader.GetString(7);
@@ -202,7 +203,7 @@ namespace RBI.DAL.MSSQL
                             {
                                 obj.RevisionNo = reader.GetInt32(9);
                             }
-                            obj.IsRecommend = reader.GetInt32(10);
+                            obj.IsRecommend = reader.GetOrdinal("IsRecommend");
                             if(!reader .IsDBNull (11))
                             {
                                 obj.ProposalOrRevision = reader.GetString(11);
@@ -222,6 +223,10 @@ namespace RBI.DAL.MSSQL
                             if(!reader.IsDBNull (15))
                             {
                                 obj.RecommendedDate = reader.GetDateTime(15);
+                            }
+                            if(!reader.IsDBNull(16))
+                            {
+                                obj.ProposalName = reader.GetString(16);
                             }
                             list.Add(obj);
                         }

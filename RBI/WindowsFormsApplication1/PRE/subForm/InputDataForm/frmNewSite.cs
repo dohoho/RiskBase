@@ -17,6 +17,8 @@ namespace RBI.PRE.subForm.InputDataForm
     {
         SITES_BUS siteBus = new SITES_BUS();
         List<SITES> listSite = new List<SITES>();
+        public bool ButtonOKClicked { set; get; }
+        public string siteName { set; get; }
         public frmNewSite()
         {
             InitializeComponent();
@@ -40,7 +42,8 @@ namespace RBI.PRE.subForm.InputDataForm
                 }
             }
             siteBus.add(getData());
-            RibbonForm1.siteName = txtSiteName.Text;
+            ButtonOKClicked = true;
+            //siteName = txtSiteName.Text;
             this.Close();
         }
 

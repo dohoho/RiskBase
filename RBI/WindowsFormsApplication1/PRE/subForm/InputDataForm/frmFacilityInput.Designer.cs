@@ -483,14 +483,18 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Sites:";
             // 
-            // FacilityInput
+            // frmFacilityInput
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(435, 464);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Name = "FacilityInput";
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.Name = "frmFacilityInput";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "New Facility";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

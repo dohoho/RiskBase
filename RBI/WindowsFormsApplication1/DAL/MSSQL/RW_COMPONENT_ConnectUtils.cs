@@ -225,23 +225,23 @@ namespace RBI.DAL.MSSQL
                             obj.ID = reader.GetInt32(0);
                             if (!reader.IsDBNull(1))
                             {
-                                obj.NominalDiameter = reader.GetFloat(1);
+                                obj.NominalDiameter = (float)reader.GetDouble(1);
                             }
                             if (!reader.IsDBNull(2))
                             {
-                                obj.NominalThickness = reader.GetFloat(2);
+                                obj.NominalThickness = (float)reader.GetDouble(2);
                             }
                             if (!reader.IsDBNull(3))
                             {
-                                obj.CurrentThickness = reader.GetFloat(3);
+                                obj.CurrentThickness = (float)reader.GetDouble(3);
                             }
                             if (!reader.IsDBNull(4))
                             {
-                                obj.MinReqThickness = reader.GetFloat(4);
+                                obj.MinReqThickness = (float)reader.GetDouble(4);
                             }
                             if (!reader.IsDBNull(5))
                             {
-                                obj.CurrentCorrosionRate = reader.GetFloat(5);
+                                obj.CurrentCorrosionRate = (float)reader.GetDouble(5);
                             }
                             if (!reader.IsDBNull(6))
                             {
@@ -256,8 +256,8 @@ namespace RBI.DAL.MSSQL
                                 obj.BrinnelHardness = reader.GetString(8);
                             }
 
-                            obj.ChemicalInjection = reader.GetInt32(9);
-                            obj.HighlyInjectionInsp = reader.GetInt32(10);
+                            obj.ChemicalInjection = Convert.ToInt32(reader.GetBoolean(9));
+                            obj.HighlyInjectionInsp = Convert.ToInt32(reader.GetBoolean(10));
                             if(!reader .IsDBNull (11))
                             {
                                 obj.ComplexityProtrusion = reader.GetString(11);
@@ -266,15 +266,15 @@ namespace RBI.DAL.MSSQL
                             {
                                 obj.CorrectiveAction = reader.GetString(12);
                             }
-                            obj.CracksPresent = reader.GetInt32(13);
+                            obj.CracksPresent = Convert.ToInt32(reader.GetBoolean(13));
                             if(!reader .IsDBNull (14))
                             {
                                 obj.CyclicLoadingWitin15_25m = reader.GetString(14);
                             }
-                            obj.DamageFoundInspection = reader.GetInt32(15);
+                            obj.DamageFoundInspection = Convert.ToInt32(reader.GetBoolean(15));
                             if (!reader.IsDBNull(16))
                             {
-                                obj.DeltaFATT = reader.GetFloat(16);
+                                obj.DeltaFATT = (float)reader.GetDouble(16);
                             }
                             if (!reader.IsDBNull(17))
                             {
@@ -292,18 +292,18 @@ namespace RBI.DAL.MSSQL
                             {
                                 obj.ShakingAmount = reader.GetString(20);
                             }
-                            obj.ShakingDetected = reader.GetInt32(21);
+                            obj.ShakingDetected = Convert.ToInt32(reader.GetBoolean(21));
                             if (!reader.IsDBNull(20))
                             {
                                 obj.ShakingTime = reader.GetString(22);
                             }
-                            obj.TrampElements = reader.GetInt32(23);
+                            obj.TrampElements = Convert.ToInt32(reader.GetBoolean(23));
                             if(!reader .IsDBNull (24))
                             {
-                                obj.ShellHeight = reader.GetFloat(24);
+                                obj.ShellHeight = (float)reader.GetDouble(24);
                             }
-                            obj.ReleasePreventionBarrier = reader.GetInt32(25);
-                            obj.ConcreteFoundation = reader.GetInt32(26);
+                            obj.ReleasePreventionBarrier = Convert.ToInt32(reader.GetBoolean(25));
+                            obj.ConcreteFoundation = Convert.ToInt32(reader.GetBoolean(26));
                             if(!reader .IsDBNull (27))
                             {
                                 obj.SeverityOfVibration = reader.GetString(27);

@@ -140,7 +140,7 @@
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
-            // Facility
+            // frmFacility
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -150,7 +150,8 @@
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.treeFacility);
-            this.Name = "Facility";
+            this.MaximizeBox = false;
+            this.Name = "frmFacility";
             this.Text = "Facility";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
