@@ -227,7 +227,92 @@ namespace RBI.DAL.MSSQL
             }
             return list;
         }
+        public RW_COATING getData(int ID)
+        {
+            SqlConnection conn = MSSQLDBUtils.GetDBConnection();
+            conn.Open();
+            RW_COATING obj = new RW_COATING();
+            String sql = " Use [rbi] Select [ID], [ExternalCoating]" +
+                          ",[ExternalInsulation]" +
+                          ",[InternalCladding]" +
+                          ",[InternalCoating]" +
+                          ",[InternalLining]" +
+                          ",[ExternalCoatingDate]" +
+                          ",[ExternalCoatingQuality]" +
+                          ",[ExternalInsulationType]" +
+                          ",[InsulationCondition]" +
+                          ",[InsulationContainsChloride]" +
+                          ",[InternalLinerCondition]" +
+                          ",[InternalLinerType]" +
+                          ",[CladdingCorrosionRate]" +
+                          ",[SupportConfigNotAllowCoatingMaint]" +
+                          "From [dbo].[RW_COATING] WHERE [ID] = '" + ID + "'";
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = conn;
+                cmd.CommandText = sql;
+                using (DbDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        if (reader.HasRows)
+                        {
+                            obj.ID = reader.GetInt32(0);
+                            obj.ExternalCoating = Convert.ToInt32(reader.GetBoolean(1));
+                            obj.ExternalInsulation = Convert.ToInt32(reader.GetBoolean(2));
+                            obj.InternalCladding = Convert.ToInt32(reader.GetBoolean(3));
+                            obj.InternalCoating = Convert.ToInt32(reader.GetBoolean(4));
+                            obj.InternalLining = Convert.ToInt32(reader.GetBoolean(5));
+                            if (!reader.IsDBNull(6))
+                            {
+                                obj.ExternalCoatingDate = reader.GetDateTime(6);
+                            }
+                            if (!reader.IsDBNull(7))
+                            {
+                                obj.ExternalCoatingQuality = reader.GetString(7);
+                            }
+                            if (!reader.IsDBNull(8))
+                            {
+                                obj.ExternalInsulationType = reader.GetString(8);
+                            }
+                            if (!reader.IsDBNull(9))
+                            {
+                                obj.InsulationCondition = reader.GetString(9);
+                            }
 
+                            obj.InsulationContainsChloride = Convert.ToInt32(reader.GetBoolean(10));
+
+                            if (!reader.IsDBNull(11))
+                            {
+                                obj.InternalLinerCondition = reader.GetString(11);
+                            }
+                            if (!reader.IsDBNull(12))
+                            {
+                                obj.InternalLinerType = reader.GetString(12);
+                            }
+                            if (!reader.IsDBNull(13))
+                            {
+                                obj.CladdingCorrosionRate = (float)reader.GetDouble(13);
+                            }
+
+                            obj.SupportConfigNotAllowCoatingMaint = Convert.ToInt32(reader.GetBoolean(14));
+                            Console.WriteLine(obj.ExternalCoatingQuality);
+                        }
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString(), "GET DATA FAIL!");
+            }
+            finally
+            {
+                conn.Close();
+                conn.Dispose();
+            }
+            return obj;
+        }
     }
 }
 

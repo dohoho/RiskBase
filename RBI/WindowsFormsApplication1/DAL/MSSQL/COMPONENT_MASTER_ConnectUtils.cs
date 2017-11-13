@@ -165,5 +165,38 @@ namespace RBI.DAL.MSSQL
             }
             return list;
         }
+        public int getAPIComponentTypeID(int EqID)
+        {
+            int _ID = 0;
+            SqlConnection con = MSSQLDBUtils.GetDBConnection();
+            con.Open();
+            String sql = "SELECT APIComponentTypeId FROM [rbi].[dbo].[COMPONENT_MASTER] WHERE EquipmentID = '"+EqID+"'";
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandText = sql;
+                cmd.Connection = con;
+                using (DbDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        if (reader.HasRows)
+                        {
+                            _ID = reader.GetInt32(0);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Get FMS Fail------->" + ex.ToString(), "Get Data Fail");
+            }
+            finally
+            {
+                con.Close();
+                con.Dispose();
+            }
+            return _ID;
+        }
     }
 }

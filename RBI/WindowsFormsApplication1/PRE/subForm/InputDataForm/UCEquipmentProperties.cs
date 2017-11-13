@@ -60,10 +60,14 @@ namespace RBI.PRE.subForm.InputDataForm
             addItemsExternalEnvironment();
             addItemsThermalHistory();
         }
-        //public UCEquipmentProperties()
-        //{
-        //    InitializeComponent();
-        //}
+        public UCEquipmentProperties(int ID)
+        {
+            InitializeComponent();
+            addItemsOnlineMonitoring();
+            addItemsExternalEnvironment();
+            addItemsThermalHistory();
+            ShowDatatoControl(ID);
+        }
         public void ShowDatatoControl(int ID)
         {
             RW_EQUIPMENT_BUS eqBus = new RW_EQUIPMENT_BUS();
@@ -124,7 +128,9 @@ namespace RBI.PRE.subForm.InputDataForm
         public RW_EQUIPMENT getData()
         {
             RW_EQUIPMENT eq = new RW_EQUIPMENT();
-            eq.ID = 1;
+            RW_ASSESSMENT_BUS assBus = new RW_ASSESSMENT_BUS();
+            List<RW_ASSESSMENT> listAss = assBus.getDataSource();
+            eq.ID = listAss[listAss.Count - 1].ID;
             eq.AdminUpsetManagement = chkAministrativeControl.Checked ? 1 : 0;
             eq.ContainsDeadlegs = chkContainsDeadlegs.Checked ? 1 : 0;
             eq.CyclicOperation = chkCylicOperation.Checked ? 1 : 0;
@@ -135,7 +141,7 @@ namespace RBI.PRE.subForm.InputDataForm
             eq.InterfaceSoilWater = chkInterfaceSoilWater.Checked ? 1 : 0;
             eq.LinerOnlineMonitoring = chkLinerOnlineMonitoring.Checked ? 1 : 0;
             eq.MaterialExposedToClExt = chkMaterialExposedFluid.Checked ? 1 : 0;
-            eq.MinReqTemperaturePressurisation = txtMinRequiredTemperature.Text!=""?float.Parse(txtMinRequiredTemperature.Text):0;
+            eq.MinReqTemperaturePressurisation = txtMinRequiredTemperature.Text != "" ? float.Parse(txtMinRequiredTemperature.Text) : 0;
             eq.OnlineMonitoring = cbOnlineMonitoring.Text;
             eq.PresenceSulphidesO2 = chkPresenceSulphideOperation.Checked ? 1 : 0;
             eq.PresenceSulphidesO2Shutdown = chkPresenceSulphideShutdown.Checked ? 1 : 0;
@@ -146,6 +152,7 @@ namespace RBI.PRE.subForm.InputDataForm
             eq.ThermalHistory = cbThermalHistory.Text;
             eq.YearLowestExpTemp = chkEquipmentOperatingManyYear.Checked ? 1 : 0;
             eq.Volume = txtEquipmentVolume.Text != "" ? float.Parse(txtEquipmentVolume.Text) : 0;
+            //eq.CommissionDate = 
             return eq;
         }
         

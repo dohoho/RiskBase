@@ -826,7 +826,7 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "UCNoInspection";
-            this.Size = new System.Drawing.Size(837, 508);
+            this.Size = new System.Drawing.Size(839, 508);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);

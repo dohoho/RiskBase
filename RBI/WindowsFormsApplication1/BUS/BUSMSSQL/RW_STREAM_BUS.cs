@@ -22,5 +22,9 @@ namespace RBI.BUS.BUSMSSQL
         {
             DAL.delete(obj.ID);
         }
+        public RW_STREAM getData(int ID)
+        {
+            return DAL.getData(ID);
+        }
     }
 }

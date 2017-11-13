@@ -35,10 +35,19 @@ namespace RBI.PRE.subForm.InputDataForm
             additemsMittigationSystem();
             additemsIsulationType();
         }
-        public RW_INPUT_CA_LEVEL_1 getData()
+        public UCCA(int ID)
+        {
+            InitializeComponent();
+            additemsFluid();
+            additemsFluidPhase();
+            additemsDetectionType();
+            additemsMittigationSystem();
+            additemsIsulationType();
+        }
+        public RW_INPUT_CA_LEVEL_1 getData(int ID)
         {
             RW_INPUT_CA_LEVEL_1 ca = new RW_INPUT_CA_LEVEL_1();
-            ca.ID = 1;
+            ca.ID = ID;
             ca.API_FLUID = cbFluid.Text;
             ca.SYSTEM = cbFluidPhase.Text;
             ca.Equipment_Cost = txtEquipmentCost.Text != "" ? float.Parse(txtEquipmentCost.Text) : 0;

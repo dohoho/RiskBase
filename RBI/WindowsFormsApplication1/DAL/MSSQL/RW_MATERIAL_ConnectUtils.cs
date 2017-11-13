@@ -36,7 +36,6 @@ namespace RBI.DAL.MSSQL
                            ",[IsHTHA]" +
                            ",[Austenitic]" +
                            ",[Temper]" +
-                            ",[Austenitic]" +
                            ",[CarbonLowAlloy]" +
                            ",[NickelBased]" +
                            ",[ChromeMoreEqual12]" +
@@ -304,6 +303,118 @@ namespace RBI.DAL.MSSQL
                 conn.Dispose();
             }
             return list;
+        }
+        public RW_MATERIAL getData(int id)
+        {
+            RW_MATERIAL obj = new RW_MATERIAL();
+            SqlConnection conn = MSSQLDBUtils.GetDBConnection();
+            conn.Open();
+            String sql = "USE [rbi]  SELECT [ID]" +
+                        ",[MaterialName]" +
+                        ",[DesignPressure]" +
+                        ",[DesignTemperature]" +
+                        ",[MinDesignTemperature]" +
+                        ",[BrittleFractureThickness]" +
+                        ",[CorrosionAllowance]" +
+                        ",[SigmaPhase]" +
+                        ",[SulfurContent]" +
+                        ",[HeatTreatment]" +
+                        ",[ReferenceTemperature]" +
+                        ",[PTAMaterialCode]" +
+                        ",[HTHAMaterialCode]" +
+                        ",[IsPTA]" +
+                        ",[IsHTHA]" +
+                        ",[Austenitic]" +
+                        ",[Temper]" +
+                        ",[CarbonLowAlloy]" +
+                        ",[NickelBased]" +
+                        ",[ChromeMoreEqual12]" +
+                        ",[AllowableStress]" +
+                        ",[CostFactor]" +
+                        "FROM [dbo].[RW_MATERIAL] WHERE [ID] = '" + id + "'";
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = conn;
+                cmd.CommandText = sql;
+                using (DbDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        if (reader.HasRows)
+                        {
+                            obj.ID = reader.GetInt32(0);
+                            if (!reader.IsDBNull(1))
+                            {
+                                obj.MaterialName = reader.GetString(1);
+                            }
+                            if (!reader.IsDBNull(2))
+                            {
+                                obj.DesignPressure = (float)reader.GetDouble(2);
+                            }
+                            if (!reader.IsDBNull(3))
+                            {
+                                obj.DesignTemperature = (float)reader.GetDouble(3);
+                            }
+                            if (!reader.IsDBNull(4))
+                            {
+                                obj.MinDesignTemperature = (float)reader.GetDouble(4);
+                            }
+                            if (!reader.IsDBNull(5))
+                            {
+                                obj.BrittleFractureThickness = (float)reader.GetDouble(5);
+                            }
+                            if (!reader.IsDBNull(6))
+                            {
+                                obj.CorrosionAllowance = (float)reader.GetDouble(6);
+                            }
+                            if (!reader.IsDBNull(7))
+                            {
+                                obj.SigmaPhase = (float)reader.GetDouble(7);
+                            }
+                            if (!reader.IsDBNull(8))
+                            {
+                                obj.SulfurContent = reader.GetString(8);
+                            }
+                            if (!reader.IsDBNull(9))
+                            {
+                                obj.HeatTreatment = reader.GetString(9);
+                            }
+                            if (!reader.IsDBNull(10))
+                            {
+                                obj.ReferenceTemperature = (float)reader.GetDouble(10);
+                            }
+                            if (!reader.IsDBNull(11))
+                            {
+                                obj.PTAMaterialCode = reader.GetString(11);
+                            }
+                            if (!reader.IsDBNull(12))
+                            {
+                                obj.HTHAMaterialCode = reader.GetString(12);
+                            }
+                            obj.IsPTA = Convert.ToInt32(reader.GetBoolean(13));
+                            obj.IsHTHA = Convert.ToInt32(reader.GetBoolean(14));
+                            obj.Austenitic = Convert.ToInt32(reader.GetBoolean(15));
+                            obj.Temper = Convert.ToInt32(reader.GetBoolean(16));
+                            obj.CarbonLowAlloy = Convert.ToInt32(reader.GetBoolean(17));
+                            obj.NickelBased = Convert.ToInt32(reader.GetBoolean(18));
+                            obj.ChromeMoreEqual12 = Convert.ToInt32(reader.GetBoolean(19));
+                            obj.AllowableStress = (float)reader.GetDouble(20);
+                            obj.CostFactor = (float)reader.GetDouble(21);
+                        }
+                    }
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("GET DATA SOURCE FAIL!" + ex.ToString(), "ERROR!");
+            }
+            finally
+            {
+                conn.Close();
+                conn.Dispose();
+            }
+            return obj;
         }
     }
 }

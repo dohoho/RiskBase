@@ -173,5 +173,38 @@ namespace RBI.DAL.MSSQL
             }
             return obj;
         }
+        public String getEquipmentTypeName(int equipmentID)
+        {
+            String equipmentTypeName = "";
+            SqlConnection con = MSSQLDBUtils.GetDBConnection();
+            con.Open();
+            String sql = "SELECT [EquipmentTypeName] FROM [rbi].[dbo].[EQUIPMENT_TYPE] WHERE EquipmentTypeID = '" + equipmentID + "'";
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandText = sql;
+                cmd.Connection = con;
+                using (DbDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        if (reader.HasRows)
+                        {
+                            equipmentTypeName = reader.GetString(0);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Get Equipment Type Name Fail------->" + ex.ToString(), "Get Data Fail");
+            }
+            finally
+            {
+                con.Close();
+                con.Dispose();
+            }
+            return equipmentTypeName;
+        }
     }
 }

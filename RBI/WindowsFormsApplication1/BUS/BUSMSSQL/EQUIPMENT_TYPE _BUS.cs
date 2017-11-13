@@ -28,5 +28,9 @@ namespace RBI.BUS.BUSMSSQL
         {
             return DAL.getDataSource();
         }
+        public String getEquipmentTypeName(int equipmentID)
+        {
+            return DAL.getEquipmentTypeName(equipmentID);
+        }
     }
 }

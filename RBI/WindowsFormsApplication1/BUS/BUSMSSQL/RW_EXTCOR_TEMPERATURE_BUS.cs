@@ -28,7 +28,9 @@ namespace RBI.BUS.BUSMSSQL
         {
             return DAL.getDataSource();
         }
-
-
+        public RW_EXTCOR_TEMPERATURE getData(int ID)
+        {
+            return DAL.getData(ID);
+        }
     }
 }

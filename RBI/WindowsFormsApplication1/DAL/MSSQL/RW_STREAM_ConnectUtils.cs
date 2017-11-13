@@ -52,14 +52,15 @@ namespace RBI.DAL.MSSQL
                            ",[ToxicFluidID]" +
                            ",[WaterpH]" +
                            ",[TankFluidName]" +
+                           ",[FluidHeight]"+
                            ",[FluidLeaveDikePercent]" +
                            ",[FluidLeaveDikeRemainOnSitePercent]" +
                            ",[FluidGoOffSitePercent])" +
                            " VALUES" +
                                  "(  '" + ID + "'" +
                                  ", '" + AmineSolution + "'" +
-                                 ",'" + AqueousOperation + "'" +
-                                 "," + AqueousShutdown + "'" +
+                                 ", '" + AqueousOperation + "'" +
+                                 ", '" + AqueousShutdown + "'" +
                                  ", '" + ToxicConstituent + "'" +
                                  ", '" + Caustic + "'" +
                                 ", '" + Chloride + "'" +
@@ -80,7 +81,6 @@ namespace RBI.DAL.MSSQL
                                 ", '" + MaxOperatingTemperature + "'" +
                                 ", '" + MinOperatingPressure + "'" +
                                 ", '" + MinOperatingTemperature + "'" +
-                                ", '" + MaterialExposedToClInt + "'"+
                                  ", '" + CriticalExposureTemperature + "'" +
                                 ", '" + ModelFluidID + "'" +
                                 ", '" + NaOHConcentration + "'"+
@@ -387,6 +387,192 @@ namespace RBI.DAL.MSSQL
                 conn.Dispose();
             }
             return list;
+        }
+        public RW_STREAM getData(int ID)
+        {
+            RW_STREAM obj = new RW_STREAM();
+            SqlConnection conn = MSSQLDBUtils.GetDBConnection();
+            conn.Open();
+            String sql = "USE [rbi]" +
+                        "" +
+                        "SELECT [ID]" +
+                        ",[AmineSolution]" +
+                        ",[AqueousOperation]" +
+                        ",[AqueousShutdown]" +
+                        ",[ToxicConstituent]" +
+                        ",[Caustic]" +
+                        ",[Chloride]" +
+                        ",[CO3Concentration]" +
+                        ",[Cyanide]" +
+                        ",[ExposedToGasAmine]" +
+                        ",[ExposedToSulphur]" +
+                        ",[ExposureToAmine]" +
+                        ",[FlammableFluidID]" +
+                        ",[FlowRate]" +
+                        ",[H2S]" +
+                        ",[H2SInWater]" +
+                        ",[Hydrogen]" +
+                        ",[H2SPartialPressure]" +
+                        ",[Hydrofluoric]" +
+                        ",[MaterialExposedToClInt]" +
+                        ",[MaxOperatingPressure]" +
+                        ",[MaxOperatingTemperature]" +
+                        ",[MinOperatingPressure]" +
+                        ",[MinOperatingTemperature]" +
+                        ",[CriticalExposureTemperature]" +
+                        ",[ModelFluidID]" +
+                        ",[NaOHConcentration]" +
+                        ",[NonFlameToxicFluidID]" +
+                        ",[ReleaseFluidPercentToxic]" +
+                        ",[StoragePhase]" +
+                        ",[ToxicFluidID]" +
+                        ",[WaterpH]" +
+                        ",[TankFluidName]" +
+                        ",[FluidHeight]" +
+                        ",[FluidLeaveDikePercent]" +
+                        ",[FluidLeaveDikeRemainOnSitePercent]" +
+                        ",[FluidGoOffSitePercent]" +
+                        "  FROM [rbi].[dbo].[RW_STREAM] WHERE [ID]='" + ID + "'" +
+                        " ";
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = conn;
+                cmd.CommandText = sql;
+                using (DbDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        if (reader.HasRows)
+                        {
+                            obj.ID = reader.GetInt32(0);
+                            if (!reader.IsDBNull(1))
+                            {
+                                obj.AmineSolution = reader.GetString(1);
+                            }
+                            obj.AqueousOperation = Convert.ToInt32(reader.GetBoolean(2));
+                            obj.AqueousShutdown = Convert.ToInt32(reader.GetBoolean(3));
+                            obj.ToxicConstituent = Convert.ToInt32(reader.GetBoolean(4));
+                            obj.Caustic = Convert.ToInt32(reader.GetBoolean(5));
+                            if (!reader.IsDBNull(6))
+                            {
+                                obj.Chloride = (float)reader.GetDouble(6);
+                            }
+                            if (!reader.IsDBNull(7))
+                            {
+                                obj.CO3Concentration = (float)reader.GetDouble(7);
+                            }
+                            obj.Cyanide = Convert.ToInt32(reader.GetBoolean(8));
+                            obj.ExposedToGasAmine = Convert.ToInt32(reader.GetBoolean(9));
+                            obj.ExposedToSulphur = Convert.ToInt32(reader.GetBoolean(10));
+                            if (!reader.IsDBNull(11))
+                            {
+                                obj.ExposureToAmine = reader.GetString(11);
+                            }
+                            if (!reader.IsDBNull(12))
+                            {
+                                obj.FlammableFluidID = reader.GetInt32(12);
+                            }
+                            if (!reader.IsDBNull(13))
+                            {
+                                obj.FlowRate = (float)reader.GetDouble(13);
+                            }
+                            obj.H2S = Convert.ToInt32(reader.GetBoolean(14));
+                            if (!reader.IsDBNull(15))
+                            {
+                                obj.H2SInWater = (float)reader.GetDouble(15);
+                            }
+                            obj.Hydrogen = Convert.ToInt32(reader.GetBoolean(16));
+                            if (!reader.IsDBNull(17))
+                            {
+                                obj.H2SPartialPressure = (float)reader.GetDouble(17);
+                            }
+
+                            obj.Hydrofluoric = Convert.ToInt32(reader.GetBoolean(18));
+                            obj.MaterialExposedToClInt = Convert.ToInt32(reader.GetBoolean(19));
+                            if (!reader.IsDBNull(20))
+                            {
+                                obj.MaxOperatingPressure = (float)reader.GetDouble(20);
+                            }
+                            if (!reader.IsDBNull(21))
+                            {
+                                obj.MaxOperatingTemperature = (float)reader.GetDouble(21);
+                            }
+                            if (!reader.IsDBNull(22))
+                            {
+                                obj.MinOperatingPressure = (float)reader.GetDouble(22);
+                            }
+                            if (!reader.IsDBNull(23))
+                            {
+                                obj.MinOperatingTemperature = (float)reader.GetDouble(23);
+                            }
+                            if (!reader.IsDBNull(24))
+                            {
+                                obj.CriticalExposureTemperature = (float)reader.GetDouble(24);
+                            }
+                            if (!reader.IsDBNull(25))
+                            {
+                                obj.ModelFluidID = reader.GetInt32(25);
+                            }
+
+                            if (!reader.IsDBNull(26))
+                            {
+                                obj.NaOHConcentration = (float)reader.GetDouble(26);
+                            }
+                            if (!reader.IsDBNull(27))
+                            {
+                                obj.NonFlameToxicFluidID = reader.GetInt32(27);
+                            }
+                            if (!reader.IsDBNull(28))
+                            {
+                                obj.ReleaseFluidPercentToxic = (float)reader.GetDouble(28);
+                            }
+                            if (!reader.IsDBNull(29))
+                            {
+                                obj.StoragePhase = reader.GetString(29);
+                            }
+                            if (!reader.IsDBNull(30))
+                            {
+                                obj.ToxicFluidID = reader.GetInt32(30);
+                            }
+                            if (!reader.IsDBNull(31))
+                            {
+                                obj.WaterpH = (float)reader.GetDouble(31);
+                            }
+                            if (!reader.IsDBNull(32))
+                            {
+                                obj.TankFluidName = reader.GetString(32);
+                            }
+                            if (!reader.IsDBNull(33))
+                            {
+                                obj.FluidHeight = (float)reader.GetDouble(33);
+                            }
+                            if (!reader.IsDBNull(34))
+                            {
+                                obj.FluidLeaveDikePercent = (float)reader.GetDouble(34);
+                            }
+                            if (!reader.IsDBNull(35))
+                            {
+                                obj.FluidLeaveDikeRemainOnSitePercent = (float)reader.GetDouble(35);
+                            }
+                            if (!reader.IsDBNull(36))
+                            {
+                                obj.FluidGoOffSitePercent = (float)reader.GetDouble(36);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString(), "GET DATA FAIL!");
+            }
+            finally
+            {
+                conn.Close();
+                conn.Dispose();
+            }
+            return obj;
         }
     }
 }

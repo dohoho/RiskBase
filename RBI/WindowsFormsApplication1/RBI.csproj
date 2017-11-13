@@ -159,6 +159,7 @@
     <Compile Include="BUS\BUSMSSQL\RW_FULL_POF_BUS.cs" />
     <Compile Include="BUS\BUSMSSQL\RW_INPUT_CA_LEVEL_1_BUS.cs" />
     <Compile Include="BUS\BUSMSSQL\RW_INPUT_CA_TANK_BUS.cs" />
+    <Compile Include="BUS\BUSMSSQL\RW_INSPECTION_HISTORY_BUS.cs" />
     <Compile Include="BUS\BUSMSSQL\RW_LF_DETAIL_BUS.cs" />
     <Compile Include="BUS\BUSMSSQL\RW_LF_MASTER_BUS.cs" />
     <Compile Include="BUS\BUSMSSQL\RW_MATERIAL_BUS.cs" />
@@ -267,6 +268,7 @@
     <Compile Include="DAL\MSSQL\RW_FULL_POF_ConnectUtils.cs" />
     <Compile Include="DAL\MSSQL\RW_INPUT_CA_LEVEL_1_ConnUtils.cs" />
     <Compile Include="DAL\MSSQL\RW_INPUT_CA_TANK_ConnUtils.cs" />
+    <Compile Include="DAL\MSSQL\RW_INSPECTION_HISTORY_ConnUtils.cs" />
     <Compile Include="DAL\MSSQL\RW_LF_DETAIL_ConnectUtils.cs" />
     <Compile Include="DAL\MSSQL\RW_LF_MASTER_ConnectUtils.cs" />
     <Compile Include="DAL\MSSQL\RW_MATERIAL_ConnectUtils.cs" />
@@ -359,6 +361,7 @@
     <Compile Include="Object\ObjectMSSQL\RW_FULL_POF.cs" />
     <Compile Include="Object\ObjectMSSQL\RW_INPUT_CA_LEVEL_1.cs" />
     <Compile Include="Object\ObjectMSSQL\RW_INPUT_CA_TANK.cs" />
+    <Compile Include="Object\ObjectMSSQL\RW_INSPECTION_HISTORY.cs" />
     <Compile Include="Object\ObjectMSSQL\RW_LF_DETAIL.cs" />
     <Compile Include="Object\ObjectMSSQL\RW_LF_MASTER.cs" />
     <Compile Include="Object\ObjectMSSQL\RW_MATERIAL.cs" />
@@ -389,6 +392,7 @@
     <Compile Include="Object\ObjectMSSQL_CAL\TOXIC_513.cs" />
     <Compile Include="Object\paramaterDF.cs" />
     <Compile Include="Object\RiskSummary.cs" />
+    <Compile Include="Object\ucTabNormal.cs" />
     <Compile Include="PRE\ITEM\jtree.cs" />
     <Compile Include="PRE\subForm\ImportExcel.cs">
       <SubType>Form</SubType>
@@ -590,10 +594,6 @@
       <DependentUpon>test.cs</DependentUpon>
     </Compile>
     <Compile Include="TestData.cs" />
-    <Compile Include="TEST_COMPONENT.cs" />
-    <Compile Include="TEST_EQUIPMENT.cs" />
-    <Compile Include="TEST_FACILITY.cs" />
-    <Compile Include="TEST_SITE.cs" />
     <EmbeddedResource Include="PRE\subForm\ImportExcel.resx">
       <DependentUpon>ImportExcel.cs</DependentUpon>
     </EmbeddedResource>

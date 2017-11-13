@@ -23,11 +23,16 @@ namespace RBI.PRE.subForm.InputDataForm
             InitializeComponent();
             listComponentType = componentTypeBus.getDataSource();
         }
+        public UCAssessmentInfo(int id)
+        {
+            InitializeComponent();
+            showDatatoControl(id);
+        }
+        public String ProposalName;
         public RW_ASSESSMENT getData()
         {
             RW_ASSESSMENT ass = new RW_ASSESSMENT();
             ass.AssessmentDate = dateAssessmentDate.DateTime;
-            ass.AssessmentMethod = cbAsssessmentMethod.SelectedIndex;
             ass.RiskAnalysisPeriod = txtRiskAnalysisPeriod.Text != "" ? int.Parse(txtRiskAnalysisPeriod.Text) : 0;
             ass.IsEquipmentLinked = chkRiskLinksEquipmentRisk.Checked ? 1 : 0;
             ass.RecordType = cbReportTemplate.Text;
@@ -51,7 +56,7 @@ namespace RBI.PRE.subForm.InputDataForm
             eq.CommissionDate = dateComissionDate.DateTime;
             return eq;
         }
-        public void showDatatoControl(int comID, int eqID, int assID)
+        public void showDatatoControl(int ID)
         {
             EQUIPMENT_TYPE_BUS eqTypeBus = new EQUIPMENT_TYPE_BUS();
             List<EQUIPMENT_TYPE> listEquipmentType = eqTypeBus.getDataSource();
@@ -67,49 +72,6 @@ namespace RBI.PRE.subForm.InputDataForm
             List<MANUFACTURER> listManu = manuBus.getDataSource();
             RW_ASSESSMENT_BUS rwAssBus = new RW_ASSESSMENT_BUS();
             List<RW_ASSESSMENT> listAssessment = rwAssBus.getDataSource();
-            foreach(RW_ASSESSMENT a in listAssessment)
-            {
-                if(a.ID == assID)
-                {
-                    txtAssessmentName.Text = a.ProposalName;
-                }
-            }
-            //đổ dữ liệu lên control cho Equipment
-            foreach (EQUIPMENT_MASTER e in listEquipmentMaster)
-            {
-                if(e.EquipmentID == eqID)
-                {
-                    txtEquipmentNumber.Text = e.EquipmentNumber;
-                    dateComissionDate.DateTime = e.CommissionDate;
-                    txtEquipmentName.Text = e.EquipmentName;
-                    foreach (EQUIPMENT_TYPE t in listEquipmentType)
-                    {
-                        if (t.EquipmentTypeID == e.EquipmentTypeID)
-                            txtEquipmentType.Text = t.EquipmentTypeName;
-                    }
-                    foreach (DESIGN_CODE d in listDesignCode)
-                    {
-                        if (d.DesignCodeID == e.DesignCodeID)
-                            txtDesignCode.Text = d.DesignCode;
-                    }
-                    foreach (FACILITY f in listFacility)
-                    {
-                        if (e.FacilityID == f.FacilityID)
-                            txtFacility.Text = f.FacilityName;
-                    }
-                    foreach (SITES s in listSite)
-                    {
-                        if (s.SiteID == e.SiteID)
-                            txtSites.Text = s.SiteName;
-                    }
-                    foreach(MANUFACTURER m in listManu)
-                    {
-                        if (m.ManufacturerID == e.ManufacturerID)
-                            txtManufacturer.Text = m.ManufacturerName;
-                    }
-                }
-                
-            }
             //đổ dữ liệu lên control cho Component
             COMPONENT_MASTER_BUS comMaBus = new COMPONENT_MASTER_BUS();
             List<COMPONENT_MASTER> listComMa = comMaBus.getDataSource();
@@ -117,28 +79,87 @@ namespace RBI.PRE.subForm.InputDataForm
             List<COMPONENT_TYPE> listComponentType = comTypeBus.getDataSource();
             API_COMPONENT_TYPE_BUS apiComponentBus = new API_COMPONENT_TYPE_BUS();
             List<API_COMPONENT_TYPE> listAPICom = apiComponentBus.getDataSource();
-            foreach(COMPONENT_MASTER c in listComMa)
+            foreach(RW_ASSESSMENT a in listAssessment)
             {
-                if(c.ComponentID == comID)
+                if(a.ID == ID)
                 {
-                    txtComponentNumber.Text = c.ComponentNumber;
-                    foreach(COMPONENT_TYPE t in listComponentType)
+                    txtAssessmentName.Text = a.ProposalName;
+                    ProposalName = a.ProposalName;
+                    dateAssessmentDate.DateTime = a.AssessmentDate;
+                    txtRiskAnalysisPeriod.Text = a.RiskAnalysisPeriod.ToString();
+                    foreach (EQUIPMENT_MASTER e in listEquipmentMaster)
                     {
-                        if(c.ComponentTypeID == t.ComponentTypeID)
+                        if (e.EquipmentID == a.EquipmentID)
                         {
-                            txtComponentType.Text = t.ComponentTypeName;
+                            txtEquipmentNumber.Text = e.EquipmentNumber;
+                            dateComissionDate.DateTime = e.CommissionDate;
+                            txtEquipmentName.Text = e.EquipmentName;
+                            foreach (EQUIPMENT_TYPE t in listEquipmentType)
+                            {
+                                if (t.EquipmentTypeID == e.EquipmentTypeID)
+                                    txtEquipmentType.Text = t.EquipmentTypeName;
+                            }
+                            foreach (DESIGN_CODE d in listDesignCode)
+                            {
+                                if (d.DesignCodeID == e.DesignCodeID)
+                                    txtDesignCode.Text = d.DesignCode;
+                            }
+                            foreach (FACILITY f in listFacility)
+                            {
+                                if (e.FacilityID == f.FacilityID)
+                                    txtFacility.Text = f.FacilityName;
+                            }
+                            foreach (SITES s in listSite)
+                            {
+                                if (s.SiteID == e.SiteID)
+                                    txtSites.Text = s.SiteName;
+                            }
+                            foreach (MANUFACTURER m in listManu)
+                            {
+                                if (m.ManufacturerID == e.ManufacturerID)
+                                    txtManufacturer.Text = m.ManufacturerName;
+                            }
                         }
+                        break;
                     }
-                    txtComponentName.Text = c.ComponentName;
-                    foreach(API_COMPONENT_TYPE a in listAPICom)
+                    foreach (COMPONENT_MASTER c in listComMa)
                     {
-                        if(a.APIComponentTypeID == c.APIComponentTypeID)
+                        if (c.ComponentID == a.ComponentID)
                         {
-                            txtAPIComponentType.Text = a.APIComponentTypeName;
+                            txtComponentNumber.Text = c.ComponentNumber;
+                            foreach (COMPONENT_TYPE t in listComponentType)
+                            {
+                                if (c.ComponentTypeID == t.ComponentTypeID)
+                                {
+                                    txtComponentType.Text = t.ComponentTypeName;
+                                }
+                            }
+                            txtComponentName.Text = c.ComponentName;
+                            foreach (API_COMPONENT_TYPE a1 in listAPICom)
+                            {
+                                if (a1.APIComponentTypeID == c.APIComponentTypeID)
+                                {
+                                    txtAPIComponentType.Text = a1.APIComponentTypeName;
+                                }
+                            }
                         }
+                        break;
                     }
-                }
+                    
             }
+            //foreach (RW_ASSESSMENT a in listAssessment)
+            //{
+            //    if (a.ID == assID)
+            //    {
+            //        txtAssessmentName.Text = a.ProposalName;
+            //    }
+            //}
+            //đổ dữ liệu lên control cho Equipment
+            
+
+            }
+            
+            
         }
     }
 }

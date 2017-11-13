@@ -30,5 +30,9 @@ namespace RBI.BUS.BUSMSSQL
         {
             return DAL.isExist(ID);
         }
+        public RW_MATERIAL getData(int ID)
+        {
+            return DAL.getData(ID);
+        }
     }
 }

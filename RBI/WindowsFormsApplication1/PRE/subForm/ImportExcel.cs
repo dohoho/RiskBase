@@ -83,13 +83,6 @@ namespace RBI.PRE.subForm
         private void btnFinish_Click(object sender, EventArgs e)
         {
             readDataFromSheet();
-            RibbonForm1.rwcoat1 = getDataCoating();
-            RibbonForm1.rwcom1 = getDataComponent();
-            RibbonForm1.rweq1 = getDataEquipment();
-            RibbonForm1.rwma1 = getDataMaterial();
-            RibbonForm1.rwstream_1 = getDataStream();
-            RibbonForm1.rwstream_2 = getDataOperating();
-            RibbonForm1.ass1 = getAssessmentDate();
             this.Close();
         }
         private void btnCancel_Click(object sender, EventArgs e)

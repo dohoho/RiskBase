@@ -208,6 +208,77 @@ namespace RBI.DAL.MSSQL
             }
             return list;
         }
-       
+        
+        public RW_FULL_FCOF getData(int ID)
+        {
+            SqlConnection conn = MSSQLDBUtils.GetDBConnection();
+            conn.Open();
+            RW_FULL_FCOF obj = new RW_FULL_FCOF();
+            String sql = "SELECT ID,FCoFValue,FCoFCategory,AIL,envcost,equipcost,prodcost,popdens,injcost, FCoFMatrixValue FROM rbi.dbo.RW_FULL_FCOF WHERE ID = '"+ID+"'";
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = conn;
+                cmd.CommandText = sql;
+                using (DbDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        if (reader.HasRows)
+                        {
+                            obj.ID = reader.GetInt32(0);
+                            if (!reader.IsDBNull(1))
+                            {
+                                obj.FCoFValue = (float)reader.GetDouble(1);
+                            }
+                            if (!reader.IsDBNull(2))
+                            {
+                                obj.FCoFCategory = reader.GetString(2);
+                            }
+                            if (!reader.IsDBNull(3))
+                            {
+                                obj.AIL = reader.GetInt32(3);
+                            }
+                            if (!reader.IsDBNull(4))
+                            {
+                                obj.envcost = (float)reader.GetDouble(4);
+                            }
+                            if (!reader.IsDBNull(5))
+                            {
+                                obj.equipcost = (float)reader.GetDouble(5);
+                            }
+                            if (!reader.IsDBNull(6))
+                            {
+                                obj.prodcost = (float)reader.GetDouble(6);
+                            }
+                            if (!reader.IsDBNull(7))
+                            {
+                                obj.popdens = (float)reader.GetDouble(7);
+                            }
+                            if (!reader.IsDBNull(8))
+                            {
+                                obj.injcost = (float)reader.GetDouble(8);
+                            }
+                            if (!reader.IsDBNull(9))
+                            {
+                                obj.FCoFMatrixValue = (float)reader.GetDouble(9);
+                            }
+                        }
+                    }
+
+                }
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString(), "GET DATA FAIL !");
+            }
+            finally
+            {
+                conn.Close();
+                conn.Dispose();
+            }
+            return obj;
+        }
     }
 }

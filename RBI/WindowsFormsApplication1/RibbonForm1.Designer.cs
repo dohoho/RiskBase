@@ -559,10 +559,10 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.xtraTabData.ClosePageButtonShowMode = DevExpress.XtraTab.ClosePageButtonShowMode.InActiveTabPageAndTabControlHeader;
-            this.xtraTabData.Location = new System.Drawing.Point(362, 152);
+            this.xtraTabData.Location = new System.Drawing.Point(404, 152);
             this.xtraTabData.Name = "xtraTabData";
             this.xtraTabData.SelectedTabPage = this.xTabHome;
-            this.xtraTabData.Size = new System.Drawing.Size(734, 511);
+            this.xtraTabData.Size = new System.Drawing.Size(692, 511);
             this.xtraTabData.TabIndex = 2;
             this.xtraTabData.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.xTabHome});
@@ -579,7 +579,7 @@
             this.xTabHome.Controls.Add(this.simpleButton5);
             this.xTabHome.Name = "xTabHome";
             this.xTabHome.ShowCloseButton = DevExpress.Utils.DefaultBoolean.False;
-            this.xTabHome.Size = new System.Drawing.Size(732, 486);
+            this.xTabHome.Size = new System.Drawing.Size(690, 486);
             this.xTabHome.Text = "Home";
             // 
             // simpleButton7
@@ -615,7 +615,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.treeListProject.Location = new System.Drawing.Point(3, 3);
             this.treeListProject.Name = "treeListProject";
-            this.treeListProject.Size = new System.Drawing.Size(169, 475);
+            this.treeListProject.Size = new System.Drawing.Size(201, 475);
             this.treeListProject.StateImageList = this.imageTreeList;
             this.treeListProject.TabIndex = 1;
             this.treeListProject.FocusedNodeChanged += new DevExpress.XtraTreeList.FocusedNodeChangedEventHandler(this.treeListProject_FocusedNodeChanged);
@@ -658,8 +658,8 @@
             this.dockPanel2.Location = new System.Drawing.Point(0, 146);
             this.dockPanel2.Name = "dockPanel2";
             this.dockPanel2.Options.ShowCloseButton = false;
-            this.dockPanel2.OriginalSize = new System.Drawing.Size(184, 161);
-            this.dockPanel2.Size = new System.Drawing.Size(184, 523);
+            this.dockPanel2.OriginalSize = new System.Drawing.Size(216, 161);
+            this.dockPanel2.Size = new System.Drawing.Size(216, 523);
             this.dockPanel2.Text = "Items";
             // 
             // dockPanel2_Container
@@ -667,7 +667,7 @@
             this.dockPanel2_Container.Controls.Add(this.treeListProject);
             this.dockPanel2_Container.Location = new System.Drawing.Point(4, 38);
             this.dockPanel2_Container.Name = "dockPanel2_Container";
-            this.dockPanel2_Container.Size = new System.Drawing.Size(175, 481);
+            this.dockPanel2_Container.Size = new System.Drawing.Size(207, 481);
             this.dockPanel2_Container.TabIndex = 0;
             // 
             // dockPanel1
@@ -675,11 +675,11 @@
             this.dockPanel1.Controls.Add(this.dockPanel1_Container);
             this.dockPanel1.Dock = DevExpress.XtraBars.Docking.DockingStyle.Left;
             this.dockPanel1.ID = new System.Guid("b4634cc6-3621-4a87-a427-cf55394912fb");
-            this.dockPanel1.Location = new System.Drawing.Point(184, 146);
+            this.dockPanel1.Location = new System.Drawing.Point(216, 146);
             this.dockPanel1.Name = "dockPanel1";
             this.dockPanel1.Options.ShowCloseButton = false;
-            this.dockPanel1.OriginalSize = new System.Drawing.Size(177, 200);
-            this.dockPanel1.Size = new System.Drawing.Size(177, 523);
+            this.dockPanel1.OriginalSize = new System.Drawing.Size(182, 200);
+            this.dockPanel1.Size = new System.Drawing.Size(182, 523);
             this.dockPanel1.Text = "Main Menu";
             // 
             // dockPanel1_Container
@@ -687,7 +687,7 @@
             this.dockPanel1_Container.Controls.Add(this.navBarControl2);
             this.dockPanel1_Container.Location = new System.Drawing.Point(4, 38);
             this.dockPanel1_Container.Name = "dockPanel1_Container";
-            this.dockPanel1_Container.Size = new System.Drawing.Size(168, 481);
+            this.dockPanel1_Container.Size = new System.Drawing.Size(173, 481);
             this.dockPanel1_Container.TabIndex = 0;
             // 
             // navBarControl2

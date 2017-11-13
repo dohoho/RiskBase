@@ -269,6 +269,20 @@ namespace RBI.BUS.BUSMSSQL_CAL
         ///  CAL THINNING
         /// </summary>
         /// <returns></returns>
+        
+        public String PoFCategory(float Df_Total) //table 4.1 page 1-19
+        {
+            if (Df_Total <= 2)
+                return "1";
+            else if (Df_Total <= 20)
+                return "2";
+            else if (Df_Total <= 100)
+                return "3";
+            else if (Df_Total <= 1000)
+                return "4";
+            else
+                return "5";
+        }
         private float getTmin()
         {
             float t = 0;

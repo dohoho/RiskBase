@@ -36,7 +36,7 @@ namespace RBI.DAL.MSSQL
                             ",[DF3]" +
                             ",[DFBase]" +
                             ",[RLI]" +
-                            ",[HighestInspectionEffective]" +
+                            ",[HighestInspectionEffectiveness]" +
                             ",[SecondInspectionEffectiveness]" +
                             ",[NumberOfInspections]" +
                             ",[LastInspDate]" +
@@ -104,7 +104,7 @@ namespace RBI.DAL.MSSQL
                                   ",[DF3] = '"+DF3+"'" +
                                   ",[DFBase] = '"+DFBase+"'" +
                                   ",[RLI] = '"+RLI+"'" +
-                                  ",[HighestInspectionEffective] = '"+HighestInspectionEffective+"'" +
+                                  ",[HighestInspectionEffectiveness] = '" + HighestInspectionEffective + "'" +
                                   ",[SecondInspectionEffectiveness] = '"+SecondInspectionEffectiveness+"'" +
                                   ",[NumberOfInspections] = '"+NumberOfInspections+"'" +
                                   ",[LastInspDate] = '"+LastInspDate+"'" +
@@ -261,5 +261,9 @@ namespace RBI.DAL.MSSQL
             }
             return list;
         }
+        //public List<int> getListID()
+        //{
+
+        //}
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RBI.Object.ObjectMSSQL
 {
-    class RW_DAMAGE_MECHANISM
+    public class RW_DAMAGE_MECHANISM
     {
         public int ID { get; set; }
         public int DMItemID { get; set; }

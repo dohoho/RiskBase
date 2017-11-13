@@ -231,15 +231,27 @@
             // 
             // numSystemManagementFactor
             // 
+            this.numSystemManagementFactor.DecimalPlaces = 2;
             this.numSystemManagementFactor.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numSystemManagementFactor.Location = new System.Drawing.Point(291, 342);
+            this.numSystemManagementFactor.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
             this.numSystemManagementFactor.Name = "numSystemManagementFactor";
             this.numSystemManagementFactor.Size = new System.Drawing.Size(120, 20);
             this.numSystemManagementFactor.TabIndex = 4;
             this.numSystemManagementFactor.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.numSystemManagementFactor.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
             // 
             // txtEquipmentVolume
             // 
+            this.txtEquipmentVolume.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEquipmentVolume.Location = new System.Drawing.Point(291, 367);
             this.txtEquipmentVolume.Name = "txtEquipmentVolume";
             this.txtEquipmentVolume.Size = new System.Drawing.Size(120, 22);

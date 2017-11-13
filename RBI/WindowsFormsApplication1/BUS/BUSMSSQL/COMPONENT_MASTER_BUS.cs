@@ -30,6 +30,10 @@ namespace RBI.BUS.BUSMSSQL
         {
             return DAL.getDataSource();
         }
+        public int getAPIComponentTypeID(int EqID)
+        {
+            return DAL.getAPIComponentTypeID(EqID);
+        }
         
     }
 }

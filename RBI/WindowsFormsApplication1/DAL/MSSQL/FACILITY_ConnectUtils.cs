@@ -180,5 +180,38 @@ namespace RBI.DAL.MSSQL
             }
             return obj;
         }
+        public float getFMS(int SiteID)
+        {
+            float FMS = 0;
+            SqlConnection con = MSSQLDBUtils.GetDBConnection();
+            con.Open();
+            String sql = "SELECT ManagementFactor FROM [rbi].[dbo].[FACILITY] WHERE SiteID = '"+SiteID+"'";
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandText = sql;
+                cmd.Connection = con;
+                using (DbDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        if (reader.HasRows)
+                        {
+                            FMS = (float)reader.GetDouble(0);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Get FMS Fail------->" + ex.ToString(), "Get Data Fail");
+            }
+            finally
+            {
+                con.Close();
+                con.Dispose();
+            }
+            return FMS;
+        }
     }
 }

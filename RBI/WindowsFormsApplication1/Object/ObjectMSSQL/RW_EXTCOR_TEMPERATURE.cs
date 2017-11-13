@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RBI.Object.ObjectMSSQL
 {
-    class RW_EXTCOR_TEMPERATURE
+    public class RW_EXTCOR_TEMPERATURE
     {
         public int ID { get; set; }
         public float Minus12ToMinus8 { get; set; }

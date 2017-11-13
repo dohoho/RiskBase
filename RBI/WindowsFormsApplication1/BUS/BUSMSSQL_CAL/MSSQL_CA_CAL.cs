@@ -33,6 +33,19 @@ namespace RBI.BUS.BUSMSSQL_CAL
         public float PERSON_DENSITY { set; get; }
         public float EQUIPMENT_COST { set; get; }
         private String TOXIC_PHASE { set; get; }
+        public String CA_Category(float fc)
+        {
+            if (fc <= 10000)
+                return "A";
+            else if (fc <= 100000)
+                return "B";
+            else if (fc <= 1000000)
+                return "C";
+            else if (fc <= 10000000)
+                return "D";
+            else
+                return "E";
+        }
         private String TYPE_FLUID()
         {
             String API_TYPE = null;

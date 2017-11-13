@@ -12,8 +12,8 @@ namespace RBI.Object.ObjectMSSQL
     public class RW_INPUT_CA_LEVEL_1
     {
         public int ID { set; get; }
-        public String API_FLUID { set; get; }
-        public String SYSTEM { set; get; }
+        public String API_FLUID { set; get; } //Fluid
+        public String SYSTEM { set; get; } //Fluid Phase
         public String Release_Duration { set; get; }
         public String Detection_Type { set; get; }
         public String Isulation_Type { set; get; }

@@ -206,5 +206,71 @@ namespace RBI.DAL.MSSQL
             }
             return list;
         }
+        public int getSiteID(int eqID)
+        {
+            int SiteID = 0;
+            SqlConnection con = MSSQLDBUtils.GetDBConnection();
+            con.Open();
+            String sql = "SELECT SiteID FROM [rbi].[dbo].[EQUIPMENT_MASTER] WHERE EquipmentID = '"+eqID+"'";
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandText = sql;
+                cmd.Connection = con;
+                using (DbDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        if (reader.HasRows)
+                        {
+                            SiteID = reader.GetInt32(0);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Get SiteID Fail------->" + ex.ToString(), "Get Data Fail");
+            }
+            finally
+            {
+                con.Close();
+                con.Dispose();
+            }
+            return SiteID;
+        }
+        public int getEquipmentTypeID(int EquipmentID)
+        {
+            int eqTypeID = 0;
+            SqlConnection con = MSSQLDBUtils.GetDBConnection();
+            con.Open();
+            String sql = "SELECT EquipmentTypeID FROM [rbi].[dbo].[EQUIPMENT_MASTER] WHERE EquipmentID = '"+EquipmentID+"'";
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandText = sql;
+                cmd.Connection = con;
+                using (DbDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        if (reader.HasRows)
+                        {
+                            eqTypeID = reader.GetInt32(0);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Get SiteID Fail------->" + ex.ToString(), "Get Data Fail");
+            }
+            finally
+            {
+                con.Close();
+                con.Dispose();
+            }
+            return eqTypeID;
+        }
     }
 }

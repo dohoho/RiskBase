@@ -28,6 +28,9 @@ namespace RBI.BUS.BUSMSSQL
         {
             return DAL.getDataSource();
         }
-
+        public RW_FULL_FCOF getData(int ID)
+        {
+            return DAL.getData(ID);
+        }
     }
 }

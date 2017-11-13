@@ -42,6 +42,22 @@ namespace RBI.PRE.subForm.InputDataForm
             additemsAccumulatedTimeShaking();
             additemsCorrectiveAction();
         }
+        public UCComponentProperties(int ID)
+        {
+            InitializeComponent();
+            additemsBrinnellHardness();
+            additemsProtrusionComplexity();
+            additemsCyclicLoading();
+            additemsBranchDiameter();
+            additemsBranchJointType();
+            additemsNumberPipeFittings();
+            additemsPipeCondition();
+            additemsPreviousFailure();
+            additemsAmountShaking();
+            additemsAccumulatedTimeShaking();
+            additemsCorrectiveAction();
+            ShowDatatoControl(ID);
+        }
         public void ShowDatatoControl(int ID)
         {
             RW_COMPONENT_BUS comBus = new RW_COMPONENT_BUS();
@@ -56,7 +72,6 @@ namespace RBI.PRE.subForm.InputDataForm
                     txtMinRequiredThickness.Text = comp.MinReqThickness.ToString();
                     txtCurrentCorrosionRate.Text = comp.CurrentCorrosionRate.ToString();
                     chkPresenceCracks.Checked = comp.CracksPresent == 1 ? true : false;
-                    
                     chkPresenceInjectionMixPoint.Checked = comp.ChemicalInjection ==1?true:false;
                     chkHighlyEffectiveMixPoint.Checked = comp.HighlyInjectionInsp == 1? true:false;
                     chkDamageFoundDuringInspection.Checked = comp.DamageFoundInspection ==1?true:false;
@@ -127,7 +142,9 @@ namespace RBI.PRE.subForm.InputDataForm
         public RW_COMPONENT getData()
         {
             RW_COMPONENT comp = new RW_COMPONENT();
-            comp.ID = 1;
+            RW_ASSESSMENT_BUS assBus = new RW_ASSESSMENT_BUS();
+            List<RW_ASSESSMENT> listAss = assBus.getDataSource();
+            comp.ID = listAss[listAss.Count - 1].ID;
             comp.NominalDiameter = txtNominalDiameter.Text != "" ? float.Parse(txtNominalDiameter.Text) : 0;
             comp.NominalThickness = txtNominalThickness.Text != "" ? float.Parse(txtNominalThickness.Text) : 0;
             comp.CurrentThickness = txtCurrentThickness.Text != "" ? float.Parse(txtCurrentThickness.Text) : 0;

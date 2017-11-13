@@ -147,7 +147,7 @@ namespace RBI.DAL.MSSQL
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = conn;
                 cmd.CommandText = sql;
-                using(DbDataReader reader = cmd.ExecuteReader())
+                using (DbDataReader reader = cmd.ExecuteReader())
                 {
                     while (reader.Read())
                     {
@@ -155,42 +155,42 @@ namespace RBI.DAL.MSSQL
                         {
                             obj = new RW_EXTCOR_TEMPERATURE();
                             obj.ID = reader.GetInt32(0);
-                            if (reader.IsDBNull(1))
+                            if (!reader.IsDBNull(1))
                             {
-                                obj.Minus12ToMinus8 = reader.GetFloat(1);
+                                obj.Minus12ToMinus8 = (float)reader.GetDouble(1);
                             }
-                            if (reader.IsDBNull(2))
+                            if (!reader.IsDBNull(2))
                             {
-                                obj.Plus6ToPlus32 = reader.GetFloat(3);
+                                obj.Plus6ToPlus32 = (float)reader.GetDouble(3);
                             }
-                            if (reader.IsDBNull(3))
+                            if (!reader.IsDBNull(3))
                             {
-                                obj.Plus32ToPlus71 = reader.GetFloat(4);
+                                obj.Plus32ToPlus71 = (float)reader.GetDouble(4);
                             }
-                            if (reader.IsDBNull(4))
+                            if (!reader.IsDBNull(4))
                             {
-                                obj.Plus71ToPlus107 = reader.GetFloat(4);
+                                obj.Plus71ToPlus107 = (float)reader.GetDouble(4);
                             }
-                            if (reader.IsDBNull(5))
+                            if (!reader.IsDBNull(5))
                             {
-                                obj.Plus107ToPlus121 = reader.GetFloat(5);
+                                obj.Plus107ToPlus121 = (float)reader.GetDouble(5);
                             }
-                            if (reader.IsDBNull(6))
+                            if (!reader.IsDBNull(6))
                             {
-                                obj.Plus121ToPlus135 = reader.GetFloat(6);
+                                obj.Plus121ToPlus135 = (float)reader.GetDouble(6);
                             }
-                            if (reader.IsDBNull(7))
+                            if (!reader.IsDBNull(7))
                             {
-                                obj.Plus135ToPlus162 = reader.GetFloat(7);
+                                obj.Plus135ToPlus162 = (float)reader.GetDouble(7);
 
                             }
-                            if (reader.IsDBNull(8))
+                            if (!reader.IsDBNull(8))
                             {
-                                obj.Plus162ToPlus176 = reader.GetFloat(8);
+                                obj.Plus162ToPlus176 = (float)reader.GetDouble(8);
                             }
-                            if (reader.IsDBNull(9))
+                            if (!reader.IsDBNull(9))
                             {
-                                obj.MoreThanPlus176 = reader.GetFloat(9);
+                                obj.MoreThanPlus176 = (float)reader.GetDouble(9);
                             }
                             list.Add(obj);
                         }
@@ -198,7 +198,7 @@ namespace RBI.DAL.MSSQL
                     }
                 }
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 MessageBox.Show(e.ToString(), "GET DATA FAIL");
             }
@@ -209,6 +209,87 @@ namespace RBI.DAL.MSSQL
             }
             return list;
         }
+        public RW_EXTCOR_TEMPERATURE getData(int ID)
+        {
+            SqlConnection conn = MSSQLDBUtils.GetDBConnection();
+            conn.Open();
+            RW_EXTCOR_TEMPERATURE obj = new RW_EXTCOR_TEMPERATURE();
+            String sql = "Use[rbi] Select[ID]" +
+                        ",[Minus12ToMinus8]" +
+                        ",[Minus8ToPlus6]" +
+                        ",[Plus6ToPlus32]" +
+                        ",[Plus32ToPlus71]" +
+                        ",[Plus71ToPlus107]" +
+                        ",[Plus107ToPlus121]" +
+                        ",[Plus121ToPlus135]" +
+                        ",[Plus135ToPlus162]" +
+                        ",[Plus162ToPlus176]" +
+                        ",[MoreThanPlus176]" +
+                          "From [dbo].[RW_EXTCOR_TEMPERATURE] WHERE [ID] ='" + ID + "' ";
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = conn;
+                cmd.CommandText = sql;
+                using (DbDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        if (reader.HasRows)
+                        {
+                            obj.ID = reader.GetInt32(0);
+                            if (!reader.IsDBNull(1))
+                            {
+                                obj.Minus12ToMinus8 = (float)reader.GetDouble(1);
+                            }
+                            if (!reader.IsDBNull(2))
+                            {
+                                obj.Plus6ToPlus32 = (float)reader.GetDouble(3);
+                            }
+                            if (!reader.IsDBNull(3))
+                            {
+                                obj.Plus32ToPlus71 = (float)reader.GetDouble(4);
+                            }
+                            if (!reader.IsDBNull(4))
+                            {
+                                obj.Plus71ToPlus107 = (float)reader.GetDouble(4);
+                            }
+                            if (!reader.IsDBNull(5))
+                            {
+                                obj.Plus107ToPlus121 = (float)reader.GetDouble(5);
+                            }
+                            if (!reader.IsDBNull(6))
+                            {
+                                obj.Plus121ToPlus135 = (float)reader.GetDouble(6);
+                            }
+                            if (!reader.IsDBNull(7))
+                            {
+                                obj.Plus135ToPlus162 = (float)reader.GetDouble(7);
 
+                            }
+                            if (!reader.IsDBNull(8))
+                            {
+                                obj.Plus162ToPlus176 = (float)reader.GetDouble(8);
+                            }
+                            if (!reader.IsDBNull(9))
+                            {
+                                obj.MoreThanPlus176 = (float)reader.GetDouble(9);
+                            }
+                        }
+
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString(), "GET DATA FAIL");
+            }
+            finally
+            {
+                conn.Close();
+                conn.Dispose();
+            }
+            return obj;
+        }
     }
 }

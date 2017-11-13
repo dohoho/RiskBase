@@ -28,5 +28,9 @@ namespace RBI.BUS.BUSMSSQL
         {
             return DAL.getDataSource();
         }
+        public RW_COATING getData(int ID)
+        {
+            return DAL.getData(ID);
+        }
     }
 }

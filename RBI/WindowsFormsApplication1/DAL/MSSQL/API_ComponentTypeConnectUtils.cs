@@ -264,5 +264,72 @@ namespace RBI.DAL.MSSQL
             }
             return list;
         }
+        public float getGFFTotal(String ComponentType)
+        {
+            float GFFTotal = 0;
+            SqlConnection con = MSSQLDBUtils.GetDBConnection();
+            con.Open();
+            String sql = "SELECT GFFTotal FROM [rbi].[dbo].[API_COMPONENT_TYPE] WHERE APIComponentTypeName = '"+ComponentType+"'";
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandText = sql;
+                cmd.Connection = con;
+                using (DbDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        if (reader.HasRows)
+                        {
+                            GFFTotal = (float)reader.GetDouble(0);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Get FMS Fail------->" + ex.ToString(), "Get Data Fail");
+            }
+            finally
+            {
+                con.Close();
+                con.Dispose();
+            }
+            return GFFTotal;
+        }
+        public String getAPIComponentTypeName(int APIID)
+        {
+            String APIName = "";
+            SqlConnection con = MSSQLDBUtils.GetDBConnection();
+            con.Open();
+            String sql = "SELECT APIComponentTypeName FROM [rbi].[dbo].[API_COMPONENT_TYPE] WHERE APIComponentTypeID = '"+APIID+"'";
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandText = sql;
+                cmd.Connection = con;
+                using (DbDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        if (reader.HasRows)
+                        {
+                            if (!reader.IsDBNull(0))
+                                APIName = reader.GetString(0);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Get FMS Fail------->" + ex.ToString(), "Get Data Fail");
+            }
+            finally
+            {
+                con.Close();
+                con.Dispose();
+            }
+            return APIName;
+        }
     }
 }

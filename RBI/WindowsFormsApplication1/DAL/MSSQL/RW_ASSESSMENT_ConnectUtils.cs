@@ -244,7 +244,39 @@ namespace RBI.DAL.MSSQL
             }
             return list;
         }
-
+        public int getEquipmentID(int ID)
+        {
+            int eqID = 0;
+            SqlConnection con = MSSQLDBUtils.GetDBConnection();
+            con.Open();
+            String sql = "SELECT [EquipmentID] FROM [rbi].[dbo].[RW_ASSESSMENT] WHERE ID = '"+ID+"'";
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandText = sql;
+                cmd.Connection = con;
+                using (DbDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        if (reader.HasRows)
+                        {
+                            eqID = reader.GetInt32(0);
+                        }
+                    }
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Get Equipment ID Fail------->" + ex.ToString(), "Get Data Fail");
+            }
+            finally
+            {
+                con.Close();
+                con.Dispose();
+            }
+            return eqID;
+        }
     }
 }
 

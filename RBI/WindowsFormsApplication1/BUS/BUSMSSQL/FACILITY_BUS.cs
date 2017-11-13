@@ -27,5 +27,9 @@ namespace RBI.BUS.BUSMSSQL
         {
             return DAL.getDataSource();
         }
+        public float getFMS(int SiteID)
+        {
+            return DAL.getFMS(SiteID);
+        }
     }
 }
