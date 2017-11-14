@@ -35,6 +35,9 @@ namespace RBI.BUS.BUSMSSQL
             return DAL.getDataSource();
         }
        
-
+        public Boolean checkExistDM(int ID, int DM_ID)
+        {
+            return DAL.checkExistDamageMechanism(ID, DM_ID);
+        }
     }
 }

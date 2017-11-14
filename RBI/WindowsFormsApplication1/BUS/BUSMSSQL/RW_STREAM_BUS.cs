@@ -26,5 +26,9 @@ namespace RBI.BUS.BUSMSSQL
         {
             return DAL.getData(ID);
         }
+        public Boolean checkExistStream(int ID)
+        {
+            return DAL.checkExistStream(ID);
+        }
     }
 }

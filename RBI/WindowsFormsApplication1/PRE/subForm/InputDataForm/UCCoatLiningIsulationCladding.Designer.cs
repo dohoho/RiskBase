@@ -432,6 +432,7 @@
             // 
             // cbExternalCoatQuality
             // 
+            this.cbExternalCoatQuality.Enabled = false;
             this.cbExternalCoatQuality.Location = new System.Drawing.Point(202, 79);
             this.cbExternalCoatQuality.Name = "cbExternalCoatQuality";
             this.cbExternalCoatQuality.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -455,6 +456,7 @@
             // dateExternalCoating
             // 
             this.dateExternalCoating.EditValue = null;
+            this.dateExternalCoating.Enabled = false;
             this.dateExternalCoating.Location = new System.Drawing.Point(202, 52);
             this.dateExternalCoating.Name = "dateExternalCoating";
             this.dateExternalCoating.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -472,6 +474,7 @@
             this.chkExternalCoat.Size = new System.Drawing.Size(15, 14);
             this.chkExternalCoat.TabIndex = 1;
             this.chkExternalCoat.UseVisualStyleBackColor = true;
+            this.chkExternalCoat.CheckedChanged += new System.EventHandler(this.chkExternalCoat_CheckedChanged);
             // 
             // chkSupport
             // 

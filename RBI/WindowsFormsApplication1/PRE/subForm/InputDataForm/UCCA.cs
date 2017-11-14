@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using RBI.Object.ObjectMSSQL_CAL;
 using RBI.BUS.BUSMSSQL_CAL;
 using RBI.Object.ObjectMSSQL;
+using RBI.BUS.BUSMSSQL;
 namespace RBI.PRE.subForm.InputDataForm
 {
     public partial class UCCA : UserControl
@@ -43,6 +44,63 @@ namespace RBI.PRE.subForm.InputDataForm
             additemsDetectionType();
             additemsMittigationSystem();
             additemsIsulationType();
+            ShowDataToControl(ID);
+        }
+        private void ShowDataToControl(int ID)
+        {
+            RW_INPUT_CA_LEVEL_1_BUS caBus = new RW_INPUT_CA_LEVEL_1_BUS();
+            RW_INPUT_CA_LEVEL_1 ca = caBus.getData(ID);
+            
+            txtEquipmentCost.Text = ca.Equipment_Cost.ToString();
+            txtProductionCost.Text = ca.Production_Cost.ToString();
+            txtInjureCost.Text = ca.Injure_Cost.ToString();
+            txtEnvironmentCost.Text = ca.Environment_Cost.ToString();
+            txtMassInvert.Text = ca.Mass_Inventory.ToString();
+            txtMassComponent.Text = ca.Mass_Component.ToString();
+            txtToxicPercent.Text = ca.Toxic_Percent.ToString();
+            txtPersonDensity.Text = ca.Personal_Density.ToString();
+            for (int i = 0; i < itemsFluid.Length; i++)
+            {
+                if (itemsFluid[i] == ca.API_FLUID)
+                {
+                    cbFluid.SelectedIndex = i + 1;
+                    break;
+                }
+            }
+            for (int i = 0; i < itemsFluidPhase.Length; i++)
+            {
+                if (itemsFluidPhase[i] == ca.SYSTEM)
+                {
+                    cbFluidPhase.SelectedIndex = i + 1;
+                    break;
+                }
+            }
+            //for(int i = 0; i < itemsRe)
+            cbReleaseDuration.Text = ca.Release_Duration;
+            for (int i = 0; i < itemsMittigationSystem.Length; i++)
+            {
+                if (itemsMittigationSystem[i] == ca.Mitigation_System)
+                {
+                    cbMittigationSystem.SelectedIndex = i + 1;
+                    break;
+                }
+            }
+            for (int i = 0; i < itemsDetectionType.Length; i++)
+            {
+                if (itemsDetectionType[i] == ca.Detection_Type)
+                {
+                    cbDetectionType.SelectedIndex = i + 1;
+                    break;
+                }
+            }
+            for (int i = 0; i < itemsIsulationType.Length; i++)
+            {
+                if (itemsIsulationType[i] == ca.Isulation_Type)
+                {
+                    cbIsulationType.SelectedIndex = i + 1;
+                    break;
+                }
+            }
         }
         public RW_INPUT_CA_LEVEL_1 getData(int ID)
         {

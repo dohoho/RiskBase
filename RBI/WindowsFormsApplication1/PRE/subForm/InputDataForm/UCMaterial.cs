@@ -130,12 +130,10 @@ namespace RBI.PRE.subForm.InputDataForm
             }
         }
 
-        public RW_MATERIAL getData()
+        public RW_MATERIAL getData(int ID)
         {
             RW_MATERIAL ma = new RW_MATERIAL();
-            RW_ASSESSMENT_BUS assBus = new RW_ASSESSMENT_BUS();
-            List<RW_ASSESSMENT> listAss = assBus.getDataSource();
-            ma.ID = listAss[listAss.Count - 1].ID;
+            ma.ID = ID;
             ma.MaterialName = cbPTAMaterial.Text;
             ma.DesignPressure = txtDesignPressure.Text != "" ? float.Parse(txtDesignPressure.Text) : 0;
             ma.DesignTemperature = txtMaxDesignTemperature.Text != "" ? float.Parse(txtMaxDesignTemperature.Text) : 0;

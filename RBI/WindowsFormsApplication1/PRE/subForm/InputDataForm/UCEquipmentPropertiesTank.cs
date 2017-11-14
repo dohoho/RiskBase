@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using RBI.Object.ObjectMSSQL;
-
+using RBI.BUS.BUSMSSQL;
 namespace RBI.PRE.subForm.InputDataForm
 {
     public partial class UCEquipmentPropertiesTank : UserControl
@@ -53,6 +53,7 @@ namespace RBI.PRE.subForm.InputDataForm
                                             "Sulfuric acid (H2S/H2) corrosion low velocity - Key process parameters"};
         string[] itemsThermalHistory = { "None", "Solution Annealed", "Stabilised After Welding", "Stabilised Before Welding" };
         string[] itemsEnvironmental = { "High", "Medium", "Low" };
+        string[] itemsTypeSoil = { "Coarse Sand", "Fine Sand", "Very Fane Sand", "Silt", "Sandy Clay", "Clay", "Concrete-Asphalt" };
         public UCEquipmentPropertiesTank()
         {
             InitializeComponent();
@@ -61,6 +62,121 @@ namespace RBI.PRE.subForm.InputDataForm
             additemsOnlineMonitoring();
             additemsThermalHistory();
             additemsEnvironmental();
+        }
+        public UCEquipmentPropertiesTank(int ID)
+        {
+            InitializeComponent();
+            additemsAdjustmentSettlement();
+            additemsExternalEnvironment();
+            additemsOnlineMonitoring();
+            additemsThermalHistory();
+            additemsEnvironmental();
+            ShowDataToControl(ID);
+        }
+        public void ShowDataToControl(int ID)
+        {
+            RW_EQUIPMENT_BUS bus = new RW_EQUIPMENT_BUS();
+            RW_EQUIPMENT eq = bus.getData(ID);
+            chkAministrativeControl.Checked = Convert.ToBoolean(eq.AdminUpsetManagement);
+            chkCylicOperation.Checked = Convert.ToBoolean(eq.CyclicOperation);
+            chkDowntimeProtection.Checked = Convert.ToBoolean(eq.DowntimeProtectionUsed);
+            for (int i = 0; i < itemsAdjustmentSettlement.Length; i++)
+            {
+                if (eq.ExternalEnvironment == itemsAdjustmentSettlement[i])
+                {
+                    cbAdjustmentSettlement.SelectedIndex = i + 1;
+                    break;
+                }
+            }
+            chkHeatTraced.Checked = Convert.ToBoolean(eq.HeatTraced);
+            chkInterfaceSoilWater.Checked = Convert.ToBoolean(eq.InterfaceSoilWater);
+            chkLinerOnlineMonitoring.Checked = Convert.ToBoolean(eq.LinerOnlineMonitoring);
+            chkMaterialExposedFluid.Checked = Convert.ToBoolean(eq.MaterialExposedToClExt);
+            txtMinRequiredTemperature.Text = eq.MinReqTemperaturePressurisation.ToString();
+            for (int i = 0; i < itemsOnlineMonitoring.Length; i++)
+            {
+                if (eq.OnlineMonitoring == itemsOnlineMonitoring[i])
+                {
+                    cbOnlineMonitoring.SelectedIndex = i + 1;
+                    break;
+                }
+            }
+            chkPresenceSulphideOperation.Checked = Convert.ToBoolean(eq.PresenceSulphidesO2);
+            chkPresenceSulphideShutdown.Checked = Convert.ToBoolean(eq.PresenceSulphidesO2Shutdown);
+            chkPressurisationControlled.Checked = Convert.ToBoolean(eq.PressurisationControlled);
+            chkPWHT.Checked = Convert.ToBoolean(eq.PWHT);
+            chkSteamedOutPriorWaterFlushing.Checked = Convert.ToBoolean(eq.SteamOutWaterFlush);
+            numSystemManagementFactor.Value = (decimal)eq.ManagementFactor;
+            for (int i = 0; i < itemsThermalHistory.Length; i++)
+            {
+                if (eq.ThermalHistory == itemsThermalHistory[i])
+                {
+                    cbThermalHistory.SelectedIndex = i + 1;
+                    break;
+                }
+            }
+            chkEquipmentOperatingManyYear.Checked = Convert.ToBoolean(eq.YearLowestExpTemp);
+            txtEquipmentVolume.Text = eq.Volume.ToString();
+            for (int i = 0; i < itemsTypeSoil.Length; i++)
+            {
+                if (eq.TypeOfSoil == itemsTypeSoil[i])
+                {
+                    cbTypeSoild.SelectedIndex = i + 1;
+                    break;
+                }
+            }
+            for (int i = 0; i < itemsEnvironmental.Length; i++)
+            {
+                if (eq.EnvironmentSensitivity == itemsEnvironmental[i])
+                {
+                    cbEnvironmentalSensitivity.SelectedIndex = i + 1;
+                    break;
+                }
+            }
+            for (int i = 0; i < itemsAdjustmentSettlement.Length; i++)
+            {
+                if (eq.AdjustmentSettle == itemsAdjustmentSettlement[i])
+                {
+                    cbAdjustmentSettlement.SelectedIndex = i + 1;
+                    break;
+                }
+            }
+            chkComponentWelded.Checked = Convert.ToBoolean(eq.ComponentIsWelded);
+            chkTankMaintainedAccordance.Checked = Convert.ToBoolean(eq.TankIsMaintained);
+            txtDistanceGroundWater.Text = eq.DistanceToGroundWater.ToString();
+        }
+        public RW_EQUIPMENT getData()
+        {
+            RW_EQUIPMENT eq = new RW_EQUIPMENT();
+            eq.ID = 2;
+            eq.AdminUpsetManagement = chkAministrativeControl.Checked ? 1 : 0;
+            eq.CyclicOperation = chkCylicOperation.Checked ? 1 : 0;
+            eq.DowntimeProtectionUsed = chkDowntimeProtection.Checked ? 1 : 0;
+            eq.ExternalEnvironment = cbAdjustmentSettlement.Text;
+            eq.HeatTraced = chkHeatTraced.Checked ? 1 : 0;
+            eq.InterfaceSoilWater = chkInterfaceSoilWater.Checked ? 1 : 0;
+            eq.LinerOnlineMonitoring = chkLinerOnlineMonitoring.Checked ? 1 : 0;
+            eq.MaterialExposedToClExt = chkMaterialExposedFluid.Checked ? 1 : 0;
+            eq.MinReqTemperaturePressurisation = txtMinRequiredTemperature.Text != "" ? float.Parse(txtMinRequiredTemperature.Text) : 0;
+            eq.OnlineMonitoring = cbOnlineMonitoring.Text;
+            eq.PresenceSulphidesO2 = chkPresenceSulphideOperation.Checked ? 1 : 0;
+            eq.PresenceSulphidesO2Shutdown = chkPresenceSulphideShutdown.Checked ? 1 : 0;
+            eq.PressurisationControlled = chkPressurisationControlled.Checked ? 1 : 0;
+            eq.PWHT = chkPWHT.Checked ? 1 : 0;
+            eq.SteamOutWaterFlush = chkSteamedOutPriorWaterFlushing.Checked ? 1 : 0;
+            eq.ManagementFactor = (float)numSystemManagementFactor.Value;
+            eq.ThermalHistory = cbThermalHistory.Text;
+            eq.YearLowestExpTemp = chkEquipmentOperatingManyYear.Checked ? 1 : 0;
+            eq.Volume = txtEquipmentVolume.Text != "" ? float.Parse(txtEquipmentVolume.Text) : 0;
+            eq.TypeOfSoil = cbTypeSoild.Text;
+            eq.EnvironmentSensitivity = cbEnvironmentalSensitivity.Text;
+            eq.AdjustmentSettle = cbAdjustmentSettlement.Text;
+            eq.ComponentIsWelded = chkComponentWelded.Checked ? 1 : 0;
+            eq.TankIsMaintained = chkTankMaintainedAccordance.Checked ? 1 : 0;
+            //tank shell
+            //tank bottom
+            eq.DistanceToGroundWater = txtDistanceGroundWater.Text != "" ? float.Parse(txtDistanceGroundWater.Text) : 0;
+            return eq;
         }
         private void additemsAdjustmentSettlement()
         {
@@ -102,39 +218,7 @@ namespace RBI.PRE.subForm.InputDataForm
                 cbEnvironmentalSensitivity.Properties.Items.Add(itemsEnvironmental[i], i, i);
             }
         }
-        public RW_EQUIPMENT getData()
-        {
-            RW_EQUIPMENT eq = new RW_EQUIPMENT();
-            eq.ID = 2;
-            eq.AdminUpsetManagement = chkAministrativeControl.Checked ? 1 : 0;
-            eq.CyclicOperation = chkCylicOperation.Checked ? 1 : 0;
-            eq.DowntimeProtectionUsed = chkDowntimeProtection.Checked ? 1 : 0;
-            eq.ExternalEnvironment = cbAdjustmentSettlement.Text;
-            eq.HeatTraced = chkHeatTraced.Checked ? 1 : 0;
-            eq.InterfaceSoilWater = chkInterfaceSoilWater.Checked ? 1 : 0;
-            eq.LinerOnlineMonitoring = chkLinerOnlineMonitoring.Checked ? 1 : 0;
-            eq.MaterialExposedToClExt = chkMaterialExposedFluid.Checked ? 1 : 0;
-            eq.MinReqTemperaturePressurisation = txtMinRequiredTemperature.Text != "" ? float.Parse(txtMinRequiredTemperature.Text) : 0;
-            eq.OnlineMonitoring = cbOnlineMonitoring.Text;
-            eq.PresenceSulphidesO2 = chkPresenceSulphideOperation.Checked ? 1 : 0;
-            eq.PresenceSulphidesO2Shutdown = chkPresenceSulphideShutdown.Checked ? 1 : 0;
-            eq.PressurisationControlled = chkPressurisationControlled.Checked ? 1 : 0;
-            eq.PWHT = chkPWHT.Checked ? 1 : 0;
-            eq.SteamOutWaterFlush = chkSteamedOutPriorWaterFlushing.Checked ? 1 : 0;
-            eq.ManagementFactor = (float)numSystemManagementFactor.Value;
-            eq.ThermalHistory = cbThermalHistory.Text;
-            eq.YearLowestExpTemp = chkEquipmentOperatingManyYear.Checked ? 1 : 0;
-            eq.Volume = txtEquipmentVolume.Text != "" ? float.Parse(txtEquipmentVolume.Text) : 0;
-            eq.TypeOfSoil = cbTypeSoild.Text;
-            eq.EnvironmentSensitivity = cbEnvironmentalSensitivity.Text;
-            eq.AdjustmentSettle = cbAdjustmentSettlement.Text;
-            eq.ComponentIsWelded = chkComponentWelded.Checked ? 1 : 0;
-            eq.TankIsMaintained = chkTankMaintainedAccordance.Checked ? 1 : 0;
-            //tank shell
-            //tank bottom
-            eq.DistanceToGroundWater = txtDistanceGroundWater.Text != "" ? float.Parse(txtDistanceGroundWater.Text) : 0;
-            return eq;
-        }
+        
         public RW_INPUT_CA_TANK getDataforTank()
         {
             RW_INPUT_CA_TANK tank = new RW_INPUT_CA_TANK();

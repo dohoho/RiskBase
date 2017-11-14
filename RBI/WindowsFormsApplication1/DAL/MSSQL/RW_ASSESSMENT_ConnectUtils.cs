@@ -277,6 +277,103 @@ namespace RBI.DAL.MSSQL
             }
             return eqID;
         }
+        public DateTime getAssessmentDate(int ID)
+        {
+            DateTime assDate = DateTime.Now;
+            SqlConnection con = MSSQLDBUtils.GetDBConnection();
+            con.Open();
+            String sql = "select AssessmentDate from rbi.dbo.RW_ASSESSMENT where ID = '"+ID+"'";
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandText = sql;
+                cmd.Connection = con;
+                using (DbDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        if (reader.HasRows)
+                        {
+                            assDate = reader.GetDateTime(0);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Get Equipment ID Fail------->" + ex.ToString(), "Get Data Fail");
+            }
+            finally
+            {
+                con.Close();
+                con.Dispose();
+            }
+            return assDate;
+        }
+        public Boolean checkExistAssessment(int ID)
+        {
+            Boolean IsExist = false;
+            SqlConnection conn = MSSQLDBUtils.GetDBConnection();
+            conn.Open();
+            String sql = "select AssessmentDate from rbi.dbo.RW_ASSESSMENT where ID = '"+ID+"'";
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = conn;
+                cmd.CommandText = sql;
+                using (DbDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        if (reader.IsDBNull(0))
+                            IsExist = false;
+                        else
+                            IsExist = true;
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString(), "GET DATA FAIL!");
+            }
+            finally
+            {
+                conn.Close();
+                conn.Dispose();
+            }
+            return IsExist;
+        }
+        public int[] getEquipmentID_ComponentID(int ID)
+        {
+            int[] temp = { 0, 0 };
+            SqlConnection conn = MSSQLDBUtils.GetDBConnection();
+            conn.Open();
+            String sql = "select EquipmentID, ComponentID from rbi.dbo.RW_ASSESSMENT where ID = '"+ID+"'";
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = conn;
+                cmd.CommandText = sql;
+                using (DbDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        temp[0] = reader.GetInt32(0);
+                        temp[1] = reader.GetInt32(1);
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString(), "GET DATA FAIL!");
+            }
+            finally
+            {
+                conn.Close();
+                conn.Dispose();
+            }
+            return temp;
+        }
     }
 }
 

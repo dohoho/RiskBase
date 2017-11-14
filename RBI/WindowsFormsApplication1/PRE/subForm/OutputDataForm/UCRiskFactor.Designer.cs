@@ -29,6 +29,15 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
+            this.xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.textEdit2 = new DevExpress.XtraEditors.TextEdit();
+            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
+            this.cbThinningType = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label39 = new System.Windows.Forms.Label();
             this.label38 = new System.Windows.Forms.Label();
@@ -82,35 +91,31 @@
             this.label25 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.textEdit2 = new DevExpress.XtraEditors.TextEdit();
-            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
-            this.cbThinningType = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.label21 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
-            this.xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
             this.xtraTabPage2 = new DevExpress.XtraTab.XtraTabPage();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.txtCA = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtFC = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtProductionCost = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtEquipmentCost = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtPopdens = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
+            this.txtEnvironmentCost = new System.Windows.Forms.TextBox();
             this.txtInjureCost = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.txtEnvironmentCost = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.chkAutoignition = new System.Windows.Forms.CheckBox();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.txtFC = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.txtCA = new System.Windows.Forms.TextBox();
+            this.txtPopdens = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtEquipmentCost = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtProductionCost = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
+            this.xtraTabControl1.SuspendLayout();
+            this.xtraTabPage1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbThinningType.Properties)).BeginInit();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txt72PoFCategory.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt36PoFCategory.Properties)).BeginInit();
@@ -148,16 +153,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.txt72Thinning.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt36Thinning.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt0Thinning.Properties)).BeginInit();
-            this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbThinningType.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
-            this.xtraTabControl1.SuspendLayout();
-            this.xtraTabPage1.SuspendLayout();
             this.xtraTabPage2.SuspendLayout();
-            this.groupBox4.SuspendLayout();
             this.groupBox5.SuspendLayout();
+            this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -171,6 +169,106 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Risk Factor";
+            // 
+            // xtraTabControl1
+            // 
+            this.xtraTabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.xtraTabControl1.Location = new System.Drawing.Point(3, 17);
+            this.xtraTabControl1.Name = "xtraTabControl1";
+            this.xtraTabControl1.SelectedTabPage = this.xtraTabPage1;
+            this.xtraTabControl1.Size = new System.Drawing.Size(799, 545);
+            this.xtraTabControl1.TabIndex = 2;
+            this.xtraTabControl1.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
+            this.xtraTabPage1,
+            this.xtraTabPage2});
+            // 
+            // xtraTabPage1
+            // 
+            this.xtraTabPage1.Controls.Add(this.groupBox2);
+            this.xtraTabPage1.Controls.Add(this.groupBox3);
+            this.xtraTabPage1.Name = "xtraTabPage1";
+            this.xtraTabPage1.Size = new System.Drawing.Size(793, 517);
+            this.xtraTabPage1.Text = "Probability of Failure";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox2.Controls.Add(this.textEdit2);
+            this.groupBox2.Controls.Add(this.textEdit1);
+            this.groupBox2.Controls.Add(this.cbThinningType);
+            this.groupBox2.Controls.Add(this.label21);
+            this.groupBox2.Controls.Add(this.label20);
+            this.groupBox2.Controls.Add(this.label19);
+            this.groupBox2.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.Location = new System.Drawing.Point(13, 13);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(759, 116);
+            this.groupBox2.TabIndex = 0;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Initial Factor";
+            // 
+            // textEdit2
+            // 
+            this.textEdit2.Location = new System.Drawing.Point(279, 82);
+            this.textEdit2.Name = "textEdit2";
+            this.textEdit2.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.textEdit2.Properties.Appearance.Options.UseFont = true;
+            this.textEdit2.Size = new System.Drawing.Size(180, 22);
+            this.textEdit2.TabIndex = 13;
+            // 
+            // textEdit1
+            // 
+            this.textEdit1.Location = new System.Drawing.Point(279, 53);
+            this.textEdit1.Name = "textEdit1";
+            this.textEdit1.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.textEdit1.Properties.Appearance.Options.UseFont = true;
+            this.textEdit1.Size = new System.Drawing.Size(180, 22);
+            this.textEdit1.TabIndex = 12;
+            // 
+            // cbThinningType
+            // 
+            this.cbThinningType.Location = new System.Drawing.Point(279, 26);
+            this.cbThinningType.Name = "cbThinningType";
+            this.cbThinningType.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.cbThinningType.Properties.Appearance.Options.UseFont = true;
+            this.cbThinningType.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cbThinningType.Properties.Items.AddRange(new object[] {
+            "General",
+            "Local"});
+            this.cbThinningType.Size = new System.Drawing.Size(180, 22);
+            this.cbThinningType.TabIndex = 11;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label21.Location = new System.Drawing.Point(29, 56);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(176, 15);
+            this.label21.TabIndex = 10;
+            this.label21.Text = "Total Generic Failure Frequenc";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label20.Location = new System.Drawing.Point(29, 85);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(174, 15);
+            this.label20.TabIndex = 9;
+            this.label20.Text = "Factor of Management System";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label19.Location = new System.Drawing.Point(29, 29);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(84, 15);
+            this.label19.TabIndex = 8;
+            this.label19.Text = "Thinning Type";
             // 
             // groupBox3
             // 
@@ -756,106 +854,6 @@
             this.label23.TabIndex = 65;
             this.label23.Text = "Assesment Periods";
             // 
-            // groupBox2
-            // 
-            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox2.Controls.Add(this.textEdit2);
-            this.groupBox2.Controls.Add(this.textEdit1);
-            this.groupBox2.Controls.Add(this.cbThinningType);
-            this.groupBox2.Controls.Add(this.label21);
-            this.groupBox2.Controls.Add(this.label20);
-            this.groupBox2.Controls.Add(this.label19);
-            this.groupBox2.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(13, 13);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(759, 116);
-            this.groupBox2.TabIndex = 0;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Initial Factor";
-            // 
-            // textEdit2
-            // 
-            this.textEdit2.Location = new System.Drawing.Point(279, 82);
-            this.textEdit2.Name = "textEdit2";
-            this.textEdit2.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.textEdit2.Properties.Appearance.Options.UseFont = true;
-            this.textEdit2.Size = new System.Drawing.Size(180, 22);
-            this.textEdit2.TabIndex = 13;
-            // 
-            // textEdit1
-            // 
-            this.textEdit1.Location = new System.Drawing.Point(279, 53);
-            this.textEdit1.Name = "textEdit1";
-            this.textEdit1.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.textEdit1.Properties.Appearance.Options.UseFont = true;
-            this.textEdit1.Size = new System.Drawing.Size(180, 22);
-            this.textEdit1.TabIndex = 12;
-            // 
-            // cbThinningType
-            // 
-            this.cbThinningType.Location = new System.Drawing.Point(279, 26);
-            this.cbThinningType.Name = "cbThinningType";
-            this.cbThinningType.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.cbThinningType.Properties.Appearance.Options.UseFont = true;
-            this.cbThinningType.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cbThinningType.Properties.Items.AddRange(new object[] {
-            "General",
-            "Local"});
-            this.cbThinningType.Size = new System.Drawing.Size(180, 22);
-            this.cbThinningType.TabIndex = 11;
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label21.Location = new System.Drawing.Point(29, 56);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(176, 15);
-            this.label21.TabIndex = 10;
-            this.label21.Text = "Total Generic Failure Frequenc";
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label20.Location = new System.Drawing.Point(29, 85);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(174, 15);
-            this.label20.TabIndex = 9;
-            this.label20.Text = "Factor of Management System";
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label19.Location = new System.Drawing.Point(29, 29);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(84, 15);
-            this.label19.TabIndex = 8;
-            this.label19.Text = "Thinning Type";
-            // 
-            // xtraTabControl1
-            // 
-            this.xtraTabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.xtraTabControl1.Location = new System.Drawing.Point(3, 17);
-            this.xtraTabControl1.Name = "xtraTabControl1";
-            this.xtraTabControl1.SelectedTabPage = this.xtraTabPage1;
-            this.xtraTabControl1.Size = new System.Drawing.Size(799, 545);
-            this.xtraTabControl1.TabIndex = 2;
-            this.xtraTabControl1.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
-            this.xtraTabPage1,
-            this.xtraTabPage2});
-            // 
-            // xtraTabPage1
-            // 
-            this.xtraTabPage1.Controls.Add(this.groupBox2);
-            this.xtraTabPage1.Controls.Add(this.groupBox3);
-            this.xtraTabPage1.Name = "xtraTabPage1";
-            this.xtraTabPage1.Size = new System.Drawing.Size(793, 517);
-            this.xtraTabPage1.Text = "Probability of Failure";
-            // 
             // xtraTabPage2
             // 
             this.xtraTabPage2.Controls.Add(this.groupBox5);
@@ -864,14 +862,62 @@
             this.xtraTabPage2.Size = new System.Drawing.Size(793, 517);
             this.xtraTabPage2.Text = "Consequence Area";
             // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.txtCA);
+            this.groupBox5.Controls.Add(this.label8);
+            this.groupBox5.Controls.Add(this.txtFC);
+            this.groupBox5.Controls.Add(this.label7);
+            this.groupBox5.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox5.Location = new System.Drawing.Point(3, 196);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(787, 113);
+            this.groupBox5.TabIndex = 1;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Consequence of Failure and Category";
+            // 
+            // txtCA
+            // 
+            this.txtCA.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCA.Location = new System.Drawing.Point(284, 65);
+            this.txtCA.Name = "txtCA";
+            this.txtCA.Size = new System.Drawing.Size(234, 22);
+            this.txtCA.TabIndex = 1;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(6, 68);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(187, 14);
+            this.label8.TabIndex = 0;
+            this.label8.Text = "Consequence of Failure Category";
+            // 
+            // txtFC
+            // 
+            this.txtFC.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFC.Location = new System.Drawing.Point(284, 37);
+            this.txtFC.Name = "txtFC";
+            this.txtFC.Size = new System.Drawing.Size(234, 22);
+            this.txtFC.TabIndex = 1;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(6, 40);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(197, 14);
+            this.label7.TabIndex = 0;
+            this.label7.Text = "Financial Consequence of Failure, $";
+            // 
             // groupBox4
             // 
             this.groupBox4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox4.Controls.Add(this.chkAutoignition);
             this.groupBox4.Controls.Add(this.txtEnvironmentCost);
             this.groupBox4.Controls.Add(this.txtInjureCost);
-            this.groupBox4.Controls.Add(this.label6);
             this.groupBox4.Controls.Add(this.label5);
             this.groupBox4.Controls.Add(this.txtPopdens);
             this.groupBox4.Controls.Add(this.label4);
@@ -883,77 +929,23 @@
             this.groupBox4.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox4.Location = new System.Drawing.Point(3, 3);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(787, 204);
+            this.groupBox4.Size = new System.Drawing.Size(787, 187);
             this.groupBox4.TabIndex = 0;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Input";
             // 
-            // label1
+            // txtEnvironmentCost
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(6, 27);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(384, 14);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Cost of lost production due to downtime to repair equipment, $/day";
-            // 
-            // txtProductionCost
-            // 
-            this.txtProductionCost.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtProductionCost.Location = new System.Drawing.Point(411, 24);
-            this.txtProductionCost.Name = "txtProductionCost";
-            this.txtProductionCost.Size = new System.Drawing.Size(107, 22);
-            this.txtProductionCost.TabIndex = 1;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(6, 53);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(130, 14);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Equipment cost, $/m2";
-            // 
-            // txtEquipmentCost
-            // 
-            this.txtEquipmentCost.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEquipmentCost.Location = new System.Drawing.Point(411, 50);
-            this.txtEquipmentCost.Name = "txtEquipmentCost";
-            this.txtEquipmentCost.Size = new System.Drawing.Size(107, 22);
-            this.txtEquipmentCost.TabIndex = 1;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(6, 81);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(384, 14);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Population density of personal or employees in the unit, personal/m2";
-            // 
-            // txtPopdens
-            // 
-            this.txtPopdens.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPopdens.Location = new System.Drawing.Point(411, 78);
-            this.txtPopdens.Name = "txtPopdens";
-            this.txtPopdens.Size = new System.Drawing.Size(107, 22);
-            this.txtPopdens.TabIndex = 1;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(6, 109);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(327, 14);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Cost associated with serious injury of fatality of personal, $";
+            this.txtEnvironmentCost.Enabled = false;
+            this.txtEnvironmentCost.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEnvironmentCost.Location = new System.Drawing.Point(411, 134);
+            this.txtEnvironmentCost.Name = "txtEnvironmentCost";
+            this.txtEnvironmentCost.Size = new System.Drawing.Size(107, 22);
+            this.txtEnvironmentCost.TabIndex = 1;
             // 
             // txtInjureCost
             // 
+            this.txtInjureCost.Enabled = false;
             this.txtInjureCost.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtInjureCost.Location = new System.Drawing.Point(411, 106);
             this.txtInjureCost.Name = "txtInjureCost";
@@ -970,82 +962,72 @@
             this.label5.TabIndex = 0;
             this.label5.Text = "Environmental clean-up cost, $/barrel";
             // 
-            // txtEnvironmentCost
+            // txtPopdens
             // 
-            this.txtEnvironmentCost.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEnvironmentCost.Location = new System.Drawing.Point(411, 134);
-            this.txtEnvironmentCost.Name = "txtEnvironmentCost";
-            this.txtEnvironmentCost.Size = new System.Drawing.Size(107, 22);
-            this.txtEnvironmentCost.TabIndex = 1;
+            this.txtPopdens.Enabled = false;
+            this.txtPopdens.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPopdens.Location = new System.Drawing.Point(411, 78);
+            this.txtPopdens.Name = "txtPopdens";
+            this.txtPopdens.Size = new System.Drawing.Size(107, 22);
+            this.txtPopdens.TabIndex = 1;
             // 
-            // label6
+            // label4
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(6, 163);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(106, 14);
-            this.label6.TabIndex = 0;
-            this.label6.Text = "Auto ignition likely";
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(6, 109);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(327, 14);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Cost associated with serious injury of fatality of personal, $";
             // 
-            // chkAutoignition
+            // txtEquipmentCost
             // 
-            this.chkAutoignition.AutoSize = true;
-            this.chkAutoignition.Location = new System.Drawing.Point(411, 163);
-            this.chkAutoignition.Name = "chkAutoignition";
-            this.chkAutoignition.Size = new System.Drawing.Size(15, 14);
-            this.chkAutoignition.TabIndex = 2;
-            this.chkAutoignition.UseVisualStyleBackColor = true;
+            this.txtEquipmentCost.Enabled = false;
+            this.txtEquipmentCost.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEquipmentCost.Location = new System.Drawing.Point(411, 50);
+            this.txtEquipmentCost.Name = "txtEquipmentCost";
+            this.txtEquipmentCost.Size = new System.Drawing.Size(107, 22);
+            this.txtEquipmentCost.TabIndex = 1;
             // 
-            // groupBox5
+            // label3
             // 
-            this.groupBox5.Controls.Add(this.txtCA);
-            this.groupBox5.Controls.Add(this.label8);
-            this.groupBox5.Controls.Add(this.txtFC);
-            this.groupBox5.Controls.Add(this.label7);
-            this.groupBox5.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox5.Location = new System.Drawing.Point(3, 213);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(787, 113);
-            this.groupBox5.TabIndex = 1;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Consequence of Failure and Category";
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(6, 81);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(384, 14);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Population density of personal or employees in the unit, personal/m2";
             // 
-            // label7
+            // txtProductionCost
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(6, 40);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(197, 14);
-            this.label7.TabIndex = 0;
-            this.label7.Text = "Financial Consequence of Failure, $";
+            this.txtProductionCost.Enabled = false;
+            this.txtProductionCost.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtProductionCost.Location = new System.Drawing.Point(411, 24);
+            this.txtProductionCost.Name = "txtProductionCost";
+            this.txtProductionCost.Size = new System.Drawing.Size(107, 22);
+            this.txtProductionCost.TabIndex = 1;
             // 
-            // txtFC
+            // label2
             // 
-            this.txtFC.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFC.Location = new System.Drawing.Point(284, 37);
-            this.txtFC.Name = "txtFC";
-            this.txtFC.Size = new System.Drawing.Size(234, 22);
-            this.txtFC.TabIndex = 1;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(6, 53);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(130, 14);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Equipment cost, $/m2";
             // 
-            // label8
+            // label1
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(6, 68);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(187, 14);
-            this.label8.TabIndex = 0;
-            this.label8.Text = "Consequence of Failure Category";
-            // 
-            // txtCA
-            // 
-            this.txtCA.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCA.Location = new System.Drawing.Point(284, 65);
-            this.txtCA.Name = "txtCA";
-            this.txtCA.Size = new System.Drawing.Size(234, 22);
-            this.txtCA.TabIndex = 1;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(6, 27);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(384, 14);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Cost of lost production due to downtime to repair equipment, $/day";
             // 
             // UCRiskFactor
             // 
@@ -1055,6 +1037,14 @@
             this.Name = "UCRiskFactor";
             this.Size = new System.Drawing.Size(805, 565);
             this.groupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).EndInit();
+            this.xtraTabControl1.ResumeLayout(false);
+            this.xtraTabPage1.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbThinningType.Properties)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txt72PoFCategory.Properties)).EndInit();
@@ -1093,19 +1083,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.txt72Thinning.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt36Thinning.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt0Thinning.Properties)).EndInit();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbThinningType.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).EndInit();
-            this.xtraTabControl1.ResumeLayout(false);
-            this.xtraTabPage1.ResumeLayout(false);
             this.xtraTabPage2.ResumeLayout(false);
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox4.PerformLayout();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1182,10 +1164,8 @@
         private System.Windows.Forms.TextBox txtFC;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.CheckBox chkAutoignition;
         private System.Windows.Forms.TextBox txtEnvironmentCost;
         private System.Windows.Forms.TextBox txtInjureCost;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtPopdens;
         private System.Windows.Forms.Label label4;

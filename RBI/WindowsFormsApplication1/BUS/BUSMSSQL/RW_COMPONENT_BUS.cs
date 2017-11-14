@@ -29,5 +29,13 @@ namespace RBI.BUS.BUSMSSQL
         {
             return DAL.getDataSource();
         }
+        public Boolean checkExistComponent(int ID)
+        {
+            return DAL.checkExistComponent(ID);
+        }
+        public RW_COMPONENT getData(int ID)
+        {
+            return DAL.getData(ID);
+        }
     }
 }

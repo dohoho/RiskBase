@@ -139,12 +139,11 @@ namespace RBI.PRE.subForm.InputDataForm
         }
         
 
-        public RW_COMPONENT getData()
+        public RW_COMPONENT getData(int ID)
         {
             RW_COMPONENT comp = new RW_COMPONENT();
             RW_ASSESSMENT_BUS assBus = new RW_ASSESSMENT_BUS();
-            List<RW_ASSESSMENT> listAss = assBus.getDataSource();
-            comp.ID = listAss[listAss.Count - 1].ID;
+            comp.ID = ID;
             comp.NominalDiameter = txtNominalDiameter.Text != "" ? float.Parse(txtNominalDiameter.Text) : 0;
             comp.NominalThickness = txtNominalThickness.Text != "" ? float.Parse(txtNominalThickness.Text) : 0;
             comp.CurrentThickness = txtCurrentThickness.Text != "" ? float.Parse(txtCurrentThickness.Text) : 0;

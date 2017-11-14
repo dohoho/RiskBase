@@ -327,10 +327,22 @@ namespace RBI
                 IDProposal = listTree1[hi.Node.Id].ID - hi.Node.Level * 100000;
                 if (treeListProject.FocusedNode.GetValue(0).ToString() != xtraTabData.SelectedTabPage.Name && treeListProject.FocusedNode.Level == 4)
                 {
-                    //showUCAssessment(IDProposal);
-                    ucTabNormal ucTabnormal = new ucTabNormal(IDProposal, new UCAssessmentInfo(IDProposal), new UCEquipmentProperties(IDProposal), new UCComponentProperties(IDProposal), new UCOperatingCondition(IDProposal)
-                        , new UCCoatLiningIsulationCladding(IDProposal), new UCMaterial(IDProposal), new UCStream(IDProposal), new UCCA(IDProposal), new UCRiskFactor(IDProposal));
-                    listUC.Add(ucTabnormal);
+                    RW_ASSESSMENT_BUS busAss = new RW_ASSESSMENT_BUS();
+                    int equipmentID = busAss.getEquipmentID(IDProposal);
+                    EQUIPMENT_MASTER_BUS busEquipment = new EQUIPMENT_MASTER_BUS();
+                    int equipmentTypeID = busEquipment.getEquipmentTypeID(equipmentID);
+                    EQUIPMENT_TYPE_BUS busEqType = new EQUIPMENT_TYPE_BUS();
+                    String EquipmentTypeName = busEqType.getEquipmentTypeName(equipmentTypeID);
+                    //if (EquipmentTypeName != "Tank")
+                    //{
+                        ucTabNormal ucTabnormal = new ucTabNormal(IDProposal, new UCAssessmentInfo(IDProposal), new UCEquipmentProperties(IDProposal), new UCComponentProperties(IDProposal), new UCOperatingCondition(IDProposal)
+                            , new UCCoatLiningIsulationCladding(IDProposal), new UCMaterial(IDProposal), new UCStream(IDProposal), new UCCA(IDProposal), new UCRiskFactor(IDProposal));
+                        listUC.Add(ucTabnormal);
+                    //}
+                    //else
+                    //{
+
+                    //}
                     addNewTab(treeListProject.FocusedNode.ParentNode.GetValue(0).ToString() + "[" + treeListProject.FocusedNode.GetValue(0).ToString()+"]", ucTabnormal.ucAss);
                     navBarGroup2.Visible = true;
                 }
@@ -455,20 +467,39 @@ namespace RBI
                         break;
                     }
                 }
-                UCAssessmentInfo uAssTest = uc.ucAss;
-                RW_ASSESSMENT obj = uAssTest.getData();
-                RW_EQUIPMENT eq = uc.ucEq.getData();
-                RW_COMPONENT com = uc.ucComp.getData();
-                RW_STREAM stream = uc.ucStream.getData();
-                RW_EXTCOR_TEMPERATURE extTemp = uc.ucOpera.getDataExtcorTemp();
-                RW_COATING coat = uc.ucCoat.getData();
-                RW_MATERIAL ma = uc.ucMaterial.getData();
-                RW_INPUT_CA_LEVEL_1 caInput = uc.ucCA.getData(IDProposal);
-                String _tabName = xtraTabData.SelectedTabPage.Text;
-                String componentNumber = _tabName.Substring(0, _tabName.IndexOf("["));
-                String ThinningType = "Local";
-                Calculation(ThinningType,componentNumber, eq, com, ma, stream, coat, extTemp, caInput);
-                MessageBox.Show("Edit success", "Cortek RBI");
+                RW_ASSESSMENT_BUS busAss = new RW_ASSESSMENT_BUS();
+                int equipmentID = busAss.getEquipmentID(IDProposal);
+                EQUIPMENT_MASTER_BUS busEquipment = new EQUIPMENT_MASTER_BUS();
+                int equipmentTypeID = busEquipment.getEquipmentTypeID(equipmentID);
+                EQUIPMENT_TYPE_BUS busEqType = new EQUIPMENT_TYPE_BUS();
+                String EquipmentTypeName = busEqType.getEquipmentTypeName(equipmentTypeID);
+                if (EquipmentTypeName != "Tank")
+                {
+                    UCAssessmentInfo uAssTest = uc.ucAss;
+                    RW_ASSESSMENT ass = uAssTest.getData(IDProposal);
+                    RW_EQUIPMENT eq = uc.ucEq.getData(IDProposal);
+                    RW_COMPONENT com = uc.ucComp.getData(IDProposal);
+                    RW_STREAM stream = uc.ucStream.getData(IDProposal);
+                    RW_EXTCOR_TEMPERATURE extTemp = uc.ucOpera.getDataExtcorTemp(IDProposal);
+                    RW_COATING coat = uc.ucCoat.getData(IDProposal);
+                    RW_MATERIAL ma = uc.ucMaterial.getData(IDProposal);
+                    RW_INPUT_CA_LEVEL_1 caInput = uc.ucCA.getData(IDProposal);
+                    String _tabName = xtraTabData.SelectedTabPage.Text;
+                    String componentNumber = _tabName.Substring(0, _tabName.IndexOf("["));
+                    String ThinningType = "Local";
+                    Calculation(ThinningType, componentNumber, eq, com, ma, stream, coat, extTemp, caInput);
+                    MessageBox.Show("Calculation Finished!", "Cortek RBI");
+                    //Save Data
+                    SaveDatatoDatabase(ass, eq, com, stream, extTemp, coat, ma, caInput);
+                    UCRiskFactor resultRisk = new UCRiskFactor(IDProposal);
+                    showUCinTabpage(resultRisk);
+                }
+                else
+                {
+
+                }
+                
+                
             }
             catch(Exception ex)
             {
@@ -476,7 +507,7 @@ namespace RBI
             }
         }
 
-        #region Add Edit Data to Database
+        
         private void SaveDatatoDatabase(RW_ASSESSMENT ass, RW_EQUIPMENT eq, RW_COMPONENT com, RW_STREAM stream, RW_EXTCOR_TEMPERATURE extTemp, RW_COATING coat, RW_MATERIAL ma, RW_INPUT_CA_LEVEL_1 ca)
         {
             RW_ASSESSMENT_BUS assBus = new RW_ASSESSMENT_BUS();
@@ -487,64 +518,18 @@ namespace RBI
             RW_COATING_BUS coatBus = new RW_COATING_BUS();
             RW_MATERIAL_BUS maBus = new RW_MATERIAL_BUS();
             RW_INPUT_CA_LEVEL_1_BUS caLv1Bus = new RW_INPUT_CA_LEVEL_1_BUS();
-
+            //if(assBus.checkExistAssessment(IDProposal))
+            //{
+                assBus.edit(ass);
+                eqBus.edit(eq);
+                comBus.edit(com);
+                streamBus.edit(stream);
+                extTempBus.edit(extTemp);
+                coatBus.edit(coat);
+                maBus.edit(ma);
+                caLv1Bus.edit(ca);
+            //}
         }
-        
-        private void EditDataStreamTank()
-        {
-            //RW_STREAM_BUS stTankBus = new RW_STREAM_BUS();
-            //RW_STREAM _st1 = new RW_STREAM();
-            //RW_STREAM _st2 = new RW_STREAM();
-            //RW_STREAM _stTotal = new RW_STREAM();
-            //_st1 = stTank.getData();
-            //_stTotal = _st1;
-            //_stTotal.FlowRate = _st2.FlowRate;
-            //_stTotal.MaxOperatingPressure = _st2.MaxOperatingPressure;
-            //_stTotal.MinOperatingPressure = _st2.MinOperatingPressure;
-            //_stTotal.MaxOperatingTemperature = _st2.MaxOperatingTemperature;
-            //_stTotal.MinOperatingTemperature = _st2.MinOperatingTemperature;
-            //_stTotal.CriticalExposureTemperature = _st2.CriticalExposureTemperature;
-            //_stTotal.H2SPartialPressure = _st2.H2SPartialPressure;
-            //stTankBus.edit(_stTotal);
-        }
-        
-        private void EditDataCALevel1()
-        {
-            //RW_INPUT_CA_LEVEL_1_BUS InputCABus = new RW_INPUT_CA_LEVEL_1_BUS();
-            //RW_INPUT_CA_LEVEL_1 _CA1 = new RW_INPUT_CA_LEVEL_1();
-            //RW_INPUT_CA_LEVEL_1 _CA2 = new RW_INPUT_CA_LEVEL_1();
-            //RW_INPUT_CA_LEVEL_1 _CA3 = new RW_INPUT_CA_LEVEL_1();
-            //RW_INPUT_CA_LEVEL_1 _CA = new RW_INPUT_CA_LEVEL_1();
-            //_CA1 = ca.getData();
-            //_CA2 = op.getDataforCA();
-            //_CA3 = maTank.getDataForCA();
-            //_CA = _CA1;
-            //_CA.Stored_Pressure = _CA2.Stored_Pressure;
-            //_CA.Stored_Temp = _CA2.Stored_Temp;
-            //_CA.Material_Cost = _CA3.Material_Cost;
-            //InputCABus.edit(_CA);
-        }
-        private void EditDataCATank()
-        {
-            //RW_INPUT_CA_TANK_BUS inputCATankBus = new RW_INPUT_CA_TANK_BUS();
-            //RW_INPUT_CA_TANK inputCAtank = new RW_INPUT_CA_TANK();
-            //RW_INPUT_CA_TANK eqCA = eqTank.getDataforTank();
-            //RW_INPUT_CA_TANK stCA = stTank.getDataCATank();
-            //RW_INPUT_CA_TANK ucCA = ca.getDataCATank();
-            //RW_INPUT_CA_TANK compCA = compTank.getDataforTank();
-
-            //inputCAtank = stCA;
-            //inputCAtank.Environ_Sensitivity = eqCA.Environ_Sensitivity;
-            //inputCAtank.SW = eqCA.SW;
-            //inputCAtank.Soil_Type = eqCA.Soil_Type;
-            //inputCAtank.API_FLUID = ucCA.API_FLUID;
-            //inputCAtank.TANK_DIAMETTER = compCA.TANK_DIAMETTER;
-            //inputCAtank.Prevention_Barrier = compCA.Prevention_Barrier;
-            //inputCAtank.SHELL_COURSE_HEIGHT = compCA.SHELL_COURSE_HEIGHT;
-
-            //inputCATankBus.edit(inputCAtank);
-        }
-        #endregion
         
         private void showUCinTabpage(UserControl uc)
         {
@@ -699,10 +684,6 @@ namespace RBI
             xtraTabData.SelectedTabPage = tabPage;
             tabPage.Show();
         }
-        
-        private List<string> riskExcelData = new List<string>();
-
-        private RiskSummary riskExcel = new RiskSummary();
         //private void Calculation_Excel()
         //{
         //    //ImportExcel sheet = new ImportExcel();
@@ -1093,11 +1074,10 @@ namespace RBI
             //                //"\nFC Total Shell: " + CA.FC_total_shell() 
             //                );
         }
-
+        RiskSummary riskSummary = new RiskSummary();
         private void Calculation(String ThinningType, String componentNumber, RW_EQUIPMENT eq, RW_COMPONENT com, RW_MATERIAL ma, RW_STREAM st, RW_COATING coat, RW_EXTCOR_TEMPERATURE tem, RW_INPUT_CA_LEVEL_1 caInput)
         {
             #region PoF
-            float age = 10;
             RW_ASSESSMENT_BUS assBus = new RW_ASSESSMENT_BUS();
             //get EquipmentID ----> get EquipmentTypeName and APIComponentType
             int equipmentID = assBus.getEquipmentID(IDProposal);
@@ -1110,6 +1090,9 @@ namespace RBI
             String API_ComponentType_Name = apiBus.getAPIComponentTypeName(apiID);
             MSSQL_DM_CAL cal = new MSSQL_DM_CAL();
             cal.APIComponentType = API_ComponentType_Name;
+            //age = assessment date - comission date
+            //DateTime _age = assBus.getAssessmentDate(IDProposal) - eqMaBus.getComissionDate(equipmentID);
+            float age = 10;
             //<input thinning>
             cal.Diametter = com.NominalDiameter;
             cal.NomalThick = com.NominalThickness;
@@ -1532,13 +1515,20 @@ namespace RBI
             fullPOF.PoFAP3 = fullPOF.TotalDFAP3 * fullPOF.FMS * fullPOF.GFFTotal;
             //lưu kết quả vào bảng RW_DAMAGE_MECHANISM
             RW_DAMAGE_MECHANISM_BUS damageBus = new RW_DAMAGE_MECHANISM_BUS();
-            //foreach (RW_DAMAGE_MECHANISM d in listDamageMachenism)
-            //{
-            //    damageBus.edit(d);
-            //}
+            foreach (RW_DAMAGE_MECHANISM d in listDamageMachenism)
+            {
+                if (damageBus.checkExistDM(d.ID, d.DMItemID))
+                    damageBus.edit(d);
+                else
+                    damageBus.add(d);
+            }
             //lưu kết quả vào bảng RW_FULL_POF
             RW_FULL_POF_BUS fullPOFBus = new RW_FULL_POF_BUS();
-            //fullPOFBus.edit(fullPOF);
+            if (fullPOFBus.checkExistPoF(fullPOF.ID))
+                fullPOFBus.edit(fullPOF);
+            else
+                fullPOFBus.add(fullPOF);
+            
             //MessageBox.Show("Df_Thinning = " + cal.DF_THIN(10).ToString() + "\n" +
             // "Df_Linning = " + cal.DF_LINNING(10).ToString() + "\n" +
             // "Df_Caustic = " + cal.DF_CAUSTIC(10).ToString() + "\n" +
@@ -1591,7 +1581,7 @@ namespace RBI
             //<calculate CA>
             RW_CA_LEVEL_1 caLvl1 = new RW_CA_LEVEL_1();
             caLvl1.ID = caInput.ID;
-            //caLvl1.Release_Phase = ??
+            caLvl1.Release_Phase = CA_CAL.GET_RELEASE_PHASE();
             caLvl1.fact_di = CA_CAL.fact_di();
             caLvl1.fact_mit = CA_CAL.fact_mit();
             caLvl1.fact_ait = CA_CAL.fact_ait();
@@ -1606,24 +1596,57 @@ namespace RBI
             caLvl1.FC_envi = CA_CAL.fc_environ();
             caLvl1.FC_total = CA_CAL.fc();
             caLvl1.FCOF_Category = CA_CAL.CA_Category(caLvl1.FC_total);
+            RW_FULL_FCOF fullFCoF = new RW_FULL_FCOF();
+            fullFCoF.ID = caLvl1.ID;
+            fullFCoF.FCoFValue = caLvl1.FC_total;
+            fullFCoF.FCoFCategory = caLvl1.FCOF_Category;
+            //fullFCoF.AIL = 
+            fullFCoF.envcost = CA_CAL.ENVIRON_COST;
+            fullFCoF.equipcost = CA_CAL.EQUIPMENT_COST;
+            fullFCoF.prodcost = CA_CAL.PRODUCTION_COST;
+            fullFCoF.popdens = CA_CAL.PERSON_DENSITY;
+            fullFCoF.injcost = CA_CAL.INJURE_COST;
+            //fullFCoF.FCoFMatrixValue
             //</calculate CA>
-            MessageBox.Show("fact_di " + caLvl1.fact_di +"\n"+
-                "fact_mit " + caLvl1.fact_mit +"\n"+
-                "fact_ait " + caLvl1.fact_ait +"\n"+
-                "CA cmd " + caLvl1.CA_cmd +"\n"+
-                "CA_inj_flame " + caLvl1.CA_inj_flame +"\n"+
-                "CA inj ntnf " + caLvl1.CA_inj_ntnf +"\n"+
-                "CA FC cmd " + caLvl1.FC_cmd +"\n"+
-                "FC affa " + caLvl1.FC_affa +"\n"+
-                "FC prod " + caLvl1.FC_prod +"\n"+
-                "FC inj " + caLvl1.FC_inj +"\n"+
-                "FC env " + caLvl1.FC_envi +"\n"+
-                "FC total " + caLvl1.FC_total +"\n"
-                    , "Cortek");
+            //MessageBox.Show("fact_di " + caLvl1.fact_di +"\n"+
+            //    "fact_mit " + caLvl1.fact_mit +"\n"+
+            //    "fact_ait " + caLvl1.fact_ait +"\n"+
+            //    "CA cmd " + caLvl1.CA_cmd +"\n"+
+            //    "CA_inj_flame " + caLvl1.CA_inj_flame +"\n"+
+            //    "CA inj ntnf " + caLvl1.CA_inj_ntnf +"\n"+
+            //    "CA FC cmd " + caLvl1.FC_cmd +"\n"+
+            //    "FC affa " + caLvl1.FC_affa +"\n"+
+            //    "FC prod " + caLvl1.FC_prod +"\n"+
+            //    "FC inj " + caLvl1.FC_inj +"\n"+
+            //    "FC env " + caLvl1.FC_envi +"\n"+
+            //    "FC total " + caLvl1.FC_total +"\n"
+            //        , "Cortek");
             //save to Database
             RW_CA_LEVEL_1_BUS caLvl1Bus = new RW_CA_LEVEL_1_BUS();
-            //caLvl1Bus.add(caLvl1);
+            RW_FULL_FCOF_BUS fullFCoFBus = new RW_FULL_FCOF_BUS();
+            if (caLvl1Bus.checkExist(caLvl1.ID))
+                caLvl1Bus.edit(caLvl1);
+            else
+                caLvl1Bus.add(caLvl1);
+            if (fullFCoFBus.checkExist(fullFCoF.ID))
+                fullFCoFBus.edit(fullFCoF);
+            else
+                fullFCoFBus.add(fullFCoF);
             #endregion
+            //gán kết quả tính toán cho Oject RiskSummary
+            //riskSummary.Equipment = cal.EquipmentType;
+            //riskSummary.EquipmentDesc
+            riskSummary.EquipmentType = cal.EquipmentType;
+            //riskSummary.ComponentName
+            //riskSummary.RepresentFluid
+            riskSummary.cotcatFlammable = caLvl1.CA_inj_flame;
+            riskSummary.currentRisk = 0;
+            //riskSummary.cotcatPeople = caLvl1.CA
+            riskSummary.cotcatAsset = caLvl1.FC_affa;
+            riskSummary.cotcatEnv = caLvl1.FC_envi;
+            //riskSummary.cotcatReputation
+            //riskSummary.cotcatCombined
+
         }
         
         private String checkCatalog(String a)
@@ -1670,7 +1693,7 @@ namespace RBI
             frmImportInspection insp = new frmImportInspection();
             insp.ShowDialog();
         }
-        private void createReportExcel()
+        private void createReportExcel(RiskSummary risk)
         {
             try
             {
@@ -1718,275 +1741,33 @@ namespace RBI
                 DevExpress.Spreadsheet.Range range3 = worksheet.Range["A1:Y2"];
                 range3.SetInsideBorders(Color.Gray, BorderLineStyle.Thin);
                 range3.Borders.SetOutsideBorders(Color.Black, BorderLineStyle.Medium);
-
-
-                //RW_EQUIPMENT eq = eq.getData();
-                //RW_EQUIPMENT rweq1 = ass.getData1();
-                //RW_COMPONENT rwcom = comp.getData();
-                //RW_MATERIAL rwma = ma.getData();
-                ////can xem lai properties thuoc get stream nao
-                //RW_STREAM rwstream1 = st.getData();
-                //RW_STREAM rwstream2 = op.getData();
-                //RW_COATING rwcoat = coat.getData();
-                //NO_INSPECTION noInsp = No.getData();
-                ////EQUIPMENT_MASTER eqmaster = eq.getData();
-                ////EQUIPMENT_TYPE eqType = eq.getData2();
-                //MSSQL_DM_CAL cal = new MSSQL_DM_CAL();
-                ////<input thinning>
-                //cal.Diametter = rwcom.NominalDiameter;
-                //cal.NomalThick = rwcom.NominalThickness;
-                //cal.CurrentThick = rwcom.CurrentThickness;
-                //cal.MinThickReq = rwcom.MinReqThickness;
-                //cal.CorrosionRate = rwcom.CurrentCorrosionRate;
-
-                //cal.ProtectedBarrier = rweq.DowntimeProtectionUsed == 1 ? true : false; //xem lai
-                //cal.CladdingCorrosionRate = rwcoat.CladdingCorrosionRate;
-                //cal.InternalCladding = rwcoat.InternalCladding == 1 ? true : false;
-                //cal.NoINSP_THINNING = noInsp.numThinning;
-                //cal.EFF_THIN = noInsp.effThinning;
-                //cal.OnlineMonitoring = rweq.OnlineMonitoring;
-                //cal.HighlyEffectDeadleg = rweq.HighlyDeadlegInsp == 1 ? true : false;
-                //cal.ContainsDeadlegs = rweq.ContainsDeadlegs == 1 ? true : false;
-                ////tank maintain653 trong Tank
-                //cal.AdjustmentSettle = rweq.AdjustmentSettle;
-                //cal.ComponentIsWeld = rweq.ComponentIsWelded == 1 ? true : false;
-                ////</thinning>
-
-                ////<input linning>
-                //cal.LinningType = rwcoat.InternalLinerType;
-                //cal.LINNER_ONLINE = rweq.LinerOnlineMonitoring == 1 ? true : false;
-                //cal.LINNER_CONDITION = rwcoat.InternalLinerCondition;
-                //cal.INTERNAL_LINNING = rwcoat.InternalLining == 1 ? true : false;
-                ////Yearinservice hiệu tham số giữa lần tính toán và ngày cài đặt hệ thống
-
-                ////</input linning>
-
-                ////<input SCC CAUSTIC>
-                //cal.CAUSTIC_INSP_EFF = noInsp.effCaustic;
-                //cal.CAUSTIC_INSP_NUM = noInsp.numCaustic;
-                //cal.HEAT_TREATMENT = rwma.HeatTreatment;
-                //cal.NaOHConcentration = rwstream1.NaOHConcentration;
-                //cal.HEAT_TRACE = rweq.HeatTraced == 1 ? true : false;
-                //cal.STEAM_OUT = rweq.SteamOutWaterFlush == 1 ? true : false;
-                ////</SCC CAUSTIC>
-
-                ////<input SSC Amine>
-                //cal.AMINE_INSP_EFF = noInsp.effAmine;
-                //cal.AMINE_INSP_NUM = noInsp.numAmine;
-                //cal.AMINE_EXPOSED = rwstream1.ExposedToGasAmine == 1 ? true : false;
-                //cal.AMINE_SOLUTION = rwstream1.AmineSolution;
-                ////</input SSC Amine>
-
-                ////<input Sulphide Stress Cracking>
-                //cal.ENVIRONMENT_H2S_CONTENT = rwstream1.H2S == 1 ? true : false;
-                //cal.AQUEOUS_OPERATOR = rwstream1.AqueousOperation == 1 ? true : false;
-                //cal.AQUEOUS_SHUTDOWN = rwstream1.AqueousShutdown == 1 ? true : false;
-                //cal.SULPHIDE_INSP_EFF = noInsp.effSulphide;
-                //cal.SULPHIDE_INSP_NUM = noInsp.numSulphide;
-                //cal.H2SContent = rwstream1.H2SInWater;
-                //cal.PH = rwstream1.WaterpH;
-                //cal.PRESENT_CYANIDE = rwstream1.Cyanide == 1 ? true : false;
-                //cal.BRINNEL_HARDNESS = rwcom.BrinnelHardness;
-                ////</Sulphide Stress Cracking>
-
-                ////<input HIC/SOHIC-H2S>
-                //cal.SULFUR_INSP_EFF = noInsp.effHICSOHIC_H2S;
-                //cal.SULFUR_INSP_NUM = noInsp.numHICSOHIC_H2S;
-                //cal.SULFUR_CONTENT = rwma.SulfurContent;
-                ////</HIC/SOHIC-H2S>
-
-                ////<input PTA Cracking>
-                //cal.PTA_SUSCEP = rwma.IsPTA == 1 ? true : false;
-                //cal.NICKEL_ALLOY = rwma.NickelBased == 1 ? true : false;
-                //cal.EXPOSED_SULFUR = rwstream1.ExposedToSulphur == 1 ? true : false;
-                //cal.PTA_INSP_EFF = noInsp.effPTA;
-                //cal.PTA_INSP_NUM = noInsp.numPTA;
-                //cal.ExposedSH2OOperation = rweq.PresenceSulphidesO2 == 1 ? true : false;
-                //cal.ExposedSH2OShutdown = rweq.PresenceSulphidesO2Shutdown == 1 ? true : false;
-                //cal.ThermalHistory = rweq.ThermalHistory;
-                //cal.PTAMaterial = rwma.PTAMaterialCode;
-                //cal.DOWNTIME_PROTECTED = rweq.DowntimeProtectionUsed == 1 ? true : false;
-                ////</PTA Cracking>
-
-                ////<input CLSCC>
-                //cal.CLSCC_INSP_EFF = noInsp.effCLSCC;
-                //cal.CLSCC_INSP_NUM = noInsp.numCLSCC;
-                //cal.EXTERNAL_EXPOSED_FLUID_MIST = rweq.MaterialExposedToClExt == 1 ? true : false;
-                //cal.INTERNAL_EXPOSED_FLUID_MIST = rwstream1.MaterialExposedToClInt == 1 ? true : false;
-                //cal.CHLORIDE_ION_CONTENT = rwstream1.Chloride;
-                ////</CLSCC>
-
-                ////<input HSC-HF>
-                //cal.HSC_HF_INSP_EFF = noInsp.effHSC_HF;
-                //cal.HSC_HF_INSP_NUM = noInsp.numHSC_HF;
-                ////</HSC-HF>
-
-                ////<input External Corrosion>
-                //cal.EXTERNAL_INSP_EFF = noInsp.effExternalCorrosion;
-                //cal.EXTERNAL_INSP_NUM = noInsp.numExternalCorrosion;
-                ////</External Corrosion>
-
-                ////<input HIC/SOHIC-HF>
-                //cal.HICSOHIC_INSP_EFF = noInsp.effHICSOHIC_HF;
-                //cal.HICSOHIC_INSP_NUM = noInsp.numHICSOHIC_HF;
-                //cal.HF_PRESENT = rwstream1.Hydrofluoric == 1 ? true : false;
-                ////</HIC/SOHIC-HF>
-
-                ////<input CUI DM>
-                //cal.INTERFACE_SOIL_WATER = rweq.InterfaceSoilWater == 1 ? true : false;
-                //cal.SUPPORT_COATING = rwcoat.SupportConfigNotAllowCoatingMaint == 1 ? true : false;
-                //cal.INSULATION_TYPE = rwcoat.ExternalInsulationType;
-                //cal.CUI_INSP_EFF = noInsp.effCUI;
-                //cal.CUI_INSP_NUM = noInsp.numCUI;
-                //cal.CUI_INSP_DATE = rwcoat.ExternalCoatingDate;
-                //cal.CUI_PERCENT_1 = rwstream2.CUI_PERCENT_1;
-                //cal.CUI_PERCENT_2 = rwstream2.CUI_PERCENT_2;
-                //cal.CUI_PERCENT_3 = rwstream2.CUI_PERCENT_3;
-                //cal.CUI_PERCENT_4 = rwstream2.CUI_PERCENT_4;
-                //cal.CUI_PERCENT_5 = rwstream2.CUI_PERCENT_5;
-                //cal.CUI_PERCENT_6 = rwstream2.CUI_PERCENT_6;
-                //cal.CUI_PERCENT_7 = rwstream2.CUI_PERCENT_7;
-                //cal.CUI_PERCENT_8 = rwstream2.CUI_PERCENT_8;
-                //cal.CUI_PERCENT_9 = rwstream2.CUI_PERCENT_9;
-                //cal.CUI_PERCENT_10 = rwstream2.CUI_PERCENT_10;
-                ////</CUI DM>
-
-                ////<input External CLSCC>
-                //cal.EXTERN_CLSCC_INSP_EFF = noInsp.effExternal_CLSCC;
-                //cal.EXTERN_CLSCC_INSP_NUM = noInsp.numExternal_CLSCC;
-                ////</External CLSCC>
-
-                ////<input External CUI CLSCC>
-                //cal.EXTERN_CLSCC_CUI_INSP_EFF = noInsp.effCUI;
-                //cal.EXTERN_CLSCC_CUI_INSP_NUM = noInsp.numCUI;
-                //cal.EXTERNAL_INSULATION = rwcoat.ExternalInsulation == 1 ? true : false;
-                //cal.COMPONENT_INSTALL_DATE = rweq1.CommissionDate;
-                //cal.CRACK_PRESENT = rwcom.CracksPresent == 1 ? true : false;
-                //cal.EXTERNAL_EVIRONMENT = rweq.ExternalEnvironment;
-                //cal.EXTERN_COAT_QUALITY = rwcoat.ExternalCoatingQuality;
-                //cal.PIPING_COMPLEXITY = rwcom.ComplexityProtrusion;
-                //cal.INSULATION_CONDITION = rwcoat.InsulationCondition;
-                //cal.INSULATION_CHLORIDE = rwcoat.InsulationContainsChloride == 1 ? true : false;
-                ////</External CUI CLSCC>
-
-                ////<input HTHA>
-                //cal.HTHA_EFFECT = noInsp.effHTHA;
-                //cal.HTHA_NUM_INSP = noInsp.numHTHA;
-                //cal.MATERIAL_SUSCEP_HTHA = rwma.IsHTHA == 1 ? true : false;
-                //cal.HTHA_MATERIAL = rwma.HTHAMaterialCode; //check lai
-                //cal.HTHA_PRESSURE = rwstream2.H2SPartialPressure;
-                //cal.CRITICAL_TEMP = rwstream2.CriticalExposureTemperature; //check lai
-                //cal.DAMAGE_FOUND = rwcom.DamageFoundInspection == 1 ? true : false;
-                ////</HTHA>
-
-                ////<input Brittle>
-                //cal.LOWEST_TEMP = rweq.YearLowestExpTemp == 1 ? true : false;
-                ////</Brittle>
-
-                ////<input temper Embrittle>
-                //cal.TEMPER_SUSCEP = rwma.Temper == 1 ? true : false;
-                //cal.PWHT = rweq.PWHT == 1 ? true : false;
-                //cal.BRITTLE_THICK = rwma.BrittleFractureThickness;
-                //cal.CARBON_ALLOY = rwma.CarbonLowAlloy == 1 ? true : false;
-                //cal.DELTA_FATT = rwcom.DeltaFATT;
-                ////</Temper Embrittle>
-
-                ////<input 885>
-                //cal.MAX_OP_TEMP = rwstream2.MaxOperatingTemperature;
-                //cal.MIN_OP_TEMP = rwstream2.MinOperatingTemperature;
-                //cal.MIN_DESIGN_TEMP = rwma.MinDesignTemperature;
-                //cal.REF_TEMP = rwma.ReferenceTemperature;
-                //cal.CHROMIUM_12 = rwma.ChromeMoreEqual12 == 1 ? true : false;
-                ////</885>
-
-                ////<input Sigma>
-                //cal.AUSTENITIC_STEEL = rwma.Austenitic == 1 ? true : false;
-                //cal.PERCENT_SIGMA = rwma.SigmaPhase;
-                ////</Sigma>
-
-                ////<input Piping Mechanical>
-                ////cal.EquipmentType = eqType.EquipmentTypeName;
-                //cal.EquipmentType = "Piping";
-                //cal.PREVIOUS_FAIL = rwcom.PreviousFailures;
-                //cal.AMOUNT_SHAKING = rwcom.ShakingAmount;
-                //cal.TIME_SHAKING = rwcom.ShakingTime;
-                //cal.CYLIC_LOAD = rwcom.CyclicLoadingWitin15_25m;
-                //cal.CORRECT_ACTION = rwcom.CorrectiveAction;
-                //cal.NUM_PIPE = rwcom.NumberPipeFittings;
-                //cal.PIPE_CONDITION = rwcom.PipeCondition;
-                //cal.JOINT_TYPE = rwcom.BranchJointType; //check lai
-                //cal.BRANCH_DIAMETER = rwcom.BranchDiameter;
-                ////</Piping Mechanical>
-
-                ////<goi ham tinh toan DF>
-                //MessageBox.Show("Df_Thinning = " + cal.DF_THIN(10).ToString() + "\n" +
-                // "Df_Linning = " + cal.DF_LINNING(10).ToString() + "\n" +
-                // "Df_Caustic = " + cal.DF_CAUSTIC(10).ToString() + "\n" +
-                // "Df_Amine = " + cal.DF_AMINE(10).ToString() + "\n" +
-                // "Df_Sulphide = " + cal.DF_SULPHIDE(10).ToString() + "\n" +
-                // "Df_PTA = " + cal.DF_PTA(11).ToString() + "\n" +
-                // "Df_PTA = " + cal.DF_PTA(10) + "\n" +
-                // "Df_CLSCC = " + cal.DF_CLSCC(10) + "\n" +
-                // "Df_HSC-HF = " + cal.DF_HSCHF(10) + "\n" +
-                // "Df_HIC/SOHIC-HF = " + cal.DF_HIC_SOHIC_HF(10) + "\n" +
-                // "Df_ExternalCorrosion = " + cal.DF_EXTERNAL_CORROSION(10) + "\n" +
-                // "Df_CUI = " + cal.DF_CUI(10) + "\n" +
-                // "Df_EXTERNAL_CLSCC = " + cal.DF_EXTERN_CLSCC() + "\n" +
-                // "Df_EXTERNAL_CUI_CLSCC = " + cal.DF_CUI_CLSCC() + "\n" +
-                // "Df_HTHA = " + cal.DF_HTHA(10) + "\n" +
-                // "Df_Brittle = " + cal.DF_BRITTLE() + "\n" +
-                // "Df_Temper_Embrittle = " + cal.DF_TEMP_EMBRITTLE() + "\n" +
-                // "Df_885 = " + cal.DF_885() + "\n" +
-                // "Df_Sigma = " + cal.DF_SIGMA() + "\n" +
-                // "Df_Piping = " + cal.DF_PIPE(), "Damage Factor");
-                
-                
                 
                 //Write Data to Cells
-                worksheet.Cells["A3"].Value = "COMPC"; //Equipment Name or Equipment Number can dc gan lai
-                worksheet.Cells["B3"].Value = "abc"; //Equipment Description gan lai
-                worksheet.Cells["C3"].Value = "Atmospheric Storage Tank"; //Equipment type
-                worksheet.Cells["D3"].Value = "Boot"; //component name
-                worksheet.Cells["E3"].Value = 0; //Represent fluid
-                worksheet.Cells["F3"].Value = "Vapor";  //fluid phase
-                worksheet.Cells["G3"].Value = 0; //current risk
-                worksheet.Cells["H3"].Value = 5.9968567916851;//cofcat. Flammable
-               // worksheet.Cells["H3"].NumberFormat = "#.###";
-                worksheet.Cells["I3"].Value = 151756.778709058;//cofcat people
-                //worksheet.Cells["I3"].NumberFormat = "#.###";
-                worksheet.Cells["J3"].Value = 38384.4614594938;//cofcat assessment
-               // worksheet.Cells["J3"].NumberFormat = "#.###";
-                worksheet.Cells["K3"].Value = 0;//cofcat envroment
-               // worksheet.Cells["K3"].NumberFormat = "#.###";
-                worksheet.Cells["L3"].Value = "N/A"; //cof reputation
-               // worksheet.Cells["L3"].NumberFormat = "#.###";
-                worksheet.Cells["M3"].Value = 225181.193816338; //combined
-               // worksheet.Cells["M3"].NumberFormat = "#.###";
-                worksheet.Cells["N3"].Value = 0; //component material glade
-                //worksheet.Cells["N3"].NumberFormat = "#.###";
-                worksheet.Cells["O3"].Value = 0.054;//Thinning POF
-                //worksheet.Cells["O3"].NumberFormat = "#.###";
-                worksheet.Cells["P3"].Value =0.000880964207316014;//Cracking env
-                //worksheet.Cells["P3"].NumberFormat = "#.###";
-                worksheet.Cells["Q3"].Value = 0;//OtherPOF
-                //worksheet.Cells["Q3"].NumberFormat = "#.###";
-                worksheet.Cells["R3"].Value = 0.054880964207316;//Init POF
-               // worksheet.Cells["R3"].NumberFormat = "#.###";
-                worksheet.Cells["S3"].Value = 0;//Ext Thinning POF
-                //worksheet.Cells["S3"].NumberFormat = "#.###";
-                worksheet.Cells["T3"].Value = 0;//ExtEnv Cracking
-                //worksheet.Cells["T3"].NumberFormat = "#.###";
-                worksheet.Cells["U3"].Value = 0;//Ext Other POF
-                //worksheet.Cells["U3"].NumberFormat = "#.###";
-                worksheet.Cells["V3"].Value = 0; //Ext POF
-                //worksheet.Cells["V3"].NumberFormat = "#.###";
-                worksheet.Cells["W3"].Value = 0.0607882250993909;//POF
-                //worksheet.Cells["W3"].NumberFormat = "#.000";
-                worksheet.Cells["X3"].Value = 13688.3650978571; //Current Risk
-                //worksheet.Cells["X3"].NumberFormat = "#.000";
-                worksheet.Cells["Y3"].Value = 13740.9914000939;
-                //worksheet.Cells["Y3"].NumberFormat = "#.000";
-                worksheet.Cells["O3"].Value = 0;//future Risk
+                worksheet.Cells["A3"].Value = risk.EquipmentNumber; //Equipment Name or Equipment Number can dc gan lai
+                worksheet.Cells["B3"].Value = risk.EquipmentDesc; //Equipment Description gan lai
+                worksheet.Cells["C3"].Value = risk.EquipmentType; //Equipment type
+                worksheet.Cells["D3"].Value = risk.ComponentName; //component name
+                worksheet.Cells["E3"].Value = risk.RepresentFluid; //Represent fluid
+                worksheet.Cells["F3"].Value = risk.FluidPhase;  //fluid phase
+                worksheet.Cells["G3"].Value = risk.currentRisk; //current risk
+                worksheet.Cells["H3"].Value = risk.cotcatFlammable;//cofcat. Flammable
+                worksheet.Cells["I3"].Value = risk.cotcatPeople;//cofcat people
+                worksheet.Cells["J3"].Value = risk.cotcatAsset;//cofcat assessment
+                worksheet.Cells["K3"].Value = risk.cotcatEnv;//cofcat envroment
+                worksheet.Cells["L3"].Value = risk.cotcatReputation; //cof reputation
+                worksheet.Cells["M3"].Value = risk.cotcatCombined; //combined
+                worksheet.Cells["N3"].Value = risk.componentMaterialGrade; //component material glade
+                worksheet.Cells["O3"].Value = risk.initThinningPoF;//Thinning POF
+                worksheet.Cells["P3"].Value = risk.initEnvCracking;//Cracking env
+                worksheet.Cells["Q3"].Value = risk.initOtherPoF;//OtherPOF
+                worksheet.Cells["R3"].Value = risk.initPoF;//Init POF
+                worksheet.Cells["S3"].Value = risk.extThinningPoF;//Ext Thinning POF
+                worksheet.Cells["T3"].Value = risk.extEnvCrackingPoF;//ExtEnv Cracking
+                worksheet.Cells["U3"].Value = risk.extOtherPoF;//Ext Other POF
+                worksheet.Cells["V3"].Value = risk.extPoF; //Ext POF
+                worksheet.Cells["W3"].Value = risk.PoF;//POF
+                worksheet.Cells["X3"].Value = risk.currentRisk; //Current Risk
+                worksheet.Cells["Y3"].Value = risk.futureRisk;
                 using (FileStream stream = new FileStream(@"C:\Users\hoang\Desktop\excel\testExcel.xls", FileMode.Create, FileAccess.ReadWrite))
                 {
                     exportData.SaveDocument(stream, DocumentFormat.Xls);
@@ -2002,7 +1783,7 @@ namespace RBI
         
         private void barButtonItem17_ItemClick(object sender, ItemClickEventArgs e)
         {
-            createReportExcel();
+            createReportExcel(riskSummary);
         }
 
         

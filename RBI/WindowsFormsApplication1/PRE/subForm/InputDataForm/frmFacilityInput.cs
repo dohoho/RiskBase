@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading;
 using System.Windows.Forms;
 using RBI.Object.ObjectMSSQL;
 using RBI.BUS.BUSMSSQL;
@@ -46,10 +47,10 @@ namespace RBI.PRE.subForm.InputDataForm
         public FACILITY_RISK_TARGET getRiskTarget()
         {
             FACILITY_RISK_TARGET faciRisk = new FACILITY_RISK_TARGET();
-            List<FACILITY> fa = new List<FACILITY>();
+            List<FACILITY> fa = facility.getDataSource();
             foreach(FACILITY f in fa)
             {
-                if(f.FacilityName == txtFacilityName.Text)
+                if( txtFacilityName.Text == f.FacilityName)
                 {
                     faciRisk.FacilityID = f.FacilityID;
                 }

@@ -272,5 +272,39 @@ namespace RBI.DAL.MSSQL
             }
             return eqTypeID;
         }
+        public DateTime getCommissionDate(int eqID)
+        {
+            DateTime commisionDate = DateTime.Now;
+            SqlConnection con = MSSQLDBUtils.GetDBConnection();
+            con.Open();
+            String sql = "select CommissionDate from rbi.dbo.EQUIPMENT_MASTER where EquipmentID = '"+eqID+"'";
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandText = sql;
+                cmd.Connection = con;
+                using (DbDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        if (reader.HasRows)
+                        {
+                            commisionDate = reader.GetDateTime(0);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Get DateTime Fail------->" + ex.ToString(), "Get Data Fail");
+            }
+            finally
+            {
+                con.Close();
+                con.Dispose();
+            }
+            return commisionDate;
+        }
+
     }
 }

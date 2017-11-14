@@ -17,10 +17,10 @@ namespace RBI.PRE.subForm.InputDataForm
         {
             InitializeComponent();
         }
-        public UCCoatLiningIsulationCladding(int id)
+        public UCCoatLiningIsulationCladding(int ID)
         {
             InitializeComponent();
-            
+            ShowDatatoControl(ID);
         }
         public void ShowDatatoControl(int ID)
         {
@@ -114,12 +114,10 @@ namespace RBI.PRE.subForm.InputDataForm
                 }
             }
         }
-        public RW_COATING getData()
+        public RW_COATING getData(int ID)
         {
             RW_COATING coat = new RW_COATING();
-            RW_ASSESSMENT_BUS assBus = new RW_ASSESSMENT_BUS();
-            List<RW_ASSESSMENT> listAss = assBus.getDataSource();
-            coat.ID = listAss[listAss.Count - 1].ID;
+            coat.ID = ID;
             coat.ExternalCoating = chkExternalCoat.Checked ? 1 : 0;
             coat.ExternalInsulation = chkExternalIsulation.Checked ? 1 : 0;
             coat.InternalCladding = chkInternalCladding.Checked ? 1 : 0;
@@ -162,6 +160,20 @@ namespace RBI.PRE.subForm.InputDataForm
             {
                 cbIsulationCondition.Enabled = false;
                 cbExternalIsulation.Enabled = false;
+            }
+        }
+
+        private void chkExternalCoat_CheckedChanged(object sender, EventArgs e)
+        {
+            if(chkExternalCoat.Checked)
+            {
+                cbExternalCoatQuality.Enabled = true;
+                dateExternalCoating.Enabled = true;
+            }
+            else
+            {
+                cbExternalCoatQuality.Enabled = false;
+                dateExternalCoating.Enabled = false;
             }
         }
     }

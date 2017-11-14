@@ -35,5 +35,9 @@ namespace RBI.BUS.BUSMSSQL
         {
             return DAL.getEquipmentTypeID(eqID);
         }
+        public DateTime getComissionDate(int eqID)
+        {
+            return DAL.getCommissionDate(eqID);
+        }
     }
 }

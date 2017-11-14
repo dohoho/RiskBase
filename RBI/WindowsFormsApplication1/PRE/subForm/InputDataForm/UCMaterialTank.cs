@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using RBI.Object.ObjectMSSQL;
+using RBI.BUS.BUSMSSQL;
 namespace RBI.PRE.subForm.InputDataForm
 {
     public partial class UCMaterialTank : UserControl
@@ -28,7 +29,58 @@ namespace RBI.PRE.subForm.InputDataForm
             addHeatTreatment();
             addPTAMterial();
         }
-
+        public UCMaterialTank(int ID)
+        {
+            InitializeComponent();
+            cbPTAMaterial.Enabled = false;
+            addSulfurContent();
+            addHeatTreatment();
+            addPTAMterial();
+            ShowDataToControl(ID);
+        }
+        public void ShowDataToControl(int ID)
+        {
+            RW_MATERIAL_BUS BUS = new RW_MATERIAL_BUS();
+            RW_MATERIAL obj = BUS.getData(ID);
+            cbPTAMaterial.Text = obj.MaterialName;
+            txtDesignPressure.Text = obj.DesignPressure.ToString();
+            txtMaxDesignTemperature.Text = obj.DesignTemperature.ToString();
+            txtMinDesignTemperature.Text = obj.MinDesignTemperature.ToString();
+            txtBrittleFracture.Text = obj.BrittleFractureThickness.ToString();
+            txtCorrosionAllowance.Text = obj.CorrosionAllowance.ToString();
+            for (int i = 0; i < itemsSulfurContent.Length; i++)
+            {
+                if (obj.SulfurContent == itemsSulfurContent[i])
+                {
+                    cbSulfurContent.SelectedIndex = i + 1;
+                    break;
+                }
+            }
+            for (int i = 0; i < itemsHeatTreatment.Length; i++)
+            {
+                if (obj.HeatTreatment == itemsHeatTreatment[i])
+                {
+                    cbHeatTreatment.SelectedIndex = i + 1;
+                    break;
+                }
+            }
+            txtReferenceTemperature.Text = obj.ReferenceTemperature.ToString();
+            for (int i = 0; i < itemsPTAMterial.Length; i++)
+            {
+                if (obj.PTAMaterialCode == itemsPTAMterial[i])
+                {
+                    cbPTAMaterialGrade.SelectedIndex = i + 1;
+                    break;
+                }
+            }
+            chkIsPTASeverity.Checked = Convert.ToBoolean(obj.IsPTA);
+            chkAusteniticSteel.Checked = Convert.ToBoolean(obj.Austenitic);
+            chkCarbonLowAlloySteel.Checked = Convert.ToBoolean(obj.CarbonLowAlloy);
+            chkNickelAlloy.Checked = Convert.ToBoolean(obj.NickelBased);
+            chkChromium.Checked = Convert.ToBoolean(obj.ChromeMoreEqual12);
+            txtAllowableStress.Text = obj.AllowableStress.ToString();
+            txtMaterialCostFactor.Text = obj.CostFactor.ToString();
+        }
         private void addSulfurContent()
         {
             cbSulfurContent.Properties.Items.Add("", -1, -1);

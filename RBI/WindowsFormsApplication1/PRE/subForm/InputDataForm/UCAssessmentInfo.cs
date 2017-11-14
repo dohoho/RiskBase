@@ -29,8 +29,10 @@ namespace RBI.PRE.subForm.InputDataForm
             showDatatoControl(id);
         }
         public String ProposalName;
-        public RW_ASSESSMENT getData()
+        public RW_ASSESSMENT getData(int ID)
         {
+            RW_ASSESSMENT_BUS assBus = new RW_ASSESSMENT_BUS();
+            int[] temp = assBus.getEquipmentID_ComponentID(ID);
             RW_ASSESSMENT ass = new RW_ASSESSMENT();
             ass.AssessmentDate = dateAssessmentDate.DateTime;
             ass.RiskAnalysisPeriod = txtRiskAnalysisPeriod.Text != "" ? int.Parse(txtRiskAnalysisPeriod.Text) : 0;
@@ -39,17 +41,17 @@ namespace RBI.PRE.subForm.InputDataForm
             ass.ProposalName = txtAssessmentName.Text;
             ass.AdoptedDate = DateTime.Now;
             ass.RecommendedDate = DateTime.Now;
-            ass.ComponentID = 1;
-            ass.EquipmentID = 1;
+            ass.EquipmentID = temp[0];
+            ass.ComponentID = temp[1];
             return ass;
         }
-        public EQUIPMENT_MASTER getEquipmentMaster()
-        {
-            EQUIPMENT_MASTER eq = new EQUIPMENT_MASTER();
-            eq.EquipmentNumber = txtEquipmentNumber.Text;
-            //eq.EquipmentDesc = txt
-            return eq;
-        }
+        //public EQUIPMENT_MASTER getEquipmentMaster()
+        //{
+        //    EQUIPMENT_MASTER eq = new EQUIPMENT_MASTER();
+        //    eq.EquipmentNumber = txtEquipmentNumber.Text;
+        //    //eq.EquipmentDesc = txt
+        //    return eq;
+        //}
         public RW_EQUIPMENT getData1()
         {
             RW_EQUIPMENT eq = new RW_EQUIPMENT();

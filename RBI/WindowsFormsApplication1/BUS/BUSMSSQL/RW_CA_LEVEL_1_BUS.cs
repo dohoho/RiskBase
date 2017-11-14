@@ -13,7 +13,7 @@ namespace RBI.BUS.BUSMSSQL
         RW_CA_LEVEL_1_ConnUtils DAL = new RW_CA_LEVEL_1_ConnUtils();
         public void add(RW_CA_LEVEL_1 obj)
         {
-            DAL.add(obj.Release_Phase, obj.fact_di, obj.fact_mit, obj.fact_ait, obj.CA_cmd, obj.CA_inj_flame, obj.CA_inj_toxic, obj.CA_inj_ntnf, obj.FC_cmd, obj.FC_affa, obj.FC_prod, obj.FC_inj, obj.FC_envi, obj.FC_total, obj.FCOF_Category);
+            DAL.add(obj.ID, obj.Release_Phase, obj.fact_di, obj.fact_mit, obj.fact_ait, obj.CA_cmd, obj.CA_inj_flame, obj.CA_inj_toxic, obj.CA_inj_ntnf, obj.FC_cmd, obj.FC_affa, obj.FC_prod, obj.FC_inj, obj.FC_envi, obj.FC_total, obj.FCOF_Category);
         }
         public void edit(RW_CA_LEVEL_1 obj)
         {
@@ -26,6 +26,10 @@ namespace RBI.BUS.BUSMSSQL
         public RW_CA_LEVEL_1 getData(int ID)
         {
             return DAL.getData(ID);
+        }
+        public Boolean checkExist(int ID)
+        {
+            return DAL.checkExist(ID);
         }
     }
 }

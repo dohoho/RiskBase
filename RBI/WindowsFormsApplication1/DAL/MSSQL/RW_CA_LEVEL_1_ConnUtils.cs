@@ -12,13 +12,14 @@ namespace RBI.DAL.MSSQL
 {
     class RW_CA_LEVEL_1_ConnUtils
     {
-        public void add(String Release_Phase, float fact_di, float fact_mit, float fact_ait, float CA_cmd, float CA_inj_flame, float CA_inj_toxic, float CA_inj_ntnf, float FC_cmd, float FC_affa, float FC_prod, float FC_inj, float FC_envi, float FC_total, String FCOF_Category)
+        public void add(int ID, String Release_Phase, float fact_di, float fact_mit, float fact_ait, float CA_cmd, float CA_inj_flame, float CA_inj_toxic, float CA_inj_ntnf, float FC_cmd, float FC_affa, float FC_prod, float FC_inj, float FC_envi, float FC_total, String FCOF_Category)
         {
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             String sql = "USE [rbi] " +
                         "INSERT INTO [dbo].[RW_CA_LEVEL1] " +
-                        "([Release_Phase] " +
+                        "([ID] " +
+                        ",[Release_Phase] " +
                         ",[fact_di] " +
                         ",[fact_mit] " +
                         ",[fact_ait] " +
@@ -34,7 +35,8 @@ namespace RBI.DAL.MSSQL
                         ",[FC_total] " +
                         ",[FCOF_Category]) " +
                         "VALUES  " +
-                        "('" + Release_Phase + "'" +
+                        "('" + ID + "'" +
+                        ",'" + Release_Phase + "'" +
                         ",'" + fact_di + "'" +
                         ",'" + fact_mit + "'" +
                         ",'" + fact_ait + "'" +
@@ -56,9 +58,9 @@ namespace RBI.DAL.MSSQL
                 cmd.Connection = conn;
                 cmd.ExecuteNonQuery();
             }
-            catch
+            catch(Exception ex)
             {
-                MessageBox.Show("ADD DATA ERROR!", "ERROR!");
+                MessageBox.Show("ADD DATA ERROR!" + ex.ToString(), "ERROR!");
             }
             finally
             {
@@ -189,6 +191,39 @@ namespace RBI.DAL.MSSQL
                 conn.Close();
             }
             return obj;
+        }
+        public Boolean checkExist(int ID)
+        {
+            Boolean IsExist = false;
+            SqlConnection conn = MSSQLDBUtils.GetDBConnection();
+            conn.Open();
+            String sql = "select Release_Phase from rbi.dbo.RW_CA_LEVEL1 where ID = '"+ID+"'";
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = conn;
+                cmd.CommandText = sql;
+                using (DbDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        if (reader.IsDBNull(0))
+                            IsExist = false;
+                        else
+                            IsExist = true;
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString(), "GET DATA FAIL!");
+            }
+            finally
+            {
+                conn.Close();
+                conn.Dispose();
+            }
+            return IsExist;
         }
     }
 }

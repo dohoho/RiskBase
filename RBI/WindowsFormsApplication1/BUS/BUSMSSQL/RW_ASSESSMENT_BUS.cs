@@ -32,5 +32,17 @@ namespace RBI.BUS.BUSMSSQL
         {
             return DAL.getEquipmentID(ID);
         }
+        public DateTime getAssessmentDate(int ID)
+        {
+            return DAL.getAssessmentDate(ID);
+        }
+        public Boolean checkExistAssessment(int ID)
+        {
+            return DAL.checkExistAssessment(ID);
+        }
+        public int[] getEquipmentID_ComponentID(int ID)
+        {
+            return DAL.getEquipmentID_ComponentID(ID);
+        }
     }
 }

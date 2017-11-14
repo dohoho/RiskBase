@@ -172,27 +172,27 @@ namespace RBI.DAL.MSSQL
                             obj.API_FLUID = reader.GetString(0);
                             obj.SYSTEM = reader.GetString(1);
                             obj.Release_Duration = reader.GetString(2);
-                            obj.Detection_Type = reader.GetString(0);
-                            obj.Isulation_Type = reader.GetString(0);
-                            obj.Mitigation_System = reader.GetString(0);
-                            obj.Equipment_Cost = (float)reader.GetDouble(0);
-                            obj.Injure_Cost = (float)reader.GetDouble(0);
-                            obj.Environment_Cost = (float)reader.GetDouble(0);
-                            obj.Toxic_Percent = (float)reader.GetDouble(0);
-                            obj.Personal_Density = (float)reader.GetDouble(0);
-                            obj.Material_Cost = (float)reader.GetDouble(0);
-                            obj.Production_Cost = (float)reader.GetDouble(0);
-                            obj.Mass_Inventory = (float)reader.GetDouble(0);
-                            obj.Mass_Component = (float)reader.GetDouble(0);
-                            obj.Stored_Pressure = (float)reader.GetDouble(0);
-                            obj.Stored_Temp = (float)reader.GetDouble(0);
+                            obj.Detection_Type = reader.GetString(3);
+                            obj.Isulation_Type = reader.GetString(4);
+                            obj.Mitigation_System = reader.GetString(5);
+                            obj.Equipment_Cost = (float)reader.GetDouble(6);
+                            obj.Injure_Cost = (float)reader.GetDouble(7);
+                            obj.Environment_Cost = (float)reader.GetDouble(8);
+                            obj.Toxic_Percent = (float)reader.GetDouble(9);
+                            obj.Personal_Density = (float)reader.GetDouble(10);
+                            obj.Material_Cost = (float)reader.GetDouble(11);
+                            obj.Production_Cost = (float)reader.GetDouble(12);
+                            obj.Mass_Inventory = (float)reader.GetDouble(13);
+                            obj.Mass_Component = (float)reader.GetDouble(14);
+                            obj.Stored_Pressure = (float)reader.GetDouble(15);
+                            obj.Stored_Temp = (float)reader.GetDouble(16);
                         }
                     }
                 }
             }
-            catch
+            catch(Exception ex)
             {
-                MessageBox.Show("GET DATA FAIL!", "ERROR!");
+                MessageBox.Show("GET DATA FAIL!" + ex.ToString(), "ERROR!");
             }
             finally
             {

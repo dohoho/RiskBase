@@ -24,7 +24,7 @@ namespace RBI.PRE.subForm.InputDataForm
         }
         RW_STREAM str = new RW_STREAM();
         RW_EXTCOR_TEMPERATURE objTemp = new RW_EXTCOR_TEMPERATURE();
-        public void getData(int ID)
+        private void getData(int ID)
         {
             RW_STREAM_BUS SteamBus = new RW_STREAM_BUS();
             RW_EXTCOR_TEMPERATURE_BUS tempBus = new RW_EXTCOR_TEMPERATURE_BUS();
@@ -67,9 +67,10 @@ namespace RBI.PRE.subForm.InputDataForm
             
             return str;
         }
-        public RW_EXTCOR_TEMPERATURE getDataExtcorTemp()
+        public RW_EXTCOR_TEMPERATURE getDataExtcorTemp(int ID)
         {
             RW_EXTCOR_TEMPERATURE ext = new RW_EXTCOR_TEMPERATURE();
+            ext.ID = ID;
             ext.Minus12ToMinus8 = txtOp12.Text != "" ? float.Parse(txtOp12.Text) : 0;
             ext.Minus8ToPlus6 = txtOp8.Text != "" ? float.Parse(txtOp8.Text) : 0;
             ext.Plus6ToPlus32 = txtOp6.Text != "" ? float.Parse(txtOp6.Text) : 0;

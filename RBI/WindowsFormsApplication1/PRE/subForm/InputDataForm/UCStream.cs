@@ -67,12 +67,11 @@ namespace RBI.PRE.subForm.InputDataForm
             txtReleaseFluidPercent.Text = obj.ReleaseFluidPercentToxic.ToString();
             txtpHWater.Text = obj.WaterpH.ToString();
         }
-        public RW_STREAM getData()
+        public RW_STREAM getData(int ID)
         {
             RW_STREAM stream = new RW_STREAM();
             RW_ASSESSMENT_BUS assBus = new RW_ASSESSMENT_BUS();
-            List<RW_ASSESSMENT> listAss = assBus.getDataSource();
-            stream.ID = listAss[listAss.Count - 1].ID;
+            stream.ID = ID;
             stream.AmineSolution = cbAmineSolutionComposition.Text;
             stream.AqueousOperation = chkAqueousPhaseDuringOperation.Checked ? 1 : 0;
             stream.AqueousShutdown = chkAqueousPhaseShutdown.Checked ? 1 : 0;

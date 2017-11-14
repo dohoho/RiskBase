@@ -324,7 +324,112 @@ namespace RBI.DAL.MSSQL
             }
             return list;
         }
-
+        public Boolean checkExistComponent(int ID)
+        {
+            Boolean IsExist = false;
+            SqlConnection conn = MSSQLDBUtils.GetDBConnection();
+            conn.Open();
+            String sql = "select NominalDiameter from rbi.dbo.RW_COMPONENT where ID = '"+ID+"'";
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = conn;
+                cmd.CommandText = sql;
+                using (DbDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        if (reader.IsDBNull(0))
+                            IsExist = false;
+                        else
+                            IsExist = true;
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString(), "GET DATA FAIL!");
+            }
+            finally
+            {
+                conn.Close();
+                conn.Dispose();
+            }
+            return IsExist;
+        }
+        public RW_COMPONENT getData(int ID)
+        {
+            RW_COMPONENT obj = new RW_COMPONENT();
+            SqlConnection conn = MSSQLDBUtils.GetDBConnection();
+            conn.Open();
+            String sql = "USE [rbi] SELECT [NominalDiameter]" +
+                          ",[NominalThickness]" +
+                          ",[CurrentThickness]" +
+                          ",[MinReqThickness]" +
+                          ",[CurrentCorrosionRate]" +
+                          ",[BranchDiameter]" +
+                          ",[BranchJointType]" +
+                          ",[BrinnelHardness]" +
+                          ",[ChemicalInjection]" +
+                          ",[HighlyInjectionInsp]" +
+                          ",[ComplexityProtrusion]" +
+                          ",[CorrectiveAction]" +
+                          ",[CracksPresent]" +
+                          ",[CyclicLoadingWitin15_25m]" +
+                          ",[DamageFoundInspection]" +
+                          ",[DeltaFATT]" +
+                          ",[NumberPipeFittings]" +
+                          ",[PipeCondition]" +
+                          ",[PreviousFailures]" +
+                          ",[ShakingAmount]" +
+                          ",[ShakingDetected]" +
+                          ",[ShakingTime]" +
+                          ",[TrampElements]" +
+                          ",[ShellHeight]" +
+                          ",[ReleasePreventionBarrier]" +
+                          ",[ConcreteFoundation]" +
+                          ",[SeverityOfVibration]" +
+                      "FROM [rbi].[dbo].[RW_COMPONENT] WHERE [ID] = '" + ID + "'";
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = conn;
+                cmd.CommandText = sql;
+                using (DbDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        if (reader.HasRows)
+                        {
+                            obj.NominalDiameter = (float)reader.GetDouble(0);
+                            obj.NominalThickness = (float)reader.GetDouble(1);
+                            obj.CurrentThickness = (float)reader.GetDouble(2);
+                            obj.MinReqThickness = (float)reader.GetDouble(3);
+                            obj.CurrentCorrosionRate = (float)reader.GetDouble(4);
+                            obj.DamageFoundInspection = reader.GetInt32(14);
+                            obj.BrinnelHardness = reader.GetString(7);
+                            obj.CracksPresent = reader.GetInt32(12);
+                            obj.TrampElements = reader.GetInt32(22);
+                            obj.ShellHeight = (float)reader.GetDouble(23);
+                            obj.ReleasePreventionBarrier = reader.GetInt32(24);
+                            obj.ComplexityProtrusion = reader.GetString(10);
+                            obj.ConcreteFoundation = reader.GetInt32(25);
+                            obj.SeverityOfVibration = reader.GetString(26);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("GET DATA FAIL!" + ex.ToString(), "ERROR!");
+            }
+            finally
+            {
+                conn.Close();
+                conn.Dispose();
+            }
+            return obj;
+        }
     }
 }
 

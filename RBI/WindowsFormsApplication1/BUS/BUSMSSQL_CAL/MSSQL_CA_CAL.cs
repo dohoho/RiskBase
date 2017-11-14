@@ -101,7 +101,7 @@ namespace RBI.BUS.BUSMSSQL_CAL
             return API_COMPONENT_BUS.getData(API_COMPONENT_TYPE_NAME);
         }
 
-        private String GET_RELEASE_PHASE()
+        public String GET_RELEASE_PHASE()
         {
             return DAL_CAL.GET_RELEASE_PHASE(FLUID);
         }

@@ -237,7 +237,7 @@ namespace RBI.DAL.MSSQL
                             }
                             if (!reader.IsDBNull(3))
                             {
-                                obj.AIL = reader.GetInt32(3);
+                                obj.AIL = Convert.ToInt32(reader.GetBoolean(3));
                             }
                             if (!reader.IsDBNull(4))
                             {
@@ -279,6 +279,39 @@ namespace RBI.DAL.MSSQL
                 conn.Dispose();
             }
             return obj;
+        }
+        public Boolean checkExistFullCoF(int ID)
+        {
+            Boolean IsExist = false;
+            SqlConnection conn = MSSQLDBUtils.GetDBConnection();
+            conn.Open();
+            String sql = "select FCoFValue from rbi.dbo.RW_FULL_FCOF where ID = '"+ID+"'";
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = conn;
+                cmd.CommandText = sql;
+                using (DbDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        if (reader.IsDBNull(0))
+                            IsExist = false;
+                        else
+                            IsExist = true;
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString(), "GET DATA FAIL!");
+            }
+            finally
+            {
+                conn.Close();
+                conn.Dispose();
+            }
+            return IsExist;
         }
     }
 }

@@ -32,5 +32,9 @@ namespace RBI.BUS.BUSMSSQL
         {
             return DAL.getData(ID);
         }
+        public Boolean checkExist(int ID)
+        {
+            return DAL.checkExistFullCoF(ID);
+        }
     }
 }

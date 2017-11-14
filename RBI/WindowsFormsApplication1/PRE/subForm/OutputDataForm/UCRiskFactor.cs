@@ -25,6 +25,7 @@ namespace RBI.PRE.subForm.OutputDataForm
         {
             InitializeComponent();
             riskPoF(ID);
+            riskCA(ID);
         }
         public void riskPoF(int ID)
         {

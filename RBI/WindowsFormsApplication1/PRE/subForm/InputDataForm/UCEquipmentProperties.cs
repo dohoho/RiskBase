@@ -116,21 +116,17 @@ namespace RBI.PRE.subForm.InputDataForm
                             Console.WriteLine("Therminal History " + i);
                         }
                     }
-                    
-                    
-                    
                     //numSystemManagementFactor.Value = e.S
                     txtEquipmentVolume.Text = e.Volume.ToString();
                 }
             }
         }
         
-        public RW_EQUIPMENT getData()
+        public RW_EQUIPMENT getData(int ID)
         {
             RW_EQUIPMENT eq = new RW_EQUIPMENT();
             RW_ASSESSMENT_BUS assBus = new RW_ASSESSMENT_BUS();
-            List<RW_ASSESSMENT> listAss = assBus.getDataSource();
-            eq.ID = listAss[listAss.Count - 1].ID;
+            eq.ID = ID;
             eq.AdminUpsetManagement = chkAministrativeControl.Checked ? 1 : 0;
             eq.ContainsDeadlegs = chkContainsDeadlegs.Checked ? 1 : 0;
             eq.CyclicOperation = chkCylicOperation.Checked ? 1 : 0;
