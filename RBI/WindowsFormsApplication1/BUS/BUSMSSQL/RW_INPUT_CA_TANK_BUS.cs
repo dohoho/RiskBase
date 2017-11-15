@@ -13,11 +13,11 @@ namespace RBI.BUS.BUSMSSQL
         RW_INPUT_CA_TANK_ConnUtils DAL = new RW_INPUT_CA_TANK_ConnUtils();
         public void add(RW_INPUT_CA_TANK obj)
         {
-            DAL.Add(obj.FLUID_HEIGHT, obj.SHELL_COURSE_HEIGHT, obj.TANK_DIAMETTER, obj.Prevention_Barrier, obj.Environ_Sensitivity, obj.P_lvdike, obj.P_onsite, obj.P_offsite, obj.Soil_Type, obj.TANK_FLUID, obj.API_FLUID, obj.SW);
+            DAL.Add(obj.ID, obj.FLUID_HEIGHT, obj.SHELL_COURSE_HEIGHT, obj.TANK_DIAMETTER, obj.Prevention_Barrier, obj.Environ_Sensitivity, obj.P_lvdike, obj.P_onsite, obj.P_offsite, obj.Soil_Type, obj.TANK_FLUID, obj.API_FLUID, obj.SW, obj.ProductionCost);
         }
         public void edit(RW_INPUT_CA_TANK obj)
         {
-            DAL.Edit(obj.ID, obj.FLUID_HEIGHT, obj.SHELL_COURSE_HEIGHT, obj.TANK_DIAMETTER, obj.Prevention_Barrier, obj.Environ_Sensitivity, obj.P_lvdike, obj.P_onsite, obj.P_offsite, obj.Soil_Type, obj.TANK_FLUID, obj.API_FLUID, obj.SW);
+            DAL.Edit(obj.ID, obj.FLUID_HEIGHT, obj.SHELL_COURSE_HEIGHT, obj.TANK_DIAMETTER, obj.Prevention_Barrier, obj.Environ_Sensitivity, obj.P_lvdike, obj.P_onsite, obj.P_offsite, obj.Soil_Type, obj.TANK_FLUID, obj.API_FLUID, obj.SW, obj.ProductionCost);
         }
         public void delete(RW_INPUT_CA_TANK obj)
         {
@@ -26,6 +26,10 @@ namespace RBI.BUS.BUSMSSQL
         public RW_INPUT_CA_TANK getData(int ID)
         {
             return DAL.getData(ID);
+        }
+        public float getProductionCost(int ID)
+        {
+            return DAL.getProductionCost(ID);
         }
     }
 }

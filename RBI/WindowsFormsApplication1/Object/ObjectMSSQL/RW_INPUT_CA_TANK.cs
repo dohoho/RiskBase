@@ -21,5 +21,6 @@ namespace RBI.Object.ObjectMSSQL
         public String TANK_FLUID { set; get; }
         public String API_FLUID { set; get; }
         public float SW { set; get; }
+        public float ProductionCost { set; get; }
     }
 }

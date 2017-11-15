@@ -27,5 +27,9 @@ namespace RBI.BUS.BUSMSSQL
         {
             return DAL.getDataSource();
         }
+        public String getDesignCodeName(int designCodeID)
+        {
+            return DAL.getDesignCodeName(designCodeID);
+        }
     }
 }

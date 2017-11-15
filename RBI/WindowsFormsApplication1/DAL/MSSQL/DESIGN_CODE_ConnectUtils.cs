@@ -135,5 +135,38 @@ namespace RBI.DAL.MSSQL
             }
             return list;
         }
+        public String getDesignCodeName(int designCodeID)
+        {
+            String name = "";
+            SqlConnection conn = MSSQLDBUtils.GetDBConnection();
+            conn.Open();
+            String sql = "select DesignCode from rbi.dbo.DESIGN_CODE where DesignCodeID = '"+designCodeID+"'";
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = conn;
+                cmd.CommandText = sql;
+                using (DbDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        if (reader.HasRows)
+                        {
+                            name = reader.GetString(0);
+                        }
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString(), "GET DATA FAIL!");
+            }
+            finally
+            {
+                conn.Close();
+                conn.Dispose();
+            }
+            return name;
+        }
     }
 }

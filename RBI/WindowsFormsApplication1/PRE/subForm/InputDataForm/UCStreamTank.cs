@@ -15,18 +15,22 @@ namespace RBI.PRE.subForm.InputDataForm
     {
         string[] itemsExposureAmine = { "High Rich Amine", "Low Lean Amine", "None" };
         string[] itemsAmineSolutionComposition = { "Diethanolamine DEA", "Diglycolamine DGA", "Disopropanolamine DIPA", "Methyldiethanolamine MDEA", "Monoethanolamine MEA", "Sulfinol" };
+        string[] itemsTankFluid = { "Gasoline", "Light Diesel Oil", "Heavy Diesel Oil", "Fuel Oil", "Crude Oil", "Heavy Fuel Oil", "Heavy Crude Oil" };
         public UCStreamTank()
         {
             InitializeComponent();
             addItemsExposureAmine();
             addItemsAmineSolutionComposition();
+            addItemsTankFluid();
         }
         public UCStreamTank(int ID)
         {
             InitializeComponent();
             addItemsExposureAmine();
             addItemsAmineSolutionComposition();
+            addItemsTankFluid();
             ShowDataToControl(ID);
+
         }
         private void ShowDataToControl(int ID)
         {
@@ -65,16 +69,23 @@ namespace RBI.PRE.subForm.InputDataForm
             txtReleaseFluidPercent.Text = obj.ReleaseFluidPercentToxic.ToString();
             txtpHWater.Text = obj.WaterpH.ToString();
             //tank
-            btnEditFluid.Text = obj.TankFluidName;
+            for (int i = 0; i < itemsTankFluid.Length; i++)
+            {
+                if (obj.TankFluidName == itemsTankFluid[i])
+                {
+                    cbFluidTank.SelectedIndex = i + 1;
+                    break;
+                }
+            }
             txtFluidHeight.Text = obj.FluidHeight.ToString();
             txtPercentageLeavingDike.Text = obj.FluidLeaveDikePercent.ToString();
             txtPercentageLeavingRemainsOnSite.Text = obj.FluidLeaveDikeRemainOnSitePercent.ToString();
             txtPercentageFluidGoingOffsite.Text = obj.FluidGoOffSitePercent.ToString();
         }
         RW_STREAM stream = new RW_STREAM();
-        public RW_STREAM getData()
+        public RW_STREAM getData(int ID)
         {
-            stream.ID = 2;
+            stream.ID = ID;
             stream.AmineSolution = cbAmineSolutionComposition.Text;
             stream.AqueousOperation = chkAqueousPhaseDuringOperation.Checked ? 1 : 0;
             stream.AqueousShutdown = chkAqueousPhaseShutdown.Checked ? 1 : 0;
@@ -106,26 +117,35 @@ namespace RBI.PRE.subForm.InputDataForm
             temp = ucOperating.getData();
             return temp;
         }
-        public RW_INPUT_CA_TANK getDataforTank()
+        public RW_INPUT_CA_TANK getDataforTank(int ID)
         {
             RW_INPUT_CA_TANK tank = new RW_INPUT_CA_TANK();
+            tank.ID = ID;
             tank.P_lvdike = txtPercentageLeavingDike.Text != "" ? float.Parse(txtPercentageLeavingDike.Text) : 0;
             tank.P_offsite = txtPercentageFluidGoingOffsite.Text != "" ? float.Parse(txtPercentageFluidGoingOffsite.Text) : 0;
             tank.P_onsite = txtPercentageLeavingRemainsOnSite.Text != "" ? float.Parse(txtPercentageLeavingRemainsOnSite.Text) : 0;
             tank.FLUID_HEIGHT = txtFluidHeight.Text != "" ? float.Parse(txtFluidHeight.Text) : 0;
-            tank.TANK_FLUID = btnEditFluid.Text;
+            tank.TANK_FLUID = cbFluidTank.Text;
             return tank;
         }
         public RW_INPUT_CA_TANK getDataCATank()
         {
             RW_INPUT_CA_TANK ca = new RW_INPUT_CA_TANK();
             ca.ID = 1;
-            ca.TANK_FLUID = btnEditFluid.Text;
+            ca.TANK_FLUID = cbFluidTank.Text;
             ca.FLUID_HEIGHT = txtFluidHeight.Text != "" ? float.Parse(txtFluidHeight.Text) : 0;
             ca.P_lvdike = txtPercentageLeavingDike.Text != "" ? float.Parse(txtPercentageLeavingDike.Text) : 0;
             ca.P_onsite = txtPercentageLeavingRemainsOnSite.Text != "" ? float.Parse(txtPercentageLeavingRemainsOnSite.Text) : 0;
             ca.P_offsite = txtPercentageFluidGoingOffsite.Text != "" ? float.Parse(txtPercentageFluidGoingOffsite.Text) : 0;
             return ca;
+        }
+        private void addItemsTankFluid()
+        {
+            cbFluidTank.Properties.Items.Add("", -1, -1);
+            for(int i = 0; i < itemsTankFluid.Length; i++)
+            {
+                cbFluidTank.Properties.Items.Add(itemsTankFluid[i], i, i);
+            }
         }
         private void addItemsExposureAmine()
         {

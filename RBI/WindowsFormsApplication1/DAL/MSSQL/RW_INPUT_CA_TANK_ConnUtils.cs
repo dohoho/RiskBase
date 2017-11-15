@@ -12,13 +12,14 @@ namespace RBI.DAL.MSSQL
 {
     class RW_INPUT_CA_TANK_ConnUtils
     {
-        public void Add(float FLUID_HEIGHT, float SHELL_COURSE_HEIGHT, float TANK_DIAMETTER, int Prevention_Barrier, String Environ_Sensitivity, float P_lvdike, float P_onsite, float P_offsite, String Soil_Type, String TANK_FLUID, String API_FLUID, float SW)
+        public void Add(int ID, float FLUID_HEIGHT, float SHELL_COURSE_HEIGHT, float TANK_DIAMETTER, int Prevention_Barrier, String Environ_Sensitivity, float P_lvdike, float P_onsite, float P_offsite, String Soil_Type, String TANK_FLUID, String API_FLUID, float SW, float ProductionCost)
         {
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             String sql = "USE [rbi] " +
                         "INSERT INTO [dbo].[RW_INPUT_CA_TANK] " +
-                        "([FLUID_HEIGHT] " +
+                        "([ID]"+
+                        ",[FLUID_HEIGHT] " +
                         ",[SHELL_COURSE_HEIGHT] " +
                         ",[TANK_DIAMETTER] " +
                         ",[Prevention_Barrier] " +
@@ -29,9 +30,11 @@ namespace RBI.DAL.MSSQL
                         ",[Soil_Type] " +
                         ",[TANK_FLUID] " +
                         ",[API_FLUID] " +
-                        ",[SW]) " +
+                        ",[SW] " +
+                        ",[ProductionCost]) " +
                         "VALUES " +
-                        "('" + FLUID_HEIGHT + "' " +
+                        "('" + ID + "' " +
+                        ",'" + FLUID_HEIGHT + "' " +
                         ",'" + SHELL_COURSE_HEIGHT + "' " +
                         ",'" + TANK_DIAMETTER + "' " +
                         ",'" + Prevention_Barrier + "' " +
@@ -42,7 +45,8 @@ namespace RBI.DAL.MSSQL
                         ",'" + Soil_Type + "' " +
                         ",'" + TANK_FLUID + "' " +
                         ",'" + API_FLUID + "'" +
-                        ",'" + SW + "') ";
+                        ",'" + SW + "' "+
+                        ",'" + ProductionCost + "') ";
             try
             {
                 SqlCommand cmd = new SqlCommand();
@@ -60,7 +64,7 @@ namespace RBI.DAL.MSSQL
                 conn.Dispose();
             }
         }
-        public void Edit(int ID,float FLUID_HEIGHT, float SHELL_COURSE_HEIGHT, float TANK_DIAMETTER, int Prevention_Barrier, String Environ_Sensitivity, float P_lvdike, float P_onsite, float P_offsite, String Soil_Type, String TANK_FLUID, String API_FLUID, float SW)
+        public void Edit(int ID,float FLUID_HEIGHT, float SHELL_COURSE_HEIGHT, float TANK_DIAMETTER, int Prevention_Barrier, String Environ_Sensitivity, float P_lvdike, float P_onsite, float P_offsite, String Soil_Type, String TANK_FLUID, String API_FLUID, float SW, float ProductionCost)
         {
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
@@ -78,6 +82,7 @@ namespace RBI.DAL.MSSQL
                         ",[TANK_FLUID] = '" + TANK_FLUID + "' " +
                         ",[API_FLUID] = '" + API_FLUID + "' " +
                         ",[SW] = '" + SW + "' " +
+                        ",[ProductionCost] = '" + ProductionCost + "' " +
                         " WHERE [ID] = '" + ID + "'";
             try
             {
@@ -161,6 +166,39 @@ namespace RBI.DAL.MSSQL
                             obj.TANK_FLUID = reader.GetString(9);
                             obj.API_FLUID = reader.GetString(10);
                             obj.SW = (float)reader.GetDouble(11);
+                        }
+                    }
+                }
+            }
+            catch
+            {
+                MessageBox.Show("GET DATA FAIL!", "ERROR!");
+            }
+            finally
+            {
+                conn.Close();
+                conn.Dispose();
+            }
+            return obj;
+        }
+        public float getProductionCost(int ID)
+        {
+            float obj = 0;
+            SqlConnection conn = MSSQLDBUtils.GetDBConnection();
+            conn.Open();
+            String sql = "select ProductionCost from rbi.dbo.RW_INPUT_CA_TANK where ID = '"+ID+"'";
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = conn;
+                cmd.CommandText = sql;
+                using (DbDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        if (reader.HasRows)
+                        {
+                            obj = (float)reader.GetDouble(0);
                         }
                     }
                 }

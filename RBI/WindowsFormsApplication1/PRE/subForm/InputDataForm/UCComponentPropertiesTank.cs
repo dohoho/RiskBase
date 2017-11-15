@@ -63,15 +63,15 @@ namespace RBI.PRE.subForm.InputDataForm
                 }
             }
         }
-        public RW_COMPONENT getData()
+        public RW_COMPONENT getData(int ID)
         {
             RW_COMPONENT comp = new RW_COMPONENT();
-            comp.ID = 2;
-            comp.NominalDiameter = float.Parse(txtTankDiameter.Text);  //check lai xem co bien Tank Diameter ko
-            comp.NominalThickness = float.Parse(txtNominalThickness.Text);
-            comp.CurrentThickness = float.Parse(txtCurrentThickness.Text);
-            comp.MinReqThickness = float.Parse(txtMinRequiredThickness.Text);
-            comp.CurrentCorrosionRate = float.Parse(txtCurrentCorrosionRate.Text);
+            comp.ID = ID;
+            comp.NominalDiameter = txtTankDiameter.Text != "" ? float.Parse(txtTankDiameter.Text) : 0;
+            comp.NominalThickness = txtNominalThickness.Text != "" ? float.Parse(txtNominalThickness.Text) : 0;
+            comp.CurrentThickness = txtCurrentThickness.Text != "" ? float.Parse(txtCurrentThickness.Text) : 0;
+            comp.MinReqThickness = txtMinRequiredThickness.Text != "" ? float.Parse(txtMinRequiredThickness.Text) : 0;
+            comp.CurrentCorrosionRate = txtCurrentCorrosionRate.Text != "" ? float.Parse(txtCurrentCorrosionRate.Text) : 0;
             comp.BrinnelHardness = cbMaxBrillnessHardness.Text;
             comp.SeverityOfVibration = cbSeverityVibration.Text;
             comp.ComplexityProtrusion = cbComplexityProtrusion.Text;

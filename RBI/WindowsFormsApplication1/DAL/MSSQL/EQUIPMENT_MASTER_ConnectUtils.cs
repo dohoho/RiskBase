@@ -305,6 +305,151 @@ namespace RBI.DAL.MSSQL
             }
             return commisionDate;
         }
+        public String getEquipmentNumber(int eqID)
+        {
+            String eqNum = "";
+            SqlConnection con = MSSQLDBUtils.GetDBConnection();
+            con.Open();
+            String sql = "select EquipmentNumber from rbi.dbo.EQUIPMENT_MASTER where EquipmentID = '"+eqID+"'";
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandText = sql;
+                cmd.Connection = con;
+                using (DbDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        if (reader.HasRows)
+                        {
+                            eqNum = reader.GetString(0);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Get DateTime Fail------->" + ex.ToString(), "Get Data Fail");
+            }
+            finally
+            {
+                con.Close();
+                con.Dispose();
+            }
+            return eqNum;
+        }
+        public String getEquipmentDesc(int eqID)
+        {
+            String eqNum = "";
+            SqlConnection con = MSSQLDBUtils.GetDBConnection();
+            con.Open();
+            String sql = "select EquipmentDesc from rbi.dbo.EQUIPMENT_MASTER where EquipmentID = '"+eqID+"'";
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandText = sql;
+                cmd.Connection = con;
+                using (DbDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        if (reader.HasRows && !reader.IsDBNull(0))
+                        {
+                                eqNum = reader.GetString(0);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Get DateTime Fail------->" + ex.ToString(), "Get Data Fail");
+            }
+            finally
+            {
+                con.Close();
+                con.Dispose();
+            }
+            return eqNum;
+        }
 
+        public EQUIPMENT_MASTER getData(int eqID)
+        {
+            EQUIPMENT_MASTER obj = new EQUIPMENT_MASTER();
+            SqlConnection con = MSSQLDBUtils.GetDBConnection();
+            con.Open();
+            String sql = "select EquipmentNumber,EquipmentTypeID,EquipmentName,CommissionDate,DesignCodeID,SiteID,FacilityID,ManufacturerID,PFDNo,ProcessDescription,EquipmentDesc from rbi.dbo.EQUIPMENT_MASTER where EquipmentID = '" + eqID + "'";
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandText = sql;
+                cmd.Connection = con;
+                using (DbDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        if (reader.HasRows)
+                        {
+                            obj.EquipmentNumber = reader.GetString(0);
+                            obj.EquipmentTypeID = reader.GetInt32(1);
+                            obj.EquipmentName = reader.GetString(2);
+                            obj.CommissionDate = reader.GetDateTime(3);
+                            obj.DesignCodeID = reader.GetInt32(4);
+                            obj.SiteID = reader.GetInt32(5);
+                            obj.FacilityID = reader.GetInt32(6);
+                            obj.ManufacturerID = reader.GetInt32(7);
+                            if(!reader.IsDBNull(8))
+                            obj.PFDNo = reader.GetString(8);
+                            if (!reader.IsDBNull(9))
+                            obj.ProcessDescription = reader.GetString(9);
+                            if (!reader.IsDBNull(10))
+                            obj.EquipmentDesc = reader.GetString(10);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Get DateTime Fail------->" + ex.ToString(), "Get Data Fail");
+            }
+            finally
+            {
+                con.Close();
+                con.Dispose();
+            }
+            return obj;
+        }
+        public int getFacilityID(int eqID)
+        {
+            int obj = 0;
+            SqlConnection con = MSSQLDBUtils.GetDBConnection();
+            con.Open();
+            String sql = "select FacilityID from rbi.dbo.EQUIPMENT_MASTER where EquipmentID = '"+eqID+"'";
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandText = sql;
+                cmd.Connection = con;
+                using (DbDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        if (reader.HasRows)
+                        {
+                            obj = reader.GetInt32(0);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Get DateTime Fail------->" + ex.ToString(), "Get Data Fail");
+            }
+            finally
+            {
+                con.Close();
+                con.Dispose();
+            }
+            return obj;
+        }
     }
 }

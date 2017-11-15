@@ -39,5 +39,21 @@ namespace RBI.BUS.BUSMSSQL
         {
             return DAL.getCommissionDate(eqID);
         }
+        public String getEquipmentNumber(int eqID)
+        {
+            return DAL.getEquipmentNumber(eqID);
+        }
+        public String getEquipmentDesc(int eqID)
+        {
+            return DAL.getEquipmentDesc(eqID);
+        }
+        public EQUIPMENT_MASTER getData(int eqID)
+        {
+            return DAL.getData(eqID);
+        }
+        public int getFacilityID(int eqID)
+        {
+            return DAL.getFacilityID(eqID);
+        }
     }
 }

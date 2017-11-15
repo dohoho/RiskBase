@@ -27,5 +27,13 @@ namespace RBI.BUS.BUSMSSQL
         {
             return DAL.getDataSource();
         }
+        public String getSiteName(int SiteID)
+        {
+            return DAL.getSiteName(SiteID);
+        }
+        public List<String> getSitesName()
+        {
+            return DAL.getSitesName();
+        }
     }
 }

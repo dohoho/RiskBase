@@ -95,5 +95,13 @@ namespace RBI.PRE.subForm.OutputDataForm
             txtFC.Text = fullPoF.FCoFValue.ToString();
             txtCA.Text = fullPoF.FCoFCategory;
         }
+        public void ShowDataTank(int ID)
+        {
+            groupBox4.Hide();
+            RW_CA_TANK_BUS busTank = new RW_CA_TANK_BUS();
+            RW_CA_TANK ca = busTank.getData(ID);
+            txtFC.Text = (ca.FC_Environ + ca.FC_Environ_Leak + ca.FC_Environ_Rupture).ToString();
+            txtCA.Text = ca.ConsequenceCategory;
+        }
     }
 }

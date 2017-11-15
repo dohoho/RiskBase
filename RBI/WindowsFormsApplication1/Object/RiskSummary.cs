@@ -312,17 +312,17 @@ namespace RBI.Object
 
         public String EquipmentNumber { set; get; }
         public String EquipmentDesc { set; get; }
+        public float currentRisk { set; get; }
         public String EquipmentType { set; get; }
         public String ComponentName { set; get; }
         public String RepresentFluid { set; get; }
         public String FluidPhase { set; get; }
-        public float cotcatFlammable { set; get; }
-        public float currentRisk { set; get; }
-        public float cotcatPeople { set; get; }
-        public float cotcatAsset { set; get; }
-        public float cotcatEnv { set; get; }
-        public float cotcatReputation { set; get; }
-        public float cotcatCombined { set; get; }
+        public float cofcatFlammable { set; get; }
+        public float cofcatPeople { set; get; }
+        public float cofcatAsset { set; get; }
+        public float cofcatEnv { set; get; }
+        public float cofcatReputation { set; get; }
+        public float cofcatCombined { set; get; }
         public String componentMaterialGrade { set; get; }
         public float initThinningPoF { set; get; }
         public float initEnvCracking { set; get; }
@@ -333,6 +333,7 @@ namespace RBI.Object
         public float extOtherPoF { set; get; }
         public float extPoF { set; get; }
         public float PoF { set; get; }
+        public float CurrentRiskCalculation { set; get; }
         public float futureRisk { set; get; }
     }
 }

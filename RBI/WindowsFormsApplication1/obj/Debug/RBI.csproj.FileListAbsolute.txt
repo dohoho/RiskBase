@@ -110,4 +110,5 @@ E:\Project\hoang\RBI\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1
 E:\Project\hoang\RBI\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe
 E:\Project\hoang\RBI\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.pdb
 E:\Project\hoang\RBI\WindowsFormsApplication1\obj\Debug\RBI.csprojResolveAssemblyReference.cache
+E:\Project\hoang\RBI\WindowsFormsApplication1\obj\Debug\RBI.WaitForm1.resources
 E:\Project\hoang\RBI\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.exe

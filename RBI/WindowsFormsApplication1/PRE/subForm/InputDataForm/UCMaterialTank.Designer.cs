@@ -71,6 +71,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.txtProductionCost = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cbPTAMaterialGrade.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbHeatTreatment.Properties)).BeginInit();
@@ -100,6 +102,7 @@
             this.groupBox1.Controls.Add(this.txtAllowableStress);
             this.groupBox1.Controls.Add(this.txtReferenceTemperature);
             this.groupBox1.Controls.Add(this.label9);
+            this.groupBox1.Controls.Add(this.txtProductionCost);
             this.groupBox1.Controls.Add(this.txtMaterialCostFactor);
             this.groupBox1.Controls.Add(this.txtCorrosionAllowance);
             this.groupBox1.Controls.Add(this.txtDesignPressure);
@@ -113,6 +116,7 @@
             this.groupBox1.Controls.Add(this.label27);
             this.groupBox1.Controls.Add(this.label26);
             this.groupBox1.Controls.Add(this.label23);
+            this.groupBox1.Controls.Add(this.label16);
             this.groupBox1.Controls.Add(this.label17);
             this.groupBox1.Controls.Add(this.label28);
             this.groupBox1.Controls.Add(this.label22);
@@ -333,6 +337,7 @@
             // 
             // txtMaterialCostFactor
             // 
+            this.txtMaterialCostFactor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMaterialCostFactor.Location = new System.Drawing.Point(172, 365);
             this.txtMaterialCostFactor.Name = "txtMaterialCostFactor";
             this.txtMaterialCostFactor.Size = new System.Drawing.Size(138, 22);
@@ -541,6 +546,25 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Material";
             // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(371, 368);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(93, 15);
+            this.label16.TabIndex = 0;
+            this.label16.Text = "Production Cost";
+            // 
+            // txtProductionCost
+            // 
+            this.txtProductionCost.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtProductionCost.Location = new System.Drawing.Point(497, 365);
+            this.txtProductionCost.Name = "txtProductionCost";
+            this.txtProductionCost.Size = new System.Drawing.Size(138, 22);
+            this.txtProductionCost.TabIndex = 1;
+            this.txtProductionCost.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMaterialCostFactor_KeyPress);
+            // 
             // UCMaterialTank
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -602,5 +626,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtProductionCost;
+        private System.Windows.Forms.Label label16;
     }
 }

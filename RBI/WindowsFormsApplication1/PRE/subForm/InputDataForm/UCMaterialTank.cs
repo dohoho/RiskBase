@@ -42,6 +42,8 @@ namespace RBI.PRE.subForm.InputDataForm
         {
             RW_MATERIAL_BUS BUS = new RW_MATERIAL_BUS();
             RW_MATERIAL obj = BUS.getData(ID);
+            RW_INPUT_CA_TANK_BUS busTank = new RW_INPUT_CA_TANK_BUS();
+            float tank = busTank.getProductionCost(ID);
             cbPTAMaterial.Text = obj.MaterialName;
             txtDesignPressure.Text = obj.DesignPressure.ToString();
             txtMaxDesignTemperature.Text = obj.DesignTemperature.ToString();
@@ -80,6 +82,7 @@ namespace RBI.PRE.subForm.InputDataForm
             chkChromium.Checked = Convert.ToBoolean(obj.ChromeMoreEqual12);
             txtAllowableStress.Text = obj.AllowableStress.ToString();
             txtMaterialCostFactor.Text = obj.CostFactor.ToString();
+            txtProductionCost.Text = tank.ToString();
         }
         private void addSulfurContent()
         {
@@ -105,10 +108,10 @@ namespace RBI.PRE.subForm.InputDataForm
                 cbPTAMaterialGrade.Properties.Items.Add(itemsPTAMterial[i], i, i);
             }
         }
-        public RW_MATERIAL getData()
+        public RW_MATERIAL getData(int ID)
         {
             RW_MATERIAL ma = new RW_MATERIAL();
-            ma.ID = 2;
+            ma.ID = ID;
             ma.MaterialName = cbPTAMaterial.Text;
             ma.DesignPressure = txtDesignPressure.Text != "" ? float.Parse(txtDesignPressure.Text) : 0;
             ma.DesignTemperature = txtMaxDesignTemperature.Text != "" ? float.Parse(txtMaxDesignTemperature.Text) : 0;
@@ -134,7 +137,12 @@ namespace RBI.PRE.subForm.InputDataForm
             ca.Material_Cost = txtMaterialCostFactor.Text != "" ? float.Parse(txtMaterialCostFactor.Text) : 0;
             return ca;
         }
-        
+        public RW_INPUT_CA_TANK getDataforTank()
+        {
+            RW_INPUT_CA_TANK ca = new RW_INPUT_CA_TANK();
+            ca.ProductionCost = txtProductionCost.Text != "" ? float.Parse(txtProductionCost.Text) : 0;
+            return ca;
+        }
         private void chkIsPTASeverity_CheckedChanged(object sender, EventArgs e)
         {
             cbPTAMaterialGrade.Enabled = chkIsPTASeverity.Checked ? true : false;

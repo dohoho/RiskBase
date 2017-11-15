@@ -374,6 +374,41 @@ namespace RBI.DAL.MSSQL
             }
             return temp;
         }
+        public RW_ASSESSMENT getData(int ID)
+        {
+            RW_ASSESSMENT ass = new RW_ASSESSMENT();
+            SqlConnection conn = MSSQLDBUtils.GetDBConnection();
+            conn.Open();
+            String sql = "select ProposalName,AssessmentDate,RiskAnalysisPeriod from rbi.dbo.RW_ASSESSMENT where ID = '" + ID + "'";
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = conn;
+                cmd.CommandText = sql;
+                using (DbDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        if (reader.HasRows)
+                        {
+                            ass.ProposalName = reader.GetString(0);
+                            ass.AssessmentDate = reader.GetDateTime(1);
+                            ass.RiskAnalysisPeriod = reader.GetInt32(2);
+                        }
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString(), "GET DATA FAIL!");
+            }
+            finally
+            {
+                conn.Close();
+                conn.Dispose();
+            }
+            return ass;
+        }
     }
 }
 

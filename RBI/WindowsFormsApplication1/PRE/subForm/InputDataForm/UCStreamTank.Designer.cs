@@ -68,7 +68,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.btnEditFluid = new DevExpress.XtraEditors.ButtonEdit();
             this.txtPercentageFluidGoingOffsite = new System.Windows.Forms.TextBox();
             this.txtPercentageLeavingDike = new System.Windows.Forms.TextBox();
             this.txtPercentageLeavingRemainsOnSite = new System.Windows.Forms.TextBox();
@@ -79,12 +78,13 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.cbFluidTank = new DevExpress.XtraEditors.ImageComboBoxEdit();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cbAmineSolutionComposition.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbExposureAmine.Properties)).BeginInit();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnEditFluid.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbFluidTank.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -517,7 +517,7 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.btnEditFluid);
+            this.groupBox2.Controls.Add(this.cbFluidTank);
             this.groupBox2.Controls.Add(this.txtPercentageFluidGoingOffsite);
             this.groupBox2.Controls.Add(this.txtPercentageLeavingDike);
             this.groupBox2.Controls.Add(this.txtPercentageLeavingRemainsOnSite);
@@ -535,15 +535,6 @@
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Fluid";
-            // 
-            // btnEditFluid
-            // 
-            this.btnEditFluid.Location = new System.Drawing.Point(232, 19);
-            this.btnEditFluid.Name = "btnEditFluid";
-            this.btnEditFluid.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.btnEditFluid.Size = new System.Drawing.Size(471, 20);
-            this.btnEditFluid.TabIndex = 4;
             // 
             // txtPercentageFluidGoingOffsite
             // 
@@ -641,6 +632,15 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Fluid";
             // 
+            // cbFluidTank
+            // 
+            this.cbFluidTank.Location = new System.Drawing.Point(232, 18);
+            this.cbFluidTank.Name = "cbFluidTank";
+            this.cbFluidTank.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cbFluidTank.Size = new System.Drawing.Size(471, 20);
+            this.cbFluidTank.TabIndex = 4;
+            // 
             // UCStreamTank
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -655,7 +655,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.cbExposureAmine.Properties)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnEditFluid.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbFluidTank.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -712,6 +712,6 @@
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
-        private DevExpress.XtraEditors.ButtonEdit btnEditFluid;
+        private DevExpress.XtraEditors.ImageComboBoxEdit cbFluidTank;
     }
 }

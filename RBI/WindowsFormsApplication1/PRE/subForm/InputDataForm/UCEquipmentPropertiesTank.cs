@@ -145,10 +145,10 @@ namespace RBI.PRE.subForm.InputDataForm
             chkTankMaintainedAccordance.Checked = Convert.ToBoolean(eq.TankIsMaintained);
             txtDistanceGroundWater.Text = eq.DistanceToGroundWater.ToString();
         }
-        public RW_EQUIPMENT getData()
+        public RW_EQUIPMENT getData(int ID)
         {
             RW_EQUIPMENT eq = new RW_EQUIPMENT();
-            eq.ID = 2;
+            eq.ID = ID;
             eq.AdminUpsetManagement = chkAministrativeControl.Checked ? 1 : 0;
             eq.CyclicOperation = chkCylicOperation.Checked ? 1 : 0;
             eq.DowntimeProtectionUsed = chkDowntimeProtection.Checked ? 1 : 0;
@@ -219,9 +219,10 @@ namespace RBI.PRE.subForm.InputDataForm
             }
         }
         
-        public RW_INPUT_CA_TANK getDataforTank()
+        public RW_INPUT_CA_TANK getDataforTank(int ID)
         {
             RW_INPUT_CA_TANK tank = new RW_INPUT_CA_TANK();
+            tank.ID = ID;
             tank.Environ_Sensitivity = cbEnvironmentalSensitivity.Text;
             tank.SW = txtDistanceGroundWater.Text != "" ? float.Parse(txtDistanceGroundWater.Text) : 0;
             tank.Soil_Type = cbTypeSoild.Text;

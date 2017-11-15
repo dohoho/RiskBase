@@ -11,14 +11,13 @@ namespace RBI.DAL.MSSQL
 {
     class RW_INSPECTION_HISTORY_ConnUtils
     {
-        public void add(int ID, String InspectionPlanName, String InspectionCoverageName, String EquipmentNumber, String ComponentNumber, String DM, String InspectionType, DateTime InspectionDate, String InspectionEffective)
+        public void add( String InspectionPlanName, String InspectionCoverageName, String EquipmentNumber, String ComponentNumber, String DM, String InspectionType, DateTime InspectionDate, String InspectionEffective)
         {
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             String sql = "USE [rbi] " +
                         "INSERT INTO [dbo].[RW_INSPECTION_HISTORY] " +
-                        "([ID] " +
-                        ",[InspectionPlanName] " +
+                        "([InspectionPlanName] " +
                         ",[InspectionCoverageName] " +
                         ",[EquipmentNumber] " +
                         ",[ComponentNumber] " +
@@ -27,8 +26,7 @@ namespace RBI.DAL.MSSQL
                         ",[InspectionDate] " +
                         ",[InspectionEffective]) " +
                         " VALUES " +
-                        "('" + ID + "'" +
-                        ",'" + InspectionPlanName + "'" +
+                        "('" + InspectionPlanName + "'" +
                         ",'" + InspectionCoverageName + "'" +
                         ",'" + EquipmentNumber + "'" +
                         ",'" + ComponentNumber + "'" +

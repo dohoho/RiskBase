@@ -169,23 +169,142 @@ namespace RBI.DAL.MSSQL
                     {
                         if (reader.HasRows)
                         {
-                            obj.API_FLUID = reader.GetString(0);
-                            obj.SYSTEM = reader.GetString(1);
-                            obj.Release_Duration = reader.GetString(2);
-                            obj.Detection_Type = reader.GetString(3);
-                            obj.Isulation_Type = reader.GetString(4);
-                            obj.Mitigation_System = reader.GetString(5);
-                            obj.Equipment_Cost = (float)reader.GetDouble(6);
-                            obj.Injure_Cost = (float)reader.GetDouble(7);
-                            obj.Environment_Cost = (float)reader.GetDouble(8);
-                            obj.Toxic_Percent = (float)reader.GetDouble(9);
-                            obj.Personal_Density = (float)reader.GetDouble(10);
-                            obj.Material_Cost = (float)reader.GetDouble(11);
-                            obj.Production_Cost = (float)reader.GetDouble(12);
-                            obj.Mass_Inventory = (float)reader.GetDouble(13);
-                            obj.Mass_Component = (float)reader.GetDouble(14);
-                            obj.Stored_Pressure = (float)reader.GetDouble(15);
-                            obj.Stored_Temp = (float)reader.GetDouble(16);
+                            try
+                            {
+                                obj.API_FLUID = reader.GetString(0);
+                            }
+                            catch
+                            {
+                                obj.API_FLUID = "";
+                            }
+                            try
+                            {
+                                obj.SYSTEM = reader.GetString(1);
+                            }
+                            catch 
+                            {
+                                obj.SYSTEM = "Liquid";
+                            }
+                            try
+                            {
+                                obj.Release_Duration = reader.GetString(2);
+                            }
+                            catch
+                            {
+                                obj.Release_Duration = "";
+                            }
+                            try
+                            {
+                                obj.Detection_Type = reader.GetString(3);
+                            }
+                            catch
+                            {
+                                obj.Detection_Type = "";
+                            }
+                            try
+                            {
+                                obj.Isulation_Type = reader.GetString(4);
+                            }
+                            catch
+                            {
+                                obj.Isulation_Type = "";
+                            }
+                            try
+                            {
+                                obj.Mitigation_System = reader.GetString(5);
+                            }
+                            catch
+                            {
+                                obj.Mitigation_System = "";
+                            }
+                            try
+                            {
+                                obj.Equipment_Cost = (float)reader.GetDouble(6);
+                            }
+                            catch
+                            {
+                                obj.Equipment_Cost = 0;
+                            }
+                            try
+                            {
+                                obj.Injure_Cost = (float)reader.GetDouble(7);
+                            }
+                            catch
+                            {
+                                obj.Injure_Cost = 0;
+                            }
+                            try
+                            {
+                                obj.Environment_Cost = (float)reader.GetDouble(8);
+                            }
+                            catch
+                            {
+                                obj.Environment_Cost = 0;
+                            }
+                            try
+                            {
+                                obj.Toxic_Percent = (float)reader.GetDouble(9);
+                            }
+                            catch
+                            {
+                                obj.Toxic_Percent = 0;
+                            }
+                            try
+                            {
+                                obj.Personal_Density = (float)reader.GetDouble(10);
+                            }
+                            catch
+                            {
+                                obj.Personal_Density = 0;
+                            }
+                            try
+                            {
+                                obj.Material_Cost = (float)reader.GetDouble(11);
+                            }
+                            catch
+                            {
+                                obj.Material_Cost = 0;
+                            }
+                            try
+                            {
+                                obj.Production_Cost = (float)reader.GetDouble(12);
+                            }
+                            catch
+                            {
+                                obj.Production_Cost = 0;
+                            }
+                            try
+                            {
+                                obj.Mass_Inventory = (float)reader.GetDouble(13);
+                            }
+                            catch
+                            {
+                                obj.Mass_Inventory = 0;
+                            }
+                            try
+                            {
+                                obj.Mass_Component = (float)reader.GetDouble(14);
+                            }
+                            catch
+                            {
+                                obj.Mass_Component = 0;
+                            }
+                            try
+                            {
+                                obj.Stored_Pressure = (float)reader.GetDouble(15);
+                            }
+                            catch
+                            {
+                                obj.Stored_Pressure = 0;
+                            }
+                            try
+                            {
+                                obj.Stored_Temp = (float)reader.GetDouble(16);
+                            }
+                            catch
+                            {
+                                obj.Stored_Temp = 0;
+                            }
                         }
                     }
                 }

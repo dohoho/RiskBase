@@ -56,6 +56,10 @@
             this.barButtonItem15 = new DevExpress.XtraBars.BarButtonItem();
             this.btnImportExcelData = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem17 = new DevExpress.XtraBars.BarButtonItem();
+            this.popupExportDataExcel = new DevExpress.XtraBars.PopupMenu(this.components);
+            this.btnGeneral = new DevExpress.XtraBars.BarButtonItem();
+            this.btnGan = new DevExpress.XtraBars.BarButtonItem();
+            this.btnInspectionPlan = new DevExpress.XtraBars.BarButtonItem();
             this.btnBackupData = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem19 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
@@ -107,8 +111,12 @@
             this.navCA = new DevExpress.XtraNavBar.NavBarItem();
             this.imageCollection1 = new DevExpress.Utils.ImageCollection(this.components);
             this.navGrRecord = new DevExpress.XtraNavBar.NavBarGroup();
+            this.splashScreenManager1 = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::RBI.WaitForm1), true, true);
+            this.ribbonPageGroup11 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.btnSyncData = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupNew)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.popupExportDataExcel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabData)).BeginInit();
             this.xtraTabData.SuspendLayout();
             this.xTabHome.SuspendLayout();
@@ -158,9 +166,13 @@
             this.btnFacility,
             this.btnImportInspection,
             this.btnNewEquipment,
-            this.btnNewComponent});
+            this.btnNewComponent,
+            this.btnGeneral,
+            this.btnGan,
+            this.btnInspectionPlan,
+            this.btnSyncData});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 33;
+            this.ribbon.MaxItemId = 37;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1,
@@ -371,15 +383,48 @@
             this.barButtonItem17.ActAsDropDown = true;
             this.barButtonItem17.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.DropDown;
             this.barButtonItem17.Caption = "Export Data";
+            this.barButtonItem17.DropDownControl = this.popupExportDataExcel;
             this.barButtonItem17.Id = 23;
             this.barButtonItem17.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem17.ImageOptions.Image")));
             this.barButtonItem17.Name = "barButtonItem17";
             this.barButtonItem17.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
-            this.barButtonItem17.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem17_ItemClick);
+            // 
+            // popupExportDataExcel
+            // 
+            this.popupExportDataExcel.ItemLinks.Add(this.btnGeneral);
+            this.popupExportDataExcel.ItemLinks.Add(this.btnGan);
+            this.popupExportDataExcel.ItemLinks.Add(this.btnInspectionPlan);
+            this.popupExportDataExcel.Name = "popupExportDataExcel";
+            this.popupExportDataExcel.Ribbon = this.ribbon;
+            // 
+            // btnGeneral
+            // 
+            this.btnGeneral.Caption = "Risk Summary General";
+            this.btnGeneral.Id = 33;
+            this.btnGeneral.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnGeneral.ImageOptions.Image")));
+            this.btnGeneral.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnGeneral.ImageOptions.LargeImage")));
+            this.btnGeneral.Name = "btnGeneral";
+            this.btnGeneral.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnGeneral_ItemClick);
+            // 
+            // btnGan
+            // 
+            this.btnGan.Caption = "Risk Summary Detail";
+            this.btnGan.Id = 34;
+            this.btnGan.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnGan.ImageOptions.Image")));
+            this.btnGan.Name = "btnGan";
+            this.btnGan.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnGan_ItemClick);
+            // 
+            // btnInspectionPlan
+            // 
+            this.btnInspectionPlan.Caption = "Inspection Plan";
+            this.btnInspectionPlan.Id = 35;
+            this.btnInspectionPlan.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnInspectionPlan.ImageOptions.Image")));
+            this.btnInspectionPlan.Name = "btnInspectionPlan";
+            this.btnInspectionPlan.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnInspectionPlan_ItemClick);
             // 
             // btnBackupData
             // 
-            this.btnBackupData.Caption = "Backup Data";
+            this.btnBackupData.Caption = "Back Up Data";
             this.btnBackupData.Id = 24;
             this.btnBackupData.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnBackupData.ImageOptions.Image")));
             this.btnBackupData.Name = "btnBackupData";
@@ -463,7 +508,8 @@
             // 
             this.ribbonPage5.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.ribbonPageGroup8,
-            this.ribbonPageGroup9});
+            this.ribbonPageGroup9,
+            this.ribbonPageGroup11});
             this.ribbonPage5.Name = "ribbonPage5";
             this.ribbonPage5.Text = "Data";
             // 
@@ -823,6 +869,25 @@
             this.navGrRecord.GroupStyle = DevExpress.XtraNavBar.NavBarGroupStyle.SmallIconsText;
             this.navGrRecord.Name = "navGrRecord";
             // 
+            // splashScreenManager1
+            // 
+            this.splashScreenManager1.ClosingDelay = 500;
+            // 
+            // ribbonPageGroup11
+            // 
+            this.ribbonPageGroup11.ItemLinks.Add(this.btnSyncData);
+            this.ribbonPageGroup11.Name = "ribbonPageGroup11";
+            this.ribbonPageGroup11.Text = "Sync Data";
+            // 
+            // btnSyncData
+            // 
+            this.btnSyncData.Caption = "Sync Data";
+            this.btnSyncData.Id = 36;
+            this.btnSyncData.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem4.ImageOptions.Image")));
+            this.btnSyncData.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem4.ImageOptions.LargeImage")));
+            this.btnSyncData.Name = "btnSyncData";
+            this.btnSyncData.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnSyncData_ItemClick);
+            // 
             // RibbonForm1
             // 
             this.AllowFormGlass = DevExpress.Utils.DefaultBoolean.True;
@@ -843,6 +908,7 @@
             this.Text = "Cortek RBI";
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupNew)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.popupExportDataExcel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabData)).EndInit();
             this.xtraTabData.ResumeLayout(false);
             this.xTabHome.ResumeLayout(false);
@@ -939,5 +1005,12 @@
         private DevExpress.XtraBars.BarButtonItem btnNewComponent;
         private DevExpress.Utils.ImageCollection imageTreeList;
         private DevExpress.XtraTreeList.TreeList treeListProject;
+        private DevExpress.XtraBars.BarButtonItem btnGeneral;
+        private DevExpress.XtraBars.BarButtonItem btnGan;
+        private DevExpress.XtraBars.PopupMenu popupExportDataExcel;
+        private DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager1;
+        private DevExpress.XtraBars.BarButtonItem btnInspectionPlan;
+        private DevExpress.XtraBars.BarButtonItem btnSyncData;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup11;
     }
 }

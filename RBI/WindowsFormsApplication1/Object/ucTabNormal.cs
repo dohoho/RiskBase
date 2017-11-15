@@ -19,10 +19,7 @@ namespace RBI.Object
         public UCStream ucStream { set; get; }
         public UCCA ucCA { set; get; }
         public UCRiskFactor ucRiskFactor { set; get; }
-        public UCEquipmentPropertiesTank ucEquipmentTank {set;get;}
-        public UCComponentPropertiesTank ucComponentTank {set; get;}
-        public UCMaterialTank ucMaterialTank {set; get;}
-        public UCStreamTank ucStreamTank {set; get;}
+       
         public ucTabNormal(int id, UCAssessmentInfo u1, UCEquipmentProperties u2, UCComponentProperties u3, UCOperatingCondition u4, 
             UCCoatLiningIsulationCladding u5, UCMaterial u6, UCStream u7, UCCA u8, UCRiskFactor u9)
         {
@@ -37,14 +34,6 @@ namespace RBI.Object
             ucCA = u8;
             ucRiskFactor = u9;
         }
-        public ucTabNormal(int ID, UCAssessmentInfo u1, UCEquipmentPropertiesTank u2, UCComponentPropertiesTank u3, UCMaterialTank u4, UCStreamTank u5)
-        {
-            this.ID = ID;
-            ucAss = u1;
-            ucEquipmentTank = u2;
-            ucComponentTank = u3;
-            ucMaterialTank = u4;
-            ucStreamTank = u5;
-        }
+        
     }
 }

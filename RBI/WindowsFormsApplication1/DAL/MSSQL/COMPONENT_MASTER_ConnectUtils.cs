@@ -198,5 +198,76 @@ namespace RBI.DAL.MSSQL
             }
             return _ID;
         }
+        public String getComponentName(int eqID)
+        {
+            String comName = "";
+            SqlConnection con = MSSQLDBUtils.GetDBConnection();
+            con.Open();
+            String sql = "select ComponentName from rbi.dbo.COMPONENT_MASTER where EquipmentID = '"+eqID+"'";
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandText = sql;
+                cmd.Connection = con;
+                using (DbDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        if (reader.HasRows)
+                        {
+                            comName = reader.GetString(0);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Get FMS Fail------->" + ex.ToString(), "Get Data Fail");
+            }
+            finally
+            {
+                con.Close();
+                con.Dispose();
+            }
+            return comName;
+        }
+        public COMPONENT_MASTER getData(int comID)
+        {
+            COMPONENT_MASTER obj = new COMPONENT_MASTER();
+            SqlConnection con = MSSQLDBUtils.GetDBConnection();
+            con.Open();
+            String sql = "select ComponentNumber,ComponentTypeID,ComponentName,ComponentDesc,IsEquipmentLinked,APIComponentTypeID from rbi.dbo.COMPONENT_MASTER where ComponentID = '" + comID + "'";
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandText = sql;
+                cmd.Connection = con;
+                using (DbDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        if (reader.HasRows)
+                        {
+                            obj.ComponentNumber = reader.GetString(0);
+                            obj.ComponentTypeID = reader.GetInt32(1);
+                            obj.ComponentName = reader.GetString(2);
+                            obj.ComponentDesc = reader.GetString(3);
+                            obj.IsEquipmentLinked = Convert.ToInt32(reader.GetBoolean(4));
+                            obj.APIComponentTypeID = reader.GetInt32(5);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Get FMS Fail------->" + ex.ToString(), "Get Data Fail");
+            }
+            finally
+            {
+                con.Close();
+                con.Dispose();
+            }
+            return obj;
+        }
     }
 }

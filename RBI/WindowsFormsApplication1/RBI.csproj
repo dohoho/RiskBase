@@ -31,6 +31,26 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="DevComponents.DotNetBar.Charts, Version=14.1.0.7, Culture=neutral, PublicKeyToken=7eb7c3a35b91de04, processorArchitecture=MSIL" />
     <Reference Include="DevComponents.DotNetBar2, Version=14.1.0.7, Culture=neutral, PublicKeyToken=7eb7c3a35b91de04" />
@@ -97,6 +117,7 @@
     <Compile Include="BUS\BUSExcel\BusEquipmentListExcel.cs" />
     <Compile Include="BUS\BUSExcel\BusEquipmentTempExcel.cs" />
     <Compile Include="BUS\BUSExcel\BusImportExcel.cs" />
+    <Compile Include="BUS\BUSExcel\Bus_INSPECTION_HISTORY_Excel.cs" />
     <Compile Include="BUS\BUSMSSQL\API_COMPONENT_TYPE_BUS.cs" />
     <Compile Include="BUS\BUSMSSQL\COMPONENT_DETAIL_BUS.cs" />
     <Compile Include="BUS\BUSMSSQL\COMPONENT_MASTER_BUS.cs" />
@@ -188,8 +209,6 @@
     <Compile Include="BUS\BUSExcel\FullPlantObjectExcel.cs" />
     <Compile Include="BUS\BusFullPlant.cs" />
     <Compile Include="BUS\BusInspectionPlant.cs" />
-    <Compile Include="BUS\BusRiskDemo.cs" />
-    <Compile Include="BUS\BusRiskSummary.cs" />
     <Compile Include="BUS\BUSXML\ReadXML.cs" />
     <Compile Include="BUS\Calculator\atmosphericStorageTanksConsequence.cs" />
     <Compile Include="BUS\Calculator\consequenceAnalysisLvl1.cs" />
@@ -295,8 +314,6 @@
     <Compile Include="DAL\MySQLConnectionUtils.cs" />
     <Compile Include="DAL\RBICalculatorConn.cs" />
     <Compile Include="DAL\RBIScore\ScoreConn.cs" />
-    <Compile Include="DAL\RiskSummaryConnUtils.cs" />
-    <Compile Include="DAL\RiskSummaryConnUtils1.cs" />
     <Compile Include="Object\Component.cs" />
     <Compile Include="Object\ObjectMSSQL\API_COMPONENT_TYPE.cs" />
     <Compile Include="Object\ObjectMSSQL\COMPONENT_DETAIL.cs" />
@@ -393,6 +410,7 @@
     <Compile Include="Object\paramaterDF.cs" />
     <Compile Include="Object\RiskSummary.cs" />
     <Compile Include="Object\ucTabNormal.cs" />
+    <Compile Include="Object\ucTabTank.cs" />
     <Compile Include="PRE\ITEM\jtree.cs" />
     <Compile Include="PRE\subForm\ImportExcel.cs">
       <SubType>Form</SubType>
@@ -594,6 +612,12 @@
       <DependentUpon>test.cs</DependentUpon>
     </Compile>
     <Compile Include="TestData.cs" />
+    <Compile Include="WaitForm1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WaitForm1.Designer.cs">
+      <DependentUpon>WaitForm1.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="PRE\subForm\ImportExcel.resx">
       <DependentUpon>ImportExcel.cs</DependentUpon>
     </EmbeddedResource>
@@ -695,6 +719,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="test.resx">
       <DependentUpon>test.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WaitForm1.resx">
+      <DependentUpon>WaitForm1.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

@@ -136,6 +136,39 @@ namespace RBI.DAL.MSSQL
             return list;
         }
 
+        public String getManufacturerName(int manuID)
+        {
+            String name = "";
+            SqlConnection conn = MSSQLDBUtils.GetDBConnection();
+            conn.Open();
+            String sql = "select ManufacturerName from rbi.dbo.MANUFACTURER where ManufacturerID = '"+manuID+"'";
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = conn;
+                cmd.CommandText = sql;
+                using (DbDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        if (reader.HasRows)
+                        {
+                            name = reader.GetString(0);
+                        }
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString(), "GET DATA FAIL!");
+            }
+            finally
+            {
+                conn.Close();
+                conn.Dispose();
+            }
+            return name;
+        }
     }
 }
 

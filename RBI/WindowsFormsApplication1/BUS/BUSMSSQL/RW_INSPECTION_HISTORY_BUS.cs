@@ -13,7 +13,7 @@ namespace RBI.BUS.BUSMSSQL
         RW_INSPECTION_HISTORY_ConnUtils DAL = new RW_INSPECTION_HISTORY_ConnUtils();
         public void add(RW_INSPECTION_HISTORY obj)
         {
-            DAL.add(obj.ID, obj.InspectionPlanName, obj.InspectionCoverageName, obj.EquipmentNumber, obj.ComponentNumber, obj.DM, obj.InspectionType, obj.InspectionDate, obj.InspectionEffective);
+            DAL.add( obj.InspectionPlanName, obj.InspectionCoverageName, obj.EquipmentNumber, obj.ComponentNumber, obj.DM, obj.InspectionType, obj.InspectionDate, obj.InspectionEffective);
         }
         public void edit(RW_INSPECTION_HISTORY obj)
         {

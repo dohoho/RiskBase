@@ -31,5 +31,9 @@ namespace RBI.BUS.BUSMSSQL
         {
             return DAL.getFMS(SiteID);
         }
+        public String getFacilityName(int faciID)
+        {
+            return DAL.getFacilityName(faciID);
+        }
     }
 }

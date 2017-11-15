@@ -27,5 +27,9 @@ namespace RBI.BUS.BUSMSSQL
         {
             return DAL.getDataSource();
         }
+        public String getComponentTypeName(int typeID)
+        {
+            return DAL.getComponentTypeName(typeID);
+        }
     }
 }

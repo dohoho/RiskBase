@@ -327,6 +327,11 @@
             // 
             this.numSystemManagementFactor.DecimalPlaces = 2;
             this.numSystemManagementFactor.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numSystemManagementFactor.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            131072});
             this.numSystemManagementFactor.Location = new System.Drawing.Point(274, 472);
             this.numSystemManagementFactor.Maximum = new decimal(new int[] {
             10,

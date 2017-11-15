@@ -33,7 +33,7 @@ namespace RBI.BUS.BUSMSSQL_CAL
         public float PERSON_DENSITY { set; get; }
         public float EQUIPMENT_COST { set; get; }
         private String TOXIC_PHASE { set; get; }
-        public String CA_Category(float fc)
+        public String FC_Category(float fc)
         {
             if (fc <= 10000)
                 return "A";
@@ -42,6 +42,19 @@ namespace RBI.BUS.BUSMSSQL_CAL
             else if (fc <= 1000000)
                 return "C";
             else if (fc <= 10000000)
+                return "D";
+            else
+                return "E";
+        }
+        public String CA_Category(float ca)
+        {
+            if (ca <= 9.29)
+                return "A";
+            else if (ca <= 92.9)
+                return "B";
+            else if (ca <= 279)
+                return "C";
+            else if (ca <= 929)
                 return "D";
             else
                 return "E";
@@ -1085,7 +1098,7 @@ namespace RBI.BUS.BUSMSSQL_CAL
         }
         //Step 12: Compute total Financial
 
-        public double FC_total_shell()
+        public float FC_total_shell()
         {
             return fc_cmd() + FC_environ_shell() + fc_prod();
         }
@@ -1286,7 +1299,7 @@ namespace RBI.BUS.BUSMSSQL_CAL
             sum = (float)(obj.GFFSmall * obj.HoleCostSmall + obj.GFFMedium * obj.HoleCostMedium + obj.GFFLarge * obj.HoleCostLarge + obj.HoleCostRupture * Math.Pow(TANK_DIAMETER / DAL_CAL.GET_TBL_3B21(36), 2));
             return sum * MATERIAL_COST / obj.GFFTotal;
         }
-        public double FC_total_bottom()
+        public float FC_total_bottom()
         {
             return FC_environ_bottom() + FC_cmd_bottom() + fc_prod();
         }

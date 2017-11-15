@@ -406,14 +406,14 @@ namespace RBI.DAL.MSSQL
                             obj.CurrentThickness = (float)reader.GetDouble(2);
                             obj.MinReqThickness = (float)reader.GetDouble(3);
                             obj.CurrentCorrosionRate = (float)reader.GetDouble(4);
-                            obj.DamageFoundInspection = reader.GetInt32(14);
+                            obj.DamageFoundInspection = Convert.ToInt32(reader.GetBoolean(14));
                             obj.BrinnelHardness = reader.GetString(7);
-                            obj.CracksPresent = reader.GetInt32(12);
-                            obj.TrampElements = reader.GetInt32(22);
+                            obj.CracksPresent = Convert.ToInt32(reader.GetBoolean(12));
+                            obj.TrampElements = Convert.ToInt32(reader.GetBoolean(22));
                             obj.ShellHeight = (float)reader.GetDouble(23);
-                            obj.ReleasePreventionBarrier = reader.GetInt32(24);
+                            obj.ReleasePreventionBarrier = Convert.ToInt32(reader.GetBoolean(24));
                             obj.ComplexityProtrusion = reader.GetString(10);
-                            obj.ConcreteFoundation = reader.GetInt32(25);
+                            obj.ConcreteFoundation = Convert.ToInt32(reader.GetBoolean(25));
                             obj.SeverityOfVibration = reader.GetString(26);
                         }
                     }

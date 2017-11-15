@@ -12,13 +12,14 @@ namespace RBI.DAL.MSSQL
 {
     class RW_CA_TANK_ConnUtils
     {
-        public void add(float Hydraulic_Water, float Hydraulic_Fluid, float Seepage_Velocity, float Flow_Rate_D1, float Flow_Rate_D2, float Flow_Rate_D3, float Flow_Rate_D4, float Leak_Duration_D1, float Leak_Duration_D2, float Leak_Duration_D3, float Leak_Duration_D4, float Release_Volume_Leak_D1, float Release_Volume_Leak_D2, float Release_Volume_Leak_D3, float Release_Volume_Leak_D4, float Release_Volume_Rupture, float Liquid_Height, float Volume_Fluid, float Time_Leak_Ground, float Volume_SubSoil_Leak_D1, float Volume_SubSoil_Leak_D4, float Volume_Ground_Water_Leak_D1, float Volume_Ground_Water_Leak_D4, float Barrel_Dike_Leak, float Barrel_Dike_Rupture, float Barrel_Onsite_Leak, float Barrel_Onsite_Rupture, float Barrel_Offsite_Leak, float Barrel_Offsite_Rupture, float Barrel_Water_Leak, float Barrel_Water_Rupture, float FC_Environ_Leak, float FC_Environ_Rupture, float FC_Environ, float Material_Factor, float Component_Damage_Cost, float Business_Cost, float Consequence, String ConsequenceCategory)
+        public void add(int ID, float Hydraulic_Water, float Hydraulic_Fluid, float Seepage_Velocity, float Flow_Rate_D1, float Flow_Rate_D2, float Flow_Rate_D3, float Flow_Rate_D4, float Leak_Duration_D1, float Leak_Duration_D2, float Leak_Duration_D3, float Leak_Duration_D4, float Release_Volume_Leak_D1, float Release_Volume_Leak_D2, float Release_Volume_Leak_D3, float Release_Volume_Leak_D4, float Release_Volume_Rupture, float Liquid_Height, float Volume_Fluid, float Time_Leak_Ground, float Volume_SubSoil_Leak_D1, float Volume_SubSoil_Leak_D4, float Volume_Ground_Water_Leak_D1, float Volume_Ground_Water_Leak_D4, float Barrel_Dike_Leak, float Barrel_Dike_Rupture, float Barrel_Onsite_Leak, float Barrel_Onsite_Rupture, float Barrel_Offsite_Leak, float Barrel_Offsite_Rupture, float Barrel_Water_Leak, float Barrel_Water_Rupture, float FC_Environ_Leak, float FC_Environ_Rupture, float FC_Environ, float Material_Factor, float Component_Damage_Cost, float Business_Cost, float Consequence, String ConsequenceCategory)
         {
             SqlConnection conn = MSSQLDBUtils.GetDBConnection();
             conn.Open();
             String sql = "USE [rbi] " +
                         "INSERT INTO [dbo].[RW_CA_TANK]" +
-                        "([Hydraulic_Water]" +
+                        "([ID]"+
+                        ",[Hydraulic_Water]" +
                         ",[Hydraulic_Fluid]" +
                         ",[Seepage_Velocity]" +
                         ",[Flow_Rate_D1]" +
@@ -58,7 +59,8 @@ namespace RBI.DAL.MSSQL
                         ",[Consequence]" +
                         ",[ConsequenceCategory])" +
                         " VALUES " +
-                        "('" + Hydraulic_Water + "'" +
+                        "('" + ID + "'" +
+                        ",'" + Hydraulic_Water + "'" +
                         ",'" + Hydraulic_Fluid + "'" +
                         ",'" + Seepage_Velocity + "'" +
                         ",'" + Flow_Rate_D1 + "'" +
@@ -104,9 +106,9 @@ namespace RBI.DAL.MSSQL
                 cmd.Connection = conn;
                 cmd.ExecuteNonQuery();
             }
-            catch
+            catch(Exception ex)
             {
-                MessageBox.Show("ADD DATA FAIL!", "ERROR!");
+                MessageBox.Show("ADD DATA FAIL!" + ex.ToString(), "ERROR!");
             }
             finally
             {
@@ -167,9 +169,9 @@ namespace RBI.DAL.MSSQL
                 cmd.CommandText = sql;
                 cmd.ExecuteNonQuery();
             }
-            catch
+            catch(Exception ex)
             {
-                MessageBox.Show("EDIT DATA FAIL!", "ERROR!");
+                MessageBox.Show("EDIT DATA FAIL!" + ex.ToString(), "ERROR!");
             }
             finally
             {

@@ -29,5 +29,9 @@ namespace RBI.BUS.BUSMSSQL
         {
             return DAL.getDataSource();
         }
+        public float getRiskTarget(int faciID)
+        {
+            return DAL.getRiskTarget(faciID);
+        }
     }
 }

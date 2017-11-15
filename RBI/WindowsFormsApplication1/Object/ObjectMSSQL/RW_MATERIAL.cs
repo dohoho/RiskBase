@@ -30,5 +30,6 @@ namespace RBI.Object.ObjectMSSQL
         public int ChromeMoreEqual12 { set; get; }
         public float AllowableStress { set; get; }
         public float CostFactor { set; get; }
+        
     }
 }

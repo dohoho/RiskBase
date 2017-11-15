@@ -44,5 +44,9 @@ namespace RBI.BUS.BUSMSSQL
         {
             return DAL.getEquipmentID_ComponentID(ID);
         }
+        public RW_ASSESSMENT getData(int ID)
+        {
+            return DAL.getData(ID);
+        }
     }
 }

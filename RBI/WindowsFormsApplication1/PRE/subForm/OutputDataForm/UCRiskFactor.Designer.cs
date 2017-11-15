@@ -187,7 +187,7 @@
             this.xtraTabPage1.Controls.Add(this.groupBox2);
             this.xtraTabPage1.Controls.Add(this.groupBox3);
             this.xtraTabPage1.Name = "xtraTabPage1";
-            this.xtraTabPage1.Size = new System.Drawing.Size(793, 517);
+            this.xtraTabPage1.Size = new System.Drawing.Size(797, 520);
             this.xtraTabPage1.Text = "Probability of Failure";
             // 
             // groupBox2
@@ -859,7 +859,7 @@
             this.xtraTabPage2.Controls.Add(this.groupBox5);
             this.xtraTabPage2.Controls.Add(this.groupBox4);
             this.xtraTabPage2.Name = "xtraTabPage2";
-            this.xtraTabPage2.Size = new System.Drawing.Size(793, 517);
+            this.xtraTabPage2.Size = new System.Drawing.Size(797, 520);
             this.xtraTabPage2.Text = "Consequence Area";
             // 
             // groupBox5
@@ -869,7 +869,7 @@
             this.groupBox5.Controls.Add(this.txtFC);
             this.groupBox5.Controls.Add(this.label7);
             this.groupBox5.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox5.Location = new System.Drawing.Point(3, 196);
+            this.groupBox5.Location = new System.Drawing.Point(7, 3);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(787, 113);
             this.groupBox5.TabIndex = 1;
@@ -927,7 +927,7 @@
             this.groupBox4.Controls.Add(this.label2);
             this.groupBox4.Controls.Add(this.label1);
             this.groupBox4.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox4.Location = new System.Drawing.Point(3, 3);
+            this.groupBox4.Location = new System.Drawing.Point(7, 122);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(787, 187);
             this.groupBox4.TabIndex = 0;

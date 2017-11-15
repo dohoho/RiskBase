@@ -163,5 +163,39 @@ namespace RBI.DAL.MSSQL
             }
             return list;
         }
+        public float getRiskTarget(int faciID)
+        {
+
+            float risk = 0;
+            SqlConnection conn = MSSQLDBUtils.GetDBConnection();
+            conn.Open();
+            String sql = "select RiskTarget_FC from rbi.dbo.FACILITY_RISK_TARGET where FacilityID = '1'";
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = conn;
+                cmd.CommandText = sql;
+                using (DbDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        if (reader.HasRows)
+                        {
+                            risk = (float)reader.GetDouble(0);
+                        }
+                    }
+                }
+            }
+            catch
+            {
+                MessageBox.Show("GET DATA SOURCE FAIL!");
+            }
+            finally
+            {
+                conn.Close();
+                conn.Dispose();
+            }
+            return risk;
+        }
     }
 }
